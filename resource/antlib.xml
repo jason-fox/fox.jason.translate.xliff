@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--ant-->
+<!--
+	This file is part of the DITA-OT Translate Plug-in project.
+	See the accompanying LICENSE file for applicable licenses.
+-->
+<antlib xmlns:if="ant:if" xmlns:unless="ant:unless">
+
+	<!--
+		Iterator function to run a given macro against a set of files
+
+		@param macro - A macro to run.
+		@param fileset - A set of files
+	-->
+	<scriptdef language="javascript" name="iterate">
+		<attribute name="macro"/>
+		<attribute name="dir"/>
+		<element name="fileset" type="fileset"/>
+<![CDATA[
+
+var filesets = elements.get("fileset");
+var macro = attributes.get("macro");
+var dir = attributes.get("dir");
+
+for (i = 0; i < filesets.size(); ++i) {
+    fileset = filesets.get(i);
+    scanner = fileset.getDirectoryScanner(project);
+    scanner.scan();
+    files = scanner.getIncludedFiles();
+    for( j=0; j < files.length; j++) {
+		var task = project.createTask(macro);
+		if (files[i] !== "") {
+	        try {
+	        	task.setDynamicAttribute("file", dir + '/' + files[j]);
+	            task.execute();
+	        } catch(err) {
+	            task.log( "Execution error: " + err.message );
+	        }
+		}
+	}
+}
+
+]]>
+	</scriptdef>
+
+	<!--
+		Reinserts a doctype into a file
+
+		@param file    - The DITA file to clean up
+	-->
+	<scriptdef language="javascript" name="reinsert-doctype">
+		<attribute name="file"/>
+<![CDATA[
+
+var pluginDir =  project.getProperty("dita.plugin.fox.jason.translate.xliff.dir");
+var file = attributes.get("file");
+
+eval('' + org.apache.tools.ant.util.FileUtils.readFully(
+      new java.io.FileReader(pluginDir + '/resource/translate.js' ) ) );
+
+var dita = org.apache.tools.ant.util.FileUtils.readFully(
+				new java.io.FileReader(file));
+var tidy = Translate.addDoctype(dita);
+Translate.writeDITA(file, tidy);
+
+]]>
+	</scriptdef>
+
+
+	<macrodef name="skeleton-file">
+		<attribute name="file"/>
+		<sequential>
+			<local name="target.dita.id"/>
+			<local name="placeholder.text"/>
+			<local name="token.id"/>
+
+			<basename property="target.dita.id" file="@{file}" suffix=".xml"/>
+			<loadfile property="placeholder.text" srcFile="@{file}"/>
+			<property name="token.id">@@@@@${target.dita.id}@@@@@</property>
+
+			<replace dir="${output.dir}" token="${token.id}" value="${placeholder.text}">
+				<include name="**/*"/>
+			</replace>
+		</sequential>
+	</macrodef>
+
+	<!--
+		Add a doctype to a directory containing DITA files
+
+		@param toDir - The output location of the files
+		@param dir  - The location of the files to process
+		@param refid - The reference to a fileset
+	-->
+	<macrodef name="reinsert-doctypes">
+		<attribute name="refid"/>
+		<attribute name="dir"/>
+		<sequential>
+			<iterate macro="reinsert-doctype" dir="@{dir}">
+				<fileset refid="@{refid}"/>
+			</iterate>
+		</sequential>
+	</macrodef>
+
+
+	<!--
+		Replace skelton placeholders with content
+
+		@param dir  - The location of the files to process
+		@param refid - The reference to a fileset
+	-->
+	<macrodef name="skeleton-files">
+		<attribute name="src"/>
+		<attribute name="dir"/>
+		<sequential>
+			<iterate macro="skeleton-file" dir="@{dir}">
+				<fileset refid="@{src}"/>
+			</iterate>
+		</sequential>
+	</macrodef>
+
+</antlib>

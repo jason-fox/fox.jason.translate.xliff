@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  This file is part of the DITA-OT Translate Plug-in project.
+  See the accompanying LICENSE file for applicable licenses.
+-->
+<messages xmlns:dita="http://dita-ot.sourceforge.net">
+  <message id="XLFF001F" type="FATAL">
+    <reason>%1</reason>
+    <response/>
+  </message>
+  <message id="XLFF002I" type="INFO">
+    <reason>%1</reason>
+    <response/>
+  </message>
+</messages>

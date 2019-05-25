@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	This file is part of the DITA-OT Translate Plug-in project.
+	See the accompanying LICENSE file for applicable licenses.
+-->
+<plugin id="fox.jason.translate.xliff">
+  <transtype name="xliff-extract" desc=" XML Localization Interchange File Format (XLIFF)"/>
+  <transtype name="xliff-translate" desc="Auto-translate an XLIFF File"/>
+  <transtype name="xliff2dita" desc="Auto-translate an XLIFF File"/>
+  <feature extension="ant.import" file="build_dita2translate.xml"/>
+  <feature extension="dita.xsl.messages" file="resource/messages.xml"/>
+
+</plugin>
