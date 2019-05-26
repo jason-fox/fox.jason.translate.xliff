@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><!--
 	This file is part of the DITA Translate project.
 	See the accompanying LICENSE file for applicable licenses.
---><project name="fox.jason.translate.xliff">
+--><project name="fox.jason.translate.xliff" xmlns:if="ant:if">
 
 
 	<!-- 
@@ -10,12 +10,22 @@
 	-->
 	<target name="xliff.init">
 
-		<typedef file="${dita.plugin.fox.jason.translate.xliff.dir}/resource/antlib.xml"/>
+		<!-- This defines the output file -->
+		<dita-ot-fail id="DOTA069F">
+			<condition>
+				<not>
+					<available file="${args.input}" type="file"/>
+				</not>
+			</condition>
+			<param name="1" value="${args.input}"/>
+		</dita-ot-fail>
+		<dirname property="args.input.dir" file="${args.input}"/>
 
+
+		<typedef file="${dita.plugin.fox.jason.translate.xliff.dir}/resource/antlib.xml"/>
 		<property name="translate.customization.dir" value="${dita.plugin.fox.jason.translate.xliff.dir}/xsl"/>
 		<property name="translate.resource.dir" value="${dita.plugin.fox.jason.translate.xliff.dir}/resource"/>
 
-		<dirname property="args.input.dir" file="${args.input}"/>
 
 		<xmlcatalog id="fake.dita.catalog">
 			<dtd publicId="-//OASIS//DTD DITA Topic//EN" location="${translate.resource.dir}/fake.dtd"/>
@@ -36,19 +46,69 @@
 
 		<mkdir dir="${dita.temp.dir}/stage1" />
 		<mkdir dir="${dita.temp.dir}/stage2" />
+		<mkdir dir="${dita.temp.dir}/stage3" />
+	</target>
+
+	<target name="translate.init" depends="trans-unit.init">
+			<!-- Load Service URLs from command line -->
+		<property name="watson.translate.url" if:set="translate.url" 
+			value="${translate.url}"/>
+		<property name="watson.apikey" if:set="translate.apikey"
+		 value="${translate.apikey}"/>
+
+		<property name="bing.apikey" if:set="translate.apikey"
+			 value="${translate.apikey}"/>
+		<property name="bing.translate.url" if:set="translate.url"
+			value="${translate.url}"/>
+		<property name="bing.authentication.url" if:set="translate.authentication.url"
+			 value="${translate.authentication.url}"/>
+		<property name="custom.translate.url" if:set="translate.url"
+			value="${translate.url}"/>
+
+		<!-- Fallback - load Service URLs from properties file -->
+		<property file="${dita.plugin.fox.jason.translate.xliff.dir}/cfg/configuration.properties"/>
+
+		<!-- Decide which auto-translation service to use -->
+		<condition property="translate.bing">
+			<equals arg1="${translate.service}" arg2="bing"/>
+		</condition>
+		<condition property="translate.watson">
+			<equals arg1="${translate.service}" arg2="watson"/>
+		</condition>
+		<condition property="translate.dummy">
+			<equals arg1="${translate.service}" arg2="dummy"/>
+		</condition>
+		<condition property="translate.custom">
+			<equals arg1="${translate.service}" arg2="custom"/>
+		</condition>
+
+		
+		<dita-ot-fail id="XLFF003F" if:set="translate.watson">
+			<condition>
+				<equals arg1="${watson.apikey}" arg2="XXX"/>
+			</condition>
+		</dita-ot-fail>
+
+		<dita-ot-fail id="XLFF004F" if:set="translate.bing">
+			<condition>
+				<equals arg1="${bing.apikey}" arg2="XXX"/>
+			</condition>
+		</dita-ot-fail>
+
+		<bing-authorization if:set="translate.bing" />
 	</target>
 
 		
 	<!-- 
 		Extract an XLIFF File and skeleton files from DITA
 	-->
-	<target name="xliff-extract">
+	<target name="xliff-create">
 		<!-- Add a unique md5 id to each dita element containing text -->
-		<xslt taskname="md5-src-gen" destdir="${dita.temp.dir}/md5"  extension=".dita.xml" style="${translate.customization.dir}/add-md5-src.xsl"  			basedir="${args.input.dir}" includes="*.dita,**/*.dita">
+		<xslt taskname="md5-src-gen" destdir="${dita.temp.dir}/md5"  extension=".dita.xml" style="${translate.customization.dir}/add-md5-src.xsl"           basedir="${args.input.dir}" includes="*.dita,**/*.dita">
 			<xmlcatalog refid="fake.dita.catalog"/>
 		</xslt>
 		<!-- Add a unique md5 id to each ditamap element containing text -->
-		<xslt taskname="md5-src-gen" destdir="${dita.temp.dir}/md5"  extension=".ditamap.xml" style="${translate.customization.dir}/add-md5-src.xsl"  			basedir="${args.input.dir}"  includes="*.ditamap,**/*.ditamap">
+		<xslt taskname="md5-src-gen" destdir="${dita.temp.dir}/md5"  extension=".ditamap.xml" style="${translate.customization.dir}/add-md5-src.xsl"            basedir="${args.input.dir}"  includes="*.ditamap,**/*.ditamap">
 			<xmlcatalog refid="fake.dita.catalog"/>
 		</xslt>
 		
@@ -59,8 +119,8 @@
 		</xslt>
 
 		<fileset id="skl.contents" dir="${output.dir}/skl" casesensitive="yes">
-  			<include name="**/*.dita.skl"/>
-  			<include name="**/*.ditamap.skl"/>
+			<include name="**/*.dita.skl"/>
+			<include name="**/*.ditamap.skl"/>
 		</fileset>
 		<reinsert-doctypes refid="skl.contents" dir="${output.dir}/skl"/>
 		<!-- 
@@ -106,15 +166,17 @@
 				</actions>
 			</call>
 		</xmltask>
-		<!-- Remove the souce tag to leave only the data within the source element -->
+		<!-- Remove the source tag to leave only the data within the source element -->
 		<xslt taskname="source-xsl" destdir="${dita.temp.dir}/stage2"  extension=".xml" 
-			style="${translate.customization.dir}/trans-unit.xsl"  
+			style="${translate.customization.dir}/strip-source.xsl"  
 			basedir="${dita.temp.dir}/stage1">
 		</xslt>
 
-		<!-- now do the processing -->
-
-		<!-- ... etc -->
+		<!-- now do the translation processing -->
+		<fileset id="source.texts" dir="${dita.temp.dir}/stage2" casesensitive="yes">
+			<include name="**/*.xml"/>
+		</fileset>
+		<translate-sources src="source.texts" dir="${dita.temp.dir}/stage2" todir="${dita.temp.dir}/stage3"/>
 
 		<!-- Take the processed text and replace the target element -->
 		<xmltask taskname="xliff-read" source="${args.input}">
@@ -122,8 +184,9 @@
 				<param default="" name="id" path="@id"/>
 				<actions>
 					<xmltask taskname="target-put" source="${args.input}" dest="${args.input}">
+						<replace path="//trans-unit[@id=@{id}]/target/text()" withText=""/>
 						<insert path="//trans-unit[@id=@{id}]/target" 
-							file="${dita.temp.dir}/stage2/@{id}.xml"/>
+							file="${dita.temp.dir}/stage3/@{id}.xml"/>
 					</xmltask>
 				</actions>
 			</call>
@@ -168,7 +231,7 @@
 
 		<!-- Replace the placeholders in the skeleton files -->
 		<fileset id="translated.dita" dir="${dita.temp.dir}/stage2" casesensitive="yes">
-  			<include name="**/*.xml"/>
+			<include name="**/*.xml"/>
 		</fileset>
 		<skeleton-files src="translated.dita" dir="${dita.temp.dir}/stage2"/>
 
@@ -176,7 +239,7 @@
 
 
 
-	<target name="dita2xliff-extract" depends="build-init, xliff.init, xliff-extract"/>
-	<target name="dita2xliff-translate" depends="build-init, trans-unit.init, trans-source"/>
+	<target name="dita2xliff-create" depends="build-init, xliff.init, xliff-create"/>
+	<target name="dita2xliff-translate" depends="build-init, translate.init, trans-source"/>
 	<target name="dita2xliff2dita" depends="build-init, trans-unit.init, trans-target"/>
 </project>

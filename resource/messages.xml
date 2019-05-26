@@ -12,4 +12,12 @@
     <reason>%1</reason>
     <response/>
   </message>
+  <message id="XLFF003F" type="FATAL">
+    <reason>Watson credentials not set.</reason>
+    <response>Update the configuration.properties file to hold your URL and API Key</response>
+  </message>
+  <message id="XLFF004F" type="FATAL">
+    <reason>Azure credentials not set.</reason>
+    <response>Update the configuration.properties file to hold your URL and API Key</response>
+  </message>
 </messages>

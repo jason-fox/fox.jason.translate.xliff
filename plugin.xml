@@ -4,8 +4,19 @@
 	See the accompanying LICENSE file for applicable licenses.
 -->
 <plugin id="fox.jason.translate.xliff">
-  <transtype name="xliff-extract" desc=" XML Localization Interchange File Format (XLIFF)"/>
-  <transtype name="xliff-translate" desc="Auto-translate an XLIFF File"/>
+  <transtype name="xliff-create" desc=" XML Localization Interchange File Format (XLIFF)"/>
+  <transtype name="xliff-translate" desc="Auto-translate an XLIFF File">
+  	<param name="translate.service" desc="Specifies the auto-translate service." type="enum">
+      <val>bing</val>
+      <val>custom</val>
+      <val>dummy</val>
+      <val default="true">watson</val>
+    </param>
+    <param name="translate.authentication.url" type="string"/>
+    <param name="translate.output.format" type="string"/>
+    <param name="translate.apikey" type="string"/>
+    <param name="translate.url" type="string"/>
+  </transtype>
   <transtype name="xliff2dita" desc="Auto-translate an XLIFF File"/>
   <feature extension="ant.import" file="build_dita2translate.xml"/>
   <feature extension="dita.xsl.messages" file="resource/messages.xml"/>

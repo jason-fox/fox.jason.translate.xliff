@@ -14,12 +14,14 @@
 	<scriptdef language="javascript" name="iterate">
 		<attribute name="macro"/>
 		<attribute name="dir"/>
+		<attribute name="todir"/>
 		<element name="fileset" type="fileset"/>
 <![CDATA[
 
 var filesets = elements.get("fileset");
 var macro = attributes.get("macro");
 var dir = attributes.get("dir");
+var todir = attributes.get("todir");
 
 for (i = 0; i < filesets.size(); ++i) {
     fileset = filesets.get(i);
@@ -31,6 +33,7 @@ for (i = 0; i < filesets.size(); ++i) {
 		if (files[i] !== "") {
 	        try {
 	        	task.setDynamicAttribute("file", dir + '/' + files[j]);
+	        	task.setDynamicAttribute("todir", todir);
 	            task.execute();
 	        } catch(err) {
 	            task.log( "Execution error: " + err.message );
@@ -49,6 +52,7 @@ for (i = 0; i < filesets.size(); ++i) {
 	-->
 	<scriptdef language="javascript" name="reinsert-doctype">
 		<attribute name="file"/>
+		<attribute name="todir"/>
 <![CDATA[
 
 var pluginDir =  project.getProperty("dita.plugin.fox.jason.translate.xliff.dir");
@@ -68,6 +72,7 @@ Translate.writeDITA(file, tidy);
 
 	<macrodef name="skeleton-file">
 		<attribute name="file"/>
+		<attribute name="todir" default=""/>
 		<sequential>
 			<local name="target.dita.id"/>
 			<local name="placeholder.text"/>
@@ -80,6 +85,108 @@ Translate.writeDITA(file, tidy);
 			<replace dir="${output.dir}" token="${token.id}" value="${placeholder.text}">
 				<include name="**/*"/>
 			</replace>
+		</sequential>
+	</macrodef>
+
+
+
+	<macrodef name="translate-source">
+		<attribute name="file"/>
+		<attribute name="todir"/>
+		<sequential>
+			<local name="source.text"/>
+			<local name="source.file.name"/>
+
+			<replace if:set="translate.bing" file="@{file}" token="&quot;" value="\&quot;"/>
+			<loadfile property="source.text" srcFile="@{file}"/>
+			<basename property="source.file.name" file="@{file}"/>
+
+
+			<!-- Create a translated target file -->
+			<dummy-translate if:set="translate.dummy" src="${source.text}" out="@{todir}/${source.file.name}"/> 
+			<watson-translate if:set="translate.watson" src="${source.text}" out="@{todir}/${source.file.name}"/>
+			<bing-translate if:set="translate.bing" src="${source.text}" out="@{todir}/${source.file.name}"/>
+			<custom-translate if:set="translate.custom" src="${source.text}" out="@{todir}/${source.file.name}"/>
+
+
+			<local name="target.text"/>
+			<loadfile property="target.text" srcFile="@{todir}/${source.file.name}"/>
+			<echo level="error" message="${target.text}"/>
+
+		</sequential>
+	</macrodef>
+
+	<macrodef name="dummy-translate">
+		<attribute name="src"/>
+		<attribute name="out"/>
+		<sequential>
+			<echo file="@{out}" message="@{src}"/>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="watson-translate">
+		<attribute name="src"/>
+		<attribute name="out"/>
+		<sequential>
+			<fail/>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="bing-translate">
+		<attribute name="src"/>
+		<attribute name="out"/>
+		<sequential>
+
+			<local name="bing.result"/>
+			<local name="bing.out"/>
+
+			<local name="bing.temp.file"/>
+			<local name="bing.response"/>
+			<local name="bing.translation"/>
+			
+			<tempfile deleteonexit="true" destdir="${dita.temp.dir}" 
+				property="bing.temp.file" suffix=".txt"/>
+
+			<exec taskname="bing-translate" executable="curl" osfamily="unix" 
+				resultproperty="bing.result" outputproperty="bing.out">
+				<arg value="-X"/>
+				<arg value="POST"/>
+			
+				<arg value="-H"/>
+				<arg value="Ocp-Apim-Subscription-Key: ${bing.apikey}"/>
+				<arg value="-H"/>
+				<arg value="Content-type: application/json"/>
+				<arg value="-H"/>
+				<arg value="Accept: application/json"/>
+				<arg value="--output"/>
+				<arg value="${bing.temp.file}"/>
+				<arg value="--data"/>
+				<arg value="[{&quot;Text&quot;: &quot;@{src}&quot;}]"/>
+				<arg value="-sS"/>
+				<arg value="${bing.translate.url}?api-version=3.0&amp;from=en&amp;to=de&amp;textType=html"/>
+			</exec>
+			<loadfile property="bing.response" srcFile="${bing.temp.file}"/>
+			<bing-read-response text="${bing.response}" outproperty="bing.translation"/>
+			<echo message="${bing.translation}" file="@{out}"/>
+		</sequential>
+	</macrodef>
+
+	<scriptdef language="javascript" name="bing-read-response">
+		<attribute name="text"/>
+		<attribute name="outproperty"/>
+<![CDATA[
+var text = attributes.get("text");
+var outproperty = attributes.get("outproperty");
+var json =  JSON.parse(text);
+project.setProperty(outproperty, json[0].translations[0].text.replace('\"', '"'));
+]]>
+	</scriptdef>
+
+	<macrodef name="custom-translate">
+		<attribute name="src"/>
+		<attribute name="out"/>
+		<sequential>
+			<fail/>
 		</sequential>
 	</macrodef>
 
@@ -114,6 +221,61 @@ Translate.writeDITA(file, tidy);
 			<iterate macro="skeleton-file" dir="@{dir}">
 				<fileset refid="@{src}"/>
 			</iterate>
+		</sequential>
+	</macrodef>
+
+	<!--
+		Auto translate source trans-units
+
+		@param dir  - The location of the files to process
+		@param refid - The reference to a fileset
+	-->
+	<macrodef name="translate-sources">
+		<attribute name="src"/>
+		<attribute name="dir"/>
+		<attribute name="todir"/>
+		<sequential>
+			<iterate macro="translate-source" dir="@{dir}" todir="@{todir}">
+				<fileset refid="@{src}"/>
+			</iterate>
+		</sequential>
+	</macrodef>
+
+
+	<!--
+		Ensure that the Bing Translation service is authorized
+	-->
+	<macrodef name="bing-authorization">
+		<sequential>
+			<local name="bing.result"/>
+			<local name="bing.out"/>
+			<tempfile deleteonexit="true" destdir="${dita.temp.dir}" 
+				property="bing.auth.temp.file" suffix=".txt"/>
+
+			<exec taskname="bing-auth" executable="curl" osfamily="unix" 
+				resultproperty="bing.result" outputproperty="bing.out">
+				<arg value="-X"/>
+				<arg value="POST"/>
+			
+				<arg value="-H"/>
+				<arg value="Ocp-Apim-Subscription-Key: ${bing.apikey}"/>
+				<arg value="-H"/>
+				<arg value="Content-type: application/x-www-form-urlencoded"/>
+				<arg value="-H"/>
+				<arg value="Content-length: 0"/>
+				<arg value="--output"/>
+				<arg value="${bing.auth.temp.file}"/>
+				<arg value="-sS"/>
+				<arg value="${bing.authentication.url}"/>
+			</exec>
+			<echo taskname="auth-bing" level="verbose" message="${line.separator}${bing.out}"/>
+			<loadfile property="bing.bearer.token" srcFile="${bing.auth.temp.file}"/>
+
+			<dita-ot-fail id="XLFF004F">
+				<condition>
+					<contains string="${bing.bearer.token}" substring="error"/>
+				</condition>
+			</dita-ot-fail>
 		</sequential>
 	</macrodef>
 
