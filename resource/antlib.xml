@@ -131,6 +131,8 @@ Translate.writeDITA(file, tidy);
 			<replace taskname="source-text" file="@{file}" token="&quot;" value="\&quot;"/>
 			<replace taskname="source-text" file="@{file}" token="${line.separator}" value="\n"/>
 			<loadfile taskname="source-text" property="source.text" srcFile="@{file}"/>
+			<tempfile deleteonexit="true" destdir="${dita.temp.dir}" 
+				property="watson.temp.file" suffix=".json"/>
 
 
 
