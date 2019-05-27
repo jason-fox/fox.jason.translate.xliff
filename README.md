@@ -3,8 +3,8 @@
 [![license](https://img.shields.io/github/license/jason-fox/fox.jason.translate.xliff.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 [![DITA-OT 3.3](https://img.shields.io/badge/DITA--OT-3.3-blue.svg)](http://www.dita-ot.org/3.3/) <br/>
 
-DITA-OT Translate Plug-in is a plug-in to create, auto-translate and re-merge
-XLIFF files, generating documentation in the translated language.
+DITA-OT Translate Plug-in is a plug-in to create, auto-translate and re-merge XLIFF files, generating documentation in
+the translated language.
 
 # Table of Contents
 
@@ -13,18 +13,12 @@ XLIFF files, generating documentation in the translated language.
     -   [Installing the Plug-in](#installing-the-plug-in)
 -   [Usage](#usage)
     -   [Invocation from the command line](#invocation-from-the-command-line)
-        -   [Result](#result)
-    -   [Customizing the output](#customizing-the-output)
-        -   [Extending to other languages](#extending-to-other-languages)
-        -   [Altering the static HTML look and feel](#altering-the-static-html-look-and-feel)
-        -   [Altering the PDF look and feel](#altering-the-pdf-look-and-feel)
--   [License](#license)
-
+        -   [Parameter Reference](#parameter-reference)
 
 # Install
 
-The DITA-OT Translate Plug-in has been tested against [DITA-OT 3.x](http://www.dita-ot.org/download). It is
-recommended that you upgrade to the latest version.
+The DITA-OT Translate Plug-in has been tested against [DITA-OT 3.x](http://www.dita-ot.org/download). It is recommended
+that you upgrade to the latest version.
 
 ## Installing DITA-OT
 
@@ -33,7 +27,8 @@ The DITA-OT Translate Plug-in is a plug-in for the DITA Open Toolkit.
 -   Full installation instructions for downloading DITA-OT can be found
     [here](https://www.dita-ot.org/3.3/topics/installing-client.html).
 
-    1.  Download the `dita-ot-3.3.zip` package from the project website at [dita-ot.org/download](https://www.dita-ot.org/download)
+    1.  Download the `dita-ot-3.3.zip` package from the project website at
+        [dita-ot.org/download](https://www.dita-ot.org/download)
     2.  Extract the contents of the package to the directory where you want to install DITA-OT.
     3.  **Optional**: Add the absolute path for the `bin` directory to the _PATH_ system variable.
 
@@ -100,7 +95,6 @@ A `translate.xlf` file will appear in the `out` directory along with a series of
 ...etc
 ```
 
-
 -   to populate an exisiting XLIFF File with auto-translated text
 
 ```console
@@ -158,12 +152,10 @@ PATH-TO-DITA-OT/bin/dita -f xliff2dita -i translate.xlf -o out
 
 The translated `*.dita` files are generated into the `out` directory.
 
-
 ### Parameter Reference
 
 -   `translate.service` - Decides which translation service to use:
-    -   `dummy` - Avoids accessing a translation service, copies sources
-        to target langauge directly without amendment.
+    -   `dummy` - Avoids accessing a translation service, copies sources to target langauge directly without amendment.
     -   `custom` - Sends the translate to an arbitrary URL using POST - use this to connect to proxies for Google Cloud
         [Translate](https://cloud.google.com/translate/)
     -   `watson` - Connects to the IBM Cloud Translation service
@@ -172,7 +164,6 @@ The translated `*.dita` files are generated into the `out` directory.
     `configuration.properties.
 -   `translate.apikey` - API Key for the Translation service. Defaults to the value in `configuration.properties`
 -   `translate.url` - URL for a Translation service. Defaults to the value in `configuration.properties`
-
 
 # License
 
