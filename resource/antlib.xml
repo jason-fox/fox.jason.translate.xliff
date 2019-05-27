@@ -94,55 +94,102 @@ Translate.writeDITA(file, tidy);
 		<attribute name="file"/>
 		<attribute name="todir"/>
 		<sequential>
-			<local name="source.text"/>
 			<local name="source.file.name"/>
-
-			<replace if:set="translate.bing" file="@{file}" token="&quot;" value="\&quot;"/>
-			<loadfile property="source.text" srcFile="@{file}"/>
 			<basename property="source.file.name" file="@{file}"/>
 
 
 			<!-- Create a translated target file -->
-			<dummy-translate if:set="translate.dummy" src="${source.text}" out="@{todir}/${source.file.name}"/> 
-			<watson-translate if:set="translate.watson" src="${source.text}" out="@{todir}/${source.file.name}"/>
-			<bing-translate if:set="translate.bing" src="${source.text}" out="@{todir}/${source.file.name}"/>
-			<custom-translate if:set="translate.custom" src="${source.text}" out="@{todir}/${source.file.name}"/>
-
-
-			<local name="target.text"/>
-			<loadfile property="target.text" srcFile="@{todir}/${source.file.name}"/>
-			<echo level="error" message="${target.text}"/>
-
+			<dummy-translate if:set="translate.dummy" file="@{file}" out="@{todir}/${source.file.name}"/> 
+			<watson-translate if:set="translate.watson" file="@{file}" out="@{todir}/${source.file.name}"/>
+			<bing-translate if:set="translate.bing" file="@{file}" out="@{todir}/${source.file.name}"/>
+			<custom-translate if:set="translate.custom" file="@{file}" out="@{todir}/${source.file.name}"/>
 		</sequential>
 	</macrodef>
 
 	<macrodef name="dummy-translate">
-		<attribute name="src"/>
+		<attribute name="file"/>
 		<attribute name="out"/>
 		<sequential>
-			<echo file="@{out}" message="@{src}"/>
+			<local name="source.text"/>
+			<loadfile property="source.text" srcFile="@{file}"/>
+			<echo file="@{out}" message="${source.text}"/>
 		</sequential>
 	</macrodef>
 
 	<macrodef name="watson-translate">
-		<attribute name="src"/>
+		<attribute name="file"/>
 		<attribute name="out"/>
 		<sequential>
-			<fail/>
+
+			<local name="watson.result"/>
+			<local name="watson.out"/>
+			<local name="watson.temp.file"/>
+			<local name="watson.response"/>
+			<local name="watson.translation"/>
+			<local name="source.text"/>
+
+			<replace taskname="source-text" file="@{file}" token="&quot;" value="\&quot;"/>
+			<replace taskname="source-text" file="@{file}" token="${line.separator}" value="\n"/>
+			<loadfile taskname="source-text" property="source.text" srcFile="@{file}"/>
+
+
+
+			<exec taskname="watson-translate" executable="curl" osfamily="unix" 
+				resultproperty="watson.result" outputproperty="watson.out" failOnError="false">
+				<arg value="-X"/>
+				<arg value="POST"/>
+				<arg value="-u"/>
+				<arg value="apikey:${watson.apikey}"/>
+				<arg value="-H"/>
+				<arg value="Content-Type: application/json"/> 
+				<arg value="--output"/>
+				<arg value="${watson.temp.file}"/>
+				<arg value="--data"/>
+				<arg value="{&quot;text&quot;: [&quot;${source.text}&quot;], &quot;model_id&quot;: &quot;${translate.from}-${translate.to}&quot;}"/>
+				<arg value="-sS"/>
+				<arg value="${watson.translate.url}?version=2018-05-01"/>
+		    </exec>
+		    <echo taskname="watson-translate" level="verbose" message="${line.separator}${watson.out}"/>
+
+		    
+			<loadfile taskname="watson-translate" property="watson.response" srcFile="${watson.temp.file}"/>
+			<watson-read-response text="${watson.response}"  outproperty="watson.translation"/>
+			<echo taskname="target-text" message="${watson.translation}" file="@{out}"/>
+
+
 		</sequential>
 	</macrodef>
 
+
+	<scriptdef language="javascript" name="watson-read-response">
+		<attribute name="text"/>
+		<attribute name="outproperty"/>
+<![CDATA[
+var text = attributes.get("text");
+var outproperty = attributes.get("outproperty");
+var json =  JSON.parse(text);
+project.setProperty(outproperty, json.translations[0].translation);
+]]>
+	</scriptdef>	
+
 	<macrodef name="bing-translate">
-		<attribute name="src"/>
+		<attribute name="file"/>
 		<attribute name="out"/>
 		<sequential>
 
 			<local name="bing.result"/>
 			<local name="bing.out"/>
-
 			<local name="bing.temp.file"/>
 			<local name="bing.response"/>
 			<local name="bing.translation"/>
+			<local name="source.text"/>
+
+
+			<replace taskname="source-text" file="@{file}" token="ctype=&quot;x-dita-codeph&quot;" value="ctype=&quot;x-dita-codeph&quot; class=&quot;notranslate&quot;"/>
+			<replace taskname="source-text" file="@{file}" token="&quot;" value="\&quot;"/>
+			<loadfile taskname="source-text" property="source.text" srcFile="@{file}"/>
+			
+
 			
 			<tempfile deleteonexit="true" destdir="${dita.temp.dir}" 
 				property="bing.temp.file" suffix=".txt"/>
@@ -161,13 +208,13 @@ Translate.writeDITA(file, tidy);
 				<arg value="--output"/>
 				<arg value="${bing.temp.file}"/>
 				<arg value="--data"/>
-				<arg value="[{&quot;Text&quot;: &quot;@{src}&quot;}]"/>
+				<arg value="[{&quot;Text&quot;: &quot;${source.text}&quot;}]"/>
 				<arg value="-sS"/>
-				<arg value="${bing.translate.url}?api-version=3.0&amp;from=en&amp;to=de&amp;textType=html"/>
+				<arg value="${bing.translate.url}?api-version=3.0&amp;from=${translate.from}&amp;to=${translate.to}&amp;textType=html"/>
 			</exec>
-			<loadfile property="bing.response" srcFile="${bing.temp.file}"/>
+			<loadfile  taskname="bing-translate" property="bing.response" srcFile="${bing.temp.file}"/>
 			<bing-read-response text="${bing.response}" outproperty="bing.translation"/>
-			<echo message="${bing.translation}" file="@{out}"/>
+			<echo taskname="target-text" message="${bing.translation}" file="@{out}"/>
 		</sequential>
 	</macrodef>
 
@@ -175,15 +222,21 @@ Translate.writeDITA(file, tidy);
 		<attribute name="text"/>
 		<attribute name="outproperty"/>
 <![CDATA[
+
 var text = attributes.get("text");
 var outproperty = attributes.get("outproperty");
 var json =  JSON.parse(text);
-project.setProperty(outproperty, json[0].translations[0].text.replace('\"', '"'));
+var trans = json[0].translations[0].text;
+trans = trans
+	.replace('\"', '"')
+	.replace('ctype="x-dita-codeph" class="notranslate"', 'ctype="x-dita-codeph"');
+project.setProperty(outproperty, trans);
+
 ]]>
 	</scriptdef>
 
 	<macrodef name="custom-translate">
-		<attribute name="src"/>
+		<attribute name="file"/>
 		<attribute name="out"/>
 		<sequential>
 			<fail/>
