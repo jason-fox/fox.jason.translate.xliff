@@ -1,0 +1,45 @@
+DITA-OT Translate Plug-in: Third Party Notices
+
+This Notices file contains certain notices and important information that the DITA-OT Translate Plug-in licensors and contributors (the “Plug-In”) are required to provide to you with respect to certain third party components included in the DITA-OT Translate Plug-in (the “Program”).
+
+Your use of the Program is governed by the license terms set forth in the “LICENSE” file or other license terms and conditions accompanying the Program, and NOT by any terms contained in this Notices file below.  The notices and information below are provided for informational purposes only.
+
+This Notices file may identify information or components listed in the agreements for the Program that are not used by, or that were not shipped with, the Program as you installed it.
+
+IMPORTANT: The Plug-In does not represent or warrant that the information in this Notices file is accurate. Third party websites are independent of the Plug-In and the Plug-In does not represent or warrant that the information on any third party web site referenced in this Notices file is accurate. The Plug-In disclaims any and all liability for errors and omissions or for any damages accruing from the use of this Notices file or its contents, including without limitation URLs or references to any third party websites.
+
+
+===============================================================================
+
+The Program includes the following software components, which were obtained under the following terms and conditions: 
+
+Xmltask.jar
+
+
+Apache License
+Version 1.1, January 2000
+http://www.apache.org/licenses/
+
+
+Apache License 1.1
+
+Copyright (c) 2000 The Apache Software Foundation. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. The end-user documentation included with the redistribution, if any, must include the following acknowledgment:
+"This product includes software developed by the Apache Software Foundation (http://www.apache.org/) ."
+Alternately, this acknowledgment may appear in the software itself, if and wherever such third-party acknowledgments normally appear.
+
+4. The "Apache" and "Apache Software Foundation" must not be used to endorse or promote products derived from this software without prior written permission. For written permission, please contact apache@apache.org
+
+5. Products derived from this software may not be called "Apache" [ex. "Jakarta," "Apache," or "Apache Commons,"] nor may "Apache" [ex. the names] appear in their name, without prior written permission of the Apache Software Foundation .
+
+THIS SOFTWARE IS PROVIDED ''AS IS'' AND ANY EXPRESSED OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE APACHE SOFTWARE FOUNDATION OR ITS CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+This software consists of voluntary contributions made by many individuals on behalf of the Apache Software Foundation. For more information on the Apache Software Foundation, please see http://www.apache.org/. Portions of this software are based upon public domain software originally written at the National Center for Supercomputing Applications, University of Illinois, Urbana-Champaign.
+
