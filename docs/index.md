@@ -1,8 +1,7 @@
 <h1>DITA-OT Translate Plug-in</h1>
 
-
-DITA-OT Translate Plug-in is a plug-in to create, auto-translate and re-merge XLIFF files, generating documentation in
-the translated language.
+DITA-OT Translate Plug-in is a plug-in to create, auto-translate and re-merge XLIFF files, generating translated 
+documentation in a targeted foreign language.
 
 This plug-in consists of three DITA-OT transforms
 
