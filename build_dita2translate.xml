@@ -124,15 +124,21 @@
 			<include name="**/*.ditamap.skl"/>
 		</fileset>
 		<reinsert-doctypes refid="skl.contents" dir="${output.dir}/skl"/>
-		<!-- 
-			Generate a series of XLIFF files iterating each unique
-			md5 id 
-		-->
-
+		<!-- Copy over images and other untranslated sources -->
+		<copy todir="${output.dir}/skl" overwrite="true">
+			<fileset dir="${args.input.dir}">
+				<exclude name="**/*.dita"/>
+				<exclude name="**/*.ditamap"/>
+			</fileset>
+		</copy>
 
 		<!-- Fallback - load from and to langs from properties file -->
 		<property file="${dita.plugin.fox.jason.translate.xliff.dir}/cfg/configuration.properties"/>
 
+		<!-- 
+			Generate a series of XLIFF files iterating each unique
+			md5 id 
+		-->
 		<xslt taskname="xliff-gen" destdir="${dita.temp.dir}/xliff"  extension=".xlf" style="${translate.customization.dir}/dita2xliff.xsl"  
 			basedir="${dita.temp.dir}/md5">
 			<xmlcatalog refid="fake.dita.catalog"/>
@@ -231,6 +237,12 @@
 			basedir="${dita.temp.dir}/stage1">
 		</xslt>
 
+		<!-- Copy over images and other untranslated sources -->
+		<copy todir="${output.dir}" overwrite="true">
+			<fileset dir="${args.input.dir}/skl">
+				<exclude name="**/*.skl"/>
+			</fileset>
+		</copy>
 		<!-- Copy over unprocessed skeleton files into output dir -->
 		<xmltask taskname="xliff-read"  source="${args.input}">
 			<call path="xliff/file">
