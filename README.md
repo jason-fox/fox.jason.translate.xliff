@@ -152,6 +152,9 @@ A `translate.xlf` file will appear in the `out` directory along with a series of
 ...etc
 ```
 
+> **Note:** if the `translate.cachefile` parameter is used, unchanged text with previously approved translations will be
+> copied over to the `<target>` elements.
+
 -   to populate an exisiting XLIFF File with auto-translated text
 
 ```console
@@ -199,6 +202,8 @@ The XLIFF File is auto-translated in place, with translated text as shown:
 ...etc
 ```
 
+> **Note:** only `<trans-unit>` elements which are `approved="no"` will be auto-translated.
+
 -   recreate `*.dita` files using an XLIFF File and its associated skeletons with run:
 
 ```console
@@ -211,6 +216,11 @@ The translated `*.dita` files are generated into the `out` directory.
 
 ### Parameter Reference
 
+-   `translate.from` - Source language to use. Defaults to the value in `configuration.properties`
+-   `translate.to` - Target language. Defaults to the value in `configuration.properties`
+-   `translate.cachefile` - Specifies the location of a previously translated XLIFF file to be used. If the `id` matches
+    to a previously translated text snippet in the cache file, the text will be copied over and the snippet marked as
+    `approved`.
 -   `translate.service` - Decides which translation service to use:
     -   `dummy` - Avoids accessing a translation service, copies sources to target langauge directly without amendment.
     -   `custom` - Sends the translate to an arbitrary URL using POST - use this to connect to proxies for Google Cloud

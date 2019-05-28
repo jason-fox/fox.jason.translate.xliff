@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><!--
 	This file is part of the DITA Translate project.
 	See the accompanying LICENSE file for applicable licenses.
---><project name="fox.jason.translate.xliff" xmlns:if="ant:if">
+--><project name="fox.jason.translate.xliff" xmlns:if="ant:if" xmlns:unless="ant:unless">
 
 
 	<!-- 
@@ -23,6 +23,8 @@
 
 
 		<typedef file="${dita.plugin.fox.jason.translate.xliff.dir}/resource/antlib.xml"/>
+		<taskdef classname="com.oopsconsultancy.xmltask.ant.XmlTask" classpath="${dita.plugin.fox.jason.translate.xliff.dir}/lib/xmltask.jar" name="xmltask"/>
+
 		<property name="translate.customization.dir" value="${dita.plugin.fox.jason.translate.xliff.dir}/xsl"/>
 		<property name="translate.resource.dir" value="${dita.plugin.fox.jason.translate.xliff.dir}/resource"/>
 
@@ -42,7 +44,6 @@
 		is available and we have some processing dirs in temp
 	--> 
 	<target name="trans-unit.init" depends="xliff.init">
-		<taskdef classname="com.oopsconsultancy.xmltask.ant.XmlTask" classpath="${dita.plugin.fox.jason.translate.xliff.dir}/lib/xmltask.jar" name="xmltask"/>
 
 		<mkdir dir="${dita.temp.dir}/stage1" />
 		<mkdir dir="${dita.temp.dir}/stage2" />
@@ -127,11 +128,18 @@
 			Generate a series of XLIFF files iterating each unique
 			md5 id 
 		-->
+
+
+		<!-- Fallback - load from and to langs from properties file -->
+		<property file="${dita.plugin.fox.jason.translate.xliff.dir}/cfg/configuration.properties"/>
+
 		<xslt taskname="xliff-gen" destdir="${dita.temp.dir}/xliff"  extension=".xlf" style="${translate.customization.dir}/dita2xliff.xsl"  
 			basedir="${dita.temp.dir}/md5">
 			<xmlcatalog refid="fake.dita.catalog"/>
 			<param expression="${dita.temp.dir}/md5" name="SOURCE" />
 			<param expression="${dita.temp.dir}/skl" name="SKELETON"/>
+			<param expression="${translate.from}" name="SOURCE_LANG"/>
+			<param expression="${translate.to}" name="TARGET_LANG"/>
 
 			<fileset dir="${dita.temp.dir}/md5">
 				<include name="**/*.dita"/>
@@ -144,19 +152,22 @@
 			<xmlcatalog refid="fake.dita.catalog"/>
 			<param expression="${dita.temp.dir}/xliff/" name="in"/>
 		</xslt>
+
+		<approve-translations if:set="translate.cachefile" cache.file="${translate.cachefile}" xliff="${output.dir}/translate.xlf"/>
+		
 	</target>
 
 
 	
 
 	<!-- 
-		Take an untraslated XLIFF File and request translations
+		Take an untranslated XLIFF File and request translations
 		of the source into the specified target langauge.
 	-->
 	<target name="trans-source">
 		<!-- Extract each source language element to a file -->
 		<xmltask taskname="xliff-read"  source="${args.input}">
-			<call path="//trans-unit">
+			<call path="//trans-unit[not(@approved='yes')]">
 				<param default="" name="id" path="@id"/>
 				<actions>
 					<xmltask taskname="source-get" source="${args.input}">
@@ -180,7 +191,7 @@
 
 		<!-- Take the processed text and replace the target element -->
 		<xmltask taskname="xliff-read" source="${args.input}">
-			<call path="//trans-unit">
+			<call path="//trans-unit[not(@approved='yes')]">
 				<param default="" name="id" path="@id"/>
 				<actions>
 					<xmltask taskname="target-put" source="${args.input}" dest="${args.input}">
@@ -199,7 +210,11 @@
 		<xmltask taskname="xliff-read" source="${args.input}">
 			<call path="//trans-unit">
 				<param default="" name="id" path="@id"/>
+				<param default="no" name="approved" path="@approved"/>
 				<actions>
+					<dita-ot-echo unless:true="@{approved}" id="XLFF005W">
+						<param name="1" value="@{id}"/>
+					</dita-ot-echo>
 					<xmltask taskname="target-get" source="${args.input}">
 						<copy path="//trans-unit[@id=@{id}]/target" buffer="buffer"/>
 					</xmltask>
@@ -207,7 +222,6 @@
 				</actions>
 			</call>
 		</xmltask>
-
 		<!-- 
 			For each <target> language element in the XLIFF file, extract only the data
 			within the tag and transform it back into DITA format

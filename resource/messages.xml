@@ -20,4 +20,8 @@
     <reason>Azure credentials not set.</reason>
     <response>Update the configuration.properties file to hold your URL and API Key</response>
   </message>
+  <message id="XLFF005W" type="WARN">
+    <reason>Translation id=%1 has not been approved for use.</reason>
+    <response/>
+  </message>
 </messages>

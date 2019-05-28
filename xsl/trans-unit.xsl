@@ -8,26 +8,26 @@
 
 	<xsl:template match="/">
 		<xsl:copy>
-               <xsl:apply-templates select="@* | node()" />
-        </xsl:copy>
+        <xsl:apply-templates select="@* | node()" />
+    </xsl:copy>
 	</xsl:template>
 
 
 	<xsl:template match="@*|node()">
-      <xsl:copy>
-         <xsl:apply-templates select="@* | node()"/>
-      </xsl:copy>
-   </xsl:template>
+    <xsl:copy>
+      <xsl:apply-templates select="@* | node()"/>
+    </xsl:copy>
+  </xsl:template>
 
-   <xsl:template match="source">
-   		<xsl:apply-templates/>
-   </xsl:template>
+  <xsl:template match="source">
+   	<xsl:apply-templates/>
+  </xsl:template>
 
-   <xsl:template match="target">
-   		<xsl:apply-templates/>
-   </xsl:template>
+  <xsl:template match="target">
+   	<xsl:apply-templates/>
+  </xsl:template>
 
-   <xsl:template match="x|g">
+  <xsl:template match="x|g">
 
    	<xsl:element name="{substring-after(@ctype, 'x-dita-')}">
       <!-- process attributes -->
@@ -52,8 +52,6 @@
       </xsl:for-each>
       <xsl:apply-templates/>
     </xsl:element>
-
-
-   </xsl:template>
+  </xsl:template>
 
 </xsl:stylesheet>

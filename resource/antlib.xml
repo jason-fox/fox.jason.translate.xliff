@@ -334,4 +334,68 @@ project.setProperty(outproperty, trans);
 		</sequential>
 	</macrodef>
 
+	<!--
+		Read translations from a cache file and copy over approved
+		translations
+
+		@param xliff  - The XLIFF file to populate
+		@param cache.file - A reference XLIFF file with existing translations.
+	-->
+	<macrodef name="approve-translations">
+		<attribute name="xliff"/>
+		<attribute name="cache.file"/>
+		<sequential>
+			<!-- Read the cache file to find if we already have approved translations. -->
+			<mkdir dir="${dita.temp.dir}/cache1"/> 
+			<mkdir dir="${dita.temp.dir}/cache2"/> 
+
+
+			<!-- Extract each source language element to a file -->
+			<xmltask taskname="xliff-read" source="@{xliff}">
+				<call path="//trans-unit">
+					<param default="" name="id" path="@id"/>
+					<actions>
+						<xmltask taskname="approved-read" source="@{cache.file}">
+							<call path="//trans-unit[@id=@{id} and @approved='yes']">
+								<actions>
+									<xmltask taskname="approved-get" source="@{cache.file}">
+										<copy path="//trans-unit[@id=@{id} and @approved='yes']/target" buffer="buffer"/>
+									</xmltask>
+									<xmltask taskname="approved-put" sourcebuffer="buffer" dest="${dita.temp.dir}/cache1/@{id}.xml"/>
+								</actions>
+							</call>
+						</xmltask>
+					</actions>
+				</call>
+			</xmltask>
+
+			<!-- Remove the source tag to leave only the data within the source element -->
+			<xslt taskname="source-xsl" destdir="${dita.temp.dir}/cache2"  extension=".xml" 
+				style="${translate.customization.dir}/strip-source.xsl"  
+				basedir="${dita.temp.dir}/cache1">
+			</xslt>
+
+
+			<!-- Take the processed text and replace the target element with approved translations -->
+			<xmltask taskname="xliff-read" source="@{xliff}">
+				<call path="//trans-unit">
+					<param default="" name="id" path="@id"/>
+					<actions>
+						<local name="approved.file"/>
+						<available file="${dita.temp.dir}/cache2/@{id}.xml" property="approved.file"
+							value="yes"/>
+						<property name="approved.file" value="no"/>
+						<xmltask if:true="${approved.file}" taskname="target-put" source="@{xliff}" dest="@{xliff}">
+							<replace path="//trans-unit[@id=@{id}]/target/text()" withText=""/>
+							<insert path="//trans-unit[@id=@{id}]/target" 
+								file="${dita.temp.dir}/cache2/@{id}.xml"/>
+							<attr path="//trans-unit[@id=@{id}]" attr="approved" value="yes" /> 
+						</xmltask>
+					</actions>
+				</call>
+			</xmltask>
+
+		</sequential>
+	</macrodef>
+
 </antlib>

@@ -22,4 +22,8 @@
    <xsl:template match="source">
    		<xsl:apply-templates/>
    </xsl:template>
+
+   <xsl:template match="target">
+      <xsl:apply-templates/>
+   </xsl:template>
 </xsl:stylesheet>
