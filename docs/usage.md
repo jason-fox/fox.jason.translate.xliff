@@ -6,7 +6,7 @@ DITA-OT Translate Plug-in require an input document
 
 ## Invocation from the command line
 
--   to create an XLIFF File and associated skeletons with run:
+1.   To create an XLIFF File and associated skeletons with run:
 
 ```bash
 PATH-TO-DITA-OT/bin/dita -f xliff-create -i document.ditamap  -o out
@@ -40,7 +40,7 @@ A `translate.xlf` file will appear in the `out` directory along with a series of
 > **Note:** if the `translate.cachefile` parameter is used, unchanged text with previously approved translations will be
 > copied over to the `<target>` elements.
 
--   to populate an exisiting XLIFF File with auto-translated text
+2.   To populate an exisiting XLIFF File with auto-translated text
 
 ```bash
 PATH-TO-DITA-OT/bin/dita -f xliff-translate \
@@ -74,7 +74,7 @@ The XLIFF File is auto-translated in place, with translated text included.
 
 > **Note:** only `<trans-unit>` elements which are `approved="no"` will be auto-translated.
 
--   recreate `*.dita` files using an XLIFF File and its associated skeletons with run:
+3.   To recreate `*.dita` files using an XLIFF File and its associated skeletons with run:
 
 ```bash
 PATH-TO-DITA-OT/bin/dita -f xliff2dita -i translate.xlf -o out
@@ -83,6 +83,11 @@ PATH-TO-DITA-OT/bin/dita -f xliff2dita -i translate.xlf -o out
 <h4>Result</h4>
 
 The translated `*.dita` files are generated into the `out` directory.
+
+> **Note:** Any machine translation is by definition imperfect. A typical translation workflow would send the generated
+> XLIFF files to the translation agency (known also as "localisation service provider"), and receieve back verified 
+> translated content from the translation agency integrated into to the XLIFF. Each `<trans-unit>` should be marked
+> `approved=yes` when the `<target>` element has been verified.
 
 ### Parameter Reference
 
