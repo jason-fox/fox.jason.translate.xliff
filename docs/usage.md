@@ -87,7 +87,7 @@ The translated `*.dita` files are generated into the `out` directory.
 > **Note:** Any machine translation is by definition imperfect. A typical translation workflow would send the generated
 > XLIFF files to the translation agency (known also as "localisation service provider"), and receieve back verified 
 > translated content from the translation agency integrated into to the XLIFF. Each `<trans-unit>` should be marked
-> `approved=yes` when the `<target>` element has been verified.
+> `approved="yes"` when the `<target>` element has been verified.
 
 ### Parameter Reference
 
