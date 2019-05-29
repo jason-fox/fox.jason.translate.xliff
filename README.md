@@ -9,6 +9,12 @@
 DITA-OT Translate Plug-in is a plug-in to create, auto-translate and re-merge XLIFF files, generating translated 
 documentation in a targeted foreign language.
 
+This plug-in consists of three DITA-OT transforms
+
+-   The `xliff-create` transform creates XLIFF and skeleton files from the `*.dita` files.
+-   The `xliff-translate` transform populates the `<target>` texts using an automatic translation service.
+-   The `xliff2dita` transform recreates the DITA project using the translated texts.
+
 # Table of Contents
 
 -   [Install](#install)
@@ -116,7 +122,7 @@ Copy the credentials to authenticate to your service instance:
 
 ## Invocation from the command line
 
--   to create an XLIFF File and associated skeletons with run:
+1.   to create an XLIFF File and associated skeletons with run:
 
 ```console
 PATH-TO-DITA-OT/bin/dita -f xliff-create -i document.ditamap  -o out
@@ -158,7 +164,7 @@ A `translate.xlf` file will appear in the `out` directory along with a series of
 > **Note:** if the `translate.cachefile` parameter is used, unchanged text with previously approved translations will be
 > copied over to the `<target>` elements.
 
--   to populate an exisiting XLIFF File with auto-translated text
+2.  to populate an exisiting XLIFF File with auto-translated text
 
 ```console
 PATH-TO-DITA-OT/bin/dita -f xliff-translate -i translate.xlf --translate.service=[bing|watson] --translate.apikey=<api-key>
@@ -207,7 +213,7 @@ The XLIFF File is auto-translated in place, with translated text as shown:
 
 > **Note:** only `<trans-unit>` elements which are `approved="no"` will be auto-translated.
 
--   recreate `*.dita` files using an XLIFF File and its associated skeletons with run:
+3.  recreate `*.dita` files using an XLIFF File and its associated skeletons with run:
 
 ```console
 PATH-TO-DITA-OT/bin/dita -f xliff2dita -i translate.xlf -o out
@@ -216,6 +222,11 @@ PATH-TO-DITA-OT/bin/dita -f xliff2dita -i translate.xlf -o out
 #### Result
 
 The translated `*.dita` files are generated into the `out` directory.
+
+> **Note:** Any machine translation is by definition imperfect. A typical translation workflow would send the generated
+> XLIFF files to the translation agency (known also as "localisation service provider"), and receieve back verified 
+> translated content from the translation agency integrated into to the XLIFF. Each `<trans-unit>` should be marked
+> `approved=yes` when the `<target>` element has been verified.
 
 ### Parameter Reference
 
