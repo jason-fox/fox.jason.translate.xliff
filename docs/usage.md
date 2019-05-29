@@ -18,7 +18,10 @@ A `translate.xlf` file will appear in the `out` directory along with a series of
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<xliff xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xliff xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+       xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <file datatype="xml" original="/document.dita" source-language="en" target-language="de">
     <header xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:dita="http://www.dita-ot.org">
       <skl>
@@ -54,8 +57,10 @@ The XLIFF File is auto-translated in place, with translated text included.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<xliff xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xliff xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+       xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <file datatype="xml" original="/document.ditamap" source-language="en" target-language="de">
     <header xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:dita="http://www.dita-ot.org">
       <skl>
