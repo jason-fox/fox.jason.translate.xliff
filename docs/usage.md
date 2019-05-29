@@ -54,7 +54,8 @@ The XLIFF File is auto-translated in place, with translated text included.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<xliff xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xliff xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <file datatype="xml" original="/document.ditamap" source-language="en" target-language="de">
     <header xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:dita="http://www.dita-ot.org">
       <skl>
@@ -85,7 +86,7 @@ PATH-TO-DITA-OT/bin/dita -f xliff2dita -i translate.xlf -o out
 The translated `*.dita` files are generated into the `out` directory.
 
 > **Note:** Any machine translation is by definition imperfect. A typical translation workflow would send the generated
-> XLIFF files to the translation agency (known also as "localisation service provider"), and receieve back verified 
+> XLIFF files to the translation agency (known also as "localisation service provider"), and receive back verified 
 > translated content from the translation agency integrated into to the XLIFF. Each `<trans-unit>` should be marked
 > `approved="yes"` when the `<target>` element has been verified.
 
