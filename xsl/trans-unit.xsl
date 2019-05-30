@@ -54,4 +54,8 @@
     </xsl:element>
   </xsl:template>
 
+  <xsl:template match="text()">
+    <xsl:value-of select="normalize-space(.)"/><xsl:text> </xsl:text>
+  </xsl:template>
+
 </xsl:stylesheet>

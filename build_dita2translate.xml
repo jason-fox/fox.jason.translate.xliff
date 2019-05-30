@@ -105,11 +105,15 @@
 	-->
 	<target name="xliff-create">
 		<!-- Add a unique md5 id to each dita element containing text -->
-		<xslt taskname="md5-src-gen" destdir="${dita.temp.dir}/md5"  extension=".dita.xml" style="${translate.customization.dir}/add-md5-src.xsl"           basedir="${args.input.dir}" includes="*.dita,**/*.dita">
+		<xslt taskname="md5-src-gen" destdir="${dita.temp.dir}/md5"  
+			extension=".dita.xml" style="${translate.customization.dir}/add-md5-src.xsl" 
+			basedir="${args.input.dir}" includes="*.dita,**/*.dita">
 			<xmlcatalog refid="fake.dita.catalog"/>
 		</xslt>
 		<!-- Add a unique md5 id to each ditamap element containing text -->
-		<xslt taskname="md5-src-gen" destdir="${dita.temp.dir}/md5"  extension=".ditamap.xml" style="${translate.customization.dir}/add-md5-src.xsl"            basedir="${args.input.dir}"  includes="*.ditamap,**/*.ditamap">
+		<xslt taskname="md5-src-gen" destdir="${dita.temp.dir}/md5"  
+			extension=".ditamap.xml" style="${translate.customization.dir}/add-md5-src.xsl"
+			basedir="${args.input.dir}"  includes="*.ditamap,**/*.ditamap">
 			<xmlcatalog refid="fake.dita.catalog"/>
 		</xslt>
 		
@@ -117,6 +121,7 @@
 		<xslt taskname="skeleton-gen" destdir="${output.dir}/skl"  extension=".skl" style="${translate.customization.dir}/dita2skeleton.xsl"
 			basedir="${dita.temp.dir}/md5">
 			<xmlcatalog refid="fake.dita.catalog"/>
+			<param expression="${translate.to}" name="TARGET_LANG"/>
 		</xslt>
 
 		<fileset id="skl.contents" dir="${output.dir}/skl" casesensitive="yes">
@@ -173,7 +178,7 @@
 	<target name="trans-source">
 		<!-- Extract each source language element to a file -->
 		<xmltask taskname="xliff-read"  source="${args.input}">
-			<call path="//trans-unit[not(@approved='yes')]">
+			<call path="//trans-unit[not(@approved='yes') and not(@translate='no')]">
 				<param default="" name="id" path="@id"/>
 				<actions>
 					<xmltask taskname="source-get" source="${args.input}">
@@ -201,7 +206,8 @@
 				<param default="" name="id" path="@id"/>
 				<actions>
 					<xmltask taskname="target-put" source="${args.input}" dest="${args.input}">
-						<replace path="//trans-unit[@id=@{id}]/target/text()" withText=""/>
+						<remove path="//trans-unit[@id=@{id}]/target/text()"/>
+						<remove path="//trans-unit[@id=@{id}]/target/*"/>
 						<insert path="//trans-unit[@id=@{id}]/target" 
 							file="${dita.temp.dir}/stage3/@{id}.xml"/>
 					</xmltask>

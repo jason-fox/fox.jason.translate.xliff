@@ -57,7 +57,7 @@
     </xsl:copy>
   </xsl:template>
 
-   <xsl:template match="note|shortdesc|abstract|title|p|li|entry">
+   <xsl:template match="note|shortdesc|abstract|title|p|li|entry|mainbooktitle|navtitle">
       <xsl:element name="{local-name()}">
         <xsl:attribute name="md5">
           <xsl:value-of select="foo:checksum(normalize-space(.))"/>

@@ -43,20 +43,12 @@
 		of all .xlf files found in directory specified by $path
 	-->
 	<xsl:template name="generate-xliff">
-
-
-
-
 		<xsl:element name="xliff">
 			<!-- xsl:copy-of copies all namespaces -->
 			<xsl:copy-of select="$namespaces"/>
 			<!-- xsl:copy-of select="@*" is the standard way of copying all attributes. -->
 			<xsl:copy-of select="@*"/>
 			<xsl:for-each select="collection($path)">
-
-
-
-
 				<!-- xsl:copy-of copies nodes and all their descendants -->
 				<xsl:apply-templates select="document(document-uri(.))/node()" mode="xliff"/>
 			</xsl:for-each>

@@ -187,7 +187,7 @@ project.setProperty(outproperty, json.translations[0].translation);
 			<local name="source.text"/>
 
 
-			<replace taskname="source-text" file="@{file}" token="ctype=&quot;x-dita-codeph&quot;" value="ctype=&quot;x-dita-codeph&quot; class=&quot;notranslate&quot;"/>
+			<replace taskname="source-text" file="@{file}" token="translate=&quot;no&quot;" value="class=&quot;notranslate&quot;"/>
 			<replace taskname="source-text" file="@{file}" token="&quot;" value="\&quot;"/>
 			<loadfile taskname="source-text" property="source.text" srcFile="@{file}"/>
 			
@@ -229,9 +229,8 @@ var text = attributes.get("text");
 var outproperty = attributes.get("outproperty");
 var json =  JSON.parse(text);
 var trans = json[0].translations[0].text;
-trans = trans
-	.replace('\"', '"')
-	.replace('ctype="x-dita-codeph" class="notranslate"', 'ctype="x-dita-codeph"');
+trans = trans.replace('\"', '"');
+trans = trans.replace('class="notranslate"', 'translate="no"');
 project.setProperty(outproperty, trans);
 
 ]]>
