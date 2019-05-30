@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!--
-   This file is part of the DITA-OT Pretty DITA Plug-in project.
+   This file is part of the DITA-OT Translate Plug-in project.
    See the accompanying LICENSE file for applicable licenses.
 -->
 <project basedir="." default="unit-test">
