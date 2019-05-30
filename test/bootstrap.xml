@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+   This file is part of the DITA-OT Pretty DITA Plug-in project.
+   See the accompanying LICENSE file for applicable licenses.
+-->
+<project name="unit-test.bootstrap">
+	<!-- 
+		Local definitions for dita.dir and test.root.dir are required to run
+		individual tests locally.
+	-->	
+	<dirname property="test.root.dir" file="${ant.file.unit-test.bootstrap}/.." />
+	<property name="dita.dir" location="${test.root.dir}/../.."/> 
+	<!-- 
+		Load the unit testing library to make the macros available to the unit-tests 
+	-->
+	<typedef file="${dita.dir}/plugins/fox.jason.unit-test/resource/antlib.xml"/>
+</project>

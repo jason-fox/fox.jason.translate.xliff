@@ -2,6 +2,9 @@
 **/temp/**
 **/tmp/**
 
+**/test/add-translations/translate.xlf
+**/test/approved-translations/test.properties
+
 
 *~
 .fuse_hidden*

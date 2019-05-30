@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:xs="http://www.w3.org/2001/XMLSchema"
+       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+       xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+   <file datatype="xml"
+         source-language="en"
+         target-language="de"
+         original="/document.ditamap">
+      <header xmlns="urn:oasis:names:tc:xliff:document:1.2"
+              xmlns:dita="http://www.dita-ot.org">
+         <skl>
+            <external-file href="./skl/document.ditamap.skl"/>
+         </skl>
+      </header>
+      <body xmlns="urn:oasis:names:tc:xliff:document:1.2"
+            xmlns:dita="http://www.dita-ot.org"/>
+   </file>
+   <file datatype="xml"
+         source-language="en"
+         target-language="de"
+         original="/topic.dita">
+      <header xmlns="urn:oasis:names:tc:xliff:document:1.2"
+              xmlns:dita="http://www.dita-ot.org">
+         <skl>
+            <external-file href="./skl/topic.dita.skl"/>
+         </skl>
+      </header>
+      <body xmlns="urn:oasis:names:tc:xliff:document:1.2"
+            xmlns:dita="http://www.dita-ot.org">
+         <trans-unit xmlns="" xmlns:dita="dita-ot.org" approved="no" id="59931" xml:space="preserve"><source xml:lang="en">Basic usage </source><target xml:lang="de"/></trans-unit>
+         <trans-unit xmlns="" xmlns:dita="dita-ot.org" approved="no" id="15534" xml:space="preserve"><source xml:lang="en">You will need to include the <x id="d2e12" ctype="x-dita-codeph">prism.css </x>and <x id="d2e15" ctype="x-dita-codeph">prism.js </x>files you downloaded in your page. Example: </source><target xml:lang="de"/></trans-unit>
+         <trans-unit xmlns="" xmlns:dita="dita-ot.org" approved="no" id="57886" xml:space="preserve"><source xml:lang="en">Prism does its best to encourage good authoring practices. Therefore,it only works with <x id="d2e25" ctype="x-dita-codeph">&lt;code&gt; </x>elements, since marking upcode without a <x id="d2e28" ctype="x-dita-codeph">&lt;code&gt; </x>element is semantically invalid. <x id="d2e31" ctype="x-dita-xref" dita:format="html" dita:scope="external" dita:href="https://www.w3.org/TR/html52/textlevel-semantics.html#the-code-element">According to the HTML5 spec </x>, the recommended way to define a code language is a <x id="d2e34" ctype="x-dita-codeph">language-xxxx </x>class, which is what Prism uses. Alternatively, Prism also supports a shorter version: <x id="d2e37" ctype="x-dita-codeph">lang-xxxx </x>. </source><target xml:lang="de"/></trans-unit>
+         <trans-unit xmlns="" xmlns:dita="dita-ot.org" approved="no" id="50700" xml:space="preserve"><source xml:lang="en">To make things easier however, Prism assumes that this language definition is inherited. Therefore, if multiple <x id="d2e44" ctype="x-dita-codeph">&lt;code&gt; </x>elements have the same language, you can add the <x id="d2e47" ctype="x-dita-codeph">language-xxxx </x>class on one of their common ancestors. This way, you can also define a document-wide default language, by adding a <x id="d2e50" ctype="x-dita-codeph">language-xxxx </x>class on the <x id="d2e53" ctype="x-dita-codeph">&lt;body&gt; </x>or <x id="d2e56" ctype="x-dita-codeph">&lt;html&gt; </x>element. </source><target xml:lang="de"/></trans-unit>
+         <trans-unit xmlns="" xmlns:dita="dita-ot.org" approved="no" id="46850" xml:space="preserve"><source xml:lang="en">If you want to opt-out of highlighting for a <x id="d2e63" ctype="x-dita-codeph">&lt;code&gt; </x>element that is a descendant of an element with a declared code language, you can add the class <x id="d2e66" ctype="x-dita-codeph">language-none </x>to it (or any non-existing language, really). </source><target xml:lang="de"/></trans-unit>
+         <trans-unit xmlns="" xmlns:dita="dita-ot.org" approved="no" id="25020" xml:space="preserve"><source xml:lang="en">The <x id="d2e74" ctype="x-dita-xref" dita:format="html" dita:scope="external" dita:href="https://www.w3.org/TR/html5/grouping-content.html#the-pre-element">recommended way to mark up a code block </x>(both for semantics and for Prism) is a <x id="d2e77" ctype="x-dita-codeph">&lt;pre&gt; </x>element with a <x id="d2e80" ctype="x-dita-codeph">&lt;code&gt; </x>element inside, like so: </source><target xml:lang="de"/></trans-unit>
+         <trans-unit xmlns="" xmlns:dita="dita-ot.org" approved="no" id="34362" xml:space="preserve"><source xml:lang="en">If you use that pattern, the <x id="d2e90" ctype="x-dita-codeph">&lt;pre&gt; </x>will automatically get the <x id="d2e93" ctype="x-dita-codeph">language-xxxx </x>class (if it doesn’t already have it) and will be styled as a code block. </source><target xml:lang="de"/></trans-unit>
+         <trans-unit xmlns="" xmlns:dita="dita-ot.org" approved="no" id="25518" xml:space="preserve"><source xml:lang="en">If you want to prevent any elements from being automatically highlighted, you can use the attribute <x id="d2e100" ctype="x-dita-codeph">data-manual </x>on the <x id="d2e103" ctype="x-dita-codeph">&lt;script&gt; </x>element you used for prism and use the <x id="d2e106" ctype="x-dita-xref" dita:format="html" dita:scope="external" dita:href="https://prismjs.com/extending.html#api">API </x>. Example: </source><target xml:lang="de"/></trans-unit>
+         <trans-unit xmlns="" xmlns:dita="dita-ot.org" approved="no" id="33578" xml:space="preserve"><source xml:lang="en">Usage with Webpack, Browserify, &amp; Other Bundlers </source><target xml:lang="de"/></trans-unit>
+         <trans-unit xmlns="" xmlns:dita="dita-ot.org" approved="no" id="32784" xml:space="preserve"><source xml:lang="en">If you want to use Prism with a bundler, install Prism with <x id="d2e119" ctype="x-dita-codeph">npm </x>: </source><target xml:lang="de"/></trans-unit>
+         <trans-unit xmlns="" xmlns:dita="dita-ot.org" approved="no" id="19337" xml:space="preserve"><source xml:lang="en">You can then <x id="d2e129" ctype="x-dita-codeph" dita:outputclass="language-js">import </x>into your bundle </source><target xml:lang="de"/></trans-unit>
+         <trans-unit xmlns="" xmlns:dita="dita-ot.org" approved="no" id="10929" xml:space="preserve"><source xml:lang="en">To make it easy to configure your Prism instance with only thelanguages and plugins you need, use the babel plugin, <x id="d2e140" ctype="x-dita-xref" dita:format="html" dita:scope="external" dita:href="https://github.com/mAAdhaTTah/babel-plugin-prismjs">babel-plugin-prismjs </x>. This will allow you to load the minimum number of languages and plugins to satisfy your needs. See that plugin's documentation for configuration details </source><target xml:lang="de"/></trans-unit>
+      </body>
+   </file>
+</xliff>

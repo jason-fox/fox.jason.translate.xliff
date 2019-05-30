@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+   This file is part of the DITA-OT Pretty DITA Plug-in project.
+   See the accompanying LICENSE file for applicable licenses.
+-->
+<project basedir="." default="unit-test">
+	<import file="../bootstrap.xml"/>
+	<description>
+		Expect that simple DITA texts can be transformed into an XLIFF file
+	</description>
+	<target name="unit-test">
+		<delete dir="${basedir}/out" failonerror="false"/>
+		<delete dir="${basedir}/temp" failonerror="false"/>
+		<exec-transtype transtype="xliff-create"/>
+		<compare-output expectation="${basedir}/expected.xlf" result="${basedir}/out/translate.xlf"/>
+	</target>
+</project>
