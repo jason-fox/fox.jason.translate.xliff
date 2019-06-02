@@ -6,7 +6,7 @@ DITA-OT Translate Plug-in require an input document
 
 ## Invocation from the command line
 
-1.   To create an XLIFF File and associated skeletons with run:
+&nbsp;1.   To create an XLIFF File and associated skeletons with run:
 
 ```bash
 PATH-TO-DITA-OT/bin/dita -f xliff-create -i document.ditamap  -o out
@@ -43,7 +43,7 @@ A `translate.xlf` file will appear in the `out` directory along with a series of
 > **Note:** if the `translate.cachefile` parameter is used, unchanged text with previously approved translations will be
 > copied over to the `<target>` elements.
 
-2.   To populate an exisiting XLIFF File with auto-translated text
+&nbsp;2.   To populate an exisiting XLIFF File with auto-translated text
 
 ```bash
 PATH-TO-DITA-OT/bin/dita -f xliff-translate \
@@ -80,7 +80,7 @@ The XLIFF File is auto-translated in place, with translated text included.
 
 > **Note:** only `<trans-unit>` elements which are `approved="no"` will be auto-translated.
 
-3.   To recreate `*.dita` files using an XLIFF File and its associated skeletons with run:
+&nbsp;3.  To recreate `*.dita` files using an XLIFF File and its associated skeletons with run:
 
 ```bash
 PATH-TO-DITA-OT/bin/dita -f xliff2dita -i translate.xlf -o out
