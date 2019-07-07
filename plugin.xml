@@ -10,7 +10,7 @@
     <param name="translate.cachefile" type="file"/>
   </transtype>
 
-  <transtype name="xliff-translate" desc="Auto-translate an XLIFF File">
+  <transtype name="xliff-translate" desc="Auto-translate an XLIFF File using an online service">
   	<param name="translate.service" desc="Specifies the auto-translate service." type="enum">
       <val>bing</val>
       <val>custom</val>
@@ -25,12 +25,16 @@
     <param name="translate.to" type="string"/>
   </transtype>
 
-  <transtype name="xliff2dita" desc="Auto-translate an XLIFF File">
+  <transtype name="xliff2dita" desc="Supply translated text into DITA skeleton files using an XLIFF File">
     <param name="translate.from" type="string"/>
     <param name="translate.to" type="string"/>
   </transtype>
 
+  <!-- Import the translate transform's ANT file -->
   <feature extension="ant.import" file="build_dita2translate.xml"/>
+  <!-- Ensure the plugin's error and logging messages are available -->
   <feature extension="dita.xsl.messages" file="resource/messages.xml"/>
+  <!-- Add a template file to enable overrides to use extension points -->
+  <template file="build_dita2translate_template.xml"/>
 
 </plugin>
