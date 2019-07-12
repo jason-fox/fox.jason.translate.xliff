@@ -53,7 +53,7 @@
 	</target>
 
 	<target name="translate.init" depends="trans-unit.init">
-			<!-- Load Service URLs from command line -->
+		<!-- Load Service URLs from command line -->
 		<property name="watson.translate.url" if:set="translate.url" value="${translate.url}"/>
 		<property name="watson.apikey" if:set="translate.apikey" value="${translate.apikey}"/>
 
@@ -257,7 +257,7 @@
 
 
 
-	<target name="dita2xliff-create" description="XML Localization Interchange File Format (XLIFF)" depends="build-init,xliff.init,xliff-create"/>
-	<target name="dita2xliff-translate" description="Auto-translate an XLIFF File using an online service" depends="build-init,translate.init,trans-source"/>
-	<target name="dita2xliff2dita" description="Supply translated text into DITA skeleton files using an XLIFF File" depends="build-init,trans-unit.init,trans-target"/>
+	<target name="dita2xliff-create" description="XML Localization Interchange File Format (XLIFF)" depends="cats.splash,build-init,xliff.init,prismjs,xliff-create"/>
+	<target name="dita2xliff-translate" description="Auto-translate an XLIFF File using an online service" depends="cats.splash,build-init,translate.init,prismjs,trans-source"/>
+	<target name="dita2xliff2dita" description="Supply translated text into DITA skeleton files using an XLIFF File" depends="cats.splash,build-init,trans-unit.init,prismjs,trans-target"/>
 </project>

@@ -53,7 +53,7 @@
 	</target>
 
 	<target name="translate.init" depends="trans-unit.init">
-			<!-- Load Service URLs from command line -->
+		<!-- Load Service URLs from command line -->
 		<property name="watson.translate.url" if:set="translate.url" 
 			value="${translate.url}"/>
 		<property name="watson.apikey" if:set="translate.apikey"
