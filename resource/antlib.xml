@@ -10,39 +10,14 @@
 
 		@param macro - A macro to run.
 		@param fileset - A set of files
+		@param dir - The input directory
+		@param todir - The output directory
 	-->
-	<scriptdef language="javascript" name="iterate">
+	<scriptdef language="javascript" name="iterate" src="${dita.plugin.fox.jason.translate.xliff.dir}/resource/iterate-fileset.js">
 		<attribute name="macro"/>
 		<attribute name="dir"/>
 		<attribute name="todir"/>
 		<element name="fileset" type="fileset"/>
-<![CDATA[
-
-var filesets = elements.get("fileset");
-var macro = attributes.get("macro");
-var dir = attributes.get("dir");
-var todir = attributes.get("todir");
-
-for (i = 0; i < filesets.size(); ++i) {
-    fileset = filesets.get(i);
-    scanner = fileset.getDirectoryScanner(project);
-    scanner.scan();
-    files = scanner.getIncludedFiles();
-    for( j=0; j < files.length; j++) {
-		var task = project.createTask(macro);
-		if (files[i] !== "") {
-	        try {
-	        	task.setDynamicAttribute("file", dir + '/' + files[j]);
-	        	task.setDynamicAttribute("todir", todir);
-	            task.execute();
-	        } catch(err) {
-	            task.log( "Execution error: " + err.message );
-	        }
-		}
-	}
-}
-
-]]>
 	</scriptdef>
 
 	<!--
@@ -50,26 +25,18 @@ for (i = 0; i < filesets.size(); ++i) {
 
 		@param file    - The DITA file to clean up
 	-->
-	<scriptdef language="javascript" name="reinsert-doctype">
+	<scriptdef language="javascript" name="reinsert-doctype" src="${dita.plugin.fox.jason.translate.xliff.dir}/resource/reinsert-doctype.js">
 		<attribute name="file"/>
 		<attribute name="todir"/>
-<![CDATA[
-
-var pluginDir =  project.getProperty("dita.plugin.fox.jason.translate.xliff.dir");
-var file = attributes.get("file");
-
-eval('' + org.apache.tools.ant.util.FileUtils.readFully(
-      new java.io.FileReader(pluginDir + '/resource/translate.js' ) ) );
-
-var dita = org.apache.tools.ant.util.FileUtils.readFully(
-				new java.io.FileReader(file));
-var tidy = Translate.addDoctype(dita);
-Translate.writeDITA(file, tidy);
-
-]]>
 	</scriptdef>
 
 
+	<!--
+		Creates a skeleton file with placeholder text
+
+		@param file - The name of the skelton file to create
+		@param todir - The output directory
+	-->
 	<macrodef name="skeleton-file">
 		<attribute name="file"/>
 		<attribute name="todir" default=""/>
@@ -89,7 +56,12 @@ Translate.writeDITA(file, tidy);
 	</macrodef>
 
 
+	<!--
+		Calls a translation service and creates the translated texts
 
+		@param file - The name of the XLIFF source file
+		@param todir - The output directory
+	-->
 	<macrodef name="translate-source">
 		<attribute name="file"/>
 		<attribute name="todir"/>
@@ -106,6 +78,12 @@ Translate.writeDITA(file, tidy);
 		</sequential>
 	</macrodef>
 
+	<!--
+		Dummy Translation. Copies untranslated text to a file
+
+		@param file - The name of a file holding the input text
+		@param out - The output file
+	-->
 	<macrodef name="dummy-translate">
 		<attribute name="file"/>
 		<attribute name="out"/>
@@ -116,6 +94,12 @@ Translate.writeDITA(file, tidy);
 		</sequential>
 	</macrodef>
 
+	<!--
+		Watson Translation. Copies text translated by IBM cloud services to a file
+
+		@param file - The name of a file holding the input text
+		@param out - The output file
+	-->
 	<macrodef name="watson-translate">
 		<attribute name="file"/>
 		<attribute name="out"/>
@@ -162,18 +146,23 @@ Translate.writeDITA(file, tidy);
 		</sequential>
 	</macrodef>
 
+	<!--
+		Watson Translation. Parses the response and extracts the translated text
 
-	<scriptdef language="javascript" name="watson-read-response">
+		@param text - The response from IBM cloud services
+		@param outproperty - The property to output to
+	-->
+	<scriptdef language="javascript" name="watson-read-response" src="${dita.plugin.fox.jason.translate.xliff.dir}/resource/watson-parse.js">
 		<attribute name="text"/>
 		<attribute name="outproperty"/>
-<![CDATA[
-var text = attributes.get("text");
-var outproperty = attributes.get("outproperty");
-var json =  JSON.parse(text);
-project.setProperty(outproperty, json.translations[0].translation);
-]]>
 	</scriptdef>	
 
+	<!--
+		Microsoft Translation. Copies text translated by Azure cloud services to a file
+
+		@param file - The name of a file holding the input text
+		@param out - The output file
+	-->
 	<macrodef name="bing-translate">
 		<attribute name="file"/>
 		<attribute name="out"/>
@@ -220,22 +209,24 @@ project.setProperty(outproperty, json.translations[0].translation);
 		</sequential>
 	</macrodef>
 
-	<scriptdef language="javascript" name="bing-read-response">
+	<!--
+		Microsoft Translation. Parses the response and extracts the translated text
+
+		@param text - The response from Azure services
+		@param outproperty - The property to output to
+	-->
+	<scriptdef language="javascript" name="bing-read-response" src="${dita.plugin.fox.jason.translate.xliff.dir}/resource/bing-parse.js">
 		<attribute name="text"/>
 		<attribute name="outproperty"/>
-<![CDATA[
-
-var text = attributes.get("text");
-var outproperty = attributes.get("outproperty");
-var json =  JSON.parse(text);
-var trans = json[0].translations[0].text;
-trans = trans.replace('\"', '"');
-trans = trans.replace('class="notranslate"', 'translate="no"');
-project.setProperty(outproperty, trans);
-
-]]>
 	</scriptdef>
 
+	<!--
+		Custon Translation. Copies text translated by a custom cloud service to a file
+		- Not implemented yet.
+
+		@param file - The name of a file holding the input text
+		@param out - The output file
+	-->
 	<macrodef name="custom-translate">
 		<attribute name="file"/>
 		<attribute name="out"/>
