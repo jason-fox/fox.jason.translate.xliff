@@ -72,6 +72,8 @@ version will be necessary when transforming larger documents.
 
 ### IBM Cloud Services
 
+[<img src="https://www.nasuni.com/wp-content/uploads/2017/06/ibm-cloud.png" align="right" height="85">](https://cloud.ibm.com/docs/services/language-translator?topic=language-translator-gettingstarted)
+
 The IBM Language Translator allows you to translate text programmatically from one language into another language
 
 Introduction:
@@ -92,7 +94,12 @@ Copy the credentials to authenticate to your service instance:
 3.  Copy the `API Key` and `URL` values.
 4.  Within the plug-in alter the file `cfg/configuration.properties` to hold your `API Key` and `URL`.
 
+---
+
 ### Microsoft Azure
+
+[<img src="https://www.confluent.io/wp-content/uploads/MS-Azure_logo_stacked_c-gray_rgb.png" align="right" height="85">](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/translator-info-overview)
+
 
 Microsoft Translator provides multi-language support for translation, transliteration, language detection, and
 dictionaries.
@@ -120,7 +127,12 @@ Copy the credentials to authenticate to your service instance:
 1.  Copy each of the `API Key` and `Endpoint` values.
 2.  Within the plug-in alter the file `cfg/configuration.properties` to hold your `API Key` and `URL`.
 
+---
+
 ### Yandex Translate
+
+[<img src="http://www.companieshistory.com/wp-content/uploads/2014/05/Yandex-NV.png" align="right" height="55">](https://tech.yandex.com/translate/)
+
 
 The API provides access to the Yandex online machine translation service. It supports more than 90 languages and can
 translate separate words or complete texts.
@@ -147,11 +159,15 @@ Copy the credentials to authenticate to your service instance:
 1.  Copy each of the `API Key` and `Endpoint` values.
 2.  Within the plug-in alter the file `cfg/configuration.properties` to hold your `API Key` and `URL`.
 
+---
+
 ### DeepL API
+
+[<img src="https://www.deepl.com/img/logo/DeepL_LogoAndText_darkBlue.svg" align="right" height="40">](https://www.deepl.com)
 
 The DeepL API is accessible with a [DeepL Pro subscription (DeepL API plan)](https://www.deepl.com/pro.html#developer)
 only. The API is an interface that allows other computer programs to send texts to the DeepL servers and receive
-high-quality translations.
+high-quality translations.  
 
 Introduction: [Overview](https://www.deepl.com)
 
@@ -175,6 +191,8 @@ Copy the credentials to authenticate to your service instance:
 
 1.  Copy each of the `API Key` and `Endpoint` values.
 2.  Within the plug-in alter the file `cfg/configuration.properties` to hold your `API Key` and `URL`.
+
+---
 
 # Usage
 
