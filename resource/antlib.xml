@@ -5,6 +5,18 @@
 -->
 <antlib xmlns:if="ant:if" xmlns:unless="ant:unless">
 
+
+	<!--
+		Converts a value to url-encoding
+
+		@param  string -   The value to convert
+		@param  to -  The property to set
+	-->
+	<scriptdef language="javascript" name="url-encode" src="${dita.plugin.fox.jason.translate.xliff.dir}/resource/url-encode.js">
+		<attribute name="string" />
+		<attribute name="to" />
+	</scriptdef>
+
 	<!--
 		Iterator function to run a given macro against a set of files
 
@@ -238,20 +250,17 @@
 			<local name="yandex.response"/>
 			<local name="yandex.translation"/>
 			<local name="source.text"/>
+			<local name="source.text.encoded"/>
 
 
 			<replace taskname="source-text" file="@{file}" token="translate=&quot;no&quot;" value="class=&quot;notranslate&quot;"/>
 			<replace taskname="source-text" file="@{file}" token="&quot;" value="\&quot;"/>
 			<loadfile taskname="source-text" property="source.text" srcFile="@{file}"/>
-			
-
+			<url-encode string="${source.text}" to="source.text.encoded"/>
 			
 			<tempfile deleteonexit="true" destdir="${dita.temp.dir}" 
 				property="yandex.temp.file" suffix=".txt"/>
 
-			<!--
-				https://translate.yandex.net/api/v1.5/tr.json/translate?ui=en&key=trnsl.1.1.20190529T121244Z.a79373cf9522bfb1.1c607028c1bc972f5ff1ba702f67418745179c1f&lang=en-de&format=html
-			-->
 			<exec taskname="yandex-translate" executable="curl" osfamily="unix" 
 				resultproperty="yandex.result" outputproperty="yandex.out">
 				<arg value="-X"/>
@@ -263,11 +272,12 @@
 				<arg value="--output"/>
 				<arg value="${yandex.temp.file}"/>
 				<arg value="--data"/>
-				<arg value="text=${source.text}"/>
+				<arg value="text=${source.text.encoded}"/>
 				<arg value="-sS"/>
 				<arg value="${yandex.translate.url}?ui=${translate.from}&amp;key=${yandex.apikey}&amp;lang=${translate.from}-${translate.to}&amp;format=html"/>
 			</exec>
 			<loadfile  taskname="yandex-translate" property="yandex.response" srcFile="${yandex.temp.file}"/>
+
 			<yandex-read-response text="${yandex.response}" outproperty="yandex.translation"/>
 			<echo taskname="target-text" message="${yandex.translation}" file="@{out}"/>
 		</sequential>

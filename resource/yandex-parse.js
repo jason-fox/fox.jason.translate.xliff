@@ -13,5 +13,7 @@ var text = attributes.get("text");
 var outproperty = attributes.get("outproperty");
 var json = JSON.parse(text);
 var trans = json.text[0];
-trans = trans.replace('\\"', '"');
+trans = trans.replace(/\\&/g, '&');
+trans = trans.replace(/"&quot;/g, '"');
+trans = trans.replace(/&quot;"/g, '"');
 project.setProperty(outproperty, trans);
