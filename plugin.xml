@@ -14,6 +14,7 @@
   	<param name="translate.service" desc="Specifies the auto-translate service." type="enum">
       <val>bing</val>
       <val>custom</val>
+      <val>deepl</val>
       <val default="true" >dummy</val>
       <val>watson</val>
       <val>yandex</val>

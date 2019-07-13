@@ -1,6 +1,4 @@
-
-
-# DITA-OT Translate Plug-in  [<img src="https://jason-fox.github.io/fox.jason.translate.xliff/xliff.png" align="right" width="300">](https://xliffdita-ot.rtfd.io/)
+# DITA-OT Translate Plug-in [<img src="https://jason-fox.github.io/fox.jason.translate.xliff/xliff.png" align="right" width="300">](https://xliffdita-ot.rtfd.io/)
 
 [![license](https://img.shields.io/github/license/jason-fox/fox.jason.translate.xliff.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 [![DITA-OT 3.3](https://img.shields.io/badge/DITA--OT-3.3-blue.svg)](http://www.dita-ot.org/3.3/) <br/>
@@ -26,6 +24,7 @@ This plug-in consists of three DITA-OT transforms
         -   [Automatic Translation using IBM Cloud Services](#automatic-translation-using-ibm-cloud-services)
         -   [Automatic Translation using Microsoft Azure](#automatic-translation-using-microsoft-azure)
         -   [Automatic Translation using Yandex Translate](#automatic-translation-using-yandex-translate)
+        -   [Automatic Translation using DeepL API](#automatic-translation-using-deepl-api)
 -   [Usage](#usage)
     -   [Invocation from the command line](#invocation-from-the-command-line)
         -   [Parameter Reference](#parameter-reference)
@@ -123,20 +122,52 @@ Copy the credentials to authenticate to your service instance:
 
 ### Automatic Translation using Yandex Translate
 
-The API provides access to the Yandex online machine translation service. It supports more than 90 languages and can translate separate words or complete texts.
+The API provides access to the Yandex online machine translation service. It supports more than 90 languages and can
+translate separate words or complete texts.
 
 Introduction: [Overview](https://tech.yandex.com/translate/)
 
 To sign-up to the service:
 
-1.  Review the [user agreement](http://legal.yandex.com/translate_api/) and rules for [formatting translation results](https://tech.yandex.com/translate/doc/dg/concepts/design-requirements-docpage).
+1.  Review the [user agreement](http://legal.yandex.com/translate_api/) and rules for
+    [formatting translation results](https://tech.yandex.com/translate/doc/dg/concepts/design-requirements-docpage).
 2.  Get a free [API key](https://translate.yandex.com/developers/keys).
-3.  Read the [documentation](https://tech.yandex.com/translate/doc/dg/concepts/About-docpage), where you will find instructions on enabling the API and detailed descriptions of its features.
+3.  Read the [documentation](https://tech.yandex.com/translate/doc/dg/concepts/About-docpage), where you will find
+    instructions on enabling the API and detailed descriptions of its features.
 
-After you sign in to your account select API Keys and create a new key as necessary. The latest endpoint can be found in the [documentation](https://tech.yandex.com/translate/doc/dg/reference/translate-docpage/#XML)
+After you sign in to your account select API Keys and create a new key as necessary. The latest endpoint can be found in
+the [documentation](https://tech.yandex.com/translate/doc/dg/reference/translate-docpage/#XML)
 
 ```text
 https://translate.yandex.net/api/v1.5/tr/translate
+```
+
+Copy the credentials to authenticate to your service instance:
+
+1.  Copy each of the `API Key` and `Endpoint` values.
+2.  Within the plug-in alter the file `cfg/configuration.properties` to hold your `API Key` and `URL`.
+
+### Automatic Translation using DeepL API
+
+The DeepL API is accessible with a [DeepL Pro subscription (DeepL API plan)](https://www.deepl.com/pro.html#developer)
+only. The API is an interface that allows other computer programs to send texts to the DeepL servers and receive
+high-quality translations.
+
+Introduction: [Overview](https://www.deepl.com)
+
+To sign-up to the service:
+
+1.  Open a [DeepL API](https://www.deepl.com/pro.html#developer) **developers** account. Note that not all accounts
+    offer access to the DeepL API. It is **essential** that the account type includes REST API access.
+2.  Fill out the application details and add a credit card. Access is free for the first 30 days.
+3.  Read the [documentation](https://www.deepl.com/docs-api.html), where you will find instructions on enabling the API
+    and detailed descriptions of its features.
+
+After you sign in to your account select API Keys and create a new key as necessary. The latest endpoint can be found in
+the [documentation](https://www.deepl.com/docs-api.html?part=translating_text)
+
+```text
+https://api.deepl.com/v2/translate
 ```
 
 Copy the credentials to authenticate to your service instance:
@@ -148,7 +179,7 @@ Copy the credentials to authenticate to your service instance:
 
 ## Invocation from the command line
 
-1.   to create an XLIFF File and associated skeletons with run:
+1.  to create an XLIFF File and associated skeletons with run:
 
 ```console
 PATH-TO-DITA-OT/bin/dita -f xliff-create -i document.ditamap  -o out
@@ -194,7 +225,7 @@ A `translate.xlf` file will appear in the `out` directory along with a series of
 
 ```console
 PATH-TO-DITA-OT/bin/dita -f xliff-translate \
-    -i translate.xlf --translate.service=[bing|watson|yandex] \
+    -i translate.xlf --translate.service=[bing|deepl|watson|yandex] \
     --translate.apikey=<api-key>
 ```
 
@@ -264,8 +295,9 @@ The translated `*.dita` files are generated into the `out` directory.
     to a previously translated text snippet in the cache file, the text will be copied over and the snippet marked as
     `approved`.
 -   `translate.service` - Decides which translation service to use:
-    -   `bing` - Connects to the Microsoft Translation service
+    -   `bing` - Connects to the Microsoft Azure Translation service
     -   `custom` - Sends the translate to an arbitrary URL using POST - use this to connect to proxies for Google Cloud
+    -   `deepl` - Connects to the DeepL API Translation service
     -   `dummy` - Avoids accessing a translation service, copies sources to target langauge directly without amendment.
         [Translate](https://cloud.google.com/translate/)
     -   `watson` - Connects to the IBM Cloud Translation service

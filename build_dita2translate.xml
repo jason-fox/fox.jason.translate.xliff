@@ -69,6 +69,18 @@
 			</condition>
 		</dita-ot-fail>
 
+		<dita-ot-fail id="XLFF006F" if:set="translate.deepl">
+			<condition>
+				<equals arg1="${deepl.apikey}" arg2="XXX"/>
+			</condition>
+		</dita-ot-fail>
+
+		<dita-ot-fail id="XLFF007F" if:set="translate.yandex">
+			<condition>
+				<equals arg1="${yandex.apikey}" arg2="XXX"/>
+			</condition>
+		</dita-ot-fail>
+
 		<bing-authorization if:set="translate.bing"/>
 	</target>
 

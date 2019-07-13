@@ -85,6 +85,7 @@
 			<!-- Create a translated target file -->
 			<bing-translate if:set="translate.bing" file="@{file}" out="@{todir}/${source.file.name}"/>
 			<custom-translate if:set="translate.custom" file="@{file}" out="@{todir}/${source.file.name}"/>
+			<deepl-translate if:set="translate.deepl" file="@{file}" out="@{todir}/${source.file.name}"/>
 			<dummy-translate if:set="translate.dummy" file="@{file}" out="@{todir}/${source.file.name}"/> 
 			<watson-translate if:set="translate.watson" file="@{file}" out="@{todir}/${source.file.name}"/>
 			<yandex-translate if:set="translate.yandex" file="@{file}" out="@{todir}/${source.file.name}"/>
@@ -234,7 +235,7 @@
 	</scriptdef>
 
 	<!--
-		Yandex Translation. Copies text translated by Azure cloud services to a file
+		Yandex Translation. Copies text translated by Yandex translate to a file
 
 		@param file - The name of a file holding the input text
 		@param out - The output file
@@ -286,10 +287,70 @@
 	<!--
 		Yandex Translation. Parses the response and extracts the translated text
 
-		@param text - The response from Azure services
+		@param text - The response from Yandex Translate
 		@param outproperty - The property to output to
 	-->
 	<scriptdef language="javascript" name="yandex-read-response" src="${dita.plugin.fox.jason.translate.xliff.dir}/resource/yandex-parse.js">
+		<attribute name="text"/>
+		<attribute name="outproperty"/>
+	</scriptdef>
+
+	<!--
+		Deepl Translation. Copies text translated by Deepl services to a file
+
+		@param file - The name of a file holding the input text
+		@param out - The output file
+	-->
+	<macrodef name="deepl-translate">
+		<attribute name="file"/>
+		<attribute name="out"/>
+		<sequential>
+
+			<local name="deepl.result"/>
+			<local name="deepl.out"/>
+			<local name="deepl.temp.file"/>
+			<local name="deepl.response"/>
+			<local name="deepl.translation"/>
+			<local name="source.text"/>
+			<local name="source.text.encoded"/>
+
+
+			<replace taskname="source-text" file="@{file}" token="translate=&quot;no&quot;" value="class=&quot;notranslate&quot;"/>
+			<replace taskname="source-text" file="@{file}" token="&quot;" value="\&quot;"/>
+			<loadfile taskname="source-text" property="source.text" srcFile="@{file}"/>
+			<url-encode string="${source.text}" to="source.text.encoded"/>
+			
+			<tempfile deleteonexit="true" destdir="${dita.temp.dir}" 
+				property="deepl.temp.file" suffix=".txt"/>
+
+			<exec taskname="deepl-translate" executable="curl" osfamily="unix" 
+				resultproperty="deepl.result" outputproperty="deepl.out">
+				<arg value="-X"/>
+				<arg value="POST"/>
+				<arg value="-H"/>
+				<arg value="Content-type: application/x-www-form-urlencoded"/>
+				<arg value="-H"/>
+				<arg value="Accept: application/json"/>
+				<arg value="--output"/>
+				<arg value="${deepl.temp.file}"/>
+				<arg value="--data"/>
+				<arg value="text=${source.text.encoded}"/>
+				<arg value="-sS"/>
+				<arg value="${deepl.translate.url}?source_lang=${translate.from}&amp;auth_key=${deepl.apikey}&amp;target_lang=${translate.to}&amp;tag_handling=xml"/>
+			</exec>
+			<loadfile  taskname="deepl-translate" property="deepl.response" srcFile="${deepl.temp.file}"/>
+			<deepl-read-response text="${deepl.response}" outproperty="deepl.translation"/>
+			<echo taskname="target-text" message="${deepl.translation}" file="@{out}"/>
+		</sequential>
+	</macrodef>
+
+	<!--
+		Deepl Translation. Parses the response and extracts the translated text
+
+		@param text - The response from Deepl
+		@param outproperty - The property to output to
+	-->
+	<scriptdef language="javascript" name="deepl-read-response" src="${dita.plugin.fox.jason.translate.xliff.dir}/resource/deepl-parse.js">
 		<attribute name="text"/>
 		<attribute name="outproperty"/>
 	</scriptdef>
@@ -484,6 +545,12 @@
 			<property name="yandex.apikey" if:set="translate.apikey"
 			value="${translate.apikey}"/>
 
+			<!-- Deepl -->
+			<property name="deepl.translate.url" if:set="translate.url" 
+				value="${translate.url}"/>
+			<property name="deepl.apikey" if:set="translate.apikey"
+			value="${translate.apikey}"/>
+
 			<!-- Custom -->
 			<property name="custom.translate.url" if:set="translate.url"
 				value="${translate.url}"/>
@@ -507,6 +574,9 @@
 			</condition>
 			<condition property="translate.yandex">
 				<equals arg1="${translate.service}" arg2="yandex"/>
+			</condition>
+			<condition property="translate.deepl">
+				<equals arg1="${translate.service}" arg2="deepl"/>
 			</condition>
 		</sequential>
 	</macrodef>
