@@ -12,6 +12,6 @@ var text = attributes.get("text");
 var outproperty = attributes.get("outproperty");
 var json = JSON.parse(text);
 var trans = json[0].translations[0].text;
-trans = trans.replace('"', '"');
+trans = trans.replace('\\"', '"');
 trans = trans.replace('class="notranslate"', 'translate="no"');
 project.setProperty(outproperty, trans);
