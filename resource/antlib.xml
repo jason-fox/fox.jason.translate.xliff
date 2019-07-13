@@ -71,10 +71,11 @@
 
 
 			<!-- Create a translated target file -->
-			<dummy-translate if:set="translate.dummy" file="@{file}" out="@{todir}/${source.file.name}"/> 
-			<watson-translate if:set="translate.watson" file="@{file}" out="@{todir}/${source.file.name}"/>
 			<bing-translate if:set="translate.bing" file="@{file}" out="@{todir}/${source.file.name}"/>
 			<custom-translate if:set="translate.custom" file="@{file}" out="@{todir}/${source.file.name}"/>
+			<dummy-translate if:set="translate.dummy" file="@{file}" out="@{todir}/${source.file.name}"/> 
+			<watson-translate if:set="translate.watson" file="@{file}" out="@{todir}/${source.file.name}"/>
+			<yandex-translate if:set="translate.yandex" file="@{file}" out="@{todir}/${source.file.name}"/>
 		</sequential>
 	</macrodef>
 
@@ -134,7 +135,7 @@
 				<arg value="{&quot;text&quot;: [&quot;${source.text}&quot;], &quot;model_id&quot;: &quot;${translate.from}-${translate.to}&quot;}"/>
 				<arg value="-sS"/>
 				<arg value="${watson.translate.url}?version=2018-05-01"/>
-		    </exec>
+			</exec>
 		    <echo taskname="watson-translate" level="verbose" message="${line.separator}${watson.out}"/>
 
 		    
@@ -216,6 +217,69 @@
 		@param outproperty - The property to output to
 	-->
 	<scriptdef language="javascript" name="bing-read-response" src="${dita.plugin.fox.jason.translate.xliff.dir}/resource/bing-parse.js">
+		<attribute name="text"/>
+		<attribute name="outproperty"/>
+	</scriptdef>
+
+	<!--
+		Yandex Translation. Copies text translated by Azure cloud services to a file
+
+		@param file - The name of a file holding the input text
+		@param out - The output file
+	-->
+	<macrodef name="yandex-translate">
+		<attribute name="file"/>
+		<attribute name="out"/>
+		<sequential>
+
+			<local name="yandex.result"/>
+			<local name="yandex.out"/>
+			<local name="yandex.temp.file"/>
+			<local name="yandex.response"/>
+			<local name="yandex.translation"/>
+			<local name="source.text"/>
+
+
+			<replace taskname="source-text" file="@{file}" token="translate=&quot;no&quot;" value="class=&quot;notranslate&quot;"/>
+			<replace taskname="source-text" file="@{file}" token="&quot;" value="\&quot;"/>
+			<loadfile taskname="source-text" property="source.text" srcFile="@{file}"/>
+			
+
+			
+			<tempfile deleteonexit="true" destdir="${dita.temp.dir}" 
+				property="yandex.temp.file" suffix=".txt"/>
+
+			<!--
+				https://translate.yandex.net/api/v1.5/tr.json/translate?ui=en&key=trnsl.1.1.20190529T121244Z.a79373cf9522bfb1.1c607028c1bc972f5ff1ba702f67418745179c1f&lang=en-de&format=html
+			-->
+			<exec taskname="yandex-translate" executable="curl" osfamily="unix" 
+				resultproperty="yandex.result" outputproperty="yandex.out">
+				<arg value="-X"/>
+				<arg value="POST"/>
+				<arg value="-H"/>
+				<arg value="Content-type: application/x-www-form-urlencoded"/>
+				<arg value="-H"/>
+				<arg value="Accept: application/json"/>
+				<arg value="--output"/>
+				<arg value="${yandex.temp.file}"/>
+				<arg value="--data"/>
+				<arg value="text=${source.text}"/>
+				<arg value="-sS"/>
+				<arg value="${yandex.translate.url}?ui=${translate.from}&amp;key=${yandex.apikey}&amp;lang=${translate.from}-${translate.to}&amp;format=html"/>
+			</exec>
+			<loadfile  taskname="yandex-translate" property="yandex.response" srcFile="${yandex.temp.file}"/>
+			<yandex-read-response text="${yandex.response}" outproperty="yandex.translation"/>
+			<echo taskname="target-text" message="${yandex.translation}" file="@{out}"/>
+		</sequential>
+	</macrodef>
+
+	<!--
+		Yandex Translation. Parses the response and extracts the translated text
+
+		@param text - The response from Azure services
+		@param outproperty - The property to output to
+	-->
+	<scriptdef language="javascript" name="yandex-read-response" src="${dita.plugin.fox.jason.translate.xliff.dir}/resource/yandex-parse.js">
 		<attribute name="text"/>
 		<attribute name="outproperty"/>
 	</scriptdef>
@@ -385,6 +449,55 @@
 				</call>
 			</xmltask>
 
+		</sequential>
+	</macrodef>
+
+	<macrodef name="load-service-urls">
+		<sequential>
+			<!-- IBM Cloud Services -->
+			<property name="watson.translate.url" if:set="translate.url" 
+				value="${translate.url}"/>
+			<property name="watson.apikey" if:set="translate.apikey"
+			 value="${translate.apikey}"/>
+
+			<!-- Microsoft Azure -->
+			<property name="bing.apikey" if:set="translate.apikey"
+				value="${translate.apikey}"/>
+			<property name="bing.translate.url" if:set="translate.url"
+				value="${translate.url}"/>
+			<property name="bing.authentication.url" if:set="translate.authentication.url"
+				value="${translate.authentication.url}"/>
+
+			<!-- Yandex -->
+			<property name="yandex.translate.url" if:set="translate.url" 
+				value="${translate.url}"/>
+			<property name="yandex.apikey" if:set="translate.apikey"
+			value="${translate.apikey}"/>
+
+			<!-- Custom -->
+			<property name="custom.translate.url" if:set="translate.url"
+				value="${translate.url}"/>
+
+
+			<!-- Fallback - load Service URLs from properties file -->
+			<property file="${dita.plugin.fox.jason.translate.xliff.dir}/cfg/configuration.properties"/>
+
+			<!-- Decide which auto-translation service to use -->
+			<condition property="translate.bing">
+				<equals arg1="${translate.service}" arg2="bing"/>
+			</condition>
+			<condition property="translate.watson">
+				<equals arg1="${translate.service}" arg2="watson"/>
+			</condition>
+			<condition property="translate.dummy">
+				<equals arg1="${translate.service}" arg2="dummy"/>
+			</condition>
+			<condition property="translate.custom">
+				<equals arg1="${translate.service}" arg2="custom"/>
+			</condition>
+			<condition property="translate.yandex">
+				<equals arg1="${translate.service}" arg2="yandex"/>
+			</condition>
 		</sequential>
 	</macrodef>
 

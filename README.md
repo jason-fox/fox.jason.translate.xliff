@@ -25,6 +25,7 @@ This plug-in consists of three DITA-OT transforms
     -   [Signing up for an Automatic Translation Service](#signing-up-for-an-automatic-translation-service)
         -   [Automatic Translation using IBM Cloud Services](#automatic-translation-using-ibm-cloud-services)
         -   [Automatic Translation using Microsoft Azure](#automatic-translation-using-microsoft-azure)
+        -   [Automatic Translation using Yandex Translate](#automatic-translation-using-yandex-translate)
 -   [Usage](#usage)
     -   [Invocation from the command line](#invocation-from-the-command-line)
         -   [Parameter Reference](#parameter-reference)
@@ -117,7 +118,30 @@ Services. You can use either key in your applications.
 
 Copy the credentials to authenticate to your service instance:
 
-1.  Copy either of the `API Key` and `Endpoint` values.
+1.  Copy each of the `API Key` and `Endpoint` values.
+2.  Within the plug-in alter the file `cfg/configuration.properties` to hold your `API Key` and `URL`.
+
+### Automatic Translation using Yandex Translate
+
+The API provides access to the Yandex online machine translation service. It supports more than 90 languages and can translate separate words or complete texts.
+
+Introduction: [Overview](https://tech.yandex.com/translate/)
+
+To sign-up to the service:
+
+1.  Review the [user agreement](http://legal.yandex.com/translate_api/) and rules for [formatting translation results](https://tech.yandex.com/translate/doc/dg/concepts/design-requirements-docpage).
+2.  Get a free [API key](https://translate.yandex.com/developers/keys).
+3.  Read the [documentation](https://tech.yandex.com/translate/doc/dg/concepts/About-docpage), where you will find instructions on enabling the API and detailed descriptions of its features.
+
+After you sign in to your account select API Keys and create a new key as necessary. The latest endpoint can be found in the [documentation](https://tech.yandex.com/translate/doc/dg/reference/translate-docpage/#XML)
+
+```text
+https://translate.yandex.net/api/v1.5/tr/translate
+```
+
+Copy the credentials to authenticate to your service instance:
+
+1.  Copy each of the `API Key` and `Endpoint` values.
 2.  Within the plug-in alter the file `cfg/configuration.properties` to hold your `API Key` and `URL`.
 
 # Usage
@@ -169,7 +193,9 @@ A `translate.xlf` file will appear in the `out` directory along with a series of
 2.  to populate an exisiting XLIFF File with auto-translated text
 
 ```console
-PATH-TO-DITA-OT/bin/dita -f xliff-translate -i translate.xlf --translate.service=[bing|watson] --translate.apikey=<api-key>
+PATH-TO-DITA-OT/bin/dita -f xliff-translate \
+    -i translate.xlf --translate.service=[bing|watson|yandex] \
+    --translate.apikey=<api-key>
 ```
 
 #### Result
@@ -238,11 +264,12 @@ The translated `*.dita` files are generated into the `out` directory.
     to a previously translated text snippet in the cache file, the text will be copied over and the snippet marked as
     `approved`.
 -   `translate.service` - Decides which translation service to use:
-    -   `dummy` - Avoids accessing a translation service, copies sources to target langauge directly without amendment.
+    -   `bing` - Connects to the Microsoft Translation service
     -   `custom` - Sends the translate to an arbitrary URL using POST - use this to connect to proxies for Google Cloud
+    -   `dummy` - Avoids accessing a translation service, copies sources to target langauge directly without amendment.
         [Translate](https://cloud.google.com/translate/)
     -   `watson` - Connects to the IBM Cloud Translation service
-    -   `bing` - Connects to the Microsoft Translation service
+    -   `yandex` - Connects to the Yandex Translation service
 -   `translate.authentication.url` - URL for creating an OAuth token if needed for a service. Defaults to the value in
     `configuration.properties.
 -   `translate.apikey` - API Key for the Translation service. Defaults to the value in `configuration.properties`

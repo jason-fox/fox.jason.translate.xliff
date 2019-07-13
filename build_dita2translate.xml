@@ -54,30 +54,7 @@
 
 	<target name="translate.init" depends="trans-unit.init">
 		<!-- Load Service URLs from command line -->
-		<property name="watson.translate.url" if:set="translate.url" value="${translate.url}"/>
-		<property name="watson.apikey" if:set="translate.apikey" value="${translate.apikey}"/>
-
-		<property name="bing.apikey" if:set="translate.apikey" value="${translate.apikey}"/>
-		<property name="bing.translate.url" if:set="translate.url" value="${translate.url}"/>
-		<property name="bing.authentication.url" if:set="translate.authentication.url" value="${translate.authentication.url}"/>
-		<property name="custom.translate.url" if:set="translate.url" value="${translate.url}"/>
-
-		<!-- Fallback - load Service URLs from properties file -->
-		<property file="${dita.plugin.fox.jason.translate.xliff.dir}/cfg/configuration.properties"/>
-
-		<!-- Decide which auto-translation service to use -->
-		<condition property="translate.bing">
-			<equals arg1="${translate.service}" arg2="bing"/>
-		</condition>
-		<condition property="translate.watson">
-			<equals arg1="${translate.service}" arg2="watson"/>
-		</condition>
-		<condition property="translate.dummy">
-			<equals arg1="${translate.service}" arg2="dummy"/>
-		</condition>
-		<condition property="translate.custom">
-			<equals arg1="${translate.service}" arg2="custom"/>
-		</condition>
+		<load-service-urls/>
 
 		
 		<dita-ot-fail id="XLFF003F" if:set="translate.watson">

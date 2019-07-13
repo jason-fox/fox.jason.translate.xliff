@@ -16,6 +16,7 @@
       <val>custom</val>
       <val default="true" >dummy</val>
       <val>watson</val>
+      <val>yandex</val>
     </param>
     <param name="translate.authentication.url" type="string"/>
     <param name="translate.output.format" type="string"/>
