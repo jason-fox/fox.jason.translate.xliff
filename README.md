@@ -21,10 +21,10 @@ This plug-in consists of three DITA-OT transforms
     -   [Installing DITA-OT](#installing-dita-ot)
     -   [Installing the Plug-in](#installing-the-plug-in)
     -   [Signing up for an Automatic Translation Service](#signing-up-for-an-automatic-translation-service)
-        -   [Automatic Translation using IBM Cloud Services](#automatic-translation-using-ibm-cloud-services)
-        -   [Automatic Translation using Microsoft Azure](#automatic-translation-using-microsoft-azure)
-        -   [Automatic Translation using Yandex Translate](#automatic-translation-using-yandex-translate)
-        -   [Automatic Translation using DeepL API](#automatic-translation-using-deepl-api)
+        -   [IBM Cloud Services](#ibm-cloud-services)
+        -   [Microsoft Azure](#microsoft-azure)
+        -   [Yandex Translate](#yandex-translate)
+        -   [DeepL API](#deepl-api)
 -   [Usage](#usage)
     -   [Invocation from the command line](#invocation-from-the-command-line)
         -   [Parameter Reference](#parameter-reference)
@@ -70,7 +70,7 @@ Several publically available **automatic translation** cloud services are availa
 _try-before-you-buy_ option and generally offer sample access to the service for without cost. Upgrading to a paid
 version will be necessary when transforming larger documents.
 
-### Automatic Translation using IBM Cloud Services
+### IBM Cloud Services
 
 The IBM Language Translator allows you to translate text programmatically from one language into another language
 
@@ -92,7 +92,7 @@ Copy the credentials to authenticate to your service instance:
 3.  Copy the `API Key` and `URL` values.
 4.  Within the plug-in alter the file `cfg/configuration.properties` to hold your `API Key` and `URL`.
 
-### Automatic Translation using Microsoft Azure
+### Microsoft Azure
 
 Microsoft Translator provides multi-language support for translation, transliteration, language detection, and
 dictionaries.
@@ -120,7 +120,7 @@ Copy the credentials to authenticate to your service instance:
 1.  Copy each of the `API Key` and `Endpoint` values.
 2.  Within the plug-in alter the file `cfg/configuration.properties` to hold your `API Key` and `URL`.
 
-### Automatic Translation using Yandex Translate
+### Yandex Translate
 
 The API provides access to the Yandex online machine translation service. It supports more than 90 languages and can
 translate separate words or complete texts.
@@ -147,7 +147,7 @@ Copy the credentials to authenticate to your service instance:
 1.  Copy each of the `API Key` and `Endpoint` values.
 2.  Within the plug-in alter the file `cfg/configuration.properties` to hold your `API Key` and `URL`.
 
-### Automatic Translation using DeepL API
+### DeepL API
 
 The DeepL API is accessible with a [DeepL Pro subscription (DeepL API plan)](https://www.deepl.com/pro.html#developer)
 only. The API is an interface that allows other computer programs to send texts to the DeepL servers and receive
@@ -159,7 +159,8 @@ To sign-up to the service:
 
 1.  Open a [DeepL API](https://www.deepl.com/pro.html#developer) **developers** account. Note that not all accounts
     offer access to the DeepL API. It is **essential** that the account type includes REST API access.
-2.  Fill out the application details and add a credit card. Access is free for the first 30 days.
+2.  Fill out the application details and add a credit card. No payments are required for the first 30 days. You can
+    cancel the card and still maintain free access for the trial period.
 3.  Read the [documentation](https://www.deepl.com/docs-api.html), where you will find instructions on enabling the API
     and detailed descriptions of its features.
 
@@ -295,13 +296,13 @@ The translated `*.dita` files are generated into the `out` directory.
     to a previously translated text snippet in the cache file, the text will be copied over and the snippet marked as
     `approved`.
 -   `translate.service` - Decides which translation service to use:
-    -   `bing` - Connects to the Microsoft Azure Translation service
-    -   `custom` - Sends the translate to an arbitrary URL using POST - use this to connect to proxies for Google Cloud
-    -   `deepl` - Connects to the DeepL API Translation service
+    -   `bing` - Connects to the **Microsoft Azure** Translation service
+    -   `custom` - Sends the translate to an arbitrary URL using POST - use this to connect to proxies for
+        [Google Cloud Translate](https://cloud.google.com/translate/)
+    -   `deepl` - Connects to the **DeepL API** Translation service
     -   `dummy` - Avoids accessing a translation service, copies sources to target langauge directly without amendment.
-        [Translate](https://cloud.google.com/translate/)
-    -   `watson` - Connects to the IBM Cloud Translation service
-    -   `yandex` - Connects to the Yandex Translation service
+    -   `watson` - Connects to the **IBM Cloud** Translation service
+    -   `yandex` - Connects to the **Yandex** Translation service
 -   `translate.authentication.url` - URL for creating an OAuth token if needed for a service. Defaults to the value in
     `configuration.properties.
 -   `translate.apikey` - API Key for the Translation service. Defaults to the value in `configuration.properties`
