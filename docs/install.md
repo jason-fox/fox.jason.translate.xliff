@@ -96,8 +96,6 @@ Copy the credentials to authenticate to your service instance:
 1.  Copy each of the `API Key` and `Endpoint` values.
 2.  Within the plug-in alter the file `cfg/configuration.properties` to hold your `API Key` and `URL`.
 
----
-
 ### Yandex Translate
 
 <a href="https://tech.yandex.com/translate/"><img src="http://www.companieshistory.com/wp-content/uploads/2014/05/Yandex-NV.png" align="right" height="55" width="107"></a>
