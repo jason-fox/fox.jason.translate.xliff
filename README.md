@@ -36,6 +36,8 @@ that you upgrade to the latest version.
 
 ## Installing DITA-OT
 
+<a href="https://www.dita-ot.org"><img src="https://www.dita-ot.org/images/dita-ot-logo.svg" align="right" height="55"></a>
+
 The DITA-OT Translate Plug-in is a plug-in for the DITA Open Toolkit.
 
 -   Full installation instructions for downloading DITA-OT can be found
@@ -63,6 +65,8 @@ dita -install https://github.com/jason-fox/fox.jason.translate.xliff/archive/mas
 ```
 
 The `dita` command line tool requires no additional configuration.
+
+---
 
 ## Signing up for an Automatic Translation Service
 
