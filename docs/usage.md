@@ -8,7 +8,7 @@
 PATH-TO-DITA-OT/bin/dita -f xliff-create -i document.ditamap  -o out
 ```
 
-#### Result
+<h4>Result</h4>
 
 A `translate.xlf` file will appear in the `out` directory along with a series of skeleton files.
 
@@ -52,7 +52,7 @@ PATH-TO-DITA-OT/bin/dita -f xliff-translate \
     --translate.apikey=<api-key>
 ```
 
-#### Result
+<h4>Result</h4>
 
 The XLIFF File is auto-translated in place, with translated text as shown:
 
@@ -87,7 +87,7 @@ The XLIFF File is auto-translated in place, with translated text as shown:
 PATH-TO-DITA-OT/bin/dita -f xliff2dita -i translate.xlf -o out
 ```
 
-#### Result
+<h4>Result</h4>
 
 The translated `*.dita` files are generated into the `out` directory.
 
