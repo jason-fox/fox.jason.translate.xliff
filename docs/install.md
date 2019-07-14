@@ -67,7 +67,7 @@ Copy the credentials to authenticate to your service instance:
 
 ### Microsoft Azure
 
-<a href="https://docs.microsoft.com/en-us/azure/cognitive-services/translator/translator-info-overview"><img src="https://www.confluent.io/wp-content/uploads/MS-Azure_logo_stacked_c-gray_rgb.png" align="right" height="85"></a>
+<a href="https://docs.microsoft.com/en-us/azure/cognitive-services/translator/translator-info-overview"><img src="https://www.confluent.io/wp-content/uploads/MS-Azure_logo_stacked_c-gray_rgb.png" align="right" width="160" height="85"></a>
 
 
 Microsoft Translator provides multi-language support for translation, transliteration, language detection, and
