@@ -11,6 +11,21 @@
     exclude-result-prefixes="xs dita-ot"
     version="2.0">
 
+    <!--
+      A position-dependent checksum calculation (an XSLT implementation of Fletcher's checksum)
+
+      This function was created by Lars H (https://stackoverflow.com/users/423105/larsh) for Stack Exchange.
+      Material on Stack Exchange is available under the Creative Commons Attribution Share Alike license
+      see: http://stackexchange.com/legal
+
+      You are free to:
+
+        Share — copy and redistribute the material in any medium or format
+        Adapt — remix, transform, and build upon the material for any purpose, even commercially.
+
+      https://stackoverflow.com/a/6754722/1179828
+
+    -->
     <xsl:function name="foo:checksum" as="xs:int">
       <xsl:param name="str" as="xs:string"/>
       <xsl:variable name="codepoints" select="string-to-codepoints($str)"/>
