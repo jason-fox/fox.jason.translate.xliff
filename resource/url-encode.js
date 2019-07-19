@@ -4,7 +4,7 @@
  */
 
 //
-//	Converts a value to lower case
+//	Converts a value to URI Encoding
 //
 //	@param  string -   The value to convert
 //	@param  to -  The property to set

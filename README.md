@@ -58,9 +58,10 @@ rm dita-ot-3.3.zip
 
 ## Installing the Plug-in
 
--   Run the plug-in installation command:
+-   Run the plug-in installation commands:
 
 ```console
+dita --install https://github.com/doctales/org.doctales.xmltask/archive/master.zip
 dita -install https://github.com/jason-fox/fox.jason.translate.xliff/archive/master.zip
 ```
 
@@ -171,7 +172,7 @@ Copy the credentials to authenticate to your service instance:
 
 The DeepL API is accessible with a [DeepL Pro subscription (DeepL API plan)](https://www.deepl.com/pro.html#developer)
 only. The API is an interface that allows other computer programs to send texts to the DeepL servers and receive
-high-quality translations.  
+high-quality translations.
 
 Introduction: [Overview](https://www.deepl.com)
 
@@ -336,4 +337,4 @@ The translated `*.dita` files are generated into the `out` directory.
 
 The Program includes the following additional software components which were obtained under license:
 
--   xmltask.jar - http://www.oopsconsultancy.com/software/xmltask/ - **Apache 1.1 license**
+-   xmltask.jar - http://www.oopsconsultancy.com/software/xmltask/ - **Apache 1.1 license** (within `org.doctales.xmltask` plug-in)

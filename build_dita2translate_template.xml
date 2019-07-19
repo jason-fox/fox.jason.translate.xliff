@@ -25,7 +25,6 @@
 
 
 		<typedef file="${dita.plugin.fox.jason.translate.xliff.dir}/resource/antlib.xml"/>
-		<taskdef classname="com.oopsconsultancy.xmltask.ant.XmlTask" classpath="${dita.plugin.fox.jason.translate.xliff.dir}/lib/xmltask.jar" name="xmltask"/>
 
 		<property name="translate.customization.dir" value="${dita.plugin.fox.jason.translate.xliff.dir}/xsl"/>
 		<property name="translate.resource.dir" value="${dita.plugin.fox.jason.translate.xliff.dir}/resource"/>

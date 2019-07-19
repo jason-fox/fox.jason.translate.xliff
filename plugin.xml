@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="dita-ot/plugin.rnc" type="application/relax-ng-compact-syntax"?>
 <!--
 	This file is part of the DITA-OT Translate Plug-in project.
 	See the accompanying LICENSE file for applicable licenses.
@@ -31,6 +32,11 @@
     <param name="translate.from" type="string"/>
     <param name="translate.to" type="string"/>
   </transtype>
+
+  <!--
+    This plugin requires the XMLTask lib
+  -->
+  <require plugin="org.doctales.xmltask"/>
 
   <!-- Import the translate transform's ANT file -->
   <feature extension="ant.import" file="build_dita2translate.xml"/>
