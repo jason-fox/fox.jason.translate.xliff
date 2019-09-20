@@ -32,12 +32,12 @@ This plug-in consists of three DITA-OT transforms
        
 </details>
 
-# Install
+## Install
 
 The DITA-OT Translate Plug-in has been tested against [DITA-OT 3.x](http://www.dita-ot.org/download). It is recommended
 that you upgrade to the latest version.
 
-## Installing DITA-OT
+### Installing DITA-OT
 
 <a href="https://www.dita-ot.org"><img src="https://www.dita-ot.org/images/dita-ot-logo.svg" align="right" height="55"></a>
 
@@ -59,7 +59,7 @@ unzip -q dita-ot-3.3.4.zip
 rm dita-ot-3.3.4.zip
 ```
 
-## Installing the Plug-in
+### Installing the Plug-in
 
 -   Run the plug-in installation commands:
 
@@ -72,13 +72,13 @@ The `dita` command line tool requires no additional configuration.
 
 ---
 
-## Signing up for an Automatic Translation Service
+### Signing up for an Automatic Translation Service
 
 Several publically available **automatic translation** cloud services are available for use, they typically offer a
 _try-before-you-buy_ option and generally offer sample access to the service for without cost. Upgrading to a paid
 version will be necessary when transforming larger documents.
 
-### IBM Cloud Services
+#### IBM Cloud Services
 
 [<img src="https://www.nasuni.com/wp-content/uploads/2017/06/ibm-cloud.png" align="right" height="85">](https://cloud.ibm.com/docs/services/language-translator?topic=language-translator-gettingstarted)
 
@@ -104,7 +104,7 @@ Copy the credentials to authenticate to your service instance:
 
 ---
 
-### Microsoft Azure
+#### Microsoft Azure
 
 [<img src="https://www.confluent.io/wp-content/uploads/MS-Azure_logo_stacked_c-gray_rgb.png" align="right" height="85">](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/translator-info-overview)
 
@@ -137,7 +137,7 @@ Copy the credentials to authenticate to your service instance:
 
 ---
 
-### Yandex Translate
+#### Yandex Translate
 
 [<img src="http://www.companieshistory.com/wp-content/uploads/2014/05/Yandex-NV.png" align="right" height="55">](https://tech.yandex.com/translate/)
 
@@ -169,7 +169,7 @@ Copy the credentials to authenticate to your service instance:
 
 ---
 
-### DeepL API
+#### DeepL API
 
 [<img src="https://www.deepl.com/img/logo/DeepL_LogoAndText_darkBlue.svg" align="right" height="40">](https://www.deepl.com)
 
@@ -202,9 +202,9 @@ Copy the credentials to authenticate to your service instance:
 
 ---
 
-# Usage
+## Usage
 
-## Invocation from the command line
+### Invocation from the command line
 
 1.  to create an XLIFF File and associated skeletons with run:
 
@@ -334,7 +334,7 @@ The translated `*.dita` files are generated into the `out` directory.
 -   `translate.apikey` - API Key for the Translation service. Defaults to the value in `configuration.properties`
 -   `translate.url` - URL for a Translation service. Defaults to the value in `configuration.properties`
 
-# License
+## License
 
 [Apache 2.0](LICENSE) © 2019 Jason Fox
 
