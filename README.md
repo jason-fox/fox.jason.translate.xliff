@@ -15,7 +15,8 @@ This plug-in consists of three DITA-OT transforms
 -   The `xliff-translate` transform populates the `<target>` texts using an automatic translation service.
 -   The `xliff2dita` transform recreates the DITA project using the translated texts.
 
-# Table of Contents
+<details>
+<summary><strong>Table of Contents</strong></summary>
 
 -   [Install](#install)
     -   [Installing DITA-OT](#installing-dita-ot)
@@ -28,6 +29,8 @@ This plug-in consists of three DITA-OT transforms
 -   [Usage](#usage)
     -   [Invocation from the command line](#invocation-from-the-command-line)
         -   [Parameter Reference](#parameter-reference)
+       
+</details>
 
 # Install
 
