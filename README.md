@@ -51,9 +51,9 @@ The DITA-OT Translate Plug-in is a plug-in for the DITA Open Toolkit.
     This defines the necessary environment variable to run the `dita` command from the command line.
 
 ```console
-curl -LO https://github.com/dita-ot/dita-ot/releases/download/3.3/dita-ot-3.3.zip
-unzip -q dita-ot-3.3.zip
-rm dita-ot-3.3.zip
+curl -LO https://github.com/dita-ot/dita-ot/releases/download/3.3.4/dita-ot-3.3.4.zip
+unzip -q dita-ot-3.3.4.zip
+rm dita-ot-3.3.4.zip
 ```
 
 ## Installing the Plug-in
