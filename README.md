@@ -1,7 +1,7 @@
 # DITA-OT Translate Plug-in [<img src="https://jason-fox.github.io/fox.jason.translate.xliff/xliff.png" align="right" width="300">](https://xliffdita-ot.rtfd.io/)
 
 [![license](https://img.shields.io/github/license/jason-fox/fox.jason.translate.xliff.svg)](http://www.apache.org/licenses/LICENSE-2.0)
-[![DITA-OT 3.3](https://img.shields.io/badge/DITA--OT-3.3-blue.svg)](http://www.dita-ot.org/3.3/) <br/>
+[![DITA-OT 3.3](https://img.shields.io/badge/DITA--OT-3.3-blue.svg)](http://www.dita-ot.org/3.3/)
 [![Build Status](https://travis-ci.org/jason-fox/fox.jason.translate.xliff.svg?branch=master)](https://travis-ci.org/jason-fox/fox.jason.translate.xliff)
 [![Coverage Status](https://coveralls.io/repos/github/jason-fox/fox.jason.translate.xliff/badge.svg?branch=master)](https://coveralls.io/github/jason-fox/fox.jason.translate.xliff?branch=master)
 [![Documentation Status](https://readthedocs.org/projects/xliffdita-ot/badge/?version=latest)](https://xliffdita-ot.readthedocs.io/en/latest/?badge=latest)
