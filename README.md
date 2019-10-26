@@ -5,6 +5,7 @@
 [![Build Status](https://travis-ci.org/jason-fox/fox.jason.translate.xliff.svg?branch=master)](https://travis-ci.org/jason-fox/fox.jason.translate.xliff)
 [![Coverage Status](https://coveralls.io/repos/github/jason-fox/fox.jason.translate.xliff/badge.svg?branch=master)](https://coveralls.io/github/jason-fox/fox.jason.translate.xliff?branch=master)
 [![Documentation Status](https://readthedocs.org/projects/xliffdita-ot/badge/?version=latest)](https://xliffdita-ot.readthedocs.io/en/latest/?badge=latest)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=fox.jason.translate.xliff&metric=alert_status)](https://sonarcloud.io/dashboard?id=fox.jason.translate.xliff)
 
 DITA-OT Translate Plug-in is a [DITA-OT Plug-in](https://www.dita-ot.org/plugins) to create, auto-translate and re-merge XLIFF files, generating translated
 documentation in a targeted foreign language.
@@ -29,7 +30,7 @@ This plug-in consists of three DITA-OT transforms
 -   [Usage](#usage)
     -   [Invocation from the command line](#invocation-from-the-command-line)
         -   [Parameter Reference](#parameter-reference)
-       
+
 </details>
 
 ## Install
