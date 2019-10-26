@@ -17,7 +17,7 @@ var todir = attributes.get("todir");
 
 for (var i = 0; i < filesets.size(); ++i) {
   var fileset = filesets.get(i);
-  scanner = fileset.getDirectoryScanner(project);
+  var scanner = fileset.getDirectoryScanner(project);
   scanner.scan();
   var files = scanner.getIncludedFiles();
   for (var j = 0; j < files.length; j++) {
