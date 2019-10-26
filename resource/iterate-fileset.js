@@ -15,12 +15,12 @@ var macro = attributes.get("macro");
 var dir = attributes.get("dir");
 var todir = attributes.get("todir");
 
-for (i = 0; i < filesets.size(); ++i) {
-  fileset = filesets.get(i);
+for (var i = 0; i < filesets.size(); ++i) {
+  var fileset = filesets.get(i);
   scanner = fileset.getDirectoryScanner(project);
   scanner.scan();
-  files = scanner.getIncludedFiles();
-  for (j = 0; j < files.length; j++) {
+  var files = scanner.getIncludedFiles();
+  for (var j = 0; j < files.length; j++) {
     var task = project.createTask(macro);
     if (files[i] !== "") {
       try {

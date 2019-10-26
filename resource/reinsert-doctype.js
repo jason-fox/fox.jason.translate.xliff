@@ -3,6 +3,10 @@
  *  See the accompanying LICENSE file for applicable licenses.
  */
 
+ // Reinserts a doctype into a file
+ //
+ // @param file    - The DITA file to clean up
+
 var doctypes = {
   concept: 'PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd"',
   ditabase: 'PUBLIC "-//OASIS//DTD DITA Composite//EN" "ditabase.dtd"',
@@ -65,12 +69,12 @@ function addDoctype(dita) {
 }
 
 var file = attributes.get("file");
-var dita = org.apache.tools.ant.util.FileUtils.readFully(
+var input = org.apache.tools.ant.util.FileUtils.readFully(
   new java.io.FileReader(file)
 );
 
-var tidy = addDoctype(dita);
+var output = addDoctype(input);
 var task = project.createTask("echo");
 task.setFile(new java.io.File(file));
-task.setMessage(tidy);
+task.setMessage(output);
 task.perform();
