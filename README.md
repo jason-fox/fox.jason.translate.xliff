@@ -16,6 +16,11 @@ This plug-in consists of three DITA-OT transforms
 -   The `xliff-translate` transform populates the `<target>` texts using an automatic translation service.
 -   The `xliff2dita` transform recreates the DITA project using the translated texts.
 
+:arrow_forward: [Video from DITA-OT Day 2019](https://youtu.be/icbLaNGdV8c)
+
+[![](https://jason-fox.github.io/fox.jason.translate.xliff/cloud-video.png)](https://youtu.be/icbLaNGdV8c)
+
+
 <details>
 <summary><strong>Table of Contents</strong></summary>
 
