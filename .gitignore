@@ -7,6 +7,11 @@
 
 .scannerwork/
 
+target/
+classes/
+lib/ant-1.10.7.jar
+lib/ant-launcher-1.10.7.jar
+
 *~
 .fuse_hidden*
 .directory

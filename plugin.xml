@@ -5,6 +5,10 @@
 	See the accompanying LICENSE file for applicable licenses.
 -->
 <plugin id="fox.jason.translate.xliff" version="2.0.0">
+
+  <feature extension="dita.conductor.lib.import" file="lib/translate-1.0.jar"/>
+  <feature extension="dita.conductor.lib.import" file="lib/json-simple-1.1.1.jar"/>
+
   <transtype name="xliff-create" desc=" XML Localization Interchange File Format (XLIFF)">
     <param name="translate.from" type="string"/>
     <param name="translate.to" type="string"/>

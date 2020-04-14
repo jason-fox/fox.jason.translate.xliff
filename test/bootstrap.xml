@@ -30,4 +30,13 @@
 			<!--copy tofile="@{file}" file="${ordered-document}"/-->
 		</sequential>
 	</macrodef>
+
+	<target name="init.lib">
+		<taskdef resource="fox/jason/translate/antlib.xml">
+			<classpath>
+				<pathelement location="../../lib/translate-1.0.jar"/>
+				<pathelement location="../../lib/json-simple-1.1.1.jar"/>
+			</classpath>
+		</taskdef>
+	</target>
 </project>

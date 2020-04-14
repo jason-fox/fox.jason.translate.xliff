@@ -24,7 +24,7 @@
 		<dirname property="args.input.dir" file="${args.input}"/>
 
 
-		<typedef file="${dita.plugin.fox.jason.translate.xliff.dir}/resource/antlib.xml"/>
+		<taskdef resource="fox/jason/translate/antlib.xml"/>
 
 		<property name="translate.customization.dir" value="${dita.plugin.fox.jason.translate.xliff.dir}/xsl"/>
 		<property name="translate.resource.dir" value="${dita.plugin.fox.jason.translate.xliff.dir}/resource"/>
