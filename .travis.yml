@@ -34,7 +34,9 @@ script:
   - dita-ot-$DITA_OT/bin/dita --input dita-ot-$DITA_OT/plugins/fox.jason.translate.xliff -f unit-test --output . -v
 
 after_success:
+after_success:
+  - mvn clean compile
   - cp dita-ot-$DITA_OT/plugins/fox.jason.unit-test/resource/pom.xml pom.xml
-  - mvn clean org.eluder.coveralls:coveralls-maven-plugin:report
+  - mvn org.eluder.coveralls:coveralls-maven-plugin:report
   - rm -rf dita-ot-$DITA_OT
-  - sonar-scanner 
+  - sonar-scanner
