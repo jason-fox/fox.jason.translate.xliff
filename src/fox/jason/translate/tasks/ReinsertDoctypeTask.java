@@ -171,7 +171,7 @@ public class ReinsertDoctypeTask extends Task {
       String input = FileUtils.readFully(
         new java.io.FileReader(this.file)
       );
-      String output = addDoctype(input);;
+      String output = addDoctype(input);
       Echo task = (Echo) getProject().createTask("echo");
       task.setFile(new java.io.File(file));
       task.setMessage(output);

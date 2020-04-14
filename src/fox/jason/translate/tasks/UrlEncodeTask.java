@@ -52,7 +52,7 @@ public class UrlEncodeTask extends Task {
       try {
           return URLEncoder.encode(value, StandardCharsets.UTF_8.toString());
       } catch (UnsupportedEncodingException ex) {
-          throw new RuntimeException(ex.getCause());
+          throw new BuildException("Unable to encode URI", ex);
       }
   }
 
