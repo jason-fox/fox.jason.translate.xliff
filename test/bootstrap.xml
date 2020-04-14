@@ -34,9 +34,10 @@
 	<target name="init.lib">
 		<taskdef resource="fox/jason/translate/antlib.xml">
 			<classpath>
-				<pathelement location="../../lib/translate-1.0.jar"/>
-				<pathelement location="../../lib/json-simple-1.1.1.jar"/>
+				<pathelement location="${dita.dir}/plugins/fox.jason.translate.xliff/lib/translate-1.0.jar"/>
+				<pathelement location="${dita.dir}/plugins/fox.jason.translate.xliff/lib/json-simple-1.1.1.jar"/>
 			</classpath>
 		</taskdef>
 	</target>
+
 </project>
