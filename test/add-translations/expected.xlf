@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<xliff>
+  <file datatype="xml" original="/document.ditamap" source-language="en" target-language="de">
+    <header __NS1:xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:__NS1="http://www.w3.org/2000/xmlns/">
+      <skl>
+        <external-file href="./skl/document.ditamap.skl"></external-file>
+      </skl>
+    </header>
+    <body __NS1:xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:__NS1="http://www.w3.org/2000/xmlns/"></body>
+  </file>
+  <file datatype="xml" original="/topic.dita" source-language="en" target-language="de">
+    <header __NS1:xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:__NS1="http://www.w3.org/2000/xmlns/">
+      <skl>
+        <external-file href="./skl/topic.dita.skl"></external-file>
+      </skl>
+    </header>
+    <body __NS1:xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:__NS1="http://www.w3.org/2000/xmlns/">
+      <trans-unit __NS1:xmlns="" approved="yes" id="46167" xml:space="preserve" xmlns="">
+        <source xml:lang="en">Cicero</source>
+        <target xml:lang="de">Cicero</target>
+      </trans-unit>
+      <trans-unit __NS1:xmlns="" approved="yes" id="54947" xml:space="preserve" xmlns="">
+        <source xml:lang="en">Loves or pursues or desires to obtain pain of itself, because it is pain, but occasionally circumstances occur in which toil and pain can procure him some great pleasure.</source>
+        <target xml:lang="de">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.</target>
+      </trans-unit>
+      <trans-unit __NS1:xmlns="" approved="no" id="9962" xml:space="preserve" xmlns="">
+        <source xml:lang="en">To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it?</source>
+        <target xml:lang="de">To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it?</target>
+      </trans-unit>
+      <trans-unit __NS1:xmlns="" approved="no" id="19770" xml:space="preserve" xmlns="">
+        <source xml:lang="en">But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?</source>
+        <target xml:lang="de">But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
+
