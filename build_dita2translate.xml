@@ -140,6 +140,10 @@
 		<xslt taskname="xliff-merge" force="true" in="${translate.customization.dir}/${xliff.version}/xliff-merge.xsl" out="${output.dir}/translate.xlf" style="${translate.customization.dir}/${xliff.version}/xliff-merge.xsl">
 			<xmlcatalog refid="fake.dita.catalog"/>
 			<param expression="${dita.temp.dir}/xliff/" name="in"/>
+			<param expression="${dita.temp.dir}/md5" name="SOURCE"/>
+			<param expression="${dita.temp.dir}/skl" name="SKELETON"/>
+			<param expression="${translate.from}" name="SOURCE_LANG"/>
+			<param expression="${translate.to}" name="TARGET_LANG"/>
 		</xslt>
 
 		<approve-translations if:set="translate.cachefile" cache.file="${translate.cachefile}" xliff="${output.dir}/translate.xlf"/>

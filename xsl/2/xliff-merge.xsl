@@ -45,7 +45,7 @@
 		of all .xlf files found in directory specified by $path
 	-->
 	<xsl:template name="generate-xliff">
-		<xsl:element name="xliff" namespace="urn:oasis:names:tc:xliff:document:2.1">
+		<xsl:element name="xliff" namespace="urn:oasis:names:tc:xliff:document:2.0">
 			<xsl:attribute name="srcLang">
 				<xsl:value-of select="$SOURCE_LANG"/>
 			</xsl:attribute>
@@ -53,17 +53,20 @@
 				<xsl:value-of select="$TARGET_LANG"/>
 			</xsl:attribute>
 			<xsl:attribute name="version">
-				<xsl:value-of select="'2.1'"/>
+				<xsl:value-of select="'2.0'"/>
 			</xsl:attribute>
 			<!-- xsl:copy-of copies all namespaces -->
 			<xsl:copy-of select="$namespaces"/>
 			<!-- xsl:copy-of select="@*" is the standard way of copying all attributes. -->
 			<xsl:copy-of select="@*"/>
 			<xsl:for-each select="collection($path)">
-				<!-- xsl:copy-of copies nodes and all their descendants -->
-				<xsl:apply-templates select="document(document-uri(.))/node()" mode="xliff">
-					<xsl:with-param name="idCount" select="position()"/>
-				</xsl:apply-templates>
+				<!-- provided that at least one unit exists -->
+				<xsl:if test="count(document(document-uri(.))/node()//unit) &gt; 0">
+					<!-- xsl:copy-of copies nodes and all their descendants -->
+					<xsl:apply-templates select="document(document-uri(.))/node()" mode="xliff">
+						<xsl:with-param name="idCount" select="position()"/>
+					</xsl:apply-templates>
+				</xsl:if>
 			</xsl:for-each>
 		</xsl:element>
 	</xsl:template>
@@ -79,7 +82,7 @@
 	<xsl:template match="*" mode="xliff">
 		<xsl:param name="idCount" />
 		<xsl:for-each select="*">
-			<xsl:element name="file">
+			<xsl:element name="file" namespace="urn:oasis:names:tc:xliff:document:2.0">
 				<xsl:attribute name="id" select="$idCount"/>
 				<xsl:for-each select="@*">
 					<xsl:variable name="name" select="name()"/>

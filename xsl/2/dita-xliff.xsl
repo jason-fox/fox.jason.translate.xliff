@@ -22,7 +22,7 @@
 
 
 	<xsl:template match="/">
-		<xliff version="2.1" xmlns="urn:oasis:names:tc:xliff:document:2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dita="http://www.dita-ot.org" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:2.1 xliff-core-2.1.xsd">
+		<xliff version="2.1" xmlns="urn:oasis:names:tc:xliff:document:2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dita="http://www.dita-ot.org" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:2.1 xliff-core-2.1.xsd">
 			<file>	
 				<xsl:attribute name="original">
 					<xsl:value-of select="substring($document-uri, 1, string-length($document-uri) - 4)"/>
@@ -40,22 +40,33 @@
 
 	 <xsl:template match="*[@md5]">
 		<unit>
-			<xsl:attribute name="approved">
-				<xsl:value-of select="if (@translate='no') then 'yes' else 'no'"/>
-			</xsl:attribute>
 			<xsl:attribute name="id">
 				<xsl:value-of select="@md5"/>
 			</xsl:attribute>
-			<xsl:attribute name="xml:space">
-				<xsl:text>preserve</xsl:text>
-			</xsl:attribute>
-			<xsl:if test="@translate='no'">
-				<xsl:attribute name="translate">
-					<xsl:text>no</xsl:text>
-				</xsl:attribute>
-	 		</xsl:if>
+
+			<xsl:if test="count(*/*) &gt; 0">
+				<originalData>
+					<xsl:apply-templates mode="original-data" select="*/*" />
+				</originalData>
+			</xsl:if>
+
+
+
 	 		<segment>
+				<xsl:attribute name="state">
+					<xsl:choose>
+						<xsl:when test="@translate='no'">
+							<xsl:text>final</xsl:text>
+			 			</xsl:when>
+			 			<xsl:otherwise>
+							<xsl:text>initial</xsl:text>
+			 			</xsl:otherwise>
+		 			</xsl:choose>
+				</xsl:attribute>
 				<source>
+					<xsl:attribute name="xml:space">
+						<xsl:text>preserve</xsl:text>
+					</xsl:attribute>
 					<xsl:attribute name="xml:lang">
 						<xsl:value-of select="$SOURCE_LANG"/>
 					</xsl:attribute>
@@ -77,61 +88,42 @@
 	 </xsl:template>
 
 	 <xsl:template name="add-attributes">
-
-		<xsl:attribute name="id">
+	 	<xsl:attribute name="id">
 			<xsl:value-of select="generate-id()"/> 
 		</xsl:attribute>
-		<xsl:attribute name="ctype">
-			<xsl:text>x-dita-</xsl:text><xsl:value-of select="local-name()"/>
+
+		<xsl:attribute name="dataRefStart">
+			<xsl:value-of select="concat('s',generate-id())"/> 
 		</xsl:attribute>
-		
-		<xsl:for-each select="@*">
-			<xsl:choose>
-				<xsl:when test="name()='translate'">
-					<xsl:attribute name="translate">
-						<xsl:value-of select="."/>
-					</xsl:attribute>
-				</xsl:when>
-				<xsl:when test="namespace-uri()=''">
-					<xsl:variable name="name" select="concat('dita:', name())"/>
-					<xsl:attribute name="{$name}">
-						<xsl:value-of select="."/>
-					</xsl:attribute>
-				</xsl:when>
-				<xsl:otherwise>
-					<xsl:variable name="name" select="name()"/>
-					<xsl:attribute name="{$name}">
-						<xsl:value-of select="."/>
-					</xsl:attribute>
-				</xsl:otherwise>
-			</xsl:choose>
-		</xsl:for-each>
-		<xsl:if test="not(@translate)">
-			<xsl:apply-templates mode="no-translate" select="."/>
-		</xsl:if>
+		<xsl:attribute name="dataRefEnd">
+			<xsl:value-of select="concat('e',generate-id())"/> 
+		</xsl:attribute>		
 	 </xsl:template>
 
 	<xsl:template match="*" mode="trans-source">
-		<xsl:choose>
-			<xsl:when test="*">
-				<xsl:element name="g" >
-					<xsl:call-template name="add-attributes"/>
+		<xsl:element name="pc" >
+			<xsl:call-template name="add-attributes"/>
+
+			<xsl:choose>
+				<xsl:when test="not(@translate)">
+					<mrk translate="no" type="term">
+						<xsl:attribute name="id">
+							<xsl:value-of select="concat('m',generate-id())"/> 
+						</xsl:attribute>
+						<xsl:apply-templates select="node()" mode="trans-source" />
+					</mrk>
+				</xsl:when>
+				<xsl:otherwise>
 					<xsl:apply-templates select="node()" mode="trans-source" />
-				</xsl:element>
-			</xsl:when>
-			<xsl:otherwise>
-				<xsl:element name="x" >
-					<xsl:call-template name="add-attributes"/>
-					<xsl:apply-templates select="node()" mode="trans-source" />
-				</xsl:element>
-			</xsl:otherwise>
-		</xsl:choose>
+				</xsl:otherwise>
+			</xsl:choose>
+		</xsl:element>
+			
 	</xsl:template>
 
 	<xsl:template match="text()" mode="trans-source">
 		<xsl:variable name="text" select="."/>
 		<xsl:if test="starts-with($text, ' ')">
-		<xsl:message><xsl:value-of select="$text"/></xsl:message>
 			<xsl:text> </xsl:text>
 		</xsl:if>
 		<xsl:value-of select="normalize-space($text)"/>
@@ -146,5 +138,30 @@
 		</xsl:attribute>
 	</xsl:template>
 
-</xsl:stylesheet>
 
+
+	<xsl:template match="*" mode="original-data">
+		<data>
+			<xsl:attribute name="id">
+				<xsl:value-of select="concat('s',generate-id())"/> 
+			</xsl:attribute>
+			<xsl:value-of select="concat('&lt;',name())"/>
+			<xsl:for-each select="@*">
+				<xsl:value-of select="concat(' ', concat(name(), '=&quot;'))"/>
+				<xsl:value-of select="concat(.,'&quot;')"/>
+			</xsl:for-each>
+			<xsl:text>></xsl:text>
+		</data>
+
+		<data>
+			<xsl:attribute name="id">
+				<xsl:value-of select="concat('e',generate-id())"/> 
+			</xsl:attribute>
+			<xsl:value-of select="concat(concat('&lt;/',name()), '>')"/>
+		</data>
+   		<xsl:apply-templates mode="original-data"/>
+	</xsl:template>
+
+	<xsl:template match="text()" mode="original-data"/>
+
+</xsl:stylesheet>
