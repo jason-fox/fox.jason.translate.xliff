@@ -11,7 +11,7 @@
 	<target name="unit-test">
 		<delete dir="${basedir}/out" failonerror="false"/>
 		<delete dir="${basedir}/temp" failonerror="false"/>
-		<exec-transtype transtype="xliff2dita" ditamap="translate.xlf" />
+		<exec-transtype transtype="xliff-dita" ditamap="translate.xlf" />
 		<compare-output expectation="${basedir}/expected.dita" result="${basedir}/out/topic.dita"/>
 	</target>
 </project>

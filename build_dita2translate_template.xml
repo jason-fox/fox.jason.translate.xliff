@@ -128,7 +128,7 @@
 			Generate a series of XLIFF files iterating each unique
 			md5 id 
 		-->
-		<xslt taskname="xliff-gen" destdir="${dita.temp.dir}/xliff"  extension=".xlf" style="${translate.customization.dir}/dita2xliff.xsl"  
+		<xslt taskname="xliff-gen" destdir="${dita.temp.dir}/xliff"  extension=".xlf" style="${translate.customization.dir}/${xliff.version}/dita-xliff.xsl"  
 			basedir="${dita.temp.dir}/md5">
 			<xmlcatalog refid="fake.dita.catalog"/>
 			<param expression="${dita.temp.dir}/md5" name="SOURCE" />
@@ -143,7 +143,7 @@
 		</xslt>
 
 		<!-- Merge the XLIFF files into one larger file -->
-		<xslt taskname="xliff-merge" force="true" in="${translate.customization.dir}/xliff-merge.xsl" out="${output.dir}/translate.xlf" style="${translate.customization.dir}/xliff-merge.xsl">
+		<xslt taskname="xliff-merge" force="true" in="${translate.customization.dir}/${xliff.version}/xliff-merge.xsl" out="${output.dir}/translate.xlf" style="${translate.customization.dir}/${xliff.version}/xliff-merge.xsl">
 			<xmlcatalog refid="fake.dita.catalog"/>
 			<param expression="${dita.temp.dir}/xliff/" name="in"/>
 		</xslt>
@@ -159,7 +159,7 @@
 		Take an untranslated XLIFF File and request translations
 		of the source into the specified target langauge.
 	-->
-	<target name="trans-source">
+	<target name="xliff-translate">
 		<!-- Extract each source language element to a file -->
 		<xmltask taskname="xliff-read"  source="${args.input}">
 			<call path="//trans-unit[not(@approved='yes') and not(@translate='no')]">
@@ -201,7 +201,7 @@
 	</target>
 
 
-	<target name="trans-target">
+	<target name="xliff-dita">
 		<!-- Extract each target language element to a file -->
 		<xmltask taskname="xliff-read" source="${args.input}">
 			<call path="//trans-unit">
@@ -223,7 +223,7 @@
 			within the tag and transform it back into DITA format
 		-->
 		<xslt taskname="target-xsl" destdir="${dita.temp.dir}/stage2"  extension=".xml" 
-			style="${translate.customization.dir}/trans-unit.xsl"  
+			style="${translate.customization.dir}/${xliff.version}/trans-unit.xsl"  
 			basedir="${dita.temp.dir}/stage1">
 		</xslt>
 
@@ -271,13 +271,13 @@
 			build-init,
 			translate.init,
 			{depend.preprocess.post},
-			trans-source"/>
+			xliff-translate"/>
 	<target dita:extension="depends org.dita.dost.platform.InsertDependsAction"
-		name="dita2xliff2dita"
+		name="dita2xliff-dita"
 		description="Supply translated text into DITA skeleton files using an XLIFF File" 
 		dita:depends="{depend.preprocess.pre},
 			build-init,
 			trans-unit.init,
 			{depend.preprocess.post},
-			trans-target"/>
+			xliff-dita"/>
 </project>

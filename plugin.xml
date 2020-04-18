@@ -4,7 +4,7 @@
 	This file is part of the DITA-OT Translate Plug-in project.
 	See the accompanying LICENSE file for applicable licenses.
 -->
-<plugin id="fox.jason.translate.xliff" version="2.1.0">
+<plugin id="fox.jason.translate.xliff" version="3.0.0">
 
   <feature extension="dita.conductor.lib.import" file="lib/translate-1.0.jar"/>
   <feature extension="dita.conductor.lib.import" file="lib/json-simple-1.1.1.jar"/>
@@ -13,7 +13,12 @@
     <param name="translate.from" type="string"/>
     <param name="translate.to" type="string"/>
     <param name="translate.cachefile" type="file"/>
+    <param name="xliff.version" type="enum">
+      <val>1</val>
+      <val default="true" >2</val>
+    </param>
   </transtype>
+
 
   <transtype name="xliff-translate" desc="Auto-translate an XLIFF File using an online service">
   	<param name="translate.service" desc="Specifies the auto-translate service." type="enum">
@@ -30,12 +35,22 @@
     <param name="translate.url" type="string"/>
     <param name="translate.from" type="string"/>
     <param name="translate.to" type="string"/>
+    <param name="xliff.version" type="enum">
+      <val>1</val>
+      <val default="true" >2</val>
+    </param>
   </transtype>
 
-  <transtype name="xliff2dita" desc="Supply translated text into DITA skeleton files using an XLIFF File">
+
+  <transtype name="xliff-dita" desc="Supply translated text into DITA skeleton files using an XLIFF File">
     <param name="translate.from" type="string"/>
     <param name="translate.to" type="string"/>
+    <param name="xliff.version" type="enum">
+      <val>1</val>
+      <val default="true" >2</val>
+    </param>
   </transtype>
+
 
   <!--
     This plugin requires the XMLTask lib

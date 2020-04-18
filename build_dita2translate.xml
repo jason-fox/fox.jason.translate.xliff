@@ -123,7 +123,7 @@
 			Generate a series of XLIFF files iterating each unique
 			md5 id 
 		-->
-		<xslt taskname="xliff-gen" destdir="${dita.temp.dir}/xliff" extension=".xlf" style="${translate.customization.dir}/dita2xliff.xsl" basedir="${dita.temp.dir}/md5">
+		<xslt taskname="xliff-gen" destdir="${dita.temp.dir}/xliff" extension=".xlf" style="${translate.customization.dir}/${xliff.version}/dita-xliff.xsl" basedir="${dita.temp.dir}/md5">
 			<xmlcatalog refid="fake.dita.catalog"/>
 			<param expression="${dita.temp.dir}/md5" name="SOURCE"/>
 			<param expression="${dita.temp.dir}/skl" name="SKELETON"/>
@@ -137,7 +137,7 @@
 		</xslt>
 
 		<!-- Merge the XLIFF files into one larger file -->
-		<xslt taskname="xliff-merge" force="true" in="${translate.customization.dir}/xliff-merge.xsl" out="${output.dir}/translate.xlf" style="${translate.customization.dir}/xliff-merge.xsl">
+		<xslt taskname="xliff-merge" force="true" in="${translate.customization.dir}/${xliff.version}/xliff-merge.xsl" out="${output.dir}/translate.xlf" style="${translate.customization.dir}/${xliff.version}/xliff-merge.xsl">
 			<xmlcatalog refid="fake.dita.catalog"/>
 			<param expression="${dita.temp.dir}/xliff/" name="in"/>
 		</xslt>
@@ -153,7 +153,7 @@
 		Take an untranslated XLIFF File and request translations
 		of the source into the specified target langauge.
 	-->
-	<target name="trans-source">
+	<target name="xliff-translate">
 		<!-- Extract each source language element to a file -->
 		<xmltask taskname="xliff-read" source="${args.input}">
 			<call path="//trans-unit[not(@approved='yes') and not(@translate='no')]">
@@ -192,7 +192,7 @@
 	</target>
 
 
-	<target name="trans-target">
+	<target name="xliff-dita">
 		<!-- Extract each target language element to a file -->
 		<xmltask taskname="xliff-read" source="${args.input}">
 			<call path="//trans-unit">
@@ -213,7 +213,7 @@
 			For each <target> language element in the XLIFF file, extract only the data
 			within the tag and transform it back into DITA format
 		-->
-		<xslt taskname="target-xsl" destdir="${dita.temp.dir}/stage2" extension=".xml" style="${translate.customization.dir}/trans-unit.xsl" basedir="${dita.temp.dir}/stage1">
+		<xslt taskname="target-xsl" destdir="${dita.temp.dir}/stage2" extension=".xml" style="${translate.customization.dir}/${xliff.version}/trans-unit.xsl" basedir="${dita.temp.dir}/stage1">
 		</xslt>
 
 		<!-- Copy over images and other untranslated sources -->
@@ -245,7 +245,7 @@
 
 
 
-	<target name="dita2xliff-create" description="XML Localization Interchange File Format (XLIFF)" depends="cats.splash,build-init,xliff.init,passthrough,prismjs,xliff-create"/>
-	<target name="dita2xliff-translate" description="Auto-translate an XLIFF File using an online service" depends="cats.splash,build-init,translate.init,passthrough,prismjs,trans-source"/>
-	<target name="dita2xliff2dita" description="Supply translated text into DITA skeleton files using an XLIFF File" depends="cats.splash,build-init,trans-unit.init,passthrough,prismjs,trans-target"/>
+	<target name="dita2xliff-create" description="XML Localization Interchange File Format (XLIFF)" depends="prismjs.init,cats.splash,build-init,xliff.init,passthrough,prismjs,xliff-create"/>
+	<target name="dita2xliff-translate" description="Auto-translate an XLIFF File using an online service" depends="prismjs.init,cats.splash,build-init,translate.init,passthrough,prismjs,xliff-translate"/>
+	<target name="dita2xliff-dita" description="Supply translated text into DITA skeleton files using an XLIFF File" depends="prismjs.init,cats.splash,build-init,trans-unit.init,passthrough,prismjs,xliff-dita"/>
 </project>

@@ -11,7 +11,8 @@
 	
 
 	<xsl:output method="xml" indent="yes" encoding="UTF-8"/>
-	<xsl:include href="../Customization/xsl/no-translate-elements.xsl"/>
+	<xsl:preserve-space elements="*" />
+	<xsl:include href="../../Customization/xsl/no-translate-elements.xsl"/>
 
 
 	<xsl:variable name="SOURCEPATH" select="replace($SOURCE, '\\', '/')"/>
@@ -21,35 +22,24 @@
 
 
 	<xsl:template match="/">
-		<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dita="http://www.dita-ot.org" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2.xsd">
-			<file datatype="xml" >
-				<xsl:attribute name="source-language">
-					<xsl:value-of select="$SOURCE_LANG"/>
-				</xsl:attribute>
-				<xsl:attribute name="target-language">
-					<xsl:value-of select="$TARGET_LANG"/>
-				</xsl:attribute>
+		<xliff version="2.1" xmlns="urn:oasis:names:tc:xliff:document:2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dita="http://www.dita-ot.org" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:2.1 xliff-core-2.1.xsd">
+			<file>	
 				<xsl:attribute name="original">
 					<xsl:value-of select="substring($document-uri, 1, string-length($document-uri) - 4)"/>
 				</xsl:attribute>
-				<header>
-					 <skl>
-						<external-file>
-							<xsl:attribute name="href">
-								<xsl:value-of select="concat('./skl', concat(substring($document-uri, 1, string-length($document-uri) - 4), '.skl'))"/>
-							</xsl:attribute>
-						</external-file>
-					 </skl>
-				</header>
-				<body>
-					<xsl:apply-templates select="//*[@md5]"/>
-				</body>
-				</file>
-			</xliff>
-		</xsl:template>
+
+				<skeleton>
+					<xsl:attribute name="href">
+						<xsl:value-of select="concat('./skl', concat(substring($document-uri, 1, string-length($document-uri) - 4), '.skl'))"/>
+					</xsl:attribute>
+				</skeleton>
+				<xsl:apply-templates select="//*[@md5]"/>
+			</file>
+		</xliff>
+	</xsl:template>
 
 	 <xsl:template match="*[@md5]">
-		<trans-unit>
+		<unit>
 			<xsl:attribute name="approved">
 				<xsl:value-of select="if (@translate='no') then 'yes' else 'no'"/>
 			</xsl:attribute>
@@ -64,23 +54,25 @@
 					<xsl:text>no</xsl:text>
 				</xsl:attribute>
 	 		</xsl:if>
-			<source>
-				<xsl:attribute name="xml:lang">
-					<xsl:value-of select="$SOURCE_LANG"/>
-				</xsl:attribute>
-				<xsl:for-each select="*">
-					<xsl:apply-templates mode="trans-source"/>
-				</xsl:for-each>
-			</source>
-			<target>
-				<xsl:attribute name="xml:lang">
-					<xsl:value-of select="$TARGET_LANG"/>
-				</xsl:attribute>
-				<xsl:if test="@translate='no'">
-					<xsl:apply-templates mode="trans-source"/>
-				</xsl:if>
-			</target>
-		</trans-unit>
+	 		<segment>
+				<source>
+					<xsl:attribute name="xml:lang">
+						<xsl:value-of select="$SOURCE_LANG"/>
+					</xsl:attribute>
+					<xsl:for-each select="*">
+						<xsl:apply-templates mode="trans-source"/>
+					</xsl:for-each>
+				</source>
+				<target>
+					<xsl:attribute name="xml:lang">
+						<xsl:value-of select="$TARGET_LANG"/>
+					</xsl:attribute>
+					<xsl:if test="@translate='no'">
+						<xsl:apply-templates mode="trans-source"/>
+					</xsl:if>
+				</target>
+			</segment>
+		</unit>
 		
 	 </xsl:template>
 
@@ -137,7 +129,15 @@
 	</xsl:template>
 
 	<xsl:template match="text()" mode="trans-source">
-		<xsl:value-of select="normalize-space(.)"/><xsl:text> </xsl:text>
+		<xsl:variable name="text" select="."/>
+		<xsl:if test="starts-with($text, ' ')">
+		<xsl:message><xsl:value-of select="$text"/></xsl:message>
+			<xsl:text> </xsl:text>
+		</xsl:if>
+		<xsl:value-of select="normalize-space($text)"/>
+		<xsl:if test="ends-with($text, ' ')">
+			<xsl:text> </xsl:text>
+		</xsl:if>
 	</xsl:template>
 
 	<xsl:template name="add-no-translate-attr">

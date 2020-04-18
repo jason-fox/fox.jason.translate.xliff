@@ -14,7 +14,7 @@ This plug-in consists of three DITA-OT transforms
 
 -   The `xliff-create` transform creates XLIFF and skeleton files from the `*.dita` files.
 -   The `xliff-translate` transform populates the `<target>` texts using an automatic translation service.
--   The `xliff2dita` transform recreates the DITA project using the translated texts.
+-   The `xliff-dita` transform recreates the DITA project using the translated texts.
 
 :arrow_forward: [Video from DITA-OT Day 2019](https://youtu.be/icbLaNGdV8c)
 
@@ -308,7 +308,7 @@ The XLIFF File is auto-translated in place, with translated text as shown:
 3.  recreate `*.dita` files using an XLIFF File and its associated skeletons with run:
 
 ```console
-PATH-TO-DITA-OT/bin/dita -f xliff2dita -i translate.xlf -o out
+PATH-TO-DITA-OT/bin/dita -f xliff-dita -i translate.xlf -o out
 ```
 
 #### Result
@@ -339,7 +339,9 @@ The translated `*.dita` files are generated into the `out` directory.
     `configuration.properties.
 -   `translate.apikey` - API Key for the Translation service. Defaults to the value in `configuration.properties`
 -   `translate.url` - URL for a Translation service. Defaults to the value in `configuration.properties`
-
+-   `xliff.version` - Decides which XLIFF format to use. Defaults to the value in `configuration.properties`:
+    -   `1` - XLIFF 1.2 format
+    -   `2` - XLIFF 2.1 format
 ## License
 
 [Apache 2.0](LICENSE) © 2019-2020 Jason Fox
