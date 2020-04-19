@@ -3,7 +3,11 @@
 	This file is part of the DITA-OT Translate Plug-in project.
 	See the accompanying LICENSE file for applicable licenses.
 -->
-<xsl:stylesheet  version="2.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:dita="dita-ot.org">
+<xsl:stylesheet exclude-result-prefixes="xs xsi" version="2.0" 
+	xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ 	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+ 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 	<xsl:param as="xs:string" name="SOURCE" select="''"/>
 	<xsl:param as="xs:string" name="SOURCE_LANG" select="'en'"/>
@@ -13,6 +17,7 @@
 	<xsl:output method="xml" indent="yes" encoding="UTF-8"/>
 	<xsl:preserve-space elements="*" />
 	<xsl:include href="../../Customization/xsl/no-translate-elements.xsl"/>
+	<xsl:include href="../../Customization/xsl/add-format-style.xsl"/>
 
 
 	<xsl:variable name="SOURCEPATH" select="replace($SOURCE, '\\', '/')"/>
@@ -22,8 +27,8 @@
 
 
 	<xsl:template match="/">
-		<xliff version="2.1" xmlns="urn:oasis:names:tc:xliff:document:2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dita="http://www.dita-ot.org" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:2.1 xliff-core-2.1.xsd">
-			<file>	
+		<xliff version="2.1" xmlns="urn:oasis:names:tc:xliff:document:2.0">
+			<file xmlns="urn:oasis:names:tc:xliff:document:2.0">
 				<xsl:attribute name="original">
 					<xsl:value-of select="substring($document-uri, 1, string-length($document-uri) - 4)"/>
 				</xsl:attribute>
@@ -40,10 +45,13 @@
 
 	 <xsl:template match="*[@md5]">
 		<unit>
+			<xsl:namespace name="fs" select="'urn:oasis:names:tc:xliff:fs:2.0'"/>
 			<xsl:attribute name="id">
 				<xsl:value-of select="@md5"/>
 			</xsl:attribute>
 
+			<xsl:apply-templates mode="add-format-style"/>
+	
 			<xsl:if test="count(*/*) &gt; 0">
 				<originalData>
 					<xsl:apply-templates mode="original-data" select="*/*" />
@@ -103,6 +111,8 @@
 	<xsl:template match="*" mode="trans-source">
 		<xsl:element name="pc" >
 			<xsl:call-template name="add-attributes"/>
+
+			<xsl:apply-templates select="." mode="add-format-style"/>
 
 			<xsl:choose>
 				<xsl:when test="not(@translate)">

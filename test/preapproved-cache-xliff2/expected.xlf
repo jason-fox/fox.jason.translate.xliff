@@ -3,26 +3,25 @@
 <xliff __NS1:xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en" trgLang="de" version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" xmlns:__NS1="http://www.w3.org/2000/xmlns/">
   <file id="2" original="/topic.dita">
     <skeleton href="./skl/topic.dita.skl"></skeleton>
-    <unit __NS1:xmlns="" id="46167" xmlns="">
-      <segment state="final">
+    <unit __NS1:xmlns="" fs:fs="title" id="46167" xmlns="" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
+      <segment state="initial">
         <source xml:lang="en" xml:space="preserve">Cicero</source>
-        <target xml:lang="de">Cicero</target>
+        <target xml:lang="de"></target>
       </segment>
     </unit>
-    <unit __NS1:xmlns="" id="54947" xmlns="">
-      <segment state="final">
+    <unit __NS1:xmlns="" fs:fs="p" id="54947" xmlns="" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
+      <segment state="initial">
         <source xml:lang="en" xml:space="preserve">Loves or pursues or desires to obtain pain of itself, because it is pain, but occasionally circumstances occur in which toil and pain can procure him some great pleasure.</source>
-        <target xml:lang="de">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.</target>
+        <target xml:lang="de"></target>
       </segment>
     </unit>
-    <unit __NS1:xmlns="" id="9962" xmlns="">
+    <unit __NS1:xmlns="" fs:fs="p" id="9962" xmlns="" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
       <segment state="initial">
         <source xml:lang="en" xml:space="preserve">To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it?</source>
         <target xml:lang="de"></target>
       </segment>
     </unit>
-    <unit __NS1:xmlns="" id="19770" xmlns="">
+    <unit __NS1:xmlns="" fs:fs="p" id="19770" xmlns="" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
       <segment state="initial">
         <source xml:lang="en" xml:space="preserve">But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?</source>
         <target xml:lang="de"></target>
