@@ -147,6 +147,7 @@
 			<param expression="${translate.to}" name="TARGET_LANG"/>
 		</xslt>
 
+		<replace file="${output.dir}/translate.xlf" token="xmlns=&#34;&#34;" value=""/>
 		<approve-translations if:set="translate.cachefile" cache.file="${translate.cachefile}" xliff="${output.dir}/translate.xlf"/>
 		
 	</target>
@@ -159,41 +160,7 @@
 		of the source into the specified target langauge.
 	-->
 	<target name="xliff-translate">
-		<!-- Extract each source language element to a file -->
-		<xmltask taskname="xliff-read" source="${args.input}">
-			<call path="//trans-unit[not(@approved='yes') and not(@translate='no')]">
-				<param default="" name="id" path="@id"/>
-				<actions>
-					<xmltask taskname="source-get" source="${args.input}">
-						<copy path="//trans-unit[@id=@{id}]/source" buffer="buffer"/>
-					</xmltask>
-					<xmltask sourcebuffer="buffer" dest="${dita.temp.dir}/stage1/@{id}.xml"/>
-				</actions>
-			</call>
-		</xmltask>
-		<!-- Remove the source tag to leave only the data within the source element -->
-		<xslt taskname="source-xsl" destdir="${dita.temp.dir}/stage2" extension=".xml" style="${translate.customization.dir}/strip-source.xsl" basedir="${dita.temp.dir}/stage1">
-		</xslt>
-
-		<!-- now do the translation processing -->
-		<fileset id="source.texts" dir="${dita.temp.dir}/stage2" casesensitive="yes">
-			<include name="**/*.xml"/>
-		</fileset>
-		<translate-sources src="source.texts" dir="${dita.temp.dir}/stage2" todir="${dita.temp.dir}/stage3"/>
-
-		<!-- Take the processed text and replace the target element -->
-		<xmltask taskname="xliff-read" source="${args.input}">
-			<call path="//trans-unit[not(@approved='yes')]">
-				<param default="" name="id" path="@id"/>
-				<actions>
-					<xmltask taskname="target-put" source="${args.input}" dest="${args.input}">
-						<remove path="//trans-unit[@id=@{id}]/target/text()"/>
-						<remove path="//trans-unit[@id=@{id}]/target/*"/>
-						<insert path="//trans-unit[@id=@{id}]/target" file="${dita.temp.dir}/stage3/@{id}.xml"/>
-					</xmltask>
-				</actions>
-			</call>
-		</xmltask>
+		<get-translations xliff="${args.input}"/>
 	</target>
 
 

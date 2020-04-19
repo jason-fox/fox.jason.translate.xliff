@@ -3,13 +3,13 @@
 <xliff __NS1:xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en" trgLang="de" version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" xmlns:__NS1="http://www.w3.org/2000/xmlns/">
   <file id="2" original="/topic.dita">
     <skeleton href="./skl/topic.dita.skl"></skeleton>
-    <unit __NS1:xmlns="" fs:fs="title" id="59931" xmlns="" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
+    <unit fs:fs="title" id="59931" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
       <segment state="initial">
         <source xml:lang="en" xml:space="preserve">Basic usage</source>
         <target xml:lang="de"></target>
       </segment>
     </unit>
-    <unit __NS1:xmlns="" fs:fs="p" id="15534" xmlns="" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
+    <unit fs:fs="p" id="15534" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
       <originalData>
         <data id="sd4e11">&lt;codeph&gt;</data>
         <data id="ed4e11">&lt;/codeph&gt;</data>
@@ -27,7 +27,7 @@
         <target xml:lang="de"></target>
       </segment>
     </unit>
-    <unit __NS1:xmlns="" fs:fs="p" id="57886" xmlns="" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
+    <unit fs:fs="p" id="57886" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
       <originalData>
         <data id="sd4e21">&lt;codeph&gt;</data>
         <data id="ed4e21">&lt;/codeph&gt;</data>
@@ -60,7 +60,7 @@
         <target xml:lang="de"></target>
       </segment>
     </unit>
-    <unit __NS1:xmlns="" fs:fs="p" id="50700" xmlns="" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
+    <unit fs:fs="p" id="50700" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
       <originalData>
         <data id="sd4e36">&lt;codeph&gt;</data>
         <data id="ed4e36">&lt;/codeph&gt;</data>
@@ -93,7 +93,7 @@
         <target xml:lang="de"></target>
       </segment>
     </unit>
-    <unit __NS1:xmlns="" fs:fs="p" id="46850" xmlns="" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
+    <unit fs:fs="p" id="46850" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
       <originalData>
         <data id="sd4e50">&lt;codeph&gt;</data>
         <data id="ed4e50">&lt;/codeph&gt;</data>
@@ -111,7 +111,7 @@
         <target xml:lang="de"></target>
       </segment>
     </unit>
-    <unit __NS1:xmlns="" fs:fs="p" id="25020" xmlns="" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
+    <unit fs:fs="p" id="25020" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
       <originalData>
         <data id="sd4e59">&lt;xref format="html" scope="external" href="https://www.w3.org/TR/html5/grouping-content.html#the-pre-element"&gt;</data>
         <data id="ed4e59">&lt;/xref&gt;</data>
@@ -134,7 +134,7 @@
         <target xml:lang="de"></target>
       </segment>
     </unit>
-    <unit __NS1:xmlns="" fs:fs="p" id="34362" xmlns="" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
+    <unit fs:fs="p" id="34362" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
       <originalData>
         <data id="sd4e72">&lt;codeph&gt;</data>
         <data id="ed4e72">&lt;/codeph&gt;</data>
@@ -152,7 +152,7 @@
         <target xml:lang="de"></target>
       </segment>
     </unit>
-    <unit __NS1:xmlns="" fs:fs="p" id="25518" xmlns="" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
+    <unit fs:fs="p" id="25518" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
       <originalData>
         <data id="sd4e80">&lt;codeph&gt;</data>
         <data id="ed4e80">&lt;/codeph&gt;</data>
@@ -175,13 +175,13 @@
         <target xml:lang="de"></target>
       </segment>
     </unit>
-    <unit __NS1:xmlns="" fs:fs="title" id="33578" xmlns="" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
+    <unit fs:fs="title" id="33578" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
       <segment state="initial">
         <source xml:lang="en" xml:space="preserve">Usage with Webpack, Browserify, &amp; Other Bundlers</source>
         <target xml:lang="de"></target>
       </segment>
     </unit>
-    <unit __NS1:xmlns="" fs:fs="p" id="32784" xmlns="" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
+    <unit fs:fs="p" id="32784" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
       <originalData>
         <data id="sd4e96">&lt;codeph&gt;</data>
         <data id="ed4e96">&lt;/codeph&gt;</data>
@@ -194,7 +194,7 @@
         <target xml:lang="de"></target>
       </segment>
     </unit>
-    <unit __NS1:xmlns="" fs:fs="p" id="19337" xmlns="" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
+    <unit fs:fs="p" id="19337" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
       <originalData>
         <data id="sd4e104">&lt;codeph outputclass="language-js"&gt;</data>
         <data id="ed4e104">&lt;/codeph&gt;</data>
@@ -207,7 +207,7 @@
         <target xml:lang="de"></target>
       </segment>
     </unit>
-    <unit __NS1:xmlns="" fs:fs="p" id="10929" xmlns="" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
+    <unit fs:fs="p" id="10929" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
       <originalData>
         <data id="sd4e115">&lt;xref format="html" scope="external" href="https://github.com/mAAdhaTTah/babel-plugin-prismjs"&gt;</data>
         <data id="ed4e115">&lt;/xref&gt;</data>
