@@ -165,8 +165,13 @@
 
 
 	<target name="xliff-dita">
+
+		<tempfile deleteonexit="true" destdir="${dita.temp.dir}" property="xliff.temp.file" suffix=".xlf"/>
+		<copy file="${args.input}" tofile="${xliff.temp.file}"/>			
+		<replace file="${xliff.temp.file}" token="xmlns=&#34;urn:oasis:names:tc:xliff:document:1.2&#34;" value=""/>
+
 		<!-- Extract each target language element to a file -->
-		<xmltask taskname="xliff-read" source="${args.input}">
+		<xmltask taskname="xliff-read" source="${xliff.temp.file}">
 			<call path="//trans-unit">
 				<param default="" name="id" path="@id"/>
 				<param default="no" name="approved" path="@approved"/>
@@ -174,7 +179,7 @@
 					<dita-ot-echo unless:true="@{approved}" id="XLFF005W">
 						<param name="1" value="@{id}"/>
 					</dita-ot-echo>
-					<xmltask taskname="target-get" source="${args.input}">
+					<xmltask taskname="target-get" source="${xliff.temp.file}">
 						<copy path="//trans-unit[@id=@{id}]/target" buffer="buffer"/>
 					</xmltask>
 					<xmltask sourcebuffer="buffer" dest="${dita.temp.dir}/stage1/@{id}.xml"/>
@@ -189,16 +194,16 @@
 		</xslt>
 
 		<!-- Copy over images and other untranslated sources -->
-		<copy todir="${output.dir}" overwrite="true">
+		<copy todir="${output.dir}" overwrite="true" failonerror="false">
 			<fileset dir="${args.input.dir}/skl">
 				<exclude name="**/*.skl"/>
 			</fileset>
 		</copy>
 		<!-- Copy over unprocessed skeleton files into output dir -->
-		<xmltask taskname="xliff-read" source="${args.input}">
+		<xmltask taskname="xliff-read" source="${xliff.temp.file}">
 			<call path="xliff/file">
 				<param default="" name="original" path="@original"/>
-				<param default="" name="skeleton" path="*[name()='header']/*[name()='skl']/*[name()='external-file']/@href"/>
+				<param default="" name="skeleton" path="header/skl/external-file/@href"/>
 				<actions>
 					<copy file="${args.input.dir}/@{skeleton}" tofile="${output.dir}/@{original}"/>
 				</actions>
