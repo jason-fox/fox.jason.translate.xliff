@@ -6,7 +6,7 @@
 <project basedir="." default="unit-test">
 	<import file="../bootstrap.xml"/>
 	<description>
-		Expect that skeletons + XLIFF 1.2 can be used to create DITA
+		Expect that skeletons + XLIFF 2.0 can be used to create DITA
 	</description>
 	<target name="unit-test">
 		<delete dir="${basedir}/out" failonerror="false"/>

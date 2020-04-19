@@ -58,7 +58,8 @@
 			<property name="token.id">@@@@@${target.dita.id}@@@@@</property>
 
 			<replace dir="${output.dir}" token="${token.id}" value="${placeholder.text}">
-				<include name="**/*"/>
+				<include name="**/*.dita"/>
+				<include name="**/*.ditamap"/>
 			</replace>
 		</sequential>
 	</macrodef>
