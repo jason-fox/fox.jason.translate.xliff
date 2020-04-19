@@ -590,6 +590,132 @@
 		</sequential>
 	</macrodef>
 
+	<!--
+		Read translations from a cache file and copy over approved
+		translations
+	-->
+	<macrodef name="skeleton-prepare">
+		<attribute name="xliff"/>
+		<sequential>
+
+			<tempfile deleteonexit="true" destdir="${dita.temp.dir}" 
+				property="xliff.temp.file" suffix=".xlf"/>
+			<copy file="@{xliff}" tofile="${xliff.temp.file}"/>			
+			<replace file="${xliff.temp.file}" token="xmlns=&quot;urn:oasis:names:tc:xliff:document:1.2&quot;" value=""/>
+			<replace file="${xliff.temp.file}" token="xmlns=&quot;urn:oasis:names:tc:xliff:document:2.0&quot;" value=""/>
+
+			<skeleton-prepare-xliff1 if:set="xliff.version.1" xliff="${xliff.temp.file}"/>
+			<skeleton-prepare-xliff2 if:set="xliff.version.2" xliff="${xliff.temp.file}"/>
+
+
+		</sequential>
+	</macrodef>
+
+
+	<macrodef name="skeleton-prepare-xliff1">
+		<attribute name="xliff"/>
+		<sequential>
+			<!-- Extract each target language element to a file -->
+			<xmltask taskname="xliff1-read" source="@{xliff}">
+				<call path="//trans-unit">
+					<param default="" name="id" path="@id"/>
+					<param default="no" name="approved" path="@approved"/>
+					<actions>
+						<dita-ot-echo unless:true="@{approved}" id="XLFF005W">
+							<param name="1" value="@{id}"/>
+						</dita-ot-echo>
+						<xmltask taskname="target-get" source="@{xliff}">
+							<copy path="//trans-unit[@id=@{id}]/target" buffer="buffer"/>
+						</xmltask>
+						<xmltask sourcebuffer="buffer" dest="${dita.temp.dir}/stage1/@{id}.xml"/>
+					</actions>
+				</call>
+			</xmltask>
+			<!-- 
+				For each <target> language element in the XLIFF file, extract only the data
+				within the tag and transform it back into DITA format
+			-->
+			<xslt taskname="target-xsl" destdir="${dita.temp.dir}/stage2"  extension=".xml" 
+				style="${translate.customization.dir}/${xliff.version}/trans-unit.xsl"  
+				basedir="${dita.temp.dir}/stage1">
+			</xslt>
+
+			<!-- Copy over images and other untranslated sources -->
+			<copy todir="${output.dir}" overwrite="true" failonerror="false">
+				<fileset dir="${args.input.dir}/skl">
+					<exclude name="**/*.skl"/>
+				</fileset>
+			</copy>
+			<!-- Copy over unprocessed skeleton files into output dir -->
+			<xmltask taskname="xliff1-read"  source="@{xliff}">
+				<call path="xliff/file">
+					<param default="" name="original" path="@original"/>
+					<param default="" name="skeleton" path="header/skl/external-file/@href"/>
+					<actions>
+						<copy file="${args.input.dir}/@{skeleton}" tofile="${output.dir}/@{original}"/>
+					</actions>
+				</call>
+			</xmltask>
+
+		</sequential>
+	</macrodef>
+
+	<macrodef name="skeleton-prepare-xliff2">
+		<attribute name="xliff"/>
+		<sequential>
+
+			<!-- Extract each target language element to a file -->
+			<xmltask taskname="xliff2-read" source="@{xliff}">
+				<call path="//unit">
+					<param default="" name="id" path="@id"/>
+					<param default="initial" name="state" path="segement/@state"/>
+					<actions>
+						<local name="approved"/>
+
+						<condition property="approved">
+						    <equals arg1="@{state}" arg2="final"/>
+						</condition>
+
+
+						<dita-ot-echo unless:set="${approved}" id="XLFF005W">
+							<param name="1" value="@{id}"/>
+						</dita-ot-echo>
+						<xmltask taskname="target-get" source="@{xliff}">
+							<copy path="//unit[@id=@{id}]/segment/target" buffer="buffer"/>
+						</xmltask>
+						<xmltask sourcebuffer="buffer" dest="${dita.temp.dir}/stage1/@{id}.xml"/>
+					</actions>
+				</call>
+			</xmltask>
+			<!-- 
+				For each <target> language element in the XLIFF file, extract only the data
+				within the tag and transform it back into DITA format
+			-->
+			<xslt taskname="target-xsl" destdir="${dita.temp.dir}/stage2"  extension=".xml" 
+				style="${translate.customization.dir}/${xliff.version}/trans-unit.xsl"  
+				basedir="${dita.temp.dir}/stage1">
+			</xslt>
+
+			<!-- Copy over images and other untranslated sources -->
+			<copy todir="${output.dir}" overwrite="true" failonerror="false">
+				<fileset dir="${args.input.dir}/skl">
+					<exclude name="**/*.skl"/>
+				</fileset>
+			</copy>
+			<!-- Copy over unprocessed skeleton files into output dir -->
+			<xmltask taskname="xliff2-read"  source="@{xliff}">
+				<call path="xliff/file">
+					<param default="" name="original" path="@original"/>
+					<param default="" name="skeleton" path="skeleton/@href"/>
+					<actions>
+						<copy file="${args.input.dir}/@{skeleton}" tofile="${output.dir}/@{original}"/>
+					</actions>
+				</call>
+			</xmltask>
+
+		</sequential>
+	</macrodef>
+
 
 
 	<!--
