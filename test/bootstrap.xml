@@ -23,8 +23,8 @@
 />
 			<tempfile deleteonexit="true" property="ordered-document" suffix=".xlf" destdir="${dita.temp.dir}" 
 />
-			<copy file="@{file}" tofile="${unordered-document}"/>
-			<xslt classpathref="xslt.class.path" in="${unordered-document}" out="${ordered-document}" style="${test.root.dir}/test/order.xsl"/>
+			<copy file="@{file}" tofile="${ordered-document}"/>
+			<!--xslt classpathref="xslt.class.path" in="${unordered-document}" out="${ordered-document}" style="${test.root.dir}/test/order.xsl"/-->
 
 			<xmltask 
 				expandEntityReferences="false"

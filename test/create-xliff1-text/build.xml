@@ -6,7 +6,7 @@
 <project basedir="." default="unit-test">
 	<import file="../bootstrap.xml"/>
 	<description>
-		Expect that DITA with embedded elements can be transformed into an XLIFF file
+		Expect that simple DITA texts can be transformed into an XLIFF 1.2 file
 	</description>
 	<target name="unit-test">
 		<delete dir="${basedir}/out" failonerror="false"/>

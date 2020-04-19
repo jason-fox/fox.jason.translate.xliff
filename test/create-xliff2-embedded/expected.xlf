@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<xliff __NS1:xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en" trgLang="de" version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" xmlns:__NS1="http://www.w3.org/2000/xmlns/">
+  <file id="2" original="/topic.dita">
+    <skeleton href="./skl/topic.dita.skl"></skeleton>
+    <unit __NS1:xmlns="" id="59931" xmlns="">
+      <segment state="initial">
+        <source xml:lang="en" xml:space="preserve">Basic usage</source>
+        <target xml:lang="de"></target>
+      </segment>
+    </unit>
+    <unit __NS1:xmlns="" id="15534" xmlns="">
+      <originalData>
+        <data id="sd3e11">&lt;codeph&gt;</data>
+        <data id="ed3e11">&lt;/codeph&gt;</data>
+        <data id="sd3e13">&lt;codeph&gt;</data>
+        <data id="ed3e13">&lt;/codeph&gt;</data>
+      </originalData>
+      <segment state="initial">
+        <source xml:lang="en" xml:space="preserve">You will need to include the
+          <pc dataRefEnd="ed3e11" dataRefStart="sd3e11" id="d3e11">
+            <mrk id="md3e11" translate="no" type="term">prism.css</mrk>
+          </pc>and
+          <pc dataRefEnd="ed3e13" dataRefStart="sd3e13" id="d3e13">
+            <mrk id="md3e13" translate="no" type="term">prism.js</mrk>
+          </pc>files you downloaded in your page. Example:</source>
+        <target xml:lang="de"></target>
+      </segment>
+    </unit>
+    <unit __NS1:xmlns="" id="57886" xmlns="">
+      <originalData>
+        <data id="sd3e21">&lt;codeph&gt;</data>
+        <data id="ed3e21">&lt;/codeph&gt;</data>
+        <data id="sd3e23">&lt;codeph&gt;</data>
+        <data id="ed3e23">&lt;/codeph&gt;</data>
+        <data id="sd3e25">&lt;xref format="html" scope="external" href="https://www.w3.org/TR/html52/textlevel-semantics.html#the-code-element"&gt;</data>
+        <data id="ed3e25">&lt;/xref&gt;</data>
+        <data id="sd3e28">&lt;codeph&gt;</data>
+        <data id="ed3e28">&lt;/codeph&gt;</data>
+        <data id="sd3e30">&lt;codeph&gt;</data>
+        <data id="ed3e30">&lt;/codeph&gt;</data>
+      </originalData>
+      <segment state="initial">
+        <source xml:lang="en" xml:space="preserve">Prism does its best to encourage good authoring practices. Therefore,it only works with
+          <pc dataRefEnd="ed3e21" dataRefStart="sd3e21" id="d3e21">
+            <mrk id="md3e21" translate="no" type="term">&lt;code&gt;</mrk>
+          </pc>elements, since marking upcode without a
+          <pc dataRefEnd="ed3e23" dataRefStart="sd3e23" id="d3e23">
+            <mrk id="md3e23" translate="no" type="term">&lt;code&gt;</mrk>
+          </pc>element is semantically invalid.
+          <pc dataRefEnd="ed3e25" dataRefStart="sd3e25" id="d3e25">
+            <mrk id="md3e25" translate="no" type="term">According to the HTML5 spec</mrk>
+          </pc>, the recommended way to define a code language is a
+          <pc dataRefEnd="ed3e28" dataRefStart="sd3e28" id="d3e28">
+            <mrk id="md3e28" translate="no" type="term">language-xxxx</mrk>
+          </pc>class, which is what Prism uses. Alternatively, Prism also supports a shorter version:
+          <pc dataRefEnd="ed3e30" dataRefStart="sd3e30" id="d3e30">
+            <mrk id="md3e30" translate="no" type="term">lang-xxxx</mrk>
+          </pc>.</source>
+        <target xml:lang="de"></target>
+      </segment>
+    </unit>
+    <unit __NS1:xmlns="" id="50700" xmlns="">
+      <originalData>
+        <data id="sd3e36">&lt;codeph&gt;</data>
+        <data id="ed3e36">&lt;/codeph&gt;</data>
+        <data id="sd3e38">&lt;codeph&gt;</data>
+        <data id="ed3e38">&lt;/codeph&gt;</data>
+        <data id="sd3e40">&lt;codeph&gt;</data>
+        <data id="ed3e40">&lt;/codeph&gt;</data>
+        <data id="sd3e42">&lt;codeph&gt;</data>
+        <data id="ed3e42">&lt;/codeph&gt;</data>
+        <data id="sd3e44">&lt;codeph&gt;</data>
+        <data id="ed3e44">&lt;/codeph&gt;</data>
+      </originalData>
+      <segment state="initial">
+        <source xml:lang="en" xml:space="preserve">To make things easier however, Prism assumes that this language definition is inherited. Therefore, if multiple
+          <pc dataRefEnd="ed3e36" dataRefStart="sd3e36" id="d3e36">
+            <mrk id="md3e36" translate="no" type="term">&lt;code&gt;</mrk>
+          </pc>elements have the same language, you can add the
+          <pc dataRefEnd="ed3e38" dataRefStart="sd3e38" id="d3e38">
+            <mrk id="md3e38" translate="no" type="term">language-xxxx</mrk>
+          </pc>class on one of their common ancestors. This way, you can also define a document-wide default language, by adding a
+          <pc dataRefEnd="ed3e40" dataRefStart="sd3e40" id="d3e40">
+            <mrk id="md3e40" translate="no" type="term">language-xxxx</mrk>
+          </pc>class on the
+          <pc dataRefEnd="ed3e42" dataRefStart="sd3e42" id="d3e42">
+            <mrk id="md3e42" translate="no" type="term">&lt;body&gt;</mrk>
+          </pc>or
+          <pc dataRefEnd="ed3e44" dataRefStart="sd3e44" id="d3e44">
+            <mrk id="md3e44" translate="no" type="term">&lt;html&gt;</mrk>
+          </pc>element.</source>
+        <target xml:lang="de"></target>
+      </segment>
+    </unit>
+    <unit __NS1:xmlns="" id="46850" xmlns="">
+      <originalData>
+        <data id="sd3e50">&lt;codeph&gt;</data>
+        <data id="ed3e50">&lt;/codeph&gt;</data>
+        <data id="sd3e52">&lt;codeph&gt;</data>
+        <data id="ed3e52">&lt;/codeph&gt;</data>
+      </originalData>
+      <segment state="initial">
+        <source xml:lang="en" xml:space="preserve">If you want to opt-out of highlighting for a
+          <pc dataRefEnd="ed3e50" dataRefStart="sd3e50" id="d3e50">
+            <mrk id="md3e50" translate="no" type="term">&lt;code&gt;</mrk>
+          </pc>element that is a descendant of an element with a declared code language, you can add the class
+          <pc dataRefEnd="ed3e52" dataRefStart="sd3e52" id="d3e52">
+            <mrk id="md3e52" translate="no" type="term">language-none</mrk>
+          </pc>to it (or any non-existing language, really).</source>
+        <target xml:lang="de"></target>
+      </segment>
+    </unit>
+    <unit __NS1:xmlns="" id="25020" xmlns="">
+      <originalData>
+        <data id="sd3e59">&lt;xref format="html" scope="external" href="https://www.w3.org/TR/html5/grouping-content.html#the-pre-element"&gt;</data>
+        <data id="ed3e59">&lt;/xref&gt;</data>
+        <data id="sd3e62">&lt;codeph&gt;</data>
+        <data id="ed3e62">&lt;/codeph&gt;</data>
+        <data id="sd3e64">&lt;codeph&gt;</data>
+        <data id="ed3e64">&lt;/codeph&gt;</data>
+      </originalData>
+      <segment state="initial">
+        <source xml:lang="en" xml:space="preserve">The
+          <pc dataRefEnd="ed3e59" dataRefStart="sd3e59" id="d3e59">
+            <mrk id="md3e59" translate="no" type="term">recommended way to mark up a code block</mrk>
+          </pc>(both for semantics and for Prism) is a
+          <pc dataRefEnd="ed3e62" dataRefStart="sd3e62" id="d3e62">
+            <mrk id="md3e62" translate="no" type="term">&lt;pre&gt;</mrk>
+          </pc>element with a
+          <pc dataRefEnd="ed3e64" dataRefStart="sd3e64" id="d3e64">
+            <mrk id="md3e64" translate="no" type="term">&lt;code&gt;</mrk>
+          </pc>element inside, like so:</source>
+        <target xml:lang="de"></target>
+      </segment>
+    </unit>
+    <unit __NS1:xmlns="" id="34362" xmlns="">
+      <originalData>
+        <data id="sd3e72">&lt;codeph&gt;</data>
+        <data id="ed3e72">&lt;/codeph&gt;</data>
+        <data id="sd3e74">&lt;codeph&gt;</data>
+        <data id="ed3e74">&lt;/codeph&gt;</data>
+      </originalData>
+      <segment state="initial">
+        <source xml:lang="en" xml:space="preserve">If you use that pattern, the
+          <pc dataRefEnd="ed3e72" dataRefStart="sd3e72" id="d3e72">
+            <mrk id="md3e72" translate="no" type="term">&lt;pre&gt;</mrk>
+          </pc>will automatically get the
+          <pc dataRefEnd="ed3e74" dataRefStart="sd3e74" id="d3e74">
+            <mrk id="md3e74" translate="no" type="term">language-xxxx</mrk>
+          </pc>class (if it doesn&#8217;t already have it) and will be styled as a code block.</source>
+        <target xml:lang="de"></target>
+      </segment>
+    </unit>
+    <unit __NS1:xmlns="" id="25518" xmlns="">
+      <originalData>
+        <data id="sd3e80">&lt;codeph&gt;</data>
+        <data id="ed3e80">&lt;/codeph&gt;</data>
+        <data id="sd3e82">&lt;codeph&gt;</data>
+        <data id="ed3e82">&lt;/codeph&gt;</data>
+        <data id="sd3e84">&lt;xref format="html" scope="external" href="https://prismjs.com/extending.html#api"&gt;</data>
+        <data id="ed3e84">&lt;/xref&gt;</data>
+      </originalData>
+      <segment state="initial">
+        <source xml:lang="en" xml:space="preserve">If you want to prevent any elements from being automatically highlighted, you can use the attribute
+          <pc dataRefEnd="ed3e80" dataRefStart="sd3e80" id="d3e80">
+            <mrk id="md3e80" translate="no" type="term">data-manual</mrk>
+          </pc>on the
+          <pc dataRefEnd="ed3e82" dataRefStart="sd3e82" id="d3e82">
+            <mrk id="md3e82" translate="no" type="term">&lt;script&gt;</mrk>
+          </pc>element you used for prism and use the
+          <pc dataRefEnd="ed3e84" dataRefStart="sd3e84" id="d3e84">
+            <mrk id="md3e84" translate="no" type="term">API</mrk>
+          </pc>. Example:</source>
+        <target xml:lang="de"></target>
+      </segment>
+    </unit>
+    <unit __NS1:xmlns="" id="33578" xmlns="">
+      <segment state="initial">
+        <source xml:lang="en" xml:space="preserve">Usage with Webpack, Browserify, &amp; Other Bundlers</source>
+        <target xml:lang="de"></target>
+      </segment>
+    </unit>
+    <unit __NS1:xmlns="" id="32784" xmlns="">
+      <originalData>
+        <data id="sd3e96">&lt;codeph&gt;</data>
+        <data id="ed3e96">&lt;/codeph&gt;</data>
+      </originalData>
+      <segment state="initial">
+        <source xml:lang="en" xml:space="preserve">If you want to use Prism with a bundler, install Prism with
+          <pc dataRefEnd="ed3e96" dataRefStart="sd3e96" id="d3e96">
+            <mrk id="md3e96" translate="no" type="term">npm</mrk>
+          </pc>:</source>
+        <target xml:lang="de"></target>
+      </segment>
+    </unit>
+    <unit __NS1:xmlns="" id="19337" xmlns="">
+      <originalData>
+        <data id="sd3e104">&lt;codeph outputclass="language-js"&gt;</data>
+        <data id="ed3e104">&lt;/codeph&gt;</data>
+      </originalData>
+      <segment state="initial">
+        <source xml:lang="en" xml:space="preserve">You can then
+          <pc dataRefEnd="ed3e104" dataRefStart="sd3e104" id="d3e104">
+            <mrk id="md3e104" translate="no" type="term">import</mrk>
+          </pc>into your bundle</source>
+        <target xml:lang="de"></target>
+      </segment>
+    </unit>
+    <unit __NS1:xmlns="" id="10929" xmlns="">
+      <originalData>
+        <data id="sd3e115">&lt;xref format="html" scope="external" href="https://github.com/mAAdhaTTah/babel-plugin-prismjs"&gt;</data>
+        <data id="ed3e115">&lt;/xref&gt;</data>
+      </originalData>
+      <segment state="initial">
+        <source xml:lang="en" xml:space="preserve">To make it easy to configure your Prism instance with only thelanguages and plugins you need, use the babel plugin,
+          <pc dataRefEnd="ed3e115" dataRefStart="sd3e115" id="d3e115">
+            <mrk id="md3e115" translate="no" type="term">babel-plugin-prismjs</mrk>
+          </pc>. This will allow you to load the minimum number of languages and plugins to satisfy your needs. See that plugin's documentation for configuration details</source>
+        <target xml:lang="de"></target>
+      </segment>
+    </unit>
+  </file>
+</xliff>
+

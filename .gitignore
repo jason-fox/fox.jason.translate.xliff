@@ -2,8 +2,10 @@
 **/temp/**
 **/tmp/**
 
-**/test/add-translations/translate.xlf
-**/test/approved-translations/test.properties
+**/test/add-translations1/translate.xlf
+**/test/approved-translations1/test.properties
+**/test/add-translations2/translate.xlf
+**/test/approved-translations2/test.properties
 
 .scannerwork/
 

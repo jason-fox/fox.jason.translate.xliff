@@ -6,13 +6,12 @@
 <project basedir="." default="unit-test">
 	<import file="../bootstrap.xml"/>
 	<description>
-		Expect that simple DITA texts can be transformed into an XLIFF file
+		Expect that skeletons + XLIFF 1.2 can be used to create DITA
 	</description>
 	<target name="unit-test">
 		<delete dir="${basedir}/out" failonerror="false"/>
 		<delete dir="${basedir}/temp" failonerror="false"/>
-		<exec-transtype transtype="xliff-create"/>
-		<order-xliff file="${basedir}/out/translate.xlf"/>
-		<compare-output expectation="${basedir}/expected.xlf" result="${basedir}/out/translate.xlf"/>
+		<exec-transtype transtype="xliff-dita" ditamap="translate.xlf" />
+		<compare-output expectation="${basedir}/expected.dita" result="${basedir}/out/topic.dita"/>
 	</target>
 </project>

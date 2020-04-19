@@ -38,6 +38,10 @@
 			<dtd publicId="-//OASIS//DTD DITA Concept//EN" location="${translate.resource.dir}/fake.dtd"/>
 			<dtd publicId="-//OASIS//DTD DITA Task//EN" location="${translate.resource.dir}/fake.dtd"/>
 		</xmlcatalog>
+
+		<!-- Load Service URLs from command line -->
+		<load-service-urls/>
+
 	</target>
 
 	<!-- 
@@ -52,10 +56,7 @@
 	</target>
 
 	<target name="translate.init" depends="trans-unit.init">
-		<!-- Load Service URLs from command line -->
-		<load-service-urls/>
 
-		
 		<dita-ot-fail id="XLFF003F" if:set="translate.watson">
 			<condition>
 				<equals arg1="${watson.apikey}" arg2="XXX"/>
