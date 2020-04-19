@@ -1,0 +1,1163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+       srcLang="en"
+       trgLang="de"
+       version="2.0">
+   <file id="1" original="/document.ditamap">
+      <skeleton href="./skl/document.ditamap.skl"/>
+      <unit fs:fs="title" id="8585">
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">Prism JS Plug-in</source>
+            <target xml:lang="de">PRISMA JS-Plug-in
+</target>
+         </segment>
+      </unit>
+      <unit id="12043">
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">prismjs</source>
+            <target xml:lang="de">prismjs
+</target>
+         </segment>
+      </unit>
+   </file>
+   <file id="2" original="/topics/basic-usage.dita">
+      <skeleton href="./skl/topics/basic-usage.dita.skl"/>
+      <unit fs:fs="title" id="59931">
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">Basic usage</source>
+            <target xml:lang="de">Grundsätzliche Verwendung
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="p" id="34217">
+         <originalData>
+            <data id="sd4e12">&lt;codeph&gt;</data>
+            <data id="ed4e12">&lt;/codeph&gt;</data>
+            <data id="sd4e14">&lt;codeph&gt;</data>
+            <data id="ed4e14">&lt;/codeph&gt;</data>
+            <data id="sd4e15">&lt;ph xml:lang="de"&gt;</data>
+            <data id="ed4e15">&lt;/ph&gt;</data>
+         </originalData>
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">You need to include the <pc dataRefEnd="ed4e12" dataRefStart="sd4e12" fs:fs="code" id="d4e12"><mrk id="md4e12" translate="no" type="term">prism.css</mrk></pc> and <pc dataRefEnd="ed4e14" dataRefStart="sd4e14" fs:fs="code" id="d4e14"><mrk id="md4e14" translate="no" type="term">prism.js</mrk></pc><pc dataRefEnd="ed4e15" dataRefStart="sd4e15" id="d4e15"><mrk id="md4e15" translate="no" type="term">authoring</mrk></pc> files you downloaded in your page. Example: </source>
+            <target xml:lang="de">Sie müssen die <pc datarefend="ed4e12"
+                   datarefstart="sd4e12"
+                   fs:fs="code"
+                   id="d4e12">
+                  <mrk id="md4e12" translate="no" type="term">prism.css</mrk>
+               </pc> und <pc datarefend="ed4e14"
+                   datarefstart="sd4e14"
+                   fs:fs="code"
+                   id="d4e14">
+                  <mrk id="md4e14" translate="no" type="term">prism.js</mrk>
+               </pc>
+               <pc datarefend="ed4e15" datarefstart="sd4e15" id="d4e15">
+                  <mrk id="md4e15" translate="no" type="term">authoring</mrk>
+               </pc> Dateien, die Sie heruntergeladen haben, in Ihre Seite aufnehmen. Beispiel:
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="p" id="51849">
+         <originalData>
+            <data id="sd4e24">&lt;b&gt;</data>
+            <data id="ed4e24">&lt;/b&gt;</data>
+            <data id="sd4e26">&lt;i&gt;</data>
+            <data id="ed4e26">&lt;/i&gt;</data>
+            <data id="sd4e28">&lt;xref format="html" scope="external" href="https://www.w3.org/TR/html52/textlevel-semantics.html#the-code-element"&gt;</data>
+            <data id="ed4e28">&lt;/xref&gt;</data>
+            <data id="sd4e31">&lt;codeph&gt;</data>
+            <data id="ed4e31">&lt;/codeph&gt;</data>
+            <data id="sd4e33">&lt;codeph&gt;</data>
+            <data id="ed4e33">&lt;/codeph&gt;</data>
+         </originalData>
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">Prism does its best to encourage good practices. Therefore, it only works with <pc dataRefEnd="ed4e24" dataRefStart="sd4e24" fs:fs="b" id="d4e24"><mrk id="md4e24" translate="no" type="term">&lt;code&gt;</mrk></pc>elements, since marking up code without a <pc dataRefEnd="ed4e26" dataRefStart="sd4e26" fs:fs="i" id="d4e26"><mrk id="md4e26" translate="no" type="term">&lt;code&gt;</mrk></pc> element is semantically invalid. <pc dataRefEnd="ed4e28" dataRefStart="sd4e28" fs:fs="a" fs:subFs="href,https://www.w3.org/TR/html52/textlevel-semantics.html#the-code-element" id="d4e28"><mrk id="md4e28" translate="no" type="term">According to the HTML5 spec</mrk></pc>, the recommended way to define a code language is a <pc dataRefEnd="ed4e31" dataRefStart="sd4e31" fs:fs="code" id="d4e31"><mrk id="md4e31" translate="no" type="term">language-xxxx</mrk></pc>class, which is what Prism uses. Alternatively, Prism also supports a shorter version: <pc dataRefEnd="ed4e33" dataRefStart="sd4e33" fs:fs="code" id="d4e33"><mrk id="md4e33" translate="no" type="term">lang-xxxx</mrk></pc>. </source>
+            <target xml:lang="de">PRISMA tut sein bestes, um bewährte Praktiken zu fördern. Daher funktioniert es nur mit <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed4e24"
+                   dataRefStart="sd4e24"
+                   fs:fs="b"
+                   id="d4e24">
+                  <mrk class="notranslate" id="md4e24" type="term">&lt;code&gt;</mrk>
+               </pc>Elemente, da die Auszeichnung von code ohne <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed4e26"
+                   dataRefStart="sd4e26"
+                   fs:fs="i"
+                   id="d4e26">
+                  <mrk class="notranslate" id="md4e26" type="term">&lt;code&gt;</mrk>
+               </pc> element ist semantisch ungültig. <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed4e28"
+                   dataRefStart="sd4e28"
+                   fs:fs="a"
+                   fs:subFs="href,https://www.w3.org/TR/html52/textlevel-semantics.html#the-code-element"
+                   id="d4e28">
+                  <mrk class="notranslate" id="md4e28" type="term">Gemäß der HTML5-Spezifikation</mrk>
+               </pc>die empfohlene Art und Weise zu definieren, die eine code-Sprache ist eine <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed4e31"
+                   dataRefStart="sd4e31"
+                   fs:fs="code"
+                   id="d4e31">
+                  <mrk class="notranslate" id="md4e31" type="term">Sprache-xxxx</mrk>
+               </pc>Klasse, das ist das, was Prism verwendet. Alternativ PRISMA unterstützt auch eine kürzere version: <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed4e33"
+                   dataRefStart="sd4e33"
+                   fs:fs="code"
+                   id="d4e33">
+                  <mrk class="notranslate" id="md4e33" type="term">lang-xxxx</mrk>
+               </pc>. 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="p" id="50700">
+         <originalData>
+            <data id="sd4e39">&lt;codeph&gt;</data>
+            <data id="ed4e39">&lt;/codeph&gt;</data>
+            <data id="sd4e41">&lt;codeph&gt;</data>
+            <data id="ed4e41">&lt;/codeph&gt;</data>
+            <data id="sd4e43">&lt;codeph&gt;</data>
+            <data id="ed4e43">&lt;/codeph&gt;</data>
+            <data id="sd4e45">&lt;codeph&gt;</data>
+            <data id="ed4e45">&lt;/codeph&gt;</data>
+            <data id="sd4e47">&lt;codeph&gt;</data>
+            <data id="ed4e47">&lt;/codeph&gt;</data>
+         </originalData>
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">To make things easier however, Prism assumes that this language definition is inherited. Therefore, if multiple <pc dataRefEnd="ed4e39" dataRefStart="sd4e39" fs:fs="code" id="d4e39"><mrk id="md4e39" translate="no" type="term">&lt;code&gt;</mrk></pc> elements have the same language, you can add the <pc dataRefEnd="ed4e41" dataRefStart="sd4e41" fs:fs="code" id="d4e41"><mrk id="md4e41" translate="no" type="term">language-xxxx</mrk></pc> class on one of their common ancestors. This way, you can also define a document-wide default language, by adding a <pc dataRefEnd="ed4e43" dataRefStart="sd4e43" fs:fs="code" id="d4e43"><mrk id="md4e43" translate="no" type="term">language-xxxx</mrk></pc> class on the <pc dataRefEnd="ed4e45" dataRefStart="sd4e45" fs:fs="code" id="d4e45"><mrk id="md4e45" translate="no" type="term">&lt;body&gt;</mrk></pc>or <pc dataRefEnd="ed4e47" dataRefStart="sd4e47" fs:fs="code" id="d4e47"><mrk id="md4e47" translate="no" type="term">&lt;html&gt;</mrk></pc> element. </source>
+            <target xml:lang="de">Dinge einfacher zu machen, jedoch PRISMA geht davon aus, dass diese Sprache-definition vererbt wird. Daher, wenn mehrere <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed4e39"
+                   dataRefStart="sd4e39"
+                   fs:fs="code"
+                   id="d4e39">
+                  <mrk class="notranslate" id="md4e39" type="term">&lt;code&gt;</mrk>
+               </pc> Elemente haben die gleiche Sprache, können Sie die <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed4e41"
+                   dataRefStart="sd4e41"
+                   fs:fs="code"
+                   id="d4e41">
+                  <mrk class="notranslate" id="md4e41" type="term">Sprache-xxxx</mrk>
+               </pc> Klasse auf einem Ihrer gemeinsamen Vorfahren. Auf diese Weise können Sie auch definieren ein Dokument-weiten Standard-Sprache ist, indem Sie ein <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed4e43"
+                   dataRefStart="sd4e43"
+                   fs:fs="code"
+                   id="d4e43">
+                  <mrk class="notranslate" id="md4e43" type="term">Sprache-xxxx</mrk>
+               </pc> Klasse auf dem <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed4e45"
+                   dataRefStart="sd4e45"
+                   fs:fs="code"
+                   id="d4e45">
+                  <mrk class="notranslate" id="md4e45" type="term">&lt;body&gt;</mrk>
+               </pc>oder <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed4e47"
+                   dataRefStart="sd4e47"
+                   fs:fs="code"
+                   id="d4e47">
+                  <mrk class="notranslate" id="md4e47" type="term">&lt;html&gt;</mrk>
+               </pc> element. 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="p" id="46850">
+         <originalData>
+            <data id="sd4e53">&lt;codeph&gt;</data>
+            <data id="ed4e53">&lt;/codeph&gt;</data>
+            <data id="sd4e55">&lt;codeph&gt;</data>
+            <data id="ed4e55">&lt;/codeph&gt;</data>
+         </originalData>
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">If you want to opt-out of highlighting for a <pc dataRefEnd="ed4e53" dataRefStart="sd4e53" fs:fs="code" id="d4e53"><mrk id="md4e53" translate="no" type="term">&lt;code&gt;</mrk></pc>element that is a descendant of an element with a declared code language, you can add the class <pc dataRefEnd="ed4e55" dataRefStart="sd4e55" fs:fs="code" id="d4e55"><mrk id="md4e55" translate="no" type="term">language-none</mrk></pc> to it (or any non-existing language, really). </source>
+            <target xml:lang="de">Wenn Sie wollen opt-out-highlighting für eine <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed4e53"
+                   dataRefStart="sd4e53"
+                   fs:fs="code"
+                   id="d4e53">
+                  <mrk class="notranslate" id="md4e53" type="term">&lt;code&gt;</mrk>
+               </pc>element, das ein Nachfahre eines Elements mit einem deklarierten code-Sprache, die Sie hinzufügen können, die Klasse <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed4e55"
+                   dataRefStart="sd4e55"
+                   fs:fs="code"
+                   id="d4e55">
+                  <mrk class="notranslate" id="md4e55" type="term">Sprache-keine</mrk>
+               </pc> um es (oder nicht vorhandenen Sprache, wirklich). 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="p" id="25020">
+         <originalData>
+            <data id="sd4e62">&lt;xref format="html" scope="external" href="https://www.w3.org/TR/html5/grouping-content.html#the-pre-element"&gt;</data>
+            <data id="ed4e62">&lt;/xref&gt;</data>
+            <data id="sd4e65">&lt;codeph&gt;</data>
+            <data id="ed4e65">&lt;/codeph&gt;</data>
+            <data id="sd4e67">&lt;codeph&gt;</data>
+            <data id="ed4e67">&lt;/codeph&gt;</data>
+         </originalData>
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">The <pc dataRefEnd="ed4e62" dataRefStart="sd4e62" fs:fs="a" fs:subFs="href,https://www.w3.org/TR/html5/grouping-content.html#the-pre-element" id="d4e62"><mrk id="md4e62" translate="no" type="term">recommended way to mark up a code block</mrk></pc> (both for semantics and for Prism) is a <pc dataRefEnd="ed4e65" dataRefStart="sd4e65" fs:fs="code" id="d4e65"><mrk id="md4e65" translate="no" type="term">&lt;pre&gt;</mrk></pc>element with a <pc dataRefEnd="ed4e67" dataRefStart="sd4e67" fs:fs="code" id="d4e67"><mrk id="md4e67" translate="no" type="term">&lt;code&gt;</mrk></pc> element inside, like so: </source>
+            <target xml:lang="de">Die <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed4e62"
+                   dataRefStart="sd4e62"
+                   fs:fs="a"
+                   fs:subFs="href,https://www.w3.org/TR/html5/grouping-content.html#the-pre-element"
+                   id="d4e62">
+                  <mrk class="notranslate" id="md4e62" type="term">empfohlene Methode zur Markierung einen code-block</mrk>
+               </pc> (sowohl für die Semantik und für PRISMA) ist ein <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed4e65"
+                   dataRefStart="sd4e65"
+                   fs:fs="code"
+                   id="d4e65">
+                  <mrk class="notranslate" id="md4e65" type="term">&lt;pre&gt;</mrk>
+               </pc>element mit einem <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed4e67"
+                   dataRefStart="sd4e67"
+                   fs:fs="code"
+                   id="d4e67">
+                  <mrk class="notranslate" id="md4e67" type="term">&lt;code&gt;</mrk>
+               </pc> element im inneren, etwa so: 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="p" id="34362">
+         <originalData>
+            <data id="sd4e75">&lt;codeph&gt;</data>
+            <data id="ed4e75">&lt;/codeph&gt;</data>
+            <data id="sd4e77">&lt;codeph&gt;</data>
+            <data id="ed4e77">&lt;/codeph&gt;</data>
+         </originalData>
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">If you use that pattern, the <pc dataRefEnd="ed4e75" dataRefStart="sd4e75" fs:fs="code" id="d4e75"><mrk id="md4e75" translate="no" type="term">&lt;pre&gt;</mrk></pc> will automatically get the <pc dataRefEnd="ed4e77" dataRefStart="sd4e77" fs:fs="code" id="d4e77"><mrk id="md4e77" translate="no" type="term">language-xxxx</mrk></pc> class (if it doesn’t already have it) and will be styled as a code block. </source>
+            <target xml:lang="de">Wenn Sie das Muster, die <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed4e75"
+                   dataRefStart="sd4e75"
+                   fs:fs="code"
+                   id="d4e75">
+                  <mrk class="notranslate" id="md4e75" type="term">&lt;pre&gt;</mrk>
+               </pc> erhalten automatisch den <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed4e77"
+                   dataRefStart="sd4e77"
+                   fs:fs="code"
+                   id="d4e77">
+                  <mrk class="notranslate" id="md4e77" type="term">Sprache-xxxx</mrk>
+               </pc> Klasse (wenn es nicht bereits haben) und gestylt werden wie ein code-block. 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="p" id="25518">
+         <originalData>
+            <data id="sd4e83">&lt;codeph&gt;</data>
+            <data id="ed4e83">&lt;/codeph&gt;</data>
+            <data id="sd4e85">&lt;codeph&gt;</data>
+            <data id="ed4e85">&lt;/codeph&gt;</data>
+            <data id="sd4e87">&lt;xref format="html" scope="external" href="https://prismjs.com/extending.html#api"&gt;</data>
+            <data id="ed4e87">&lt;/xref&gt;</data>
+         </originalData>
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">If you want to prevent any elements from being automatically highlighted, you can use the attribute <pc dataRefEnd="ed4e83" dataRefStart="sd4e83" fs:fs="code" id="d4e83"><mrk id="md4e83" translate="no" type="term">data-manual</mrk></pc> on the <pc dataRefEnd="ed4e85" dataRefStart="sd4e85" fs:fs="code" id="d4e85"><mrk id="md4e85" translate="no" type="term">&lt;script&gt;</mrk></pc>element you used for prism and use the <pc dataRefEnd="ed4e87" dataRefStart="sd4e87" fs:fs="a" fs:subFs="href,https://prismjs.com/extending.html#api" id="d4e87"><mrk id="md4e87" translate="no" type="term">API</mrk></pc>. Example: </source>
+            <target xml:lang="de">Wenn Sie verhindern möchten, dass alle Elemente aus, die automatisch markiert ist, können Sie mithilfe der attribute <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed4e83"
+                   dataRefStart="sd4e83"
+                   fs:fs="code"
+                   id="d4e83">
+                  <mrk class="notranslate" id="md4e83" type="term">Daten-Handbuch</mrk>
+               </pc> auf der <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed4e85"
+                   dataRefStart="sd4e85"
+                   fs:fs="code"
+                   id="d4e85">
+                  <mrk class="notranslate" id="md4e85" type="term">&lt;script&gt;</mrk>
+               </pc>element, die Sie für prism und verwenden Sie die <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed4e87"
+                   dataRefStart="sd4e87"
+                   fs:fs="a"
+                   fs:subFs="href,https://prismjs.com/extending.html#api"
+                   id="d4e87">
+                  <mrk class="notranslate" id="md4e87" type="term">API</mrk>
+               </pc>. Beispiel: 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="title" id="33578">
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">Usage with Webpack, Browserify, &amp; Other Bundlers</source>
+            <target xml:lang="de">Verwendung mit Webpack, Browserify, &amp; Andere Bundlers
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="p" id="32784">
+         <originalData>
+            <data id="sd4e101">&lt;codeph&gt;</data>
+            <data id="ed4e101">&lt;/codeph&gt;</data>
+         </originalData>
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">If you want to use Prism with a bundler, install Prism with <pc dataRefEnd="ed4e101" dataRefStart="sd4e101" fs:fs="code" id="d4e101"><mrk id="md4e101" translate="no" type="term">npm</mrk></pc>: </source>
+            <target xml:lang="de">Wenn Sie verwenden möchten PRISMA mit bundler installieren Sie PRISMA mit <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed4e101"
+                   dataRefStart="sd4e101"
+                   fs:fs="code"
+                   id="d4e101">
+                  <mrk class="notranslate" id="md4e101" type="term">npm</mrk>
+               </pc>: 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="p" id="4035">
+         <originalData>
+            <data id="sd4e109">&lt;codeph outputclass="language-js"&gt;</data>
+            <data id="ed4e109">&lt;/codeph&gt;</data>
+         </originalData>
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">You can then <pc dataRefEnd="ed4e109" dataRefStart="sd4e109" fs:fs="code" id="d4e109"><mrk id="md4e109" translate="no" type="term">import</mrk></pc> into your bundle: </source>
+            <target xml:lang="de">Sie können dann <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed4e109"
+                   dataRefStart="sd4e109"
+                   fs:fs="code"
+                   id="d4e109">
+                  <mrk class="notranslate" id="md4e109" type="term">import</mrk>
+               </pc> in Ihr bündeln: 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="p" id="57344">
+         <originalData>
+            <data id="sd4e120">&lt;xref format="html" scope="external" href="https://github.com/mAAdhaTTah/babel-plugin-prismjs"&gt;</data>
+            <data id="ed4e120">&lt;/xref&gt;</data>
+         </originalData>
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">To make it easy to configure your Prism instance with only the languages and plugins you need, use the babel plugin, <pc dataRefEnd="ed4e120" dataRefStart="sd4e120" fs:fs="a" fs:subFs="href,https://github.com/mAAdhaTTah/babel-plugin-prismjs" id="d4e120"><mrk id="md4e120" translate="no" type="term">babel-plugin-prismjs</mrk></pc>. This will allow you to load the minimum number of languages and plugins to satisfy your needs. See that plugin's documentation for configuration details. </source>
+            <target xml:lang="de">Um es einfach zu konfigurieren Sie Ihre Prism-Instanz nur mit den Sprachen und plugins, die Sie benötigen, verwenden Sie den babel-plugin, <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed4e120"
+                   dataRefStart="sd4e120"
+                   fs:fs="a"
+                   fs:subFs="href,https://github.com/mAAdhaTTah/babel-plugin-prismjs"
+                   id="d4e120">
+                  <mrk class="notranslate" id="md4e120" type="term">babel-plugin-prismjs</mrk>
+               </pc>. Dies ermöglicht es Ihnen, laden Sie die minimale Anzahl von Sprachen und plugins, um Ihre Bedürfnisse zu befriedigen. Sehen, dass der plugin-Dokumentation für details zur Konfiguration. 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="title" id="11900">
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">Usage with Node</source>
+            <target xml:lang="de">Verwendung mit Knoten
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="p" id="5250">
+         <originalData>
+            <data id="sd4e134">&lt;xref format="html" scope="external" href="https://www.ampproject.org/"&gt;</data>
+            <data id="ed4e134">&lt;/xref&gt;</data>
+         </originalData>
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">If you want to use Prism on the server or through the command line, Prism can be used with Node.js as well. This might be useful if you're trying to generate static HTML pages with highlighted code for environments that don't support browser-side JS, like <pc dataRefEnd="ed4e134" dataRefStart="sd4e134" fs:fs="a" fs:subFs="href,https://www.ampproject.org/" id="d4e134"><mrk id="md4e134" translate="no" type="term">AMP pages</mrk></pc>. </source>
+            <target xml:lang="de">Wenn Sie möchten, verwenden Sie Prism auf die server oder die über die Befehlszeile, PRISMA kann verwendet werden, mit Node.js wie gut. Dies kann nützlich sein, wenn Sie versuchen, generieren von statischen HTML-Seiten mit hervorgehobenen code für Umgebungen, die keine Unterstützung für browser-side JS, wie <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed4e134"
+                   dataRefStart="sd4e134"
+                   fs:fs="a"
+                   fs:subFs="href,https://www.ampproject.org/"
+                   id="d4e134">
+                  <mrk class="notranslate" id="md4e134" type="term">AMP Seiten</mrk>
+               </pc>. 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="p" id="60425">
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">Example: </source>
+            <target xml:lang="de">Beispiel: 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="p" id="14934">
+         <originalData>
+            <data id="sd4e147">&lt;codeph&gt;</data>
+            <data id="ed4e147">&lt;/codeph&gt;</data>
+            <data id="sd4e149">&lt;codeph&gt;</data>
+            <data id="ed4e149">&lt;/codeph&gt;</data>
+            <data id="sd4e151">&lt;codeph&gt;</data>
+            <data id="ed4e151">&lt;/codeph&gt;</data>
+            <data id="sd4e153">&lt;codeph&gt;</data>
+            <data id="ed4e153">&lt;/codeph&gt;</data>
+            <data id="sd4e155">&lt;codeph&gt;</data>
+            <data id="ed4e155">&lt;/codeph&gt;</data>
+            <data id="sd4e158">&lt;codeph outputclass="language-javascript"&gt;</data>
+            <data id="ed4e158">&lt;/codeph&gt;</data>
+         </originalData>
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">Requiring <pc dataRefEnd="ed4e147" dataRefStart="sd4e147" fs:fs="code" id="d4e147"><mrk id="md4e147" translate="no" type="term">prismjs</mrk></pc> will load the default languages: <pc dataRefEnd="ed4e149" dataRefStart="sd4e149" fs:fs="code" id="d4e149"><mrk id="md4e149" translate="no" type="term">markup</mrk></pc>, <pc dataRefEnd="ed4e151" dataRefStart="sd4e151" fs:fs="code" id="d4e151"><mrk id="md4e151" translate="no" type="term">css</mrk></pc>, <pc dataRefEnd="ed4e153" dataRefStart="sd4e153" fs:fs="code" id="d4e153"><mrk id="md4e153" translate="no" type="term">clike</mrk></pc> and <pc dataRefEnd="ed4e155" dataRefStart="sd4e155" fs:fs="code" id="d4e155"><mrk id="md4e155" translate="no" type="term">javascript</mrk></pc>. You can load more languages with the <pc dataRefEnd="ed4e158" dataRefStart="sd4e158" fs:fs="code" id="d4e158"><mrk id="md4e158" translate="no" type="term">loadLanguages()</mrk></pc>utility, which will automatically handle any required dependencies. </source>
+            <target xml:lang="de">Erfordern <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed4e147"
+                   dataRefStart="sd4e147"
+                   fs:fs="code"
+                   id="d4e147">
+                  <mrk class="notranslate" id="md4e147" type="term">prismjs</mrk>
+               </pc> lädt die Standard-Sprachen: <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed4e149"
+                   dataRefStart="sd4e149"
+                   fs:fs="code"
+                   id="d4e149">
+                  <mrk class="notranslate" id="md4e149" type="term">markup</mrk>
+               </pc>, <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed4e151"
+                   dataRefStart="sd4e151"
+                   fs:fs="code"
+                   id="d4e151">
+                  <mrk class="notranslate" id="md4e151" type="term">css</mrk>
+               </pc>, <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed4e153"
+                   dataRefStart="sd4e153"
+                   fs:fs="code"
+                   id="d4e153">
+                  <mrk class="notranslate" id="md4e153" type="term">gleich</mrk>
+               </pc> und <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed4e155"
+                   dataRefStart="sd4e155"
+                   fs:fs="code"
+                   id="d4e155">
+                  <mrk class="notranslate" id="md4e155" type="term">javascript</mrk>
+               </pc>. Laden Sie weitere Sprachen mit der <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed4e158"
+                   dataRefStart="sd4e158"
+                   fs:fs="code"
+                   id="d4e158">
+                  <mrk class="notranslate" id="md4e158" type="term">loadLanguages()</mrk>
+               </pc>Dienstprogramm, das automatisch verarbeitet alle erforderlichen Abhängigkeiten. 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="p" id="60425">
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">Example: </source>
+            <target xml:lang="de">Beispiel: 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="p" id="34183">
+         <originalData>
+            <data id="sd4e172">&lt;b&gt;</data>
+            <data id="ed4e172">&lt;/b&gt;</data>
+            <data id="sd4e174">&lt;i&gt;</data>
+            <data id="ed4e174">&lt;/i&gt;</data>
+            <data id="sd4e176">&lt;codeph outputclass="language-javascript"&gt;</data>
+            <data id="ed4e176">&lt;/codeph&gt;</data>
+         </originalData>
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve"> <pc dataRefEnd="ed4e172" dataRefStart="sd4e172" fs:fs="b" id="d4e172"><mrk id="md4e172" translate="no" type="term">Note</mrk></pc>: Do <pc dataRefEnd="ed4e174" dataRefStart="sd4e174" fs:fs="i" id="d4e174"><mrk id="md4e174" translate="no" type="term">not</mrk></pc> use <pc dataRefEnd="ed4e176" dataRefStart="sd4e176" fs:fs="code" id="d4e176"><mrk id="md4e176" translate="no" type="term">loadLanguages()</mrk></pc>with Webpack or another bundler, as this will cause Webpack to include all languages and plugins. Use the babel plugin described above. </source>
+            <target xml:lang="de">
+               <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed4e172"
+                   dataRefStart="sd4e172"
+                   fs:fs="b"
+                   id="d4e172">
+                  <mrk class="notranslate" id="md4e172" type="term">Hinweis</mrk>
+               </pc>: Tun <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed4e174"
+                   dataRefStart="sd4e174"
+                   fs:fs="i"
+                   id="d4e174">
+                  <mrk class="notranslate" id="md4e174" type="term">nicht</mrk>
+               </pc> verwenden <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed4e176"
+                   dataRefStart="sd4e176"
+                   fs:fs="code"
+                   id="d4e176">
+                  <mrk class="notranslate" id="md4e176" type="term">loadLanguages()</mrk>
+               </pc>mit Webpack oder anderen bundler, da dies dazu führen Webpack alle Sprachen und plugins. Verwenden Sie den babel-plugin wie oben beschrieben. 
+</target>
+         </segment>
+      </unit>
+   </file>
+   <file id="3" original="/topics/examples.dita">
+      <skeleton href="./skl/topics/examples.dita.skl"/>
+      <unit fs:fs="title" id="9794">
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">Examples</source>
+            <target xml:lang="de">Beispiele
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="p" id="5640">
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">The Prism source, highlighted with Prism (don’t you just love how meta this is?): </source>
+            <target xml:lang="de">Der Prism-Quelle, markiert mit PRISMA (nicht nur die Liebe, wie meta das ist?): 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="p" id="16866">
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">This page’s CSS code, highlighted with Prism: </source>
+            <target xml:lang="de">Diese Seite ist CSS-code, markiert mit PRISMA: 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="p" id="46706">
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">This page’s HTML, highlighted with Prism: </source>
+            <target xml:lang="de">Diese Seite ist HTML, markiert mit PRISMA: 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="p" id="21585">
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">This page’s logo (SVG), highlighted with Prism: </source>
+            <target xml:lang="de">Diese Seite ist das logo (SVG), markiert mit PRISMA: 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="p" id="48687">
+         <originalData>
+            <data id="sd5e45">&lt;xref format="html" scope="external" href="https://prismjs.com/examples.html"&gt;</data>
+            <data id="ed5e45">&lt;/xref&gt;</data>
+            <data id="sd5e48">&lt;xref format="html" scope="external" href="https://prismjs.com/test.html"&gt;</data>
+            <data id="ed5e48">&lt;/xref&gt;</data>
+         </originalData>
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">If you’re still not sold, you can <pc dataRefEnd="ed5e45" dataRefStart="sd5e45" fs:fs="a" fs:subFs="href,https://prismjs.com/examples.html" id="d5e45"><mrk id="md5e45" translate="no" type="term">view more examples</mrk></pc> or <pc dataRefEnd="ed5e48" dataRefStart="sd5e48" fs:fs="a" fs:subFs="href,https://prismjs.com/test.html" id="d5e48"><mrk id="md5e48" translate="no" type="term">try it out for yourself</mrk></pc>. </source>
+            <target xml:lang="de">Wenn Sie noch nicht verkauft ist, können Sie <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed5e45"
+                   dataRefStart="sd5e45"
+                   fs:fs="a"
+                   fs:subFs="href,https://prismjs.com/examples.html"
+                   id="d5e45">
+                  <mrk class="notranslate" id="md5e45" type="term">mehr anzeigen Beispiele</mrk>
+               </pc> oder <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed5e48"
+                   dataRefStart="sd5e48"
+                   fs:fs="a"
+                   fs:subFs="href,https://prismjs.com/test.html"
+                   id="d5e48">
+                  <mrk class="notranslate" id="md5e48" type="term">versuchen Sie es heraus für selbst</mrk>
+               </pc>. 
+</target>
+         </segment>
+      </unit>
+   </file>
+   <file id="4" original="/topics/preprocess-meta.dita">
+      <skeleton href="./skl/topics/preprocess-meta.dita.skl"/>
+      <unit fs:fs="title" id="40086">
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">Move metadata (move-meta-entries) and pull content into maps (mappull) </source>
+            <target xml:lang="de">Bewegen Metadaten (move-meta-Einträge), und ziehen Sie Inhalte in Karten (mappull) 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="p" id="6320">
+         <originalData>
+            <data id="sd7e10">&lt;codeph&gt;</data>
+            <data id="ed7e10">&lt;/codeph&gt;</data>
+         </originalData>
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">The <pc dataRefEnd="ed7e10" dataRefStart="sd7e10" fs:fs="code" id="d7e10"><mrk id="md7e10" translate="no" type="term">move-meta-entries</mrk></pc> step pushes metadata back and forth between maps and topics. For example, index entries and copyrights in the map are pushed into affected topics, so that the topics can be processed later in isolation while retaining all relevant metadata. This step is implemented in Java. </source>
+            <target xml:lang="de">Die <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed7e10"
+                   dataRefStart="sd7e10"
+                   fs:fs="code"
+                   id="d7e10">
+                  <mrk class="notranslate" id="md7e10" type="term">move-meta-Einträge</mrk>
+               </pc> Schritt schiebt Metadaten hin und her zwischen den Karten und Themen. Zum Beispiel index-Einträge und Urheberrechte, die in die Karte geschoben werden, in die betroffenen Themen, so dass die Themen, die bearbeitet werden können, die später in die Isolierung unter Beibehaltung aller relevanten Metadaten. Dieser Schritt ist in Java implementiert. 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="div" id="6746">
+         <originalData>
+            <data id="sd7e18">&lt;codeph&gt;</data>
+            <data id="ed7e18">&lt;/codeph&gt;</data>
+            <data id="sd7e20">&lt;codeph&gt;</data>
+            <data id="ed7e20">&lt;/codeph&gt;</data>
+            <data id="sd7e22">&lt;codeph&gt;</data>
+            <data id="ed7e22">&lt;/codeph&gt;</data>
+            <data id="sd7e24">&lt;codeph&gt;</data>
+            <data id="ed7e24">&lt;/codeph&gt;</data>
+         </originalData>
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">As of DITA-OT 2.2, the <pc dataRefEnd="ed7e18" dataRefStart="sd7e18" fs:fs="code" id="d7e18"><mrk id="md7e18" translate="no" type="term">move-meta-entries</mrk></pc> and <pc dataRefEnd="ed7e20" dataRefStart="sd7e20" fs:fs="code" id="d7e20"><mrk id="md7e20" translate="no" type="term">mappull</mrk></pc>steps have been merged. The <pc dataRefEnd="ed7e22" dataRefStart="sd7e22" fs:fs="code" id="d7e22"><mrk id="md7e22" translate="no" type="term">mappull</mrk></pc> step has been moved into <pc dataRefEnd="ed7e24" dataRefStart="sd7e24" fs:fs="code" id="d7e24"><mrk id="md7e24" translate="no" type="term">move-meta-entries</mrk></pc>. </source>
+            <target xml:lang="de">Wie von DITA-OT 2.2, die <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed7e18"
+                   dataRefStart="sd7e18"
+                   fs:fs="code"
+                   id="d7e18">
+                  <mrk class="notranslate" id="md7e18" type="term">move-meta-Einträge</mrk>
+               </pc> und <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed7e20"
+                   dataRefStart="sd7e20"
+                   fs:fs="code"
+                   id="d7e20">
+                  <mrk class="notranslate" id="md7e20" type="term">mappull</mrk>
+               </pc>Schritte zusammengeführt worden. Die <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed7e22"
+                   dataRefStart="sd7e22"
+                   fs:fs="code"
+                   id="d7e22">
+                  <mrk class="notranslate" id="md7e22" type="term">mappull</mrk>
+               </pc> Schritt verschoben wurde, in <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed7e24"
+                   dataRefStart="sd7e24"
+                   fs:fs="code"
+                   id="d7e24">
+                  <mrk class="notranslate" id="md7e24" type="term">move-meta-Einträge</mrk>
+               </pc>. 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="p" id="19452">
+         <originalData>
+            <data id="sd7e32">&lt;codeph&gt;</data>
+            <data id="ed7e32">&lt;/codeph&gt;</data>
+         </originalData>
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">The <pc dataRefEnd="ed7e32" dataRefStart="sd7e32" fs:fs="code" id="d7e32"><mrk id="md7e32" translate="no" type="term">mappull</mrk></pc> step pulls content from referenced topics into maps, and then cascades data within maps. This step is implemented in XSLT. </source>
+            <target xml:lang="de">Die <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed7e32"
+                   dataRefStart="sd7e32"
+                   fs:fs="code"
+                   id="d7e32">
+                  <mrk class="notranslate" id="md7e32" type="term">mappull</mrk>
+               </pc> Schritt zieht Inhalte von referenzierten Themen in die Karten, und dann Kaskaden von Daten in Karten. Dieser Schritt wird implementiert in XSLT. 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="p" id="8372">
+         <originalData>
+            <data id="sd7e38">&lt;codeph&gt;</data>
+            <data id="ed7e38">&lt;/codeph&gt;</data>
+            <data id="sd7e40">&lt;ul&gt;</data>
+            <data id="ed7e40">&lt;/ul&gt;</data>
+            <data id="sd7e42">&lt;li&gt;</data>
+            <data id="ed7e42">&lt;/li&gt;</data>
+            <data id="sd7e44">&lt;xmlatt&gt;</data>
+            <data id="ed7e44">&lt;/xmlatt&gt;</data>
+            <data id="sd7e46">&lt;xmlelement&gt;</data>
+            <data id="ed7e46">&lt;/xmlelement&gt;</data>
+            <data id="sd7e49">&lt;li&gt;</data>
+            <data id="ed7e49">&lt;/li&gt;</data>
+            <data id="sd7e51">&lt;xmlelement&gt;</data>
+            <data id="ed7e51">&lt;/xmlelement&gt;</data>
+            <data id="sd7e54">&lt;li&gt;</data>
+            <data id="ed7e54">&lt;/li&gt;</data>
+            <data id="sd7e56">&lt;xmlelement&gt;</data>
+            <data id="ed7e56">&lt;/xmlelement&gt;</data>
+            <data id="sd7e59">&lt;li&gt;</data>
+            <data id="ed7e59">&lt;/li&gt;</data>
+            <data id="sd7e61">&lt;xmlatt&gt;</data>
+            <data id="ed7e61">&lt;/xmlatt&gt;</data>
+            <data id="sd7e63">&lt;xmlelement&gt;</data>
+            <data id="ed7e63">&lt;/xmlelement&gt;</data>
+            <data id="sd7e65">&lt;xmlatt&gt;</data>
+            <data id="ed7e65">&lt;/xmlatt&gt;</data>
+            <data id="sd7e67">&lt;xmlelement&gt;</data>
+            <data id="ed7e67">&lt;/xmlelement&gt;</data>
+            <data id="sd7e69">&lt;xmlatt&gt;</data>
+            <data id="ed7e69">&lt;/xmlatt&gt;</data>
+            <data id="sd7e72">&lt;li&gt;</data>
+            <data id="ed7e72">&lt;/li&gt;</data>
+            <data id="sd7e74">&lt;xmlatt&gt;</data>
+            <data id="ed7e74">&lt;/xmlatt&gt;</data>
+            <data id="sd7e76">&lt;xmlatt&gt;</data>
+            <data id="ed7e76">&lt;/xmlatt&gt;</data>
+            <data id="sd7e78">&lt;xmlelement&gt;</data>
+            <data id="ed7e78">&lt;/xmlelement&gt;</data>
+         </originalData>
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">The <pc dataRefEnd="ed7e38" dataRefStart="sd7e38" fs:fs="code" id="d7e38"><mrk id="md7e38" translate="no" type="term">mappull</mrk></pc> step makes the following changes to the DITA map: <pc dataRefEnd="ed7e40" dataRefStart="sd7e40" fs:fs="ul" id="d7e40"><mrk id="md7e40" translate="no" type="term"> <pc dataRefEnd="ed7e42" dataRefStart="sd7e42" fs:fs="li" id="d7e42"><mrk id="md7e42" translate="no" type="term">Titles are pulled from referenced DITA topics. Unless the <pc dataRefEnd="ed7e44" dataRefStart="sd7e44" fs:fs="code" id="d7e44"><mrk id="md7e44" translate="no" type="term">locktitle</mrk></pc>attribute is set to "yes", the pulled titles replace the navigation titles specified on the <pc dataRefEnd="ed7e46" dataRefStart="sd7e46" fs:fs="code" id="d7e46"><mrk id="md7e46" translate="no" type="term">topicref</mrk></pc> elements. </mrk></pc> <pc dataRefEnd="ed7e49" dataRefStart="sd7e49" fs:fs="li" id="d7e49"><mrk id="md7e49" translate="no" type="term">The <pc dataRefEnd="ed7e51" dataRefStart="sd7e51" fs:fs="code" id="d7e51"><mrk id="md7e51" translate="no" type="term">linktext</mrk></pc> element is set based on the title of the referenced topic, unless it is already specified locally. </mrk></pc> <pc dataRefEnd="ed7e54" dataRefStart="sd7e54" fs:fs="li" id="d7e54"><mrk id="md7e54" translate="no" type="term">The <pc dataRefEnd="ed7e56" dataRefStart="sd7e56" fs:fs="code" id="d7e56"><mrk id="md7e56" translate="no" type="term">shortdesc</mrk></pc> element is set based on the short description of the referenced topic, unless it is already specified locally. </mrk></pc> <pc dataRefEnd="ed7e59" dataRefStart="sd7e59" fs:fs="li" id="d7e59"><mrk id="md7e59" translate="no" type="term">The <pc dataRefEnd="ed7e61" dataRefStart="sd7e61" fs:fs="code" id="d7e61"><mrk id="md7e61" translate="no" type="term">type</mrk></pc> attribute is set on <pc dataRefEnd="ed7e63" dataRefStart="sd7e63" fs:fs="code" id="d7e63"><mrk id="md7e63" translate="no" type="term">topicref</mrk></pc>elements that reference local DITA topics. The value of the <pc dataRefEnd="ed7e65" dataRefStart="sd7e65" fs:fs="code" id="d7e65"><mrk id="md7e65" translate="no" type="term">type</mrk></pc>attribute is set to value of the root element of the topic; for example, a <pc dataRefEnd="ed7e67" dataRefStart="sd7e67" fs:fs="code" id="d7e67"><mrk id="md7e67" translate="no" type="term">topicref</mrk></pc>element that references a task topic is given a <pc dataRefEnd="ed7e69" dataRefStart="sd7e69" fs:fs="code" id="d7e69"><mrk id="md7e69" translate="no" type="term">type</mrk></pc> attribute set to "task"". </mrk></pc> <pc dataRefEnd="ed7e72" dataRefStart="sd7e72" fs:fs="li" id="d7e72"><mrk id="md7e72" translate="no" type="term">Attributes that cascade, such as <pc dataRefEnd="ed7e74" dataRefStart="sd7e74" fs:fs="code" id="d7e74"><mrk id="md7e74" translate="no" type="term">toc</mrk></pc> and <pc dataRefEnd="ed7e76" dataRefStart="sd7e76" fs:fs="code" id="d7e76"><mrk id="md7e76" translate="no" type="term">print</mrk></pc>, are made explicit on any child <pc dataRefEnd="ed7e78" dataRefStart="sd7e78" fs:fs="code" id="d7e78"><mrk id="md7e78" translate="no" type="term">topicref</mrk></pc> elements. This allows future steps to work with the attributes directly, without reevaluating the cascading behavior. </mrk></pc> </mrk></pc> </source>
+            <target xml:lang="de">Die <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed7e38"
+                   dataRefStart="sd7e38"
+                   fs:fs="code"
+                   id="d7e38">
+                  <mrk class="notranslate" id="md7e38" type="term">mappull</mrk>
+               </pc> Schritt die folgenden änderungen in die DITA map: <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed7e40"
+                   dataRefStart="sd7e40"
+                   fs:fs="ul"
+                   id="d7e40">
+                  <mrk class="notranslate" id="md7e40" type="term">
+                     <pc dataRefEnd="ed7e42"
+                         dataRefStart="sd7e42"
+                         fs:fs="li"
+                         id="d7e42">
+                        <mrk class="notranslate" id="md7e42" type="term">Titel gezogen von referenzierten DITA-Themen. Es sei denn, der <pc dataRefEnd="ed7e44"
+                               dataRefStart="sd7e44"
+                               fs:fs="code"
+                               id="d7e44">
+                              <mrk class="notranslate" id="md7e44" type="term">locktitle</mrk>
+                           </pc>Attribut "ja", die gezogen Titeln ersetzen Sie die navigation Titel angegeben <pc dataRefEnd="ed7e46"
+                               dataRefStart="sd7e46"
+                               fs:fs="code"
+                               id="d7e46">
+                              <mrk class="notranslate" id="md7e46" type="term">topicref</mrk>
+                           </pc> Elemente. </mrk>
+                     </pc>
+                     <pc dataRefEnd="ed7e49"
+                         dataRefStart="sd7e49"
+                         fs:fs="li"
+                         id="d7e49">
+                        <mrk class="notranslate" id="md7e49" type="term">Die <pc dataRefEnd="ed7e51"
+                               dataRefStart="sd7e51"
+                               fs:fs="code"
+                               id="d7e51">
+                              <mrk class="notranslate" id="md7e51" type="term">linktext</mrk>
+                           </pc> element basierend auf dem Titel des referenzierten Thema, es sei denn, es ist bereits vor Ort. </mrk>
+                     </pc>
+                     <pc dataRefEnd="ed7e54"
+                         dataRefStart="sd7e54"
+                         fs:fs="li"
+                         id="d7e54">
+                        <mrk class="notranslate" id="md7e54" type="term">Die <pc dataRefEnd="ed7e56"
+                               dataRefStart="sd7e56"
+                               fs:fs="code"
+                               id="d7e56">
+                              <mrk class="notranslate" id="md7e56" type="term">shortdesc</mrk>
+                           </pc> element basiert auf die kurze Beschreibung des referenzierten Thema, es sei denn, es ist bereits vor Ort. </mrk>
+                     </pc>
+                     <pc dataRefEnd="ed7e59"
+                         dataRefStart="sd7e59"
+                         fs:fs="li"
+                         id="d7e59">
+                        <mrk class="notranslate" id="md7e59" type="term">Die <pc dataRefEnd="ed7e61"
+                               dataRefStart="sd7e61"
+                               fs:fs="code"
+                               id="d7e61">
+                              <mrk class="notranslate" id="md7e61" type="term">geben</mrk>
+                           </pc> Attribut wird festgelegt, auf <pc dataRefEnd="ed7e63"
+                               dataRefStart="sd7e63"
+                               fs:fs="code"
+                               id="d7e63">
+                              <mrk class="notranslate" id="md7e63" type="term">topicref</mrk>
+                           </pc>Elemente, die Referenz örtliche DITA-Themen. Der Wert der <pc dataRefEnd="ed7e65"
+                               dataRefStart="sd7e65"
+                               fs:fs="code"
+                               id="d7e65">
+                              <mrk class="notranslate" id="md7e65" type="term">geben</mrk>
+                           </pc>Attribut ist auf den Wert gesetzt, der das root-element von dem Thema; zum Beispiel, ein <pc dataRefEnd="ed7e67"
+                               dataRefStart="sd7e67"
+                               fs:fs="code"
+                               id="d7e67">
+                              <mrk class="notranslate" id="md7e67" type="term">topicref</mrk>
+                           </pc>element referenziert ein task-topic ist gegeben <pc dataRefEnd="ed7e69"
+                               dataRefStart="sd7e69"
+                               fs:fs="code"
+                               id="d7e69">
+                              <mrk class="notranslate" id="md7e69" type="term">geben</mrk>
+                           </pc> Attribut "Aufgabe"". </mrk>
+                     </pc>
+                     <pc dataRefEnd="ed7e72"
+                         dataRefStart="sd7e72"
+                         fs:fs="li"
+                         id="d7e72">
+                        <mrk class="notranslate" id="md7e72" type="term">Attribute, die Kaskade, wie <pc dataRefEnd="ed7e74"
+                               dataRefStart="sd7e74"
+                               fs:fs="code"
+                               id="d7e74">
+                              <mrk class="notranslate" id="md7e74" type="term">Inhaltsverzeichnis</mrk>
+                           </pc> und <pc dataRefEnd="ed7e76"
+                               dataRefStart="sd7e76"
+                               fs:fs="code"
+                               id="d7e76">
+                              <mrk class="notranslate" id="md7e76" type="term">drucken</mrk>
+                           </pc>, werden explizit gemacht, auf jedes Kind <pc dataRefEnd="ed7e78"
+                               dataRefStart="sd7e78"
+                               fs:fs="code"
+                               id="d7e78">
+                              <mrk class="notranslate" id="md7e78" type="term">topicref</mrk>
+                           </pc> Elemente. Dadurch können zukünftige Schritte, um die Arbeit mit den Parametern, die direkt, ohne das neubewerten der cascading Verhalten. </mrk>
+                     </pc>
+                  </mrk>
+               </pc>
+            </target>
+         </segment>
+      </unit>
+   </file>
+   <file id="5" original="/topics/prism.dita">
+      <skeleton href="./skl/topics/prism.dita.skl"/>
+      <unit fs:fs="title" id="23498">
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">Prism JS</source>
+            <target xml:lang="de">PRISMA JS
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="p" id="42094">
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">This is a generic topic that is designed to test sub-topics in a variety of locations. It should always be referenced from a topicref element; specialized elements in this test get their OWN, very special topics. </source>
+            <target xml:lang="de">Dies ist ein generisches Thema, das entworfen ist, um zu testen, sub-Themen in einer Vielzahl von Standorten. Es sollte immer darauf verwiesen werden, von topicref-element; spezielle Elemente, die in diesem test erhalten Sie Ihren EIGENEN, sehr speziellen Themen. 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="p" id="44447">
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">Prism is a lightweight, extensible syntax highlighter, built with modern web standards in mind. It’s used in thousands of websites, including some of those you visit daily. </source>
+            <target xml:lang="de">Prism ist ein leichtes, erweiterbares syntax-highlighter, gebaut mit modernen web-standards zu berücksichtigen. Es ist in tausenden von websites, darunter auch einige von denen, die Sie täglich besuchen. 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="li" id="19161">
+         <originalData>
+            <data id="sd8e43">&lt;b&gt;</data>
+            <data id="ed8e43">&lt;/b&gt;</data>
+         </originalData>
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve"> <pc dataRefEnd="ed8e43" dataRefStart="sd8e43" fs:fs="b" id="d8e43"><mrk id="md8e43" translate="no" type="term">Dead simple</mrk></pc> - Include prism.css and prism.js, use proper HTML5 code tags (code.language-xxxx), done! </source>
+            <target xml:lang="de">
+               <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed8e43"
+                   dataRefStart="sd8e43"
+                   fs:fs="b"
+                   id="d8e43">
+                  <mrk class="notranslate" id="md8e43" type="term">Tot einfach</mrk>
+               </pc> - Schließen PRISMA.css und prism.js verwenden Sie die richtige HTML5-code-tags (code.Sprache-xxxx), fertig! 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="li" id="27382">
+         <originalData>
+            <data id="sd8e49">&lt;b&gt;</data>
+            <data id="ed8e49">&lt;/b&gt;</data>
+         </originalData>
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve"> <pc dataRefEnd="ed8e49" dataRefStart="sd8e49" fs:fs="b" id="d8e49"><mrk id="md8e49" translate="no" type="term">Intuitive</mrk></pc> - Language classes are inherited so you can only define the language once for multiple code snippets. </source>
+            <target xml:lang="de">
+               <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed8e49"
+                   dataRefStart="sd8e49"
+                   fs:fs="b"
+                   id="d8e49">
+                  <mrk class="notranslate" id="md8e49" type="term">Intuitive</mrk>
+               </pc> - Sprache-Klassen werden geerbt, so können Sie nur die Sprache definieren, die einmal für mehrere code-snippets. 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="li" id="2619">
+         <originalData>
+            <data id="sd8e55">&lt;b&gt;</data>
+            <data id="ed8e55">&lt;/b&gt;</data>
+         </originalData>
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve"> <pc dataRefEnd="ed8e55" dataRefStart="sd8e55" fs:fs="b" id="d8e55"><mrk id="md8e55" translate="no" type="term">Light as a feather</mrk></pc> - The core is 2KB minified &amp; gzipped. Languages add 0.3-0.5KB each, themes are around 1KB. </source>
+            <target xml:lang="de">
+               <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed8e55"
+                   dataRefStart="sd8e55"
+                   fs:fs="b"
+                   id="d8e55">
+                  <mrk class="notranslate" id="md8e55" type="term">Leicht wie eine Feder</mrk>
+               </pc> - Der Kern ist 2KB minified &amp; gzipped. Sprachen hinzufügen von 0,3-0,5 KB jeder, Themen sind etwa 1KB. 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="li" id="56689">
+         <originalData>
+            <data id="sd8e61">&lt;b&gt;</data>
+            <data id="ed8e61">&lt;/b&gt;</data>
+         </originalData>
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve"> <pc dataRefEnd="ed8e61" dataRefStart="sd8e61" fs:fs="b" id="d8e61"><mrk id="md8e61" translate="no" type="term">Blazing fast</mrk></pc> - Supports parallelism with Web Workers, if available. </source>
+            <target xml:lang="de">
+               <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed8e61"
+                   dataRefStart="sd8e61"
+                   fs:fs="b"
+                   id="d8e61">
+                  <mrk class="notranslate" id="md8e61" type="term">Rasend schnell</mrk>
+               </pc> - Unterstützt die Parallelität mit Web-worker, falls verfügbar. 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="li" id="19714">
+         <originalData>
+            <data id="sd8e67">&lt;b&gt;</data>
+            <data id="ed8e67">&lt;/b&gt;</data>
+         </originalData>
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve"> <pc dataRefEnd="ed8e67" dataRefStart="sd8e67" fs:fs="b" id="d8e67"><mrk id="md8e67" translate="no" type="term">Extensible</mrk></pc> - Define new languages or extend existing ones. Add new features thanks to Prism’s plugin architecture. </source>
+            <target xml:lang="de">
+               <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed8e67"
+                   dataRefStart="sd8e67"
+                   fs:fs="b"
+                   id="d8e67">
+                  <mrk class="notranslate" id="md8e67" type="term">Erweiterbar</mrk>
+               </pc> - Definition von neuen Sprachen oder erweitern bestehende. Hinzufügen neuer features, Dank Prism-plugin-Architektur. 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="li" id="10456">
+         <originalData>
+            <data id="sd8e74">&lt;b&gt;</data>
+            <data id="ed8e74">&lt;/b&gt;</data>
+         </originalData>
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve"> <pc dataRefEnd="ed8e74" dataRefStart="sd8e74" fs:fs="b" id="d8e74"><mrk id="md8e74" translate="no" type="term">Easy styling</mrk></pc> - All styling is done through CSS, with sensible class names like .comment, .string, .property etc </source>
+            <target xml:lang="de">
+               <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed8e74"
+                   dataRefStart="sd8e74"
+                   fs:fs="b"
+                   id="d8e74">
+                  <mrk class="notranslate" id="md8e74" type="term">Leichtes styling</mrk>
+               </pc> Styling erfolgt über CSS, mit vernünftigen Klassennamen wie .Kommentar .string .Eigentum usw. 
+</target>
+         </segment>
+      </unit>
+   </file>
+   <file id="6" original="/topics/features-full.dita">
+      <skeleton href="./skl/topics/features-full.dita.skl"/>
+      <unit fs:fs="title" id="19690">
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">Full list of features</source>
+            <target xml:lang="de">Vollständige Liste der Funktionen
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="li" id="62130">
+         <originalData>
+            <data id="sd6e25">&lt;b&gt;</data>
+            <data id="ed6e25">&lt;/b&gt;</data>
+         </originalData>
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve"> <pc dataRefEnd="ed6e25" dataRefStart="sd6e25" fs:fs="b" id="d6e25"><mrk id="md6e25" translate="no" type="term">Only 2KB</mrk></pc> minified &amp; gzipped (core). Each language definition adds roughly 300-500 bytes. </source>
+            <target xml:lang="de">
+               <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed6e25"
+                   dataRefStart="sd6e25"
+                   fs:fs="b"
+                   id="d6e25">
+                  <mrk class="notranslate" id="md6e25" type="term">Nur 2KB</mrk>
+               </pc> minified &amp; gzipped (core). Jede Sprache definition fügt etwa 300-500 Byte. 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="li" id="56249">
+         <originalData>
+            <data id="sd6e31">&lt;codeph&gt;</data>
+            <data id="ed6e31">&lt;/codeph&gt;</data>
+            <data id="sd6e33">&lt;codeph&gt;</data>
+            <data id="ed6e33">&lt;/codeph&gt;</data>
+            <data id="sd6e35">&lt;codeph&gt;</data>
+            <data id="ed6e35">&lt;/codeph&gt;</data>
+            <data id="sd6e37">&lt;codeph&gt;</data>
+            <data id="ed6e37">&lt;/codeph&gt;</data>
+            <data id="sd6e39">&lt;codeph&gt;</data>
+            <data id="ed6e39">&lt;/codeph&gt;</data>
+         </originalData>
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">Encourages good author practices. Other highlighters encourage or even force you to use elements that are semantically wrong, like <pc dataRefEnd="ed6e31" dataRefStart="sd6e31" fs:fs="code" id="d6e31"><mrk id="md6e31" translate="no" type="term">&lt;pre&gt;</mrk></pc>(on its own) or <pc dataRefEnd="ed6e33" dataRefStart="sd6e33" fs:fs="code" id="d6e33"><mrk id="md6e33" translate="no" type="term">&lt;script&gt;</mrk></pc>. Prism forces you to use the correct element for marking up code: <pc dataRefEnd="ed6e35" dataRefStart="sd6e35" fs:fs="code" id="d6e35"><mrk id="md6e35" translate="no" type="term">&lt;code&gt;</mrk></pc>. On its own for inline code, or inside a <pc dataRefEnd="ed6e37" dataRefStart="sd6e37" fs:fs="code" id="d6e37"><mrk id="md6e37" translate="no" type="term">&lt;pre&gt;</mrk></pc> for blocks of code. In addition, the language is defined through the way recommended in the HTML5 draft: through a <pc dataRefEnd="ed6e39" dataRefStart="sd6e39" fs:fs="code" id="d6e39"><mrk id="md6e39" translate="no" type="term">language-xxxx</mrk></pc> class. </source>
+            <target xml:lang="de">Unterstützt gute Autor Praktiken. Andere Textmarker zu fördern oder sogar erzwingen Sie die Verwendung von Elementen, die semantisch falsch, wie <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed6e31"
+                   dataRefStart="sd6e31"
+                   fs:fs="code"
+                   id="d6e31">
+                  <mrk class="notranslate" id="md6e31" type="term">&lt;pre&gt;</mrk>
+               </pc>(auf eigene) oder <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed6e33"
+                   dataRefStart="sd6e33"
+                   fs:fs="code"
+                   id="d6e33">
+                  <mrk class="notranslate" id="md6e33" type="term">&lt;script&gt;</mrk>
+               </pc>. Prism zwingt Sie, verwenden Sie das richtige element für die Auszeichnung von code: <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed6e35"
+                   dataRefStart="sd6e35"
+                   fs:fs="code"
+                   id="d6e35">
+                  <mrk class="notranslate" id="md6e35" type="term">&lt;code&gt;</mrk>
+               </pc>. Auf seine eigene, für inline-code, oder in einem <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed6e37"
+                   dataRefStart="sd6e37"
+                   fs:fs="code"
+                   id="d6e37">
+                  <mrk class="notranslate" id="md6e37" type="term">&lt;pre&gt;</mrk>
+               </pc> für code-Blöcke. Darüber hinaus wird die Sprache definiert ist durch die Art, wie empfohlen, in der HTML5-Entwurf: durch eine <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed6e39"
+                   dataRefStart="sd6e39"
+                   fs:fs="code"
+                   id="d6e39">
+                  <mrk class="notranslate" id="md6e39" type="term">Sprache-xxxx</mrk>
+               </pc> Klasse. 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="li" id="33429">
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">The language definition is inherited. This means that if multiple code snippets have the same language, you can just define it once, in one of their common ancestors. </source>
+            <target xml:lang="de">Die Sprache, die definition ist übernommen. Dies bedeutet, dass, wenn mehrere code-snippets, haben die gleiche Sprache, können Sie einfach definieren, es einmal in einem Ihrer gemeinsamen Vorfahren. 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="li" id="16865">
+         <originalData>
+            <data id="sd6e48">&lt;b&gt;</data>
+            <data id="ed6e48">&lt;/b&gt;</data>
+            <data id="sd6e50">&lt;xref format="html" scope="external" href="https://prismjs.com/faq.html#why-is-asynchronous-highlighting-disabled-by-default"&gt;</data>
+            <data id="ed6e50">&lt;/xref&gt;</data>
+         </originalData>
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">Supports <pc dataRefEnd="ed6e48" dataRefStart="sd6e48" fs:fs="b" id="d6e48"><mrk id="md6e48" translate="no" type="term">parallelism with Web Workers</mrk></pc>, if available. Disabled by default (<pc dataRefEnd="ed6e50" dataRefStart="sd6e50" fs:fs="a" fs:subFs="href,https://prismjs.com/faq.html#why-is-asynchronous-highlighting-disabled-by-default" id="d6e50"><mrk id="md6e50" translate="no" type="term">why?</mrk></pc>). </source>
+            <target xml:lang="de">Unterstützt <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed6e48"
+                   dataRefStart="sd6e48"
+                   fs:fs="b"
+                   id="d6e48">
+                  <mrk class="notranslate" id="md6e48" type="term">Parallelität mit Web worker</mrk>
+               </pc>falls verfügbar. Standardmäßig deaktiviert (<pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed6e50"
+                   dataRefStart="sd6e50"
+                   fs:fs="a"
+                   fs:subFs="href,https://prismjs.com/faq.html#why-is-asynchronous-highlighting-disabled-by-default"
+                   id="d6e50">
+                  <mrk class="notranslate" id="md6e50" type="term">warum?</mrk>
+               </pc>). 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="li" id="51855">
+         <originalData>
+            <data id="sd6e57">&lt;xref format="html" scope="external" href="https://prismjs.com/#plugins"&gt;</data>
+            <data id="ed6e57">&lt;/xref&gt;</data>
+         </originalData>
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">Very easy to extend without modifying the code, due to Prism’s <pc dataRefEnd="ed6e57" dataRefStart="sd6e57" fs:fs="a" fs:subFs="href,https://prismjs.com/#plugins" id="d6e57"><mrk id="md6e57" translate="no" type="term">plugin architecture</mrk></pc>. Multiple hooks are scattered throughout the source. </source>
+            <target xml:lang="de">Sehr einfach zu erweitern, ohne den code ändern, durch Prismen <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed6e57"
+                   dataRefStart="sd6e57"
+                   fs:fs="a"
+                   fs:subFs="href,https://prismjs.com/#plugins"
+                   id="d6e57">
+                  <mrk class="notranslate" id="md6e57" type="term">die plugin-Architektur</mrk>
+               </pc>. Mehrere Haken sind verstreut in der gesamten Quelle. 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="li" id="13461">
+         <originalData>
+            <data id="sd6e65">&lt;xref format="html" scope="external" href="https://prismjs.com/extending.html#language-definitions"&gt;</data>
+            <data id="ed6e65">&lt;/xref&gt;</data>
+         </originalData>
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">Very easy to <pc dataRefEnd="ed6e65" dataRefStart="sd6e65" fs:fs="a" fs:subFs="href,https://prismjs.com/extending.html#language-definitions" id="d6e65"><mrk id="md6e65" translate="no" type="term">define new languages</mrk></pc>. Only thing you need is a good understanding of regular expressions </source>
+            <target xml:lang="de">Sehr einfach zu <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed6e65"
+                   dataRefStart="sd6e65"
+                   fs:fs="a"
+                   fs:subFs="href,https://prismjs.com/extending.html#language-definitions"
+                   id="d6e65">
+                  <mrk class="notranslate" id="md6e65" type="term">definieren Sie neue Sprachen</mrk>
+               </pc>. Nur, was Sie brauchen, ist ein gutes Verständnis von regulären Ausdrücken 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="li" id="12049">
+         <originalData>
+            <data id="sd6e72">&lt;xref format="html" scope="external" href="https://prismjs.com/faq.html#how-do-i-know-which-tokens-i-can-style-for"&gt;</data>
+            <data id="ed6e72">&lt;/xref&gt;</data>
+         </originalData>
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">All styling is done through CSS, with <pc dataRefEnd="ed6e72" dataRefStart="sd6e72" fs:fs="a" fs:subFs="href,https://prismjs.com/faq.html#how-do-i-know-which-tokens-i-can-style-for" id="d6e72"><mrk id="md6e72" translate="no" type="term">sensible class names</mrk></pc>rather than ugly namespaced abbreviated nonsense. </source>
+            <target xml:lang="de">Alle styling erfolgt über CSS, mit <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed6e72"
+                   dataRefStart="sd6e72"
+                   fs:fs="a"
+                   fs:subFs="href,https://prismjs.com/faq.html#how-do-i-know-which-tokens-i-can-style-for"
+                   id="d6e72">
+                  <mrk class="notranslate" id="md6e72" type="term">sinnvolle Klassennamen</mrk>
+               </pc>eher als hässlich Namespaces abgekürzt Unsinn. 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="li" id="43038">
+         <originalData>
+            <data id="sd6e79">&lt;xref format="html" scope="external" href="https://prismjs.com/faq.html#this-page-doesnt-work-in-opera"&gt;</data>
+            <data id="ed6e79">&lt;/xref&gt;</data>
+         </originalData>
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">Wide browser support: IE9+, Firefox, Chrome, Safari, <pc dataRefEnd="ed6e79" dataRefStart="sd6e79" fs:fs="a" fs:subFs="href,https://prismjs.com/faq.html#this-page-doesnt-work-in-opera" id="d6e79"><mrk id="md6e79" translate="no" type="term">Opera</mrk></pc>, most Mobile browsers </source>
+            <target xml:lang="de">Breite Unterstützung von Browsern: IE9+, Firefox, Chrome, Safari, <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed6e79"
+                   dataRefStart="sd6e79"
+                   fs:fs="a"
+                   fs:subFs="href,https://prismjs.com/faq.html#this-page-doesnt-work-in-opera"
+                   id="d6e79">
+                  <mrk class="notranslate" id="md6e79" type="term">Opera</mrk>
+               </pc>die meisten Mobilen Browser 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="li" id="35853">
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">Highlights embedded languages (e.g. CSS inside HTML, JavaScript inside HTML) </source>
+            <target xml:lang="de">Highlights eingebettete Sprachen (z.B. CSS in HTML, JavaScript in HTML) 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="li" id="62236">
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">Highlights inline code as well, not just code blocks </source>
+            <target xml:lang="de">Highlights der inline-code-als auch, nicht nur code-Blöcke 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="li" id="20686">
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">Highlights nested languages (CSS in HTML, JavaScript in HTML) </source>
+            <target xml:lang="de">Highlights verschachtelte Sprachen (CSS in HTML, JavaScript in HTML) 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="li" id="9220">
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">It doesn’t force you to use any Prism-specific markup, not even a Prism-specific class name, only standard markup you should be using anyway. So, you can just try it for a while, remove it if you don’t like it and leave no traces behind. </source>
+            <target xml:lang="de">Es nicht zwingen, Sie zu verwenden Prism-spezifischen markup, nicht einmal ein Prism-spezifische Klasse name, nur das standard-markup, die Sie verwenden sollten, sowieso. Also, man kann nur versuchen es für eine Weile, entfernen Sie es, wenn Sie es nicht mögen, und keine Spuren hinterlassen. 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="li" id="56234">
+         <originalData>
+            <data id="sd6e99">&lt;xref format="html" scope="external" href="https://prismjs.com/plugins/line-highlight/"&gt;</data>
+            <data id="ed6e99">&lt;/xref&gt;</data>
+         </originalData>
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">Highlight specific lines and/or line ranges (requires <pc dataRefEnd="ed6e99" dataRefStart="sd6e99" fs:fs="a" fs:subFs="href,https://prismjs.com/plugins/line-highlight/" id="d6e99"><mrk id="md6e99" translate="no" type="term">plugin</mrk></pc>) </source>
+            <target xml:lang="de">Markieren Sie bestimmten Linien und/oder Bereiche (erfordert <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed6e99"
+                   dataRefStart="sd6e99"
+                   fs:fs="a"
+                   fs:subFs="href,https://prismjs.com/plugins/line-highlight/"
+                   id="d6e99">
+                  <mrk class="notranslate" id="md6e99" type="term">plugin</mrk>
+               </pc>) 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="li" id="13798">
+         <originalData>
+            <data id="sd6e106">&lt;xref format="html" scope="external" href="https://prismjs.com/plugins/show-invisibles/"&gt;</data>
+            <data id="ed6e106">&lt;/xref&gt;</data>
+         </originalData>
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">Show invisible characters like tabs, line breaks etc (requires <pc dataRefEnd="ed6e106" dataRefStart="sd6e106" fs:fs="a" fs:subFs="href,https://prismjs.com/plugins/show-invisibles/" id="d6e106"><mrk id="md6e106" translate="no" type="term">plugin</mrk></pc>) </source>
+            <target xml:lang="de">Zeige unsichtbare Zeichen wie tabs, Zeilenumbrüche usw. (erfordert <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed6e106"
+                   dataRefStart="sd6e106"
+                   fs:fs="a"
+                   fs:subFs="href,https://prismjs.com/plugins/show-invisibles/"
+                   id="d6e106">
+                  <mrk class="notranslate" id="md6e106" type="term">plugin</mrk>
+               </pc>) 
+</target>
+         </segment>
+      </unit>
+      <unit fs:fs="li" id="3616">
+         <originalData>
+            <data id="sd6e113">&lt;xref format="html" scope="external" href="https://prismjs.com/plugins/xrefutolinker/"&gt;</data>
+            <data id="ed6e113">&lt;/xref&gt;</data>
+         </originalData>
+         <segment state="translated">
+            <source xml:lang="en" xml:space="preserve">Autolink URLs and emails, use Markdown links in comments (requires <pc dataRefEnd="ed6e113" dataRefStart="sd6e113" fs:fs="a" fs:subFs="href,https://prismjs.com/plugins/xrefutolinker/" id="d6e113"><mrk id="md6e113" translate="no" type="term">plugin</mrk></pc>) </source>
+            <target xml:lang="de">Autolink URLs und E-Mails, verwenden Markdown-links in Kommentaren (erfordert <pc xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+                   dataRefEnd="ed6e113"
+                   dataRefStart="sd6e113"
+                   fs:fs="a"
+                   fs:subFs="href,https://prismjs.com/plugins/xrefutolinker/"
+                   id="d6e113">
+                  <mrk class="notranslate" id="md6e113" type="term">plugin</mrk>
+               </pc>) 
+</target>
+         </segment>
+      </unit>
+   </file>
+</xliff>

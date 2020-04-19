@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- @format -->
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="examples" xml:lang="de">
+   <title>@@@9794@@@</title>
+   <body>
+      <p>@@@5640@@@</p>
+      <codeblock outputclass="language-javascript">
+         <coderef href="../src/prism.js"/>
+      </codeblock>
+      <p>@@@16866@@@</p>
+      <codeblock outputclass="language-css">
+         <coderef href="../src/style.css"/>
+      </codeblock>
+      <p>@@@46706@@@</p>
+      <codeblock outputclass="language-html">
+         <coderef href="../src/index.html"/>
+      </codeblock>
+      <p>@@@21585@@@</p>
+      <codeblock outputclass="language-markup">
+         <coderef href="../src/logo.svg"/>
+      </codeblock>
+      <p>@@@48687@@@</p>
+   </body>
+</topic>

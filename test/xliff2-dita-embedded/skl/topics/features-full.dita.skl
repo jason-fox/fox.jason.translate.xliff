@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- @format -->
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="features-full" xml:lang="de">
+   <title>@@@19690@@@</title>
+   <prolog>
+      <metadata>
+         <data name="cover-art">
+            <image href="../src/logo.svg"/>
+         </data>
+      </metadata>
+   </prolog>
+   <body outputclass="language-markup">
+      <ul>
+         <li>@@@62130@@@</li>
+         <li>@@@56249@@@</li>
+         <li>@@@33429@@@</li>
+         <li>@@@16865@@@</li>
+         <li>@@@51855@@@</li>
+         <li>@@@13461@@@</li>
+         <li>@@@12049@@@</li>
+         <li>@@@43038@@@</li>
+         <li>@@@35853@@@</li>
+         <li>@@@62236@@@</li>
+         <li>@@@20686@@@</li>
+         <li>@@@9220@@@</li>
+         <li>@@@56234@@@</li>
+         <li>@@@13798@@@</li>
+         <li>@@@3616@@@</li>
+      </ul>
+   </body>
+</topic>

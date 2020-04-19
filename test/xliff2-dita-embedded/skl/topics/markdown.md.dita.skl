@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="chapter-2" xml:lang="de">
+   <title>@@@37404@@@</title>
+   <body>
+</body>
+   <topic id="topic-3">
+      <title>@@@24660@@@</title>
+      <body>
+         <p>@@@7206@@@</p>
+      </body>
+   </topic>
+   <topic id="topic-4">
+      <title>@@@24917@@@</title>
+      <body>
+         <p>@@@41749@@@</p>
+         <fig>
+            <title>@@@0@@@</title>
+            <image scalefit="yes" href="../img/icon-blue.png">
+               <alt/>
+            </image>
+         </fig>
+         <p>@@@5305@@@</p>
+      </body>
+   </topic>
+</topic>

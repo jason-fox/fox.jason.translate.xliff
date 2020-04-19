@@ -245,7 +245,7 @@
 
 
 			<replace taskname="source-text" file="@{file}" token="translate=&quot;no&quot;" value="class=&quot;notranslate&quot;"/>
-			<replace taskname="source-text" file="@{file}" token="&quot;" value="\&quot;"/>
+			
 			<loadfile taskname="source-text" property="source.text" srcFile="@{file}"/>
 			<url-encode string="${source.text}" to="source.text.encoded"/>
 			
@@ -303,7 +303,7 @@
 
 
 			<replace taskname="source-text" file="@{file}" token="translate=&quot;no&quot;" value="class=&quot;notranslate&quot;"/>
-			<replace taskname="source-text" file="@{file}" token="&quot;" value="\&quot;"/>
+			<!--replace taskname="source-text" file="@{file}" token="&quot;" value="\&quot;"/-->
 			<loadfile taskname="source-text" property="source.text" srcFile="@{file}"/>
 			<url-encode string="${source.text}" to="source.text.encoded"/>
 			
