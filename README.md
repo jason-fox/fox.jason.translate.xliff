@@ -268,6 +268,8 @@ PATH-TO-DITA-OT/bin/dita -f xliff-translate \
 
 The XLIFF 1.2 File is auto-translated in place, with translated text as shown:
 
+> **Note:** only `<trans-unit>` elements which are `approved="no"` will be auto-translated.
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
@@ -305,7 +307,6 @@ The XLIFF 1.2 File is auto-translated in place, with translated text as shown:
 ...etc
 ```
 
-> **Note:** only `<trans-unit>` elements which are `approved="no"` will be auto-translated.
 
 
 3.  to create an XLIFF 2.1 File and associated skeletons with run:
@@ -313,7 +314,6 @@ The XLIFF 1.2 File is auto-translated in place, with translated text as shown:
 ```console
 PATH-TO-DITA-OT/bin/dita -f xliff-create -i document.ditamap  -o out  --xliff.version=2
 ```
-
 
 #### Result
 
@@ -346,8 +346,11 @@ A `translate.xlf` file will appear in the `out` directory along with a series of
   ...etc  
 ```
 
-> **Note:** if the `translate.cachefile` parameter is used, unchanged text with previously approved translations will be
-> copied over to the `<target>` elements.
+#### Result
+
+The XLIFF 1.2 File is auto-translated in place, with translated text as shown:
+
+> **Note:** any `<segement>` elements which are `state="final"` will not be re-translated.
 
 
 4.  to populate an exisiting XLIFF 2.1 File with auto-translated text
@@ -358,6 +361,10 @@ PATH-TO-DITA-OT/bin/dita -f xliff-translate \
     --translate.apikey=<api-key>
     --xliff.version=2
 ```
+
+> **Note:** only `<trans-unit>` elements which are `approved="no"` will be auto-translated.
+
+
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -408,7 +415,7 @@ The translated `*.dita` files are generated into the `out` directory.
 > XLIFF files to the translation agency (known also as "localisation service provider"), and receive back verified
 > translated content from the translation agency integrated into to the XLIFF. For XLIFF 1.2, each `<trans-unit>` should 
 > be marked `approved="yes"` when the `<target>` element has been verified. Similarly for XLIFF 2.1 each `<segement>` 
-> should be marked as `state=final`.
+> should be marked as `state="final"`.
 
 ### Parameter Reference
 
