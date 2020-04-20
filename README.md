@@ -376,10 +376,10 @@ The XLIFF 2.1 File is auto-translated in place, with translated text as shown:
         <source xml:lang="en" xml:space="preserve">Loves or pursues or desires to obtain pain of 
             itself, because it is pain, but occasionally circumstances occur in which toil and pain 
             can procure him some  great pleasure. To take a trivial example, <pc dataRefEnd="ed4e14" 
-            dataRefStart="sd4e14" fs:fs="b" id="d4e14"><mrk id="md4e14" translate="no" type="term">which 
-            of us ever undertakes laborious physical exercise,</mrk></pc>except to obtain some advantage 
-            from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that 
-            has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?
+            dataRefStart="sd4e14" fs:fs="b" id="d4e14">which of us ever undertakes laborious physical 
+            exercise</pc>except to obtain some advantage from it? But who has any right to find fault with
+            a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain
+            that produces no resultant pleasure?
         </source>
         <target xml:lang="la">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
