@@ -381,12 +381,11 @@ PATH-TO-DITA-OT/bin/dita -f xliff-translate \
         <target xml:lang="la">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-            enim ad minim veniam, <pc dataRefEnd="ed4e14" dataRefStart="sd4e14" fs:fs="b" id="d4e14">quis n
-            ostrud exercitation 
-            ullamco laboris,</pc> nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-            in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-            sunt in culpa qui officia deserunt mollit anim id est laborum.
+            enim ad minim veniam, <pc dataRefEnd="ed4e14" dataRefStart="sd4e14" fs:fs="b" id="d4e14">
+            quis nostrud exercitation ullamco laboris,</pc> nisi ut aliquip ex ea commodo consequat. 
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+            deserunt mollit anim id est laborum.
         </target>
       </segment>
     </unit>
