@@ -210,7 +210,7 @@ Copy the credentials to authenticate to your service instance:
 
 ## Usage
 
-### Invocation from the command line
+### XLIFF 1.2  Invocation from the command line
 
 1.  to create an XLIFF 1.2 File and associated skeletons with run:
 
@@ -238,7 +238,7 @@ A `translate.xlf` file will appear in the `out` directory along with a series of
             is pain, but occasionally circumstances occur in which toil and
             pain can procure him some great pleasure. To take a trivial
             example,  <x ctype="x-dita-b" id="d3e14">which of us ever undertakes 
-            laborious physical exercise,/x> except to obtain some advantage from it? 
+            laborious physical exercise,</x> except to obtain some advantage from it? 
             But who has any right to find fault with a man who chooses to enjoy a pleasure 
             that has no annoying consequences, or one who avoids a pain that produces no
             resultant pleasure?
@@ -307,7 +307,7 @@ The XLIFF 1.2 File is auto-translated in place, with translated text as shown:
 ...etc
 ```
 
-
+### XLIFF 2.1  Invocation from the command line
 
 3.  to create an XLIFF 2.1 File and associated skeletons with run:
 
@@ -346,12 +346,6 @@ A `translate.xlf` file will appear in the `out` directory along with a series of
   ...etc  
 ```
 
-#### Result
-
-The XLIFF 1.2 File is auto-translated in place, with translated text as shown:
-
-> **Note:** any `<segement>` elements which are `state="final"` will not be re-translated.
-
 
 4.  to populate an exisiting XLIFF 2.1 File with auto-translated text
 
@@ -361,9 +355,11 @@ PATH-TO-DITA-OT/bin/dita -f xliff-translate \
     --translate.apikey=<api-key>
     --xliff.version=2
 ```
+#### Result
 
-> **Note:** only `<trans-unit>` elements which are `approved="no"` will be auto-translated.
+The XLIFF 2.1 File is auto-translated in place, with translated text as shown:
 
+> **Note:** any `<segement>` elements which are `state="final"` will not be re-translated.
 
 
 ```xml
@@ -400,6 +396,8 @@ PATH-TO-DITA-OT/bin/dita -f xliff-translate \
   </file>
   ...etc  
 ```
+
+### Populating Skeletons from the command line
 
 5.  recreate `*.dita` files using an XLIFF File and its associated skeletons with run:
 
