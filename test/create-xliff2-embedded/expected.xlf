@@ -48,9 +48,7 @@
           <pc dataRefEnd="ed4e23" dataRefStart="sd4e23" fs:fs="code" id="d4e23">
             <mrk id="md4e23" translate="no" type="term">&lt;code&gt;</mrk>
           </pc>element is semantically invalid.
-          <pc dataRefEnd="ed4e25" dataRefStart="sd4e25" fs:fs="a" fs:subFs="href,https://www.w3.org/TR/html52/textlevel-semantics.html#the-code-element" id="d4e25">
-            <mrk id="md4e25" translate="no" type="term">According to the HTML5 spec</mrk>
-          </pc>, the recommended way to define a code language is a
+          <pc dataRefEnd="ed4e25" dataRefStart="sd4e25" fs:fs="a" fs:subFs="href,https://www.w3.org/TR/html52/textlevel-semantics.html#the-code-element" id="d4e25">According to the HTML5 spec</pc>, the recommended way to define a code language is a
           <pc dataRefEnd="ed4e28" dataRefStart="sd4e28" fs:fs="code" id="d4e28">
             <mrk id="md4e28" translate="no" type="term">language-xxxx</mrk>
           </pc>class, which is what Prism uses. Alternatively, Prism also supports a shorter version:
@@ -122,9 +120,7 @@
       </originalData>
       <segment state="initial">
         <source xml:lang="en" xml:space="preserve">The
-          <pc dataRefEnd="ed4e59" dataRefStart="sd4e59" fs:fs="a" fs:subFs="href,https://www.w3.org/TR/html5/grouping-content.html#the-pre-element" id="d4e59">
-            <mrk id="md4e59" translate="no" type="term">recommended way to mark up a code block</mrk>
-          </pc>(both for semantics and for Prism) is a
+          <pc dataRefEnd="ed4e59" dataRefStart="sd4e59" fs:fs="a" fs:subFs="href,https://www.w3.org/TR/html5/grouping-content.html#the-pre-element" id="d4e59">recommended way to mark up a code block</pc>(both for semantics and for Prism) is a
           <pc dataRefEnd="ed4e62" dataRefStart="sd4e62" fs:fs="code" id="d4e62">
             <mrk id="md4e62" translate="no" type="term">&lt;pre&gt;</mrk>
           </pc>element with a
@@ -169,9 +165,7 @@
           <pc dataRefEnd="ed4e82" dataRefStart="sd4e82" fs:fs="code" id="d4e82">
             <mrk id="md4e82" translate="no" type="term">&lt;script&gt;</mrk>
           </pc>element you used for prism and use the
-          <pc dataRefEnd="ed4e84" dataRefStart="sd4e84" fs:fs="a" fs:subFs="href,https://prismjs.com/extending.html#api" id="d4e84">
-            <mrk id="md4e84" translate="no" type="term">API</mrk>
-          </pc>. Example:</source>
+          <pc dataRefEnd="ed4e84" dataRefStart="sd4e84" fs:fs="a" fs:subFs="href,https://prismjs.com/extending.html#api" id="d4e84">API</pc>. Example:</source>
         <target xml:lang="de"></target>
       </segment>
     </unit>
@@ -214,9 +208,7 @@
       </originalData>
       <segment state="initial">
         <source xml:lang="en" xml:space="preserve">To make it easy to configure your Prism instance with only thelanguages and plugins you need, use the babel plugin,
-          <pc dataRefEnd="ed4e115" dataRefStart="sd4e115" fs:fs="a" fs:subFs="href,https://github.com/mAAdhaTTah/babel-plugin-prismjs" id="d4e115">
-            <mrk id="md4e115" translate="no" type="term">babel-plugin-prismjs</mrk>
-          </pc>. This will allow you to load the minimum number of languages and plugins to satisfy your needs. See that plugin's documentation for configuration details</source>
+          <pc dataRefEnd="ed4e115" dataRefStart="sd4e115" fs:fs="a" fs:subFs="href,https://github.com/mAAdhaTTah/babel-plugin-prismjs" id="d4e115">babel-plugin-prismjs</pc>. This will allow you to load the minimum number of languages and plugins to satisfy your needs. See that plugin's documentation for configuration details</source>
         <target xml:lang="de"></target>
       </segment>
     </unit>

@@ -111,24 +111,9 @@
 	<xsl:template match="*" mode="trans-source">
 		<xsl:element name="pc" >
 			<xsl:call-template name="add-attributes"/>
-
 			<xsl:apply-templates select="." mode="add-format-style"/>
-
-			<xsl:choose>
-				<xsl:when test="not(@translate)">
-					<mrk translate="no" type="term">
-						<xsl:attribute name="id">
-							<xsl:value-of select="concat('m',generate-id())"/> 
-						</xsl:attribute>
-						<xsl:apply-templates select="node()" mode="trans-source" />
-					</mrk>
-				</xsl:when>
-				<xsl:otherwise>
-					<xsl:apply-templates select="node()" mode="trans-source" />
-				</xsl:otherwise>
-			</xsl:choose>
+			<xsl:apply-templates select="." mode="add-no-translate-mark"/>
 		</xsl:element>
-			
 	</xsl:template>
 
 	<xsl:template match="text()" mode="trans-source">
