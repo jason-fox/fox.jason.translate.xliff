@@ -33,8 +33,9 @@ This plug-in consists of three DITA-OT transforms
         -   [Yandex Translate](#yandex-translate)
         -   [DeepL API](#deepl-api)
 -   [Usage](#usage)
-    -   [Invocation from the command line](#invocation-from-the-command-line)
-        -   [Parameter Reference](#parameter-reference)
+    -   [XLIFF 1.2 from the command line](#xliff-12--invocation-from-the-command-line)
+    -   [XLIFF 2.1 from the command line](#xliff-21--invocation-from-the-command-line)
+    -   [Parameter Reference](#parameter-reference)
 
 </details>
 
