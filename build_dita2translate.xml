@@ -124,7 +124,7 @@
 			Generate a series of XLIFF files iterating each unique
 			md5 id 
 		-->
-		<xslt taskname="xliff-gen" destdir="${dita.temp.dir}/xliff" extension=".xlf" style="${translate.customization.dir}/${xliff.version}/dita-xliff.xsl" basedir="${dita.temp.dir}/md5">
+		<xslt taskname="xliff-gen" destdir="${dita.temp.dir}/xliff" extension=".xlf.xml" style="${translate.customization.dir}/${xliff.version}/dita-xliff.xsl" basedir="${dita.temp.dir}/md5">
 			<xmlcatalog refid="fake.dita.catalog"/>
 			<param expression="${dita.temp.dir}/md5" name="SOURCE"/>
 			<param expression="${dita.temp.dir}/skl" name="SKELETON"/>

@@ -10,7 +10,7 @@
 	<!-- Defining that this .xsl generates an indented, UTF8-encoded XML file -->
 	<xsl:output encoding="utf-8" indent="yes" method="xml" omit-xml-declaration="no" standalone="yes"/>
 	<xsl:param name="in">.</xsl:param>
-	<xsl:param name="extension">xlf</xsl:param>
+	<xsl:param name="extension">xlf.xml</xsl:param>
 	<xsl:param name="out">translate.xlf</xsl:param>
 	<!--
 		XSLT engine only accept file path that start with 'file:/'
