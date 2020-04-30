@@ -7,9 +7,9 @@
 [![Documentation Status](https://readthedocs.org/projects/xliffdita-ot/badge/?version=latest)](https://xliffdita-ot.readthedocs.io/en/latest/?badge=latest)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=fox.jason.translate.xliff&metric=alert_status)](https://sonarcloud.io/dashboard?id=fox.jason.translate.xliff)
 
-DITA-OT Translate Plug-in is a [DITA-OT Plug-in](https://www.dita-ot.org/plugins) to create, auto-translate and
-re-merge XLIFF files, generating translated documentation in a targeted foreign language. It can create and consume 
-files using either XLIFF 1.2 or XLIFF 2.1 format.
+DITA-OT Translate Plug-in is a [DITA-OT Plug-in](https://www.dita-ot.org/plugins) to create, auto-translate and re-merge
+XLIFF files, generating translated documentation in a targeted foreign language. It can create and consume files using
+either XLIFF 1.2 or XLIFF 2.1 format.
 
 This plug-in consists of three DITA-OT transforms
 
@@ -20,7 +20,6 @@ This plug-in consists of three DITA-OT transforms
 :arrow_forward: [Video from DITA-OT Day 2019](https://youtu.be/icbLaNGdV8c)
 
 [![](https://jason-fox.github.io/fox.jason.translate.xliff/cloud-video.png)](https://youtu.be/icbLaNGdV8c)
-
 
 <details>
 <summary><strong>Table of Contents</strong></summary>
@@ -36,6 +35,7 @@ This plug-in consists of three DITA-OT transforms
 -   [Usage](#usage)
     -   [XLIFF 1.2 from the command line](#xliff-12--invocation-from-the-command-line)
     -   [XLIFF 2.1 from the command line](#xliff-21--invocation-from-the-command-line)
+    -   [Populating Skeletons](#populating-skeletons-from-the-command-line)
     -   [Parameter Reference](#parameter-reference)
 
 </details>
@@ -116,7 +116,6 @@ Copy the credentials to authenticate to your service instance:
 
 [<img src="https://www.confluent.io/wp-content/uploads/MS-Azure_logo_stacked_c-gray_rgb.png" align="right" height="85">](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/translator-info-overview)
 
-
 Microsoft Translator provides multi-language support for translation, transliteration, language detection, and
 dictionaries.
 
@@ -148,7 +147,6 @@ Copy the credentials to authenticate to your service instance:
 #### Yandex Translate
 
 [<img src="http://www.companieshistory.com/wp-content/uploads/2014/05/Yandex-NV.png" align="right" height="55">](https://tech.yandex.com/translate/)
-
 
 The API provides access to the Yandex online machine translation service. It supports more than 90 languages and can
 translate separate words or complete texts.
@@ -212,7 +210,7 @@ Copy the credentials to authenticate to your service instance:
 
 ## Usage
 
-### XLIFF 1.2  Invocation from the command line
+### XLIFF 1.2 Invocation from the command line
 
 1.  to create an XLIFF 1.2 File and associated skeletons with run:
 
@@ -239,9 +237,9 @@ A `translate.xlf` file will appear in the `out` directory along with a series of
             Loves or pursues or desires to obtain pain of itself, because it
             is pain, but occasionally circumstances occur in which toil and
             pain can procure him some great pleasure. To take a trivial
-            example,  <x ctype="x-dita-b" id="d3e14">which of us ever undertakes 
-            laborious physical exercise,</x> except to obtain some advantage from it? 
-            But who has any right to find fault with a man who chooses to enjoy a pleasure 
+            example,  <x ctype="x-dita-b" id="d3e14">which of us ever undertakes
+            laborious physical exercise,</x> except to obtain some advantage from it?
+            But who has any right to find fault with a man who chooses to enjoy a pleasure
             that has no annoying consequences, or one who avoids a pain that produces no
             resultant pleasure?
           </source>
@@ -255,7 +253,6 @@ A `translate.xlf` file will appear in the `out` directory along with a series of
 
 > **Note:** if the `translate.cachefile` parameter is used, unchanged text with previously approved translations will be
 > copied over to the `<target>` elements.
-
 
 2.  to populate an exisiting XLIFF 1.2 File with auto-translated text
 
@@ -287,16 +284,16 @@ The XLIFF 1.2 File is auto-translated in place, with translated text as shown:
             Loves or pursues or desires to obtain pain of itself, because it
             is pain, but occasionally circumstances occur in which toil and
             pain can procure him some great pleasure. To take a trivial
-            example, <x ctype="x-dita-b" id="d3e14">which of us ever undertakes 
-            laborious physical exercise,</x> except to obtain some advantage from it? 
-            But who has any right to find fault with a man who chooses to enjoy a pleasure 
+            example, <x ctype="x-dita-b" id="d3e14">which of us ever undertakes
+            laborious physical exercise,</x> except to obtain some advantage from it?
+            But who has any right to find fault with a man who chooses to enjoy a pleasure
             that has no annoying consequences, or one who avoids a pain that produces no
             resultant pleasure?
           </source>
           <target xml:lang="la">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-            enim ad minim veniam, <x ctype="x-dita-b" id="d3e14">quis nostrud exercitation 
+            enim ad minim veniam, <x ctype="x-dita-b" id="d3e14">quis nostrud exercitation
             ullamco laboris,</x> nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
             in reprehenderit in voluptate velit esse cillum dolore eu fugiat
             nulla pariatur. Excepteur sint occaecat cupidatat non proident,
@@ -309,7 +306,7 @@ The XLIFF 1.2 File is auto-translated in place, with translated text as shown:
 ...etc
 ```
 
-### XLIFF 2.1  Invocation from the command line
+### XLIFF 2.1 Invocation from the command line
 
 3.  to create an XLIFF 2.1 File and associated skeletons with run:
 
@@ -332,11 +329,11 @@ A `translate.xlf` file will appear in the `out` directory along with a series of
         <data id="ed4e14">&lt;/b&gt;</data>
       </originalData>
       <segment state="initial">
-        <source xml:lang="en" xml:space="preserve">Loves or pursues or desires to obtain pain of 
-            itself, because it is pain, but occasionally circumstances occur in which toil and pain 
-            can procure him some  great pleasure. To take a trivial example, <pc dataRefEnd="ed4e14" 
-            dataRefStart="sd4e14" fs:fs="b" id="d4e14">which of us ever undertakes laborious physical 
-            exercise,</pc>except to obtain some advantage from it? But who has any right to find fault 
+        <source xml:lang="en" xml:space="preserve">Loves or pursues or desires to obtain pain of
+            itself, because it is pain, but occasionally circumstances occur in which toil and pain
+            can procure him some  great pleasure. To take a trivial example, <pc dataRefEnd="ed4e14"
+            dataRefStart="sd4e14" fs:fs="b" id="d4e14">which of us ever undertakes laborious physical
+            exercise,</pc>except to obtain some advantage from it? But who has any right to find fault
             with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids
             a pain that produces no resultant pleasure?
           </source>
@@ -345,9 +342,8 @@ A `translate.xlf` file will appear in the `out` directory along with a series of
     </unit>
     ...etc
   </file>
-  ...etc  
+  ...etc
 ```
-
 
 4.  to populate an exisiting XLIFF 2.1 File with auto-translated text
 
@@ -357,12 +353,12 @@ PATH-TO-DITA-OT/bin/dita -f xliff-translate \
     --translate.apikey=<api-key>
     --xliff.version=2
 ```
+
 #### Result
 
 The XLIFF 2.1 File is auto-translated in place, with translated text as shown:
 
 > **Note:** any `<segement>` elements which are `state="final"` will not be re-translated.
-
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -375,10 +371,10 @@ The XLIFF 2.1 File is auto-translated in place, with translated text as shown:
         <data id="ed4e14">&lt;/b&gt;</data>
       </originalData>
       <segment state="translated">
-        <source xml:lang="en" xml:space="preserve">Loves or pursues or desires to obtain pain of 
-            itself, because it is pain, but occasionally circumstances occur in which toil and pain 
-            can procure him some  great pleasure. To take a trivial example, <pc dataRefEnd="ed4e14" 
-            dataRefStart="sd4e14" fs:fs="b" id="d4e14">which of us ever undertakes laborious physical 
+        <source xml:lang="en" xml:space="preserve">Loves or pursues or desires to obtain pain of
+            itself, because it is pain, but occasionally circumstances occur in which toil and pain
+            can procure him some  great pleasure. To take a trivial example, <pc dataRefEnd="ed4e14"
+            dataRefStart="sd4e14" fs:fs="b" id="d4e14">which of us ever undertakes laborious physical
             exercise</pc>except to obtain some advantage from it? But who has any right to find fault with
             a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain
             that produces no resultant pleasure?
@@ -387,7 +383,7 @@ The XLIFF 2.1 File is auto-translated in place, with translated text as shown:
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
             enim ad minim veniam, <pc dataRefEnd="ed4e14" dataRefStart="sd4e14" fs:fs="b" id="d4e14">
-            quis nostrud exercitation ullamco laboris,</pc> nisi ut aliquip ex ea commodo consequat. 
+            quis nostrud exercitation ullamco laboris,</pc> nisi ut aliquip ex ea commodo consequat.
             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
             nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
             deserunt mollit anim id est laborum.
@@ -396,7 +392,7 @@ The XLIFF 2.1 File is auto-translated in place, with translated text as shown:
     </unit>
     ...etc
   </file>
-  ...etc  
+  ...etc
 ```
 
 ### Populating Skeletons from the command line
@@ -413,8 +409,8 @@ The translated `*.dita` files are generated into the `out` directory.
 
 > **Note:** Any machine translation is by definition imperfect. A typical translation workflow would send the generated
 > XLIFF files to the translation agency (known also as "localisation service provider"), and receive back verified
-> translated content from the translation agency integrated into to the XLIFF. For XLIFF 1.2, each `<trans-unit>` should 
-> be marked `approved="yes"` when the `<target>` element has been verified. Similarly for XLIFF 2.1 each `<segement>` 
+> translated content from the translation agency integrated into to the XLIFF. For XLIFF 1.2, each `<trans-unit>` should
+> be marked `approved="yes"` when the `<target>` element has been verified. Similarly for XLIFF 2.1 each `<segement>`
 > should be marked as `state="final"`.
 
 ### Parameter Reference
@@ -439,11 +435,13 @@ The translated `*.dita` files are generated into the `out` directory.
 -   `xliff.version` - Decides which XLIFF format to use. Defaults to the value in `configuration.properties`:
     -   `1` - XLIFF 1.2 format
     -   `2` - XLIFF 2.1 format
+
 ## License
 
 [Apache 2.0](LICENSE) © 2019-2020 Jason Fox
 
 The Program includes the following additional software components which were obtained under license:
 
--   xmltask.jar - http://www.oopsconsultancy.com/software/xmltask/ - **Apache 1.1 license** (within `org.doctales.xmltask` plug-in)
+-   xmltask.jar - http://www.oopsconsultancy.com/software/xmltask/ - **Apache 1.1 license** (within
+    `org.doctales.xmltask` plug-in)
 -   json-simple-1.1.1.jar - https://github.com/fangyidong/json-simple - **Apache 2.0 license**
