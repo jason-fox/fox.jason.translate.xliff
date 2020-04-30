@@ -7,8 +7,9 @@
 [![Documentation Status](https://readthedocs.org/projects/xliffdita-ot/badge/?version=latest)](https://xliffdita-ot.readthedocs.io/en/latest/?badge=latest)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=fox.jason.translate.xliff&metric=alert_status)](https://sonarcloud.io/dashboard?id=fox.jason.translate.xliff)
 
-DITA-OT Translate Plug-in is a [DITA-OT Plug-in](https://www.dita-ot.org/plugins) to create, auto-translate and re-merge XLIFF files, generating translated
-documentation in a targeted foreign language.
+DITA-OT Translate Plug-in is a [DITA-OT Plug-in](https://www.dita-ot.org/plugins) to create, auto-translate and
+re-merge XLIFF files, generating translated documentation in a targeted foreign language. It can create and consume 
+files using either XLIFF 1.2 or XLIFF 2.1 format.
 
 This plug-in consists of three DITA-OT transforms
 
