@@ -31,7 +31,7 @@
     </param>
     <param name="translate.authentication.url" type="string" desc="URL for creating an OAuth token if needed" />
     <param name="translate.output.format" type="string" desc="" />
-    <param name="translate.apikey" type="string" desc="URL for a cloud Translation service" />
+    <param name="translate.apikey" type="string" desc="API key for a cloud Translation service" />
     <param name="translate.url" type="string" desc="URL for a cloud Translation service" />
     <param name="translate.from" type="string" desc="Source language" />
     <param name="translate.to" type="string" desc="Target language" />
