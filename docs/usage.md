@@ -193,7 +193,7 @@ The XLIFF 2.1 File is auto-translated in place, with translated text as shown:
 PATH-TO-DITA-OT/bin/dita -f xliff-dita -i translate.xlf -o out --xliff.version=1|2
 ```
 
-#### Result
+<h4>Result</h4>
 
 The translated `*.dita` files are generated into the `out` directory.
 
