@@ -10,10 +10,10 @@
   <feature extension="dita.conductor.lib.import" file="lib/json-simple-1.1.1.jar"/>
 
   <transtype name="xliff-create" desc=" XML Localization Interchange File Format (XLIFF)">
-    <param name="translate.from" type="string"/>
-    <param name="translate.to" type="string"/>
-    <param name="translate.cachefile" type="file"/>
-    <param name="xliff.version" type="enum">
+    <param name="translate.from" type="string" desc="Source language"/>
+    <param name="translate.to" type="string" desc="Target language"/>
+    <param name="translate.cachefile" type="file" desc="The location of a previously translated XLIFF file holding translations to be reused"/>
+    <param name="xliff.version" type="enum" desc="Which XLIFF format to use">
       <val>1</val>
       <val default="true" >2</val>
     </param>
@@ -21,7 +21,7 @@
 
 
   <transtype name="xliff-translate" desc="Auto-translate an XLIFF File using an online service">
-  	<param name="translate.service" desc="Specifies the auto-translate service." type="enum">
+  	<param name="translate.service" desc="Specifies the cloud auto-translate service." type="enum">
       <val>bing</val>
       <val>custom</val>
       <val>deepl</val>
@@ -29,13 +29,13 @@
       <val>watson</val>
       <val>yandex</val>
     </param>
-    <param name="translate.authentication.url" type="string"/>
-    <param name="translate.output.format" type="string"/>
-    <param name="translate.apikey" type="string"/>
-    <param name="translate.url" type="string"/>
-    <param name="translate.from" type="string"/>
-    <param name="translate.to" type="string"/>
-    <param name="xliff.version" type="enum">
+    <param name="translate.authentication.url" type="string" desc="URL for creating an OAuth token if needed" />
+    <param name="translate.output.format" type="string" desc="" />
+    <param name="translate.apikey" type="string" desc="URL for a cloud Translation service" />
+    <param name="translate.url" type="string" desc="URL for a cloud Translation service" />
+    <param name="translate.from" type="string" desc="Source language" />
+    <param name="translate.to" type="string" desc="Target language" />
+    <param name="xliff.version" type="enum" desc="Which XLIFF format to use">
       <val>1</val>
       <val default="true" >2</val>
     </param>
@@ -43,9 +43,9 @@
 
 
   <transtype name="xliff-dita" desc="Supply translated text into DITA skeleton files using an XLIFF File">
-    <param name="translate.from" type="string"/>
-    <param name="translate.to" type="string"/>
-    <param name="xliff.version" type="enum">
+    <param name="translate.from" type="string" desc="Source language" />
+    <param name="translate.to" type="string" desc="Target language" />
+    <param name="xliff.version" type="enum" desc="Which XLIFF format to use">
       <val>1</val>
       <val default="true" >2</val>
     </param>
