@@ -2,7 +2,7 @@
 
 ### XLIFF 1.2 Invocation from the command line
 
-1.  to create an XLIFF 1.2 File and associated skeletons with run:
+&nbsp;1.  to create an XLIFF 1.2 File and associated skeletons with run:
 
 ```console
 PATH-TO-DITA-OT/bin/dita -f xliff-create -i document.ditamap  -o out  --xliff.version=1
@@ -44,7 +44,7 @@ A `translate.xlf` file will appear in the `out` directory along with a series of
 > **Note:** if the `translate.cachefile` parameter is used, unchanged text with previously approved translations will be
 > copied over to the `<target>` elements.
 
-2.  to populate an exisiting XLIFF 1.2 File with auto-translated text
+&nbsp;2.  to populate an exisiting XLIFF 1.2 File with auto-translated text
 
 ```console
 PATH-TO-DITA-OT/bin/dita -f xliff-translate \
@@ -98,7 +98,7 @@ The XLIFF 1.2 File is auto-translated in place, with translated text as shown:
 
 ### XLIFF 2.1 Invocation from the command line
 
-3.  to create an XLIFF 2.1 File and associated skeletons with run:
+&nbsp;3.  to create an XLIFF 2.1 File and associated skeletons with run:
 
 ```console
 PATH-TO-DITA-OT/bin/dita -f xliff-create -i document.ditamap  -o out  --xliff.version=2
@@ -135,7 +135,7 @@ A `translate.xlf` file will appear in the `out` directory along with a series of
   ...etc
 ```
 
-4.  to populate an exisiting XLIFF 2.1 File with auto-translated text
+&nbsp;4.  to populate an exisiting XLIFF 2.1 File with auto-translated text
 
 ```console
 PATH-TO-DITA-OT/bin/dita -f xliff-translate \
@@ -187,7 +187,7 @@ The XLIFF 2.1 File is auto-translated in place, with translated text as shown:
 
 ### Populating Skeletons from the command line
 
-5.  recreate `*.dita` files using an XLIFF File and its associated skeletons with run:
+&nbsp;5.  recreate `*.dita` files using an XLIFF File and its associated skeletons with run:
 
 ```console
 PATH-TO-DITA-OT/bin/dita -f xliff-dita -i translate.xlf -o out --xliff.version=1|2
