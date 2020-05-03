@@ -307,7 +307,7 @@ a.icon-home {
 .rst-content blockquote {
     color: ##0f1c30 !important;
     background-color: #dce4f0;
-    border-color: #c0c7d2;
+    border: #c0c7d2 solid 1px ;
     padding: .75rem 1.25rem;
     border-radius: .25rem;
     margin: 1em;
@@ -383,6 +383,10 @@ div[role="main"] {
     margin-right: 28px;
     background: transparent;
     font-size: 110%
+}
+
+.rst-versions .rst-current-version {
+    color: #fff !important;
 }
 
 .wy-side-nav-search {
