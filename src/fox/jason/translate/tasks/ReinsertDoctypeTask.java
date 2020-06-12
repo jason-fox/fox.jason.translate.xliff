@@ -136,7 +136,15 @@ public class ReinsertDoctypeTask extends Task {
 
       for (String line : lines) {
         if (doctype == null && reDoctype.matcher(line).lookingAt()) {
-          doctype = line.substring(line.indexOf('<') + 1, line.indexOf('>'));
+          int start = line.indexOf('<');
+          int end =  line.indexOf('>');
+          int space = line.indexOf(' ');
+
+          if(space > 0 && (space < end || end == -1)){
+             end = space;
+          }
+
+          doctype = line.substring(start + 1, end);
           addDoctype(doctype, text);
         }
         if (line.length() > 0) {
