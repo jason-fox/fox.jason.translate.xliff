@@ -528,8 +528,6 @@
 					</actions>
 				</call>
 			</xmltask>
-
-			
 		</sequential>
 	</macrodef>
 
@@ -570,7 +568,7 @@
 			</xslt>
 
 
-			<xmltask taskname="xliff2-read" source="@{xliff}" if:set="xliff.version.2">
+			<xmltask taskname="xliff2-read" source="@{xliff}">
 				<call path="//unit">
 					<param default="" name="id" path="@id"/>
 					<actions>
@@ -587,7 +585,6 @@
 					</actions>
 				</call>
 			</xmltask>
-
 		</sequential>
 	</macrodef>
 

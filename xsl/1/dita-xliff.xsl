@@ -48,7 +48,7 @@
 			</xliff>
 		</xsl:template>
 
-	 <xsl:template match="*[@md5]">
+	 <xsl:template match="*[@md5 and @md5!='0']">
 		<trans-unit>
 			<xsl:attribute name="approved">
 				<xsl:value-of select="if (@translate='no') then 'yes' else 'no'"/>
@@ -83,6 +83,8 @@
 		</trans-unit>
 		
 	 </xsl:template>
+
+	 <xsl:template match="*[@md5='0']"/>
 
 	 <xsl:template name="add-attributes">
 

@@ -9,7 +9,7 @@
 	<!-- Process DITA block elements and comments -->
 
 	<xsl:template mode="add-format-style" match="*">
-		<xsl:message><xsl:value-of select="name()"/></xsl:message>
+		<xsl:message>Unknown: <xsl:value-of select="name()"/></xsl:message>
 	</xsl:template>
 
 	<xsl:template mode="add-format-style" match="comment()|text()"/>
@@ -24,7 +24,7 @@
 		</xsl:attribute>
 	</xsl:template>
 
-	<xsl:template mode="add-format-style"  match="cite|dd|dt|dl|ol|ul|li|p|title">
+	<xsl:template mode="add-format-style"  match="cite|dd|dt|dl|ol|ul|li|p|title|alt|navtitle">
 		<xsl:call-template name="add-name-style"/>
 	</xsl:template>
 

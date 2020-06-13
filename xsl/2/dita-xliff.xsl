@@ -43,7 +43,7 @@
 		</xliff>
 	</xsl:template>
 
-	 <xsl:template match="*[@md5]">
+	 <xsl:template match="*[@md5 and @md5!='0']">
 		<unit>
 			<xsl:namespace name="fs" select="'urn:oasis:names:tc:xliff:fs:2.0'"/>
 			<xsl:attribute name="id">
@@ -94,6 +94,8 @@
 		</unit>
 		
 	 </xsl:template>
+
+	 <xsl:template match="*[@md5='0']"/>
 
 	 <xsl:template name="add-attributes">
 	 	<xsl:attribute name="id">

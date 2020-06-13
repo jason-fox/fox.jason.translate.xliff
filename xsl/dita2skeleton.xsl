@@ -37,7 +37,7 @@
 		</xsl:copy>
 	</xsl:template>
 
-	<xsl:template match="*[@md5]">
+	<xsl:template match="*[@md5 and @md5!='0']">
 		<xsl:element name="{local-name()}">
 			<!-- process attributes -->
 			<xsl:for-each select="@*">
@@ -54,6 +54,22 @@
 			<xsl:text>@@@</xsl:text>
 		</xsl:element>
 			
+	</xsl:template>
+
+	<xsl:template match="*[@md5='0']">
+		<!--xsl:element name="{local-name()}">
+			<!-/- process attributes -/->
+			<xsl:for-each select="@*">
+				<!-/- remove attribute prefix -/->
+				<xsl:variable name="attr" select="local-name()"/>
+				<xsl:if test="$attr!='md5'">
+					<xsl:attribute name="{local-name()}">
+						<xsl:value-of select="."/>
+					</xsl:attribute>
+				</xsl:if>
+			</xsl:for-each-->
+			<xsl:apply-templates select="child::node()" />
+		<!--/xsl:element-->
 	</xsl:template>
 
 

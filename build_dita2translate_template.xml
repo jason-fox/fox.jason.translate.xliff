@@ -155,7 +155,6 @@
 
 		<replace file="${output.dir}/translate.xlf" token="xmlns=&quot;&quot;" value=""/>
 		<approve-translations if:set="translate.cachefile" cache.file="${translate.cachefile}" xliff="${output.dir}/translate.xlf"/>
-		
 	</target>
 
 
