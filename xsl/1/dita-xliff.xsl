@@ -8,6 +8,7 @@
 	<xsl:param as="xs:string" name="SOURCE" select="''"/>
 	<xsl:param as="xs:string" name="SOURCE_LANG" select="'en'"/>
 	<xsl:param as="xs:string" name="TARGET_LANG" select="'es'"/>
+	<xsl:param as="xs:string" name="TRANS_CACHE" select="''"/>
 	
 
 	<xsl:output method="xml" indent="yes" encoding="UTF-8"/>
@@ -51,7 +52,17 @@
 	 <xsl:template match="*[@md5 and @md5!='0']">
 		<trans-unit>
 			<xsl:attribute name="approved">
-				<xsl:value-of select="if (@translate='no') then 'yes' else 'no'"/>
+				<xsl:choose>
+					<xsl:when test="@translate='no'">
+						<xsl:text>yes</xsl:text>
+		 			</xsl:when>
+		 			<xsl:when test="document($TRANS_CACHE)//trans-unit[@approved='yes' and @id=@md5]/target">
+						<xsl:text>yes</xsl:text>
+		 			</xsl:when>
+		 			<xsl:otherwise>
+						<xsl:text>no</xsl:text>
+		 			</xsl:otherwise>
+	 			</xsl:choose>
 			</xsl:attribute>
 			<xsl:attribute name="id">
 				<xsl:value-of select="@md5"/>
@@ -76,9 +87,14 @@
 				<xsl:attribute name="xml:lang">
 					<xsl:value-of select="$TARGET_LANG"/>
 				</xsl:attribute>
-				<xsl:if test="@translate='no'">
-					<xsl:apply-templates mode="trans-source"/>
-				</xsl:if>
+				<xsl:choose>
+					<xsl:when test="@translate='no'">
+						<xsl:apply-templates mode="trans-source"/>
+					</xsl:when>
+					<xsl:when test="document($TRANS_CACHE)//trans-unit[@approved='yes' and @id=@md5]/target">
+						<xsl:apply-templates select="document($TRANS_CACHE)//trans-unit[@id=@md5]/target" mode="identity"/>
+					</xsl:when>
+				</xsl:choose>
 			</target>
 		</trans-unit>
 		
@@ -146,6 +162,12 @@
 		<xsl:attribute name="translate">
 			<xsl:text>no</xsl:text>
 		</xsl:attribute>
+	</xsl:template>
+
+	<xsl:template match="@* | node()" mode="identity">
+		<xsl:copy>
+			<xsl:apply-templates select="@* | node()" mode="identity" />
+		</xsl:copy>
 	</xsl:template>
 
 </xsl:stylesheet>

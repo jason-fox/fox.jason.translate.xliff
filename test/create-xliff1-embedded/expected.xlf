@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
 <xliff>
-  <file datatype="xml" original="/document.ditamap" source-language="en" target-language="de">
-    <header __NS1:xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:__NS1="http://www.w3.org/2000/xmlns/">
-      <skl>
-        <external-file href="./skl/document.ditamap.skl"></external-file>
-      </skl>
-    </header>
-    <body __NS1:xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:__NS1="http://www.w3.org/2000/xmlns/"></body>
-  </file>
   <file datatype="xml" original="/topic.dita" source-language="en" target-language="de">
     <header __NS1:xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:__NS1="http://www.w3.org/2000/xmlns/">
       <skl>
@@ -90,6 +82,14 @@
         <target xml:lang="de"></target>
       </trans-unit>
     </body>
+  </file>
+  <file datatype="xml" original="/document.ditamap" source-language="en" target-language="de">
+    <header __NS1:xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:__NS1="http://www.w3.org/2000/xmlns/">
+      <skl>
+        <external-file href="./skl/document.ditamap.skl"></external-file>
+      </skl>
+    </header>
+    <body __NS1:xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:__NS1="http://www.w3.org/2000/xmlns/"></body>
   </file>
 </xliff>
 

@@ -12,6 +12,7 @@
 	<xsl:param as="xs:string" name="SOURCE" select="''"/>
 	<xsl:param as="xs:string" name="SOURCE_LANG" select="'en'"/>
 	<xsl:param as="xs:string" name="TARGET_LANG" select="'es'"/>
+	<xsl:param as="xs:string" name="TRANS_CACHE" select="''"/>
 	
 
 	<xsl:output method="xml" indent="yes" encoding="UTF-8"/>
@@ -46,8 +47,11 @@
 	 <xsl:template match="*[@md5 and @md5!='0']">
 		<unit>
 			<xsl:namespace name="fs" select="'urn:oasis:names:tc:xliff:fs:2.0'"/>
-			<xsl:attribute name="id">
+			<xsl:variable name="id">
 				<xsl:value-of select="@md5"/>
+			</xsl:variable>
+			<xsl:attribute name="id">
+				<xsl:value-of select="$id"/>
 			</xsl:attribute>
 
 			<xsl:apply-templates mode="add-format-style"/>
@@ -58,12 +62,13 @@
 				</originalData>
 			</xsl:if>
 
-
-
 	 		<segment>
 				<xsl:attribute name="state">
 					<xsl:choose>
 						<xsl:when test="@translate='no'">
+							<xsl:text>final</xsl:text>
+			 			</xsl:when>
+			 			<xsl:when test="document($TRANS_CACHE)//unit[@id=$id]/segment[@state='final']">
 							<xsl:text>final</xsl:text>
 			 			</xsl:when>
 			 			<xsl:otherwise>
@@ -86,9 +91,14 @@
 					<xsl:attribute name="xml:lang">
 						<xsl:value-of select="$TARGET_LANG"/>
 					</xsl:attribute>
-					<xsl:if test="@translate='no'">
-						<xsl:apply-templates mode="trans-source"/>
-					</xsl:if>
+					<xsl:choose>
+						<xsl:when test="@translate='no'">
+							<xsl:apply-templates mode="trans-source"/>
+						</xsl:when>
+						<xsl:when test="document($TRANS_CACHE)//unit[@id=$id]/segment[@state='final']">
+							<xsl:apply-templates select="document($TRANS_CACHE)//unit[@id=$id]/segment[@state='final']/target/child::node()" mode="identity"/>
+						</xsl:when>
+					</xsl:choose>
 				</target>
 			</segment>
 		</unit>
@@ -135,8 +145,6 @@
 		</xsl:attribute>
 	</xsl:template>
 
-
-
 	<xsl:template match="*" mode="original-data">
 		<data>
 			<xsl:attribute name="id">
@@ -160,5 +168,11 @@
 	</xsl:template>
 
 	<xsl:template match="text()" mode="original-data"/>
+
+	<xsl:template match="@* | node()" mode="identity">
+		<xsl:copy>
+			<xsl:apply-templates select="@* | node()" mode="identity" />
+		</xsl:copy>
+	</xsl:template>
 
 </xsl:stylesheet>

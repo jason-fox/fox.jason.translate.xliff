@@ -119,6 +119,10 @@
 
 		<!-- Fallback - load from and to langs from properties file -->
 		<property file="${dita.plugin.fox.jason.translate.xliff.dir}/cfg/configuration.properties"/>
+		<!-- Fallback - dummy cache file -->
+		<tempfile unless:set="translate.cachefile" deleteonexit="true" destdir="${dita.temp.dir}" property="translate.cachefile" suffix=".xml"/>
+		<touch file="$translate.cachefile"/>
+
 
 		<!-- 
 			Generate a series of XLIFF files iterating each unique
@@ -130,6 +134,8 @@
 			<param expression="${dita.temp.dir}/skl" name="SKELETON"/>
 			<param expression="${translate.from}" name="SOURCE_LANG"/>
 			<param expression="${translate.to}" name="TARGET_LANG"/>
+			<param expression="${translate.cachefile}" name="TRANS_CACHE"/>
+
 
 			<fileset dir="${dita.temp.dir}/md5">
 				<include name="**/*.dita"/>
