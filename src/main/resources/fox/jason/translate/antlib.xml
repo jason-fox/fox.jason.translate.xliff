@@ -64,6 +64,14 @@
 		</sequential>
 	</macrodef>
 
+	<macrodef name="translated-target">
+		<attribute name="file"/>
+		<attribute name="message" default=""/>
+		<sequential>
+			<echo taskname="translated-target" message="&lt;text&gt;@{message}&lt;/text&gt;" file="@{file}"/>
+		</sequential>
+	</macrodef>
+
 
 	<!--
 		Calls a translation service and creates the translated texts
@@ -101,7 +109,7 @@
 		<sequential>
 			<local name="source.text"/>
 			<loadfile property="source.text" srcFile="@{file}"/>
-			<echo file="@{out}" message="${source.text}"/>
+			<translated-target file="@{out}" message="${source.text}"/>
 		</sequential>
 	</macrodef>
 
@@ -151,7 +159,7 @@
 		    
 			<loadfile taskname="watson-translate" property="watson.response" srcFile="${watson.temp.file}"/>
 			<watson-read-response text="${watson.response}"  outproperty="watson.translation"/>
-			<echo taskname="target-text" message="${watson.translation}" file="@{out}"/>
+			<translated-target message="${watson.translation}" file="@{out}"/>
 
 
 		</sequential>
@@ -213,7 +221,7 @@
 			</exec>
 			<loadfile  taskname="bing-translate" property="bing.response" srcFile="${bing.temp.file}"/>
 			<bing-read-response text="${bing.response}" outproperty="bing.translation"/>
-			<echo taskname="target-text" message="${bing.translation}" file="@{out}"/>
+			<translated-target message="${bing.translation}" file="@{out}"/>
 		</sequential>
 	</macrodef>
 
@@ -271,7 +279,7 @@
 			<loadfile  taskname="yandex-translate" property="yandex.response" srcFile="${yandex.temp.file}"/>
 
 			<yandex-read-response text="${yandex.response}" outproperty="yandex.translation"/>
-			<echo taskname="target-text" message="${yandex.translation}" file="@{out}"/>
+			<translated-target message="${yandex.translation}" file="@{out}"/>
 		</sequential>
 	</macrodef>
 
@@ -328,7 +336,7 @@
 			</exec>
 			<loadfile  taskname="deepl-translate" property="deepl.response" srcFile="${deepl.temp.file}"/>
 			<deepl-read-response text="${deepl.response}" outproperty="deepl.translation"/>
-			<echo taskname="target-text" message="${deepl.translation}" file="@{out}"/>
+			<translated-target message="${deepl.translation}" file="@{out}"/>
 		</sequential>
 	</macrodef>
 
@@ -612,12 +620,13 @@
 		<attribute name="xliff"/>
 		<sequential>
 			
-			<tempfile deleteonexit="true" destdir="${dita.temp.dir}/stage2" 
-				property="tempfile.translate" suffix=".xml"/>
+			<tempfile deleteonexit="true" destdir="${dita.temp.dir}" 
+				property="tempfile.xliff" suffix=".xml"/>
+			<copy file="@{xliff}" tofile="${tempfile.xliff}"/>
 
 			<dirname property="xliff.dir" file="@{xliff}"/>
 			<basename property="xliff.base" file="@{xliff}"/>
-			<xslt taskname="split-source" basedir="${xliff.dir}" 
+			<xslt taskname="split-sources" basedir="${xliff.dir}" 
 				style="${translate.customization.dir}/strip-source.xsl"
 				includes="${xliff.base}"
 				destdir="${dita.temp.dir}/stage2">
@@ -629,20 +638,10 @@
 			</fileset>
 			<translate-sources src="source.texts" dir="${dita.temp.dir}/stage2" todir="${dita.temp.dir}/stage3"/>
 
-			<!-- Take the processed text and replace the target element -->
-			<xmltask taskname="xliff1-read" source="@{xliff}">
-				<call path="//trans-unit[not(@approved='yes')]">
-					<param default="" name="id" path="@id"/>
-					<actions>
-						<xmltask taskname="target-put" source="@{xliff}" dest="@{xliff}">
-							<remove path="//trans-unit[@id=@{id}]/target/text()"/>
-							<remove path="//trans-unit[@id=@{id}]/target/*"/>
-							<insert path="//trans-unit[@id=@{id}]/target" 
-								file="${dita.temp.dir}/stage3/@{id}.xml"/>
-						</xmltask>
-					</actions>
-				</call>
-			</xmltask>
+			<xslt taskname="add-targets" in="${tempfile.xliff}" out="@{xliff}"
+				style="${translate.customization.dir}/add-target.xsl">
+				<param expression="${dita.temp.dir}/stage3" name="BASE_DIR"/>
+			</xslt>
 		</sequential>
 	</macrodef>
 
@@ -651,15 +650,16 @@
 		<attribute name="xliff"/>
 		<sequential>
 
-			<tempfile deleteonexit="true" destdir="${dita.temp.dir}/stage2" 
-				property="tempfile.translate" suffix=".xml"/>
+			<tempfile deleteonexit="true" destdir="${dita.temp.dir}" 
+				property="tempfile.xliff" suffix=".xml"/>
+			<copy file="@{xliff}" tofile="${tempfile.xliff}"/>
 
 			<replace file="@{xliff}" token="xmlns=&quot;urn:oasis:names:tc:xliff:document:2.0&quot;" value=""/>
 	
 
 			<dirname property="xliff.dir" file="@{xliff}"/>
 			<basename property="xliff.base" file="@{xliff}"/>
-			<xslt taskname="split-source" basedir="${xliff.dir}" 
+			<xslt taskname="split-sources" basedir="${xliff.dir}" 
 				style="${translate.customization.dir}/strip-source.xsl"
 				includes="${xliff.base}"
 				destdir="${dita.temp.dir}/stage2">
@@ -672,22 +672,11 @@
 			
 			<translate-sources src="source.texts" dir="${dita.temp.dir}/stage2" todir="${dita.temp.dir}/stage3"/>
 
-			<!-- Take the processed text and replace the target element -->
-			<xmltask taskname="xliff2-read" source="@{xliff}">
-				<call path="//unit/segment[@state='initial']">
-					<param default="" name="id" path="../@id"/>
-					<actions>
-						<xmltask taskname="target-put" source="@{xliff}" dest="@{xliff}">
-							<remove path="//unit[@id=@{id}]/segment/target/text()"/>
-							<remove path="//unit[@id=@{id}]/segment/target/*"/>
-							<insert path="//unit[@id=@{id}]/segment/target" 
-								file="${dita.temp.dir}/stage3/@{id}.xml"/>  
-							<attr path="//unit[@id=@{id}]/segment" attr="state" value="translated" /> 
+			<xslt taskname="add-targets" in="${tempfile.xliff}" out="@{xliff}"
+				style="${translate.customization.dir}/add-target.xsl">
+				<param expression="${dita.temp.dir}/stage3" name="BASE_DIR"/>
+			</xslt>
 
-						</xmltask>
-					</actions>
-				</call>
-			</xmltask>
 		</sequential>
 	</macrodef>
 

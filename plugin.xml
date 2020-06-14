@@ -6,7 +6,7 @@
 -->
 <plugin id="fox.jason.translate.xliff" version="3.0.0">
 
-  <feature extension="dita.conductor.lib.import" file="lib/translate-1.0.jar"/>
+  <feature extension="dita.conductor.lib.import" file="lib/translate-1.1.jar"/>
   <feature extension="dita.conductor.lib.import" file="lib/json-simple-1.1.1.jar"/>
 
   <transtype name="xliff-create" desc=" XML Localization Interchange File Format (XLIFF)">

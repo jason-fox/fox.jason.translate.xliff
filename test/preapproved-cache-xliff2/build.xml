@@ -6,7 +6,7 @@
 <project basedir="." default="unit-test">
 	<import file="../bootstrap.xml"/>
 	<description>
-		Expect that using a pre-exisiting XLIFF 2.0 cache will pre-populate translations
+		Expect that using a pre-exisiting XLIFF 2.1 cache will pre-populate translations
 	</description>
 	<target name="unit-test">
 		<delete dir="${basedir}/out" failonerror="false"/>
