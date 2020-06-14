@@ -121,7 +121,6 @@
 		<property file="${dita.plugin.fox.jason.translate.xliff.dir}/cfg/configuration.properties"/>
 		<!-- Fallback - dummy cache file -->
 		<tempfile unless:set="translate.cachefile" deleteonexit="true" destdir="${dita.temp.dir}" property="translate.cachefile" suffix=".xml"/>
-		<touch file="$translate.cachefile"/>
 
 
 		<!-- 
@@ -154,7 +153,6 @@
 		</xslt>
 
 		<replace file="${output.dir}/translate.xlf" token="xmlns=&#34;&#34;" value=""/>
-		<approve-translations if:set="translate.cachefile" cache.file="${translate.cachefile}" xliff="${output.dir}/translate.xlf"/>
 	</target>
 
 
