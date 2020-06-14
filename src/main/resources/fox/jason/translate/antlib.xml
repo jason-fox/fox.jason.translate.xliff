@@ -606,38 +606,18 @@
 	<macrodef name="get-translations">
 		<attribute name="xliff"/>
 		<sequential>
-			<get-translations-xliff1 if:set="xliff.version.1" xliff="@{xliff}"/>
-			<get-translations-xliff2 if:set="xliff.version.2" xliff="@{xliff}"/>
-		</sequential>
-	</macrodef>
-
-
-
-
-
-
-	<macrodef name="get-translations-xliff1">
-		<attribute name="xliff"/>
-		<sequential>
-			
-			<tempfile deleteonexit="true" destdir="${dita.temp.dir}" 
-				property="tempfile.xliff" suffix=".xml"/>
-			<copy file="@{xliff}" tofile="${tempfile.xliff}"/>
-
-			<dirname property="xliff.dir" file="@{xliff}"/>
-			<basename property="xliff.base" file="@{xliff}"/>
-			<xslt taskname="split-sources" basedir="${xliff.dir}" 
-				style="${translate.customization.dir}/strip-source.xsl"
-				includes="${xliff.base}"
-				destdir="${dita.temp.dir}/stage2">
-			</xslt>
-
+			<extract-sources xliff="@{xliff}"/>
 			<!-- now do the translation processing -->
 			<fileset id="source.texts" dir="${dita.temp.dir}/stage2" casesensitive="yes">
 				<include name="**/*.xml"/>
 			</fileset>
+			
 			<translate-sources src="source.texts" dir="${dita.temp.dir}/stage2" todir="${dita.temp.dir}/stage3"/>
 
+			<!-- place the translations back into the XLIFF file -->
+			<tempfile deleteonexit="true" destdir="${dita.temp.dir}" 
+				property="tempfile.xliff" suffix=".xml"/>
+			<copy file="@{xliff}" tofile="${tempfile.xliff}"/>
 			<xslt taskname="add-targets" in="${tempfile.xliff}" out="@{xliff}"
 				style="${translate.customization.dir}/add-target.xsl">
 				<param expression="${dita.temp.dir}/stage3" name="BASE_DIR"/>
@@ -646,17 +626,11 @@
 	</macrodef>
 
 
-	<macrodef name="get-translations-xliff2">
+	<macrodef name="extract-sources">
 		<attribute name="xliff"/>
 		<sequential>
-
-			<tempfile deleteonexit="true" destdir="${dita.temp.dir}" 
-				property="tempfile.xliff" suffix=".xml"/>
-			<copy file="@{xliff}" tofile="${tempfile.xliff}"/>
-
 			<replace file="@{xliff}" token="xmlns=&quot;urn:oasis:names:tc:xliff:document:2.0&quot;" value=""/>
 	
-
 			<dirname property="xliff.dir" file="@{xliff}"/>
 			<basename property="xliff.base" file="@{xliff}"/>
 			<xslt taskname="split-sources" basedir="${xliff.dir}" 
@@ -664,26 +638,8 @@
 				includes="${xliff.base}"
 				destdir="${dita.temp.dir}/stage2">
 			</xslt>
-
-			<!-- now do the translation processing -->
-			<fileset id="source.texts" dir="${dita.temp.dir}/stage2" casesensitive="yes">
-				<include name="**/*.xml"/>
-			</fileset>
-			
-			<translate-sources src="source.texts" dir="${dita.temp.dir}/stage2" todir="${dita.temp.dir}/stage3"/>
-
-			<xslt taskname="add-targets" in="${tempfile.xliff}" out="@{xliff}"
-				style="${translate.customization.dir}/add-target.xsl">
-				<param expression="${dita.temp.dir}/stage3" name="BASE_DIR"/>
-			</xslt>
-
 		</sequential>
 	</macrodef>
-
-
-
-
-
 
 	<macrodef name="load-service-urls">
 		<sequential>
