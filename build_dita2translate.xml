@@ -31,12 +31,7 @@
 
 
 		<xmlcatalog id="fake.dita.catalog">
-			<dtd publicId="-//OASIS//DTD DITA Topic//EN" location="${translate.resource.dir}/fake.dtd"/>
-			<dtd publicId="-//OASIS//DTD DITA Map//EN" location="${translate.resource.dir}/fake.dtd"/>
-			<dtd publicId="-//OASIS//DTD DITA BookMap//EN" location="${translate.resource.dir}/fake.dtd"/>
-			<dtd publicId="-//OASIS//DTD DITA DITAVAL//EN" location="${translate.resource.dir}/fake.dtd"/>
-			<dtd publicId="-//OASIS//DTD DITA Concept//EN" location="${translate.resource.dir}/fake.dtd"/>
-			<dtd publicId="-//OASIS//DTD DITA Task//EN" location="${translate.resource.dir}/fake.dtd"/>
+			<catalogpath path="${dita.plugin.org.dita.base.dir}/catalog-dita.xml"/>
 		</xmlcatalog>
 
 		<!-- Load Service URLs from command line -->
@@ -45,8 +40,8 @@
 	</target>
 
 	<!-- 
-		Pre processing for translation operations, ensure that XMLTask
-		is available and we have some processing dirs in temp
+		Pre processing for translation operations, ensure that 
+		we have some processing dirs in temp
 	--> 
 	<target name="trans-unit.init" depends="xliff.init">
 
