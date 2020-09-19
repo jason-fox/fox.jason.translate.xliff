@@ -41,7 +41,7 @@
 var code = "var data = 1;";
 // Returns a highlighted HTML string
 var html = Prism.highlight(code, Prism.languages.javascript, 'javascript');</codeblock>
-            <p>Wenn <codeph>prismjs </codeph>Sie eine Anfrage stellen wollen, werden die <codeph translate="no">markup </codeph>Standardsprachen: <codeph translate="no">javascript </codeph>, <codeph translate="no">css </codeph> <codeph translate="no">clike </codeph>und geladen. Sie können mehr Sprachen mit dem <codeph outputclass="language-javascript" translate="no">loadLanguages() </codeph>Programm laden, das automatisch die erforderlichen Abhängigkeiten bearbeitet. </p>
+            <p>Wenn <codeph>prismjs </codeph>Sie eine Anfrage stellen wollen, werden die <codeph translate="no">markup </codeph>Standardsprachen: <codeph translate="no">javascript </codeph>, <codeph translate="no">css </codeph> <codeph translate="no">clike </codeph>und geladen. Sie können mehr Sprachen mit dem <codeph translate="no" outputclass="language-javascript">loadLanguages() </codeph>Programm laden, das automatisch die erforderlichen Abhängigkeiten bearbeitet. </p>
             <p>beispiel: </p>
             <codeblock outputclass="language-js">var Prism = require('prismjs');
 var loadLanguages = require('prismjs/components/');

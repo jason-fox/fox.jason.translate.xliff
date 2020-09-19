@@ -18,7 +18,9 @@
 		 <xsl:variable name="count2" select="count(../preceding-sibling::file/unit[@id=$id])"/>
 		<xsl:if test="$count=0 and $count2=0">
 			<xsl:result-document method="xml" href="{@id}.xml">
-				<xsl:apply-templates select="./segment/target"/>
+				<unit>
+					<xsl:apply-templates/>
+				</unit>
 			</xsl:result-document>
 		</xsl:if>
 	</xsl:template>
