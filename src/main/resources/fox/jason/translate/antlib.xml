@@ -467,7 +467,7 @@
 			<replace file="${xliff.temp.file}" token="xmlns=&quot;urn:oasis:names:tc:xliff:document:1.2&quot;" value=""/>
 			<replace file="${xliff.temp.file}" token="xmlns=&quot;urn:oasis:names:tc:xliff:document:2.0&quot;" value=""/>
 
-			<extract-targets xliff="@{xliff}"/>
+			<extract-targets xliff="${xliff.temp.file}"/>
 
 			<skeleton-prepare-xliff1 if:set="xliff.version.1" xliff="${xliff.temp.file}"/>
 			<skeleton-prepare-xliff2 if:set="xliff.version.2" xliff="${xliff.temp.file}"/>
@@ -552,7 +552,11 @@
 	<macrodef name="get-translations">
 		<attribute name="xliff"/>
 		<sequential>
-			<extract-sources xliff="@{xliff}"/>
+			<!-- place the translations back into the XLIFF file -->
+			<tempfile deleteonexit="true" destdir="${dita.temp.dir}" 
+				property="tempfile.xliff" suffix=".xml"/>
+			<copy file="@{xliff}" tofile="${tempfile.xliff}"/>
+			<extract-sources xliff="${tempfile.xliff}"/>
 			<!-- now do the translation processing -->
 			<fileset id="source.texts" dir="${dita.temp.dir}/stage2" casesensitive="yes">
 				<include name="**/*.xml"/>
@@ -560,10 +564,6 @@
 			
 			<translate-sources src="source.texts" dir="${dita.temp.dir}/stage2" todir="${dita.temp.dir}/stage3"/>
 
-			<!-- place the translations back into the XLIFF file -->
-			<tempfile deleteonexit="true" destdir="${dita.temp.dir}" 
-				property="tempfile.xliff" suffix=".xml"/>
-			<copy file="@{xliff}" tofile="${tempfile.xliff}"/>
 			<xslt taskname="add-targets" in="${tempfile.xliff}" out="@{xliff}"
 				style="${translate.customization.dir}/add-target.xsl">
 				<param expression="${dita.temp.dir}/stage3" name="BASE_DIR"/>
@@ -592,6 +592,7 @@
 		<attribute name="xliff"/>
 		<sequential>
 			<replace file="@{xliff}" token="xmlns=&quot;urn:oasis:names:tc:xliff:document:2.0&quot;" value=""/>
+			<replace file="@{xliff}" token="xmlns=&quot;urn:oasis:names:tc:xliff:document:1.2&quot;" value=""/>
 	
 			<dirname property="xliff.dir" file="@{xliff}"/>
 			<basename property="xliff.base" file="@{xliff}"/>
