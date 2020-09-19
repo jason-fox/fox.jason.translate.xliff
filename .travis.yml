@@ -24,6 +24,7 @@ before_install:
 
 install:
   - dita-ot-$DITA_OT/bin/dita install https://github.com/jason-fox/fox.jason.unit-test/archive/master.zip
+  - dita-ot-$DITA_OT/bin/dita install https://github.com/doctales/org.doctales.xmltask/archive/master.zip
   - dita-ot-$DITA_OT/bin/dita install fox.jason.translate.xliff.zip
 
 before_script:

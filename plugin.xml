@@ -59,4 +59,6 @@
   <!-- Add a template file to enable overrides to use extension points -->
   <template file="build_dita2translate_template.xml"/>
 
+  <require plugin="org.doctales.xmltask"/>
+
 </plugin>

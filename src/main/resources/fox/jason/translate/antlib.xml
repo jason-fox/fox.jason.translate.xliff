@@ -539,26 +539,7 @@
 						<copy file="${args.input.dir}/@{skeleton}" tofile="${output.dir}/@{original}"/>
 					</actions>
 				</call>
-
-				<call path="//unit">
-					<param default="" name="fileid" path="@id"/>
-					<actions>
-						<xmltask taskname="xliff2-read"  source="@{xliff}">
-							<call path="//unit[@id=@{fileid}]/originalData/data">
-								<param default="" name="id" path="@id"/>
-								<param default="" name="text" path="text()"/>
-								<actions>						
-									<replace file="${dita.temp.dir}/stage2/@{fileid}.xml" token="---@{id}---" value="@{text}"/>
-								</actions>
-							</call>
-						</xmltask>
-
-
-
-					</actions>
-				</call>
 			</xmltask>
-
 		</sequential>
 	</macrodef>
 
