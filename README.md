@@ -2,7 +2,7 @@
 
 [![license](https://img.shields.io/github/license/jason-fox/fox.jason.translate.xliff.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 [![DITA-OT 3.5](https://img.shields.io/badge/DITA--OT-3.5-blue.svg)](http://www.dita-ot.org/3.5)
-[![Build Status](https://travis-ci.org/jason-fox/fox.jason.translate.xliff.svg?branch=master)](https://travis-ci.org/jason-fox/fox.jason.translate.xliff)
+[![Build Status](https://api.travis-ci.com/jason-fox/fox.jason.translate.xliff.svg?branch=master)](https://travis-ci.com/github/jason-fox/fox.jason.translate.xliff)
 [![Coverage Status](https://coveralls.io/repos/github/jason-fox/fox.jason.translate.xliff/badge.svg?branch=master)](https://coveralls.io/github/jason-fox/fox.jason.translate.xliff?branch=master)
 [![Documentation Status](https://readthedocs.org/projects/xliffdita-ot/badge/?version=latest)](https://xliffdita-ot.readthedocs.io/en/latest/?badge=latest)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=fox.jason.translate.xliff&metric=alert_status)](https://sonarcloud.io/dashboard?id=fox.jason.translate.xliff)
