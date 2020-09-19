@@ -52,11 +52,6 @@
   </transtype>
 
 
-  <!--
-    This plugin requires the XMLTask lib
-  -->
-  <require plugin="org.doctales.xmltask"/>
-
   <!-- Import the translate transform's ANT file -->
   <feature extension="ant.import" file="build_dita2translate.xml"/>
   <!-- Ensure the plugin's error and logging messages are available -->

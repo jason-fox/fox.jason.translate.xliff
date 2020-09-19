@@ -113,6 +113,8 @@
 		
 		<xsl:for-each select="@*">
 			<xsl:choose>
+				<xsl:when test="name()='class'">
+				</xsl:when>
 				<xsl:when test="name()='translate'">
 					<xsl:attribute name="translate">
 						<xsl:value-of select="."/>
