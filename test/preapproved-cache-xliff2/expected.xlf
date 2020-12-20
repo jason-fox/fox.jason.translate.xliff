@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
-<xliff srcLang="en" trgLang="de" version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" xmlns:__NS1="http://www.w3.org/2000/xmlns/">
+<xliff __NS1:xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en" trgLang="de" version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" xmlns:__NS1="http://www.w3.org/2000/xmlns/">
   <file id="1" original="/topic.dita">
     <skeleton href="./skl/topic.dita.skl"></skeleton>
     <unit fs:fs="title" id="46167" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
