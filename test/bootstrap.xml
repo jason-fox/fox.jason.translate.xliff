@@ -24,13 +24,13 @@
 			<tempfile deleteonexit="true" property="ordered-document" suffix=".xlf" destdir="${dita.temp.dir}" 
 />
 			<copy file="@{file}" tofile="${ordered-document}"/>
-			<!--xslt classpathref="xslt.class.path" in="${unordered-document}" out="${ordered-document}" style="${test.root.dir}/test/order.xsl"/-->
-
 			<xmltask 
 				expandEntityReferences="false"
 				dest="@{file}" outputter="simple" source="${ordered-document}">
 			</xmltask>
-			<!--copy tofile="@{file}" file="${ordered-document}"/-->
+			<replace file="@{file}" token=" __NS1:xmlns=&quot;urn:oasis:names:tc:xliff:document:2.0&quot;" value=""/>
+			<replace file="@{file}" token=" xmlns:__NS1=&quot;http://www.w3.org/2000/xmlns/&quot;" value=""/>
+			<replace file="@{file}" token=" __NS1:xmlns=&quot;urn:oasis:names:tc:xliff:document:1.2&quot;" value=""/>
 		</sequential>
 	</macrodef>
 

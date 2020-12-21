@@ -2,12 +2,12 @@
 
 <xliff>
   <file datatype="xml" original="/topic.dita" source-language="en" target-language="de">
-    <header __NS1:xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:__NS1="http://www.w3.org/2000/xmlns/">
+    <header xmlns="urn:oasis:names:tc:xliff:document:1.2">
       <skl>
         <external-file href="./skl/topic.dita.skl"></external-file>
       </skl>
     </header>
-    <body __NS1:xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:__NS1="http://www.w3.org/2000/xmlns/">
+    <body xmlns="urn:oasis:names:tc:xliff:document:1.2">
       <trans-unit approved="no" id="46167" xml:space="preserve">
         <source xml:lang="en">Cicero</source>
         <target xml:lang="de"></target>
@@ -27,12 +27,12 @@
     </body>
   </file>
   <file datatype="xml" original="/document.ditamap" source-language="en" target-language="de">
-    <header __NS1:xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:__NS1="http://www.w3.org/2000/xmlns/">
+    <header xmlns="urn:oasis:names:tc:xliff:document:1.2">
       <skl>
         <external-file href="./skl/document.ditamap.skl"></external-file>
       </skl>
     </header>
-    <body __NS1:xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:__NS1="http://www.w3.org/2000/xmlns/"></body>
+    <body xmlns="urn:oasis:names:tc:xliff:document:1.2"></body>
   </file>
 </xliff>
 
