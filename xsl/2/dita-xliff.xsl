@@ -25,7 +25,7 @@
 	<xsl:variable name="document-uri">
 		<xsl:value-of select="replace(replace(document-uri(/), $SOURCEPATH, ''), 'file:', '')"/>
 	</xsl:variable>
-
+	<xsl:variable name="cache-doc" select="document($TRANS_CACHE)"/>
 
 	<xsl:template match="/">
 		<xliff version="2.1" xmlns="urn:oasis:names:tc:xliff:document:2.0">
@@ -61,14 +61,13 @@
 					<xsl:apply-templates mode="original-data" select="*/*" />
 				</originalData>
 			</xsl:if>
-
 	 		<segment>
 				<xsl:attribute name="state">
 					<xsl:choose>
 						<xsl:when test="@translate='no'">
 							<xsl:text>final</xsl:text>
 			 			</xsl:when>
-			 			<xsl:when test="document($TRANS_CACHE)//unit[@id=$id]/segment[@state='final']">
+			 			<xsl:when test="$cache-doc//*:unit[@id=$id]/*:segment[@state='final']">
 							<xsl:text>final</xsl:text>
 			 			</xsl:when>
 			 			<xsl:otherwise>
@@ -95,8 +94,8 @@
 						<xsl:when test="@translate='no'">
 							<xsl:apply-templates mode="trans-source"/>
 						</xsl:when>
-						<xsl:when test="document($TRANS_CACHE)//unit[@id=$id]/segment[@state='final']">
-							<xsl:apply-templates select="document($TRANS_CACHE)//unit[@id=$id]/segment[@state='final']/target/child::node()" mode="identity"/>
+						<xsl:when test="$cache-doc//*:unit[@id=$id]/*:segment[@state='final']">
+							<xsl:apply-templates select="$cache-doc//*:unit[@id=$id]/*:segment[@state='final']/*:target/child::node()" mode="identity"/>
 						</xsl:when>
 					</xsl:choose>
 				</target>

@@ -4,15 +4,16 @@
   <file id="1" original="/topic.dita">
     <skeleton href="./skl/topic.dita.skl"></skeleton>
     <unit fs:fs="title" id="46167" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
-      <segment state="initial">
+      <segment state="final">
         <source xml:lang="en" xml:space="preserve">Cicero</source>
-        <target xml:lang="de"></target>
+        <target xml:lang="de">Cicero</target>
       </segment>
     </unit>
     <unit fs:fs="p" id="54947" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
-      <segment state="initial">
+      <segment state="final">
         <source xml:lang="en" xml:space="preserve">Loves or pursues or desires to obtain pain of itself, because it is pain, but occasionally circumstances occur in which toil and pain can procure him some great pleasure.</source>
-        <target xml:lang="de"></target>
+        <target xml:lang="de">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.</target>
       </segment>
     </unit>
     <unit fs:fs="p" id="9962" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">

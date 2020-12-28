@@ -177,7 +177,7 @@
 
 
 
-	<target name="dita2xliff-create" description="XML Localization Interchange File Format (XLIFF)" depends="prismjs.init,cats.splash,build-init,xliff.init,passthrough,prismjs,xliff-create"/>
-	<target name="dita2xliff-translate" description="Auto-translate an XLIFF File using an online service" depends="prismjs.init,cats.splash,build-init,translate.init,passthrough,prismjs,xliff-translate"/>
-	<target name="dita2xliff-dita" description="Supply translated text into DITA skeleton files using an XLIFF File" depends="prismjs.init,cats.splash,build-init,trans-unit.init,passthrough,prismjs,xliff-dita"/>
+	<target name="dita2xliff-create" description="XML Localization Interchange File Format (XLIFF)" depends="watermark.check,prismjs.init,cats.splash,build-init,xliff.init,passthrough,prismjs,xliff-create"/>
+	<target name="dita2xliff-translate" description="Auto-translate an XLIFF File using an online service" depends="watermark.check,prismjs.init,cats.splash,build-init,translate.init,passthrough,prismjs,xliff-translate"/>
+	<target name="dita2xliff-dita" description="Supply translated text into DITA skeleton files using an XLIFF File" depends="watermark.check,prismjs.init,cats.splash,build-init,trans-unit.init,passthrough,prismjs,xliff-dita"/>
 </project>

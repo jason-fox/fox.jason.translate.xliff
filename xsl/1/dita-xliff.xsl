@@ -19,9 +19,9 @@
 	<xsl:variable name="document-uri">
 		<xsl:value-of select="replace(replace(document-uri(/), $SOURCEPATH, ''), 'file:', '')"/>
 	</xsl:variable>
+	<xsl:variable name="cache-doc" select="document($TRANS_CACHE)"/>
 
-
-	<xsl:template match="/">
+	<xsl:template match="/">	
 		<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dita="http://www.dita-ot.org" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2.xsd">
 			<file datatype="xml" >
 				<xsl:attribute name="source-language">
@@ -50,13 +50,16 @@
 		</xsl:template>
 
 	 <xsl:template match="*[@md5 and @md5!='0']">
+	 	<xsl:variable name="id">
+			<xsl:value-of select="@md5"/>
+		</xsl:variable>
 		<trans-unit>
 			<xsl:attribute name="approved">
 				<xsl:choose>
 					<xsl:when test="@translate='no'">
 						<xsl:text>yes</xsl:text>
 		 			</xsl:when>
-		 			<xsl:when test="document($TRANS_CACHE)//trans-unit[@approved='yes' and @id=@md5]/target">
+		 			<xsl:when test="document($TRANS_CACHE)//*:trans-unit[@approved='yes' and @id=$id]/*:target">
 						<xsl:text>yes</xsl:text>
 		 			</xsl:when>
 		 			<xsl:otherwise>
@@ -91,8 +94,8 @@
 					<xsl:when test="@translate='no'">
 						<xsl:apply-templates mode="trans-source"/>
 					</xsl:when>
-					<xsl:when test="document($TRANS_CACHE)//trans-unit[@approved='yes' and @id=@md5]/target">
-						<xsl:apply-templates select="document($TRANS_CACHE)//trans-unit[@id=@md5]/target" mode="identity"/>
+					<xsl:when test="document($TRANS_CACHE)//*:trans-unit[@approved='yes' and @id=$id]/*:target">
+						<xsl:apply-templates select="document($TRANS_CACHE)//*:trans-unit[@id=$id]/*:target" mode="identity"/>
 					</xsl:when>
 				</xsl:choose>
 			</target>
