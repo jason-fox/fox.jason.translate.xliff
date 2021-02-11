@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
 <xliff>
+  <file datatype="xml" original="/document.ditamap" source-language="en" target-language="de">
+    <header xmlns="urn:oasis:names:tc:xliff:document:1.2">
+      <skl>
+        <external-file href="./skl/document.ditamap.skl"></external-file>
+      </skl>
+    </header>
+    <body xmlns="urn:oasis:names:tc:xliff:document:1.2"></body>
+  </file>
   <file datatype="xml" original="/topic.dita" source-language="en" target-language="de">
     <header xmlns="urn:oasis:names:tc:xliff:document:1.2">
       <skl>
@@ -30,14 +38,6 @@
         <target xml:lang="de"></target>
       </trans-unit>
     </body>
-  </file>
-  <file datatype="xml" original="/document.ditamap" source-language="en" target-language="de">
-    <header xmlns="urn:oasis:names:tc:xliff:document:1.2">
-      <skl>
-        <external-file href="./skl/document.ditamap.skl"></external-file>
-      </skl>
-    </header>
-    <body xmlns="urn:oasis:names:tc:xliff:document:1.2"></body>
   </file>
 </xliff>
 
