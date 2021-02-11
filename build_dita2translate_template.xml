@@ -31,6 +31,12 @@
 
 
 		<xmlcatalog id="fake.dita.catalog">
+			<dtd publicId="-//OASIS//DTD DITA Topic//EN" location="${translate.resource.dir}/fake.dtd"/>
+			<dtd publicId="-//OASIS//DTD DITA Map//EN" location="${translate.resource.dir}/fake.dtd"/>
+			<dtd publicId="-//OASIS//DTD DITA BookMap//EN" location="${translate.resource.dir}/fake.dtd"/>
+			<dtd publicId="-//OASIS//DTD DITA DITAVAL//EN" location="${translate.resource.dir}/fake.dtd"/>
+			<dtd publicId="-//OASIS//DTD DITA Concept//EN" location="${translate.resource.dir}/fake.dtd"/>
+			<dtd publicId="-//OASIS//DTD DITA Task//EN" location="${translate.resource.dir}/fake.dtd"/>
 			<catalogpath path="${dita.plugin.org.dita.base.dir}/catalog-dita.xml"/>
 		</xmlcatalog>
 

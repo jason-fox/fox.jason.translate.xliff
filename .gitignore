@@ -1,6 +1,7 @@
 **/out/**
 **/temp/**
 **/tmp/**
+build_dita2translate_template.xml
 
 **/test/add-translations1/translate.xlf
 **/test/approved-translations1/test.properties
