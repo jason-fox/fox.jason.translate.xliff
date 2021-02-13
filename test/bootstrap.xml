@@ -27,6 +27,7 @@
 			<xmltask 
 				expandEntityReferences="false"
 				dest="@{file}" outputter="simple" source="${ordered-document}">
+				<remove path="xliff/file[@original='/document.ditamap']"/>
 			</xmltask>
 			<replace file="@{file}" token=" __NS1:xmlns=&quot;urn:oasis:names:tc:xliff:document:2.0&quot;" value=""/>
 			<replace file="@{file}" token=" xmlns:__NS1=&quot;http://www.w3.org/2000/xmlns/&quot;" value=""/>
