@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+	This file is part of the DITA Translate project.
+	See the accompanying LICENSE file for applicable licenses.
+--><project basedir="." default="unit-test">
+	
+	<import file="../bootstrap.xml"/>
+	<description>
+		Expect that Yandex translations can be read.
+	</description>
+	<target name="unit-test"  depends="init.lib">
+
+		<tempfile deleteonexit="true" property="response.temp.file" suffix=".txt"/>
+		<loadfile property="source.text" srcFile="response.json"/>
+		<yandex-read-response text="${source.text}" outproperty="target.text"/>
+		<echo message="${target.text}" file="${response.temp.file}"/>
+
+		<compare-output expectation="${basedir}/expected.txt" result="${response.temp.file}"/>
+	
+	</target>	
+</project>
