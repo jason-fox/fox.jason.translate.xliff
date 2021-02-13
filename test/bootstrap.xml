@@ -32,6 +32,7 @@
 			<replace file="@{file}" token=" __NS1:xmlns=&quot;urn:oasis:names:tc:xliff:document:2.0&quot;" value=""/>
 			<replace file="@{file}" token=" xmlns:__NS1=&quot;http://www.w3.org/2000/xmlns/&quot;" value=""/>
 			<replace file="@{file}" token=" __NS1:xmlns=&quot;urn:oasis:names:tc:xliff:document:1.2&quot;" value=""/>
+			<replace file="@{file}" token="file id=&quot;2&quot;" value="file id=&quot;1&quot;"/>
 		</sequential>
 	</macrodef>
 
