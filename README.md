@@ -417,7 +417,7 @@ The translated `*.dita` files are generated into the `out` directory.
 
 -   `translate.from` - Source language to use. Defaults to the value in `configuration.properties`
 -   `translate.to` - Target language. Defaults to the value in `configuration.properties`
--   `translate.cachefile` - Specifies the location of a previously translated XLIFF file to be used. If the `id` matches
+-   `translate.cachefile` - Specifies the (**absolute**) location of a previously translated XLIFF file to be used. If the `id` matches
     to a previously translated text snippet in the cache file, the text will be copied over and the snippet marked as
     `approved`.
 -   `translate.service` - Decides which translation service to use:
