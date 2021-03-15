@@ -54,7 +54,7 @@ The DITA-OT Translate Plug-in is a plug-in for the DITA Open Toolkit.
 -   Full installation instructions for downloading DITA-OT can be found
     [here](https://www.dita-ot.org/3.6/topics/installing-client.html).
 
-    1.  Download the `dita-ot-3.6.zip` package from the project website at
+    1.  Download the `dita-ot-3.6.1.zip` package from the project website at
         [dita-ot.org/download](https://www.dita-ot.org/download)
     2.  Extract the contents of the package to the directory where you want to install DITA-OT.
     3.  **Optional**: Add the absolute path for the `bin` directory to the _PATH_ system variable.
@@ -62,9 +62,9 @@ The DITA-OT Translate Plug-in is a plug-in for the DITA Open Toolkit.
     This defines the necessary environment variable to run the `dita` command from the command line.
 
 ```console
-curl -LO https://github.com/dita-ot/dita-ot/releases/download/3.6/dita-ot-3.6.zip
-unzip -q dita-ot-3.6.zip
-rm dita-ot-3.6.zip
+curl -LO https://github.com/dita-ot/dita-ot/releases/download/3.6.1/dita-ot-3.6.1.zip
+unzip -q dita-ot-3.6.1.zip
+rm dita-ot-3.6.1.zip
 ```
 
 ### Installing the Plug-in
@@ -438,7 +438,7 @@ The translated `*.dita` files are generated into the `out` directory.
 
 ## License
 
-[Apache 2.0](LICENSE) © 2019-2020 Jason Fox
+[Apache 2.0](LICENSE) © 2019 - 2021 Jason Fox
 
 The Program includes the following additional software components which were obtained under license:
 
