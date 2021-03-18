@@ -1,4 +1,4 @@
-.wy-nav-content {
+ .wy-nav-content {
     max-width: none !important
 }
 
@@ -305,9 +305,9 @@ a.icon-home {
 }
 
 .rst-content blockquote {
-    color: ##0f1c30 !important;
-    background-color: #dce4f0;
-    border: #c0c7d2 solid 1px ;
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
     padding: .75rem 1.25rem;
     border-radius: .25rem;
     margin: 1em;
@@ -385,14 +385,10 @@ div[role="main"] {
     font-size: 110%
 }
 
-.rst-versions .rst-current-version {
-    color: #fff !important;
-}
-
 .wy-side-nav-search {
     clear: both !important;
     padding: 40px 10px 16px 10px;
-    background-image: url('https://jason-fox.github.io/fox.jason.translate.xliff/xliff.png') !important;
+    background-image: url('https://jason-fox.github.io/fox.jason.translate.xliff/xliff') !important;
     background-size: 270px 40px !important;
     background-repeat: no-repeat !important;
     background-position: 15px 8px !important;
