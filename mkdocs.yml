@@ -1,12 +1,10 @@
 site_name: XLIFF Translate for DITA-OT
-
-repo_url: https://github.com/jason-fox/fox.jason.translate.xliff
+repo_url: 'https://github.com/jason-fox/fox.jason.translate.xliff'
 repo_name: GitHub
-
 pages:
-    -  Home: index.md
-    - 'Install' : 'install.md'
-    - 'Usage' : 'usage.md'
-
+  - Home: index.md
+  - Install: install.md
+  - Usage: usage.md
 theme: readthedocs
-extra_css: ["https://jason-fox.github.io/fox.jason.translate.xliff/dita.css"]
+extra_css:
+  - 'https://jason-fox.github.io/fox.jason.translate.xliff/dita.css'
