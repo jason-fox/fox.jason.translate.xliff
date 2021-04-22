@@ -1,2 +1,4 @@
-sample/* linguist-vendored
-test/* linguist-vendored
+test/** linguist-vendored
+
+build_dita2translate_template.xml linguist-language=Ant-Build-System
+src/main/resources/fox/jason/translate/antlib.xml linguist-language=Ant-Build-System
