@@ -4,9 +4,9 @@
 	This file is part of the DITA-OT Translate Plug-in project.
 	See the accompanying LICENSE file for applicable licenses.
 -->
-<plugin id="fox.jason.translate.xliff" version="3.1.1">
+<plugin id="fox.jason.translate.xliff" version="3.2.0">
 
-  <feature extension="dita.conductor.lib.import" file="lib/translate-1.1.jar"/>
+  <feature extension="dita.conductor.lib.import" file="lib/translate-1.2.jar"/>
   <feature extension="dita.conductor.lib.import" file="lib/json-simple-1.1.1.jar"/>
 
   <transtype name="xliff-create" desc=" XML Localization Interchange File Format (XLIFF)">
@@ -32,6 +32,7 @@
     <param name="translate.authentication.url" type="string" desc="URL for creating an OAuth token if needed" />
     <param name="translate.output.format" type="string" desc="" />
     <param name="translate.apikey" type="string" desc="API key for a cloud Translation service" />
+    <param name="translate.region" type="string" desc="Region for a Microsoft multi-service text API subscription" />
     <param name="translate.url" type="string" desc="URL for a cloud Translation service" />
     <param name="translate.from" type="string" desc="Specifies the source language for translated content, such as en for English." />
     <param name="translate.to" type="string" desc="Specifies the target language for translated content, such as fr for French." />

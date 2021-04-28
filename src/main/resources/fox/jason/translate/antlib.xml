@@ -196,18 +196,36 @@
 			<replace taskname="source-text" file="@{file}" token="&quot;" value="\&quot;"/>
 			<loadfile taskname="source-text" property="source.text" srcFile="@{file}"/>
 			
-
-			
+	
 			<tempfile deleteonexit="true" destdir="${dita.temp.dir}" 
 				property="bing.temp.file" suffix=".txt"/>
 
-			<exec taskname="bing-translate" executable="curl" osfamily="unix" 
+			<exec unless:set="translate.region" taskname="bing-translate" executable="curl" osfamily="unix" 
 				resultproperty="bing.result" outputproperty="bing.out">
 				<arg value="-X"/>
 				<arg value="POST"/>
 			
 				<arg value="-H"/>
 				<arg value="Ocp-Apim-Subscription-Key: ${bing.apikey}"/>
+				<arg value="-H"/>
+				<arg value="Content-type: application/json"/>
+				<arg value="-H"/>
+				<arg value="Accept: application/json"/>
+				<arg value="--output"/>
+				<arg value="${bing.temp.file}"/>
+				<arg value="--data"/>
+				<arg value="[{&quot;Text&quot;: &quot;${source.text}&quot;}]"/>
+				<arg value="-sS"/>
+				<arg value="${bing.translate.url}?api-version=3.0&amp;from=${translate.from}&amp;to=${translate.to}&amp;textType=html"/>
+			</exec>
+			<exec if:set="translate.region" taskname="bing-translate" executable="curl" osfamily="unix" 
+				resultproperty="bing.result" outputproperty="bing.out">
+				<arg value="-X"/>
+				<arg value="POST"/>
+				<arg value="-H"/>
+				<arg value="Ocp-Apim-Subscription-Key: ${bing.apikey}"/>
+				<arg value="-H"/>
+				<arg value="Ocp-Apim-Subscription-Region: ${translate.region}"/>
 				<arg value="-H"/>
 				<arg value="Content-type: application/json"/>
 				<arg value="-H"/>

@@ -431,6 +431,7 @@ The translated `*.dita` files are generated into the `out` directory.
 -   `translate.authentication.url` - URL for creating an OAuth token if needed for a service. Defaults to the value in
     `configuration.properties.
 -   `translate.apikey` - API Key for the Translation service. Defaults to the value in `configuration.properties`
+-   `translate.region` - Subscription region for a Microsoft multi-service text API subscription
 -   `translate.url` - URL for a Translation service. Defaults to the value in `configuration.properties`
 -   `xliff.version` - Decides which XLIFF format to use. Defaults to the value in `configuration.properties`:
     -   `1` - XLIFF 1.2 format
