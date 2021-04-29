@@ -443,7 +443,7 @@
 			<tempfile deleteonexit="true" destdir="${dita.temp.dir}" 
 				property="bing.auth.temp.file" suffix=".txt"/>
 
-			<exec taskname="bing-auth" executable="curl" osfamily="unix" 
+			<exec unless:set="translate.region" taskname="bing-auth" executable="curl" osfamily="unix" 
 				resultproperty="bing.result" outputproperty="bing.out">
 				<arg value="-X"/>
 				<arg value="POST"/>
@@ -459,6 +459,26 @@
 				<arg value="-sS"/>
 				<arg value="${bing.authentication.url}"/>
 			</exec>
+
+
+			<exec if:set="translate.region" taskname="bing-auth" executable="curl" osfamily="unix" 
+				resultproperty="bing.result" outputproperty="bing.out">
+				<arg value="-X"/>
+				<arg value="POST"/>
+				<arg value="-H"/>
+				<arg value="Ocp-Apim-Subscription-Key: ${bing.apikey}"/>
+				<arg value="-H"/>
+				<arg value="Ocp-Apim-Subscription-Region: ${translate.region}"/>
+				<arg value="-H"/>
+				<arg value="Content-type: application/x-www-form-urlencoded"/>
+				<arg value="-H"/>
+				<arg value="Content-length: 0"/>
+				<arg value="--output"/>
+				<arg value="${bing.auth.temp.file}"/>
+				<arg value="-sS"/>
+				<arg value="${bing.authentication.url}"/>
+			</exec>
+
 			<echo taskname="auth-bing" level="verbose" message="${line.separator}${bing.out}"/>
 			<loadfile property="bing.bearer.token" srcFile="${bing.auth.temp.file}"/>
 
