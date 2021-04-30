@@ -64,6 +64,9 @@ Copy the credentials to authenticate to your service instance:
 3.  Copy the `API Key` and `URL` values.
 4.  Within the plug-in alter the file `cfg/configuration.properties` to hold your `API Key` and `URL`.
 
+By default the **Frankfurt**  translation service URL used is: `https://gateway-fra.watsonplatform.net/language-translator/api/v3/translate`,
+amend this when using a **regional** instance.
+
 ### Microsoft Azure
 
 <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/translator/translator-info-overview"><img src="https://www.confluent.io/wp-content/uploads/MS-Azure_logo_stacked_c-gray_rgb.png" align="right" width="160" height="85"></a>
@@ -94,6 +97,9 @@ Copy the credentials to authenticate to your service instance:
 
 1.  Copy each of the `API Key` and `Endpoint` values.
 2.  Within the plug-in alter the file `cfg/configuration.properties` to hold your `API Key` and `URL`.
+
+By default the **global** translation service URL used is: `https://api.cognitive.microsofttranslator.com/translate`,
+amend this when using a **regional** instance.
 
 ### Yandex Translate
 
