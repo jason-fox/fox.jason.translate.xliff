@@ -22,7 +22,7 @@
 		@param dir - The input directory
 		@param todir - The output directory
 	-->
-	<taskdef classname="fox.jason.translate.tasks.IterateFilesetTask" onerror="ignore" name="iterate"/>
+	<taskdef classname="fox.jason.translate.tasks.IterateFilesetTask" onerror="ignore" name="iterate-xliff"/>
 
 	<!--
 		Reinserts a doctype into a file
@@ -392,9 +392,9 @@
 		<attribute name="refid"/>
 		<attribute name="dir"/>
 		<sequential>
-			<iterate macro="reinsert-doctype" dir="@{dir}">
+			<iterate-xliff macro="reinsert-doctype" dir="@{dir}">
 				<fileset refid="@{refid}"/>
-			</iterate>
+			</iterate-xliff>
 		</sequential>
 	</macrodef>
 
@@ -409,9 +409,9 @@
 		<attribute name="src"/>
 		<attribute name="dir"/>
 		<sequential>
-			<iterate macro="skeleton-file" dir="@{dir}">
+			<iterate-xliff macro="skeleton-file" dir="@{dir}">
 				<fileset refid="@{src}"/>
-			</iterate>
+			</iterate-xliff>
 		</sequential>
 	</macrodef>
 
@@ -426,9 +426,9 @@
 		<attribute name="dir"/>
 		<attribute name="todir"/>
 		<sequential>
-			<iterate macro="translate-source" dir="@{dir}" todir="@{todir}">
+			<iterate-xliff macro="translate-source" dir="@{dir}" todir="@{todir}">
 				<fileset refid="@{src}"/>
-			</iterate>
+			</iterate-xliff>
 		</sequential>
 	</macrodef>
 
