@@ -16,11 +16,17 @@
 	 	<xsl:element name="{name()}">
 			<xsl:for-each select="@*">
 				<xsl:variable name="attr" select="local-name()"/>
-				<xsl:if test="$attr!='lang'">
-					<xsl:attribute name="{local-name()}">
-						<xsl:value-of select="."/>
-					</xsl:attribute>
-				</xsl:if>
+				<xsl:choose>
+					<xsl:when test="$attr='DITAArchVersion'"/>
+					<xsl:when test="$attr='domains'"/>
+					<xsl:when test="$attr='class'"/>
+					<xsl:when test="$attr='lang'"/>
+					<xsl:otherwise>
+						<xsl:attribute name="{local-name()}">
+							<xsl:value-of select="."/>
+						</xsl:attribute>
+					</xsl:otherwise>
+				</xsl:choose>
 			</xsl:for-each>
 			<xsl:attribute name="xml:lang">
 				<xsl:value-of select="$TARGET_LANG"/>
@@ -43,11 +49,15 @@
 			<xsl:for-each select="@*">
 				<!-- remove attribute prefix -->
 				<xsl:variable name="attr" select="local-name()"/>
-				<xsl:if test="$attr!='md5'">
-					<xsl:attribute name="{local-name()}">
-						<xsl:value-of select="."/>
-					</xsl:attribute>
-				</xsl:if>
+				<xsl:choose>
+					<xsl:when test="$attr='md5'"/>
+					<xsl:when test="$attr='class'"/>
+					<xsl:otherwise>
+						<xsl:attribute name="{local-name()}">
+							<xsl:value-of select="."/>
+						</xsl:attribute>
+					</xsl:otherwise>
+				</xsl:choose>
 			</xsl:for-each>
 			<xsl:text>@@@</xsl:text>
 			<xsl:value-of select="@md5"/>
@@ -57,19 +67,7 @@
 	</xsl:template>
 
 	<xsl:template match="*[@md5='0']">
-		<!--xsl:element name="{local-name()}">
-			<!-/- process attributes -/->
-			<xsl:for-each select="@*">
-				<!-/- remove attribute prefix -/->
-				<xsl:variable name="attr" select="local-name()"/>
-				<xsl:if test="$attr!='md5'">
-					<xsl:attribute name="{local-name()}">
-						<xsl:value-of select="."/>
-					</xsl:attribute>
-				</xsl:if>
-			</xsl:for-each-->
-			<xsl:apply-templates select="child::node()" />
-		<!--/xsl:element-->
+		<xsl:apply-templates select="child::node()" />
 	</xsl:template>
 
 

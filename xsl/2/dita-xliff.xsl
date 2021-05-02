@@ -151,8 +151,14 @@
 			</xsl:attribute>
 			<xsl:value-of select="concat('&lt;',name())"/>
 			<xsl:for-each select="@*">
-				<xsl:value-of select="concat(' ', concat(name(), '=&quot;'))"/>
-				<xsl:value-of select="concat(.,'&quot;')"/>
+				<xsl:variable name="attr" select="local-name()"/>
+				<xsl:choose>
+					<xsl:when test="$attr='class'"/>
+					<xsl:otherwise>
+						<xsl:value-of select="concat(' ', concat(name(), '=&quot;'))"/>
+						<xsl:value-of select="concat(.,'&quot;')"/>
+					</xsl:otherwise>
+				</xsl:choose>
 			</xsl:for-each>
 			<xsl:text>></xsl:text>
 		</data>
