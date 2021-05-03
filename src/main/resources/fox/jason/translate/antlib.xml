@@ -240,6 +240,8 @@
 			<loadfile  taskname="bing-translate" property="bing.response" srcFile="${bing.temp.file}"/>
 			<bing-read-response text="${bing.response}" outproperty="bing.translation"/>
 			<translated-target message="${bing.translation}" file="@{out}"/>
+			<replace taskname="target-attrs" file="@{out}" token=" datarefstart=&quot;" value=" dataRefStart=&quot;"/>
+			<replace taskname="target-attrs" file="@{out}" token=" datarefend=&quot;" value=" dataRefEnd=&quot;"/>
 		</sequential>
 	</macrodef>
 
