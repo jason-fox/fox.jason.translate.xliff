@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- @format -->
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="basic-usage" xml:lang="en">
+    <title>Grundsätzliche Verwendung </title>
+    <body outputclass="language-markup">
+        <p>@@@60323@@@</p>
+        <codeblock>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+	...
+	&lt;link href="themes/prism.css" rel="stylesheet" /&gt;
+	&gt;&lt;/head&gt;
+&lt;body&gt;
+	...
+	&lt;script src="prism.js"&gt;&lt;/script&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</codeblock>
+        <p>PRISMA tut sein bestes, um bewährte Praktiken zu fördern. Daher funktioniert es nur mit <b> &lt;code&gt;  </b>Elemente, da die Auszeichnung von code ohne <i> &lt;code&gt;  </i>element ist semantisch ungültig. <xref format="html" scope="external" href="https://www.w3.org/TR/html52/textlevel-semantics.html#the-code-element"> Gemäß der HTML5-Spezifikation  </xref>die empfohlene Art und Weise zu definieren, die eine code-Sprache ist eine <codeph> Sprache-xxxx  </codeph>Klasse, das ist das, was Prism verwendet. Alternativ PRISMA unterstützt auch eine kürzere version: <codeph> lang-xxxx  </codeph>. </p>
+        <p>Dinge einfacher zu machen, jedoch PRISMA geht davon aus, dass diese Sprache-definition vererbt wird. Daher, wenn mehrere <codeph> &lt;code&gt;  </codeph>Elemente haben die gleiche Sprache, können Sie die <codeph> Sprache-xxxx  </codeph>Klasse auf einem Ihrer gemeinsamen Vorfahren. Auf diese Weise können Sie auch definieren ein Dokument-weiten Standard-Sprache ist, indem Sie ein <codeph> Sprache-xxxx  </codeph>Klasse auf dem <codeph> &lt;body&gt;  </codeph>oder <codeph> &lt;html&gt;  </codeph>element. </p>
+        <p>Wenn Sie wollen opt-out-highlighting für eine <codeph> &lt;code&gt;  </codeph>element, das ein Nachfahre eines Elements mit einem deklarierten code-Sprache, die Sie hinzufügen können, die Klasse <codeph> Sprache-keine  </codeph>um es (oder nicht vorhandenen Sprache, wirklich). </p>
+        <p>Die <xref format="html" scope="external" href="https://www.w3.org/TR/html5/grouping-content.html#the-pre-element"> empfohlene Methode zur Markierung einen code-block  </xref>(sowohl für die Semantik und für PRISMA) ist ein <codeph> &lt;pre&gt;  </codeph>element mit einem <codeph> &lt;code&gt;  </codeph>element im inneren, etwa so: </p>
+        <codeblock>&lt;pre&gt;&lt;code class="language-css"&gt;p { color: red }&lt;/code&gt;&lt;/pre&gt;</codeblock>
+        <p>Wenn Sie das Muster, die <codeph> &lt;pre&gt;  </codeph>erhalten automatisch den <codeph> Sprache-xxxx  </codeph>Klasse (wenn es nicht bereits haben) und gestylt werden wie ein code-block. </p>
+        <p>Wenn Sie verhindern möchten, dass alle Elemente aus, die automatisch markiert ist, können Sie mithilfe der attribute <codeph> Daten-Handbuch  </codeph>auf der <codeph> &lt;script&gt;  </codeph>element, die Sie für prism und verwenden Sie die <xref format="html" scope="external" href="https://prismjs.com/extending.html#api"> API  </xref>. Beispiel: </p>
+        <codeblock>&lt;script src="prism.js" data-manual&gt;&lt;/script&gt;</codeblock>
+        <section id="usage-with-webpack">
+            <title>Verwendung mit Webpack, Browserify, &amp; Andere Bundlers </title>
+            <p>Wenn Sie verwenden möchten PRISMA mit bundler installieren Sie PRISMA mit <codeph> npm  </codeph>: </p>
+            <codeblock>$ npm install prismjs</codeblock>
+            <p>Sie können dann <codeph outputclass="language-js"> import  </codeph>in Ihr bündeln: </p>
+            <codeblock outputclass="language-js">import Prism from 'prismjs';</codeblock>
+            <p>Um es einfach zu konfigurieren Sie Ihre Prism-Instanz nur mit den Sprachen und plugins, die Sie benötigen, verwenden Sie den babel-plugin, <xref format="html" scope="external" href="https://github.com/mAAdhaTTah/babel-plugin-prismjs"> babel-plugin-prismjs  </xref>. Dies ermöglicht es Ihnen, laden Sie die minimale Anzahl von Sprachen und plugins, um Ihre Bedürfnisse zu befriedigen. Sehen, dass der plugin-Dokumentation für details zur Konfiguration. </p>
+        </section>
+        <section id="usage-with-node">
+            <title>Verwendung mit Knoten </title>
+            <p>Wenn Sie möchten, verwenden Sie Prism auf die server oder die über die Befehlszeile, PRISMA kann verwendet werden, mit Node.js wie gut. Dies kann nützlich sein, wenn Sie versuchen, generieren von statischen HTML-Seiten mit hervorgehobenen code für Umgebungen, die keine Unterstützung für browser-side JS, wie <xref format="html" scope="external" href="https://www.ampproject.org/"> AMP Seiten  </xref>. </p>
+            <p>Beispiel: </p>
+            <codeblock outputclass="language-js">var Prism = require('prismjs');
+// The code snippet you want to highlight, as a string
+var code = "var data = 1;";
+// Returns a highlighted HTML string
+var html = Prism.highlight(code, Prism.languages.javascript, 'javascript');</codeblock>
+            <p>Erfordern <codeph> prismjs  </codeph>lädt die Standard-Sprachen: <codeph> markup  </codeph>, <codeph> css  </codeph>, <codeph> gleich  </codeph>und <codeph> javascript  </codeph>. Laden Sie weitere Sprachen mit der <codeph outputclass="language-javascript"> loadLanguages()  </codeph>Dienstprogramm, das automatisch verarbeitet alle erforderlichen Abhängigkeiten. </p>
+            <p>Beispiel: </p>
+            <codeblock outputclass="language-js">var Prism = require('prismjs');
+var loadLanguages = require('prismjs/components/');
+loadLanguages(['haml']);
+// The code snippet you want to highlight, as a string
+var code = "= ['hi', 'there', 'reader!'].join \" \"";
+// Returns a highlighted HTML string
+var html = Prism.highlight(code, Prism.languages.haml, 'haml');</codeblock>
+            <p> <b> Hinweis  </b>: Tun <i> nicht  </i>verwenden <codeph outputclass="language-javascript"> loadLanguages()  </codeph>mit Webpack oder anderen bundler, da dies dazu führen Webpack alle Sprachen und plugins. Verwenden Sie den babel-plugin wie oben beschrieben. </p>
+        </section>
+    </body>
+</topic>

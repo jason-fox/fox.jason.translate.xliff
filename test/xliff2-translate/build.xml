@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+   This file is part of the DITA-OT Translate Plug-in project.
+   See the accompanying LICENSE file for applicable licenses.
+-->
+<project basedir="." default="unit-test">
+	<import file="../bootstrap.xml"/>
+	<description>
+		Expect that a translation service can populate unapproved translations for XLIFF 2.1
+	</description>
+	<target name="unit-test">
+		<copy file="xliff-no-translations.xml" tofile="translate.xlf" overwrite="true"/>
+		<exec-transtype transtype="xliff-translate" ditamap="${basedir}/translate.xlf"/>
+		<!--order-xliff file="${basedir}/translate.xlf"/-->
+		<compare-output expectation="${basedir}/expected.xlf" result="${basedir}/translate.xlf"/>
+	</target>
+</project>
