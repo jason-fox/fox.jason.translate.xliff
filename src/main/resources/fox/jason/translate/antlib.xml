@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--ant-->
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--ant-->
 <!--
 	This file is part of the DITA-OT Translate Plug-in project.
 	See the accompanying LICENSE file for applicable licenses.
@@ -12,7 +13,11 @@
 		@param  string -   The value to convert
 		@param  to -  The property to set
 	-->
-	<taskdef classname="fox.jason.translate.tasks.UrlEncodeTask" onerror="ignore" name="url-encode"/>
+	<taskdef
+    classname="fox.jason.translate.tasks.UrlEncodeTask"
+    onerror="ignore"
+    name="url-encode"
+  />
 
 	<!--
 		Iterator function to run a given macro against a set of files
@@ -22,14 +27,22 @@
 		@param dir - The input directory
 		@param todir - The output directory
 	-->
-	<taskdef classname="fox.jason.translate.tasks.IterateFilesetTask" onerror="ignore" name="iterate-xliff"/>
+	<taskdef
+    classname="fox.jason.translate.tasks.IterateFilesetTask"
+    onerror="ignore"
+    name="iterate-xliff"
+  />
 
 	<!--
 		Reinserts a doctype into a file
 
 		@param file    - The DITA file to clean up
 	-->
-	<taskdef classname="fox.jason.translate.tasks.ReinsertDoctypeTask" onerror="ignore" name="add-doctype"/>
+	<taskdef
+    classname="fox.jason.translate.tasks.ReinsertDoctypeTask"
+    onerror="ignore"
+    name="add-doctype"
+  />
 
 	<macrodef name="reinsert-doctype">
 		<attribute name="file"/>
@@ -68,7 +81,11 @@
 		<attribute name="file"/>
 		<attribute name="message" default=""/>
 		<sequential>
-			<echo taskname="translated-target" message="&lt;text&gt;@{message}&lt;/text&gt;" file="@{file}"/>
+			<echo
+        taskname="translated-target"
+        message="&lt;text&gt;@{message}&lt;/text&gt;"
+        file="@{file}"
+      />
 		</sequential>
 	</macrodef>
 
@@ -88,12 +105,36 @@
 
 
 			<!-- Create a translated target file -->
-			<bing-translate if:set="translate.bing" file="@{file}" out="@{todir}/${source.file.name}"/>
-			<custom-translate if:set="translate.custom" file="@{file}" out="@{todir}/${source.file.name}"/>
-			<deepl-translate if:set="translate.deepl" file="@{file}" out="@{todir}/${source.file.name}"/>
-			<dummy-translate if:set="translate.dummy" file="@{file}" out="@{todir}/${source.file.name}"/> 
-			<watson-translate if:set="translate.watson" file="@{file}" out="@{todir}/${source.file.name}"/>
-			<yandex-translate if:set="translate.yandex" file="@{file}" out="@{todir}/${source.file.name}"/>
+			<bing-translate
+        if:set="translate.bing"
+        file="@{file}"
+        out="@{todir}/${source.file.name}"
+      />
+			<custom-translate
+        if:set="translate.custom"
+        file="@{file}"
+        out="@{todir}/${source.file.name}"
+      />
+			<deepl-translate
+        if:set="translate.deepl"
+        file="@{file}"
+        out="@{todir}/${source.file.name}"
+      />
+			<dummy-translate
+        if:set="translate.dummy"
+        file="@{file}"
+        out="@{todir}/${source.file.name}"
+      /> 
+			<watson-translate
+        if:set="translate.watson"
+        file="@{file}"
+        out="@{todir}/${source.file.name}"
+      />
+			<yandex-translate
+        if:set="translate.yandex"
+        file="@{file}"
+        out="@{todir}/${source.file.name}"
+      />
 		</sequential>
 	</macrodef>
 
@@ -132,15 +173,30 @@
 			<local name="source.text"/>
 
 			<replace taskname="source-text" file="@{file}" token="&quot;" value="\&quot;"/>
-			<replace taskname="source-text" file="@{file}" token="${line.separator}" value="\n"/>
+			<replace
+        taskname="source-text"
+        file="@{file}"
+        token="${line.separator}"
+        value="\n"
+      />
 			<loadfile taskname="source-text" property="source.text" srcFile="@{file}"/>
-			<tempfile deleteonexit="true" destdir="${dita.temp.dir}" 
-				property="watson.temp.file" suffix=".json"/>
+			<tempfile
+        deleteonexit="true"
+        destdir="${dita.temp.dir}"
+        property="watson.temp.file"
+        suffix=".json"
+      />
 
 
 
-			<exec taskname="watson-translate" executable="curl" osfamily="unix" 
-				resultproperty="watson.result" outputproperty="watson.out" failOnError="false">
+			<exec
+        taskname="watson-translate"
+        executable="curl"
+        osfamily="unix"
+        resultproperty="watson.result"
+        outputproperty="watson.out"
+        failOnError="false"
+      >
 				<arg value="-X"/>
 				<arg value="POST"/>
 				<arg value="-u"/>
@@ -150,15 +206,28 @@
 				<arg value="--output"/>
 				<arg value="${watson.temp.file}"/>
 				<arg value="--data"/>
-				<arg value="{&quot;text&quot;: [&quot;${source.text}&quot;], &quot;model_id&quot;: &quot;${translate.from}-${translate.to}&quot;}"/>
+				<arg
+          value="{&quot;text&quot;: [&quot;${source.text}&quot;], &quot;model_id&quot;: &quot;${translate.from}-${translate.to}&quot;}"
+        />
 				<arg value="-sS"/>
 				<arg value="${watson.translate.url}?version=2018-05-01"/>
 			</exec>
-		    <echo taskname="watson-translate" level="verbose" message="${line.separator}${watson.out}"/>
+		    <echo
+        taskname="watson-translate"
+        level="verbose"
+        message="${line.separator}${watson.out}"
+      />
 
 		    
-			<loadfile taskname="watson-translate" property="watson.response" srcFile="${watson.temp.file}"/>
-			<watson-read-response text="${watson.response}"  outproperty="watson.translation"/>
+			<loadfile
+        taskname="watson-translate"
+        property="watson.response"
+        srcFile="${watson.temp.file}"
+      />
+			<watson-read-response
+        text="${watson.response}"
+        outproperty="watson.translation"
+      />
 			<translated-target message="${watson.translation}" file="@{out}"/>
 
 
@@ -171,7 +240,11 @@
 		@param text - The response from IBM cloud services
 		@param outproperty - The property to output to
 	-->
-	<taskdef classname="fox.jason.translate.tasks.WatsonParseTask" onerror="ignore" name="watson-read-response"/>	
+	<taskdef
+    classname="fox.jason.translate.tasks.WatsonParseTask"
+    onerror="ignore"
+    name="watson-read-response"
+  />	
 
 	<!--
 		Microsoft Translation. Copies text translated by Azure cloud services to a file
@@ -192,16 +265,31 @@
 			<local name="source.text"/>
 
 
-			<replace taskname="source-text" file="@{file}" token="translate=&quot;no&quot;" value="class=&quot;notranslate&quot;"/>
+			<replace
+        taskname="source-text"
+        file="@{file}"
+        token="translate=&quot;no&quot;"
+        value="class=&quot;notranslate&quot;"
+      />
 			<replace taskname="source-text" file="@{file}" token="&quot;" value="\&quot;"/>
 			<loadfile taskname="source-text" property="source.text" srcFile="@{file}"/>
 			
 	
-			<tempfile deleteonexit="true" destdir="${dita.temp.dir}" 
-				property="bing.temp.file" suffix=".txt"/>
+			<tempfile
+        deleteonexit="true"
+        destdir="${dita.temp.dir}"
+        property="bing.temp.file"
+        suffix=".txt"
+      />
 
-			<exec unless:set="translate.region" taskname="bing-translate" executable="curl" osfamily="unix" 
-				resultproperty="bing.result" outputproperty="bing.out">
+			<exec
+        unless:set="translate.region"
+        taskname="bing-translate"
+        executable="curl"
+        osfamily="unix"
+        resultproperty="bing.result"
+        outputproperty="bing.out"
+      >
 				<arg value="-X"/>
 				<arg value="POST"/>
 			
@@ -216,10 +304,18 @@
 				<arg value="--data"/>
 				<arg value="[{&quot;Text&quot;: &quot;${source.text}&quot;}]"/>
 				<arg value="-sS"/>
-				<arg value="${bing.translate.url}?api-version=3.0&amp;from=${translate.from}&amp;to=${translate.to}&amp;textType=html"/>
+				<arg
+          value="${bing.translate.url}?api-version=3.0&amp;from=${translate.from}&amp;to=${translate.to}&amp;textType=html"
+        />
 			</exec>
-			<exec if:set="translate.region" taskname="bing-translate" executable="curl" osfamily="unix" 
-				resultproperty="bing.result" outputproperty="bing.out">
+			<exec
+        if:set="translate.region"
+        taskname="bing-translate"
+        executable="curl"
+        osfamily="unix"
+        resultproperty="bing.result"
+        outputproperty="bing.out"
+      >
 				<arg value="-X"/>
 				<arg value="POST"/>
 				<arg value="-H"/>
@@ -235,13 +331,29 @@
 				<arg value="--data"/>
 				<arg value="[{&quot;Text&quot;: &quot;${source.text}&quot;}]"/>
 				<arg value="-sS"/>
-				<arg value="${bing.translate.url}?api-version=3.0&amp;from=${translate.from}&amp;to=${translate.to}&amp;textType=html"/>
+				<arg
+          value="${bing.translate.url}?api-version=3.0&amp;from=${translate.from}&amp;to=${translate.to}&amp;textType=html"
+        />
 			</exec>
-			<loadfile  taskname="bing-translate" property="bing.response" srcFile="${bing.temp.file}"/>
+			<loadfile
+        taskname="bing-translate"
+        property="bing.response"
+        srcFile="${bing.temp.file}"
+      />
 			<bing-read-response text="${bing.response}" outproperty="bing.translation"/>
 			<translated-target message="${bing.translation}" file="@{out}"/>
-			<replace taskname="target-attrs" file="@{out}" token=" datarefstart=&quot;" value=" dataRefStart=&quot;"/>
-			<replace taskname="target-attrs" file="@{out}" token=" datarefend=&quot;" value=" dataRefEnd=&quot;"/>
+			<replace
+        taskname="target-attrs"
+        file="@{out}"
+        token=" datarefstart=&quot;"
+        value=" dataRefStart=&quot;"
+      />
+			<replace
+        taskname="target-attrs"
+        file="@{out}"
+        token=" datarefend=&quot;"
+        value=" dataRefEnd=&quot;"
+      />
 		</sequential>
 	</macrodef>
 
@@ -251,7 +363,11 @@
 		@param text - The response from Azure services
 		@param outproperty - The property to output to
 	-->
-	<taskdef classname="fox.jason.translate.tasks.BingParseTask" onerror="ignore" name="bing-read-response"/>
+	<taskdef
+    classname="fox.jason.translate.tasks.BingParseTask"
+    onerror="ignore"
+    name="bing-read-response"
+  />
 
 	<!--
 		Yandex Translation. Copies text translated by Yandex translate to a file
@@ -273,16 +389,30 @@
 			<local name="source.text.encoded"/>
 
 
-			<replace taskname="source-text" file="@{file}" token="translate=&quot;no&quot;" value="class=&quot;notranslate&quot;"/>
+			<replace
+        taskname="source-text"
+        file="@{file}"
+        token="translate=&quot;no&quot;"
+        value="class=&quot;notranslate&quot;"
+      />
 			
 			<loadfile taskname="source-text" property="source.text" srcFile="@{file}"/>
 			<url-encode string="${source.text}" to="source.text.encoded"/>
 			
-			<tempfile deleteonexit="true" destdir="${dita.temp.dir}" 
-				property="yandex.temp.file" suffix=".txt"/>
+			<tempfile
+        deleteonexit="true"
+        destdir="${dita.temp.dir}"
+        property="yandex.temp.file"
+        suffix=".txt"
+      />
 
-			<exec taskname="yandex-translate" executable="curl" osfamily="unix" 
-				resultproperty="yandex.result" outputproperty="yandex.out">
+			<exec
+        taskname="yandex-translate"
+        executable="curl"
+        osfamily="unix"
+        resultproperty="yandex.result"
+        outputproperty="yandex.out"
+      >
 				<arg value="-X"/>
 				<arg value="POST"/>
 				<arg value="-H"/>
@@ -294,11 +424,20 @@
 				<arg value="--data"/>
 				<arg value="text=${source.text.encoded}"/>
 				<arg value="-sS"/>
-				<arg value="${yandex.translate.url}?ui=${translate.from}&amp;key=${yandex.apikey}&amp;lang=${translate.from}-${translate.to}&amp;format=html"/>
+				<arg
+          value="${yandex.translate.url}?ui=${translate.from}&amp;key=${yandex.apikey}&amp;lang=${translate.from}-${translate.to}&amp;format=html"
+        />
 			</exec>
-			<loadfile  taskname="yandex-translate" property="yandex.response" srcFile="${yandex.temp.file}"/>
+			<loadfile
+        taskname="yandex-translate"
+        property="yandex.response"
+        srcFile="${yandex.temp.file}"
+      />
 
-			<yandex-read-response text="${yandex.response}" outproperty="yandex.translation"/>
+			<yandex-read-response
+        text="${yandex.response}"
+        outproperty="yandex.translation"
+      />
 			<translated-target message="${yandex.translation}" file="@{out}"/>
 		</sequential>
 	</macrodef>
@@ -309,7 +448,11 @@
 		@param text - The response from Yandex Translate
 		@param outproperty - The property to output to
 	-->
-	<taskdef classname="fox.jason.translate.tasks.YandexParseTask" onerror="ignore" name="yandex-read-response"/>
+	<taskdef
+    classname="fox.jason.translate.tasks.YandexParseTask"
+    onerror="ignore"
+    name="yandex-read-response"
+  />
 
 	<!--
 		Deepl Translation. Copies text translated by Deepl services to a file
@@ -331,16 +474,30 @@
 			<local name="source.text.encoded"/>
 
 
-			<replace taskname="source-text" file="@{file}" token="translate=&quot;no&quot;" value="class=&quot;notranslate&quot;"/>
+			<replace
+        taskname="source-text"
+        file="@{file}"
+        token="translate=&quot;no&quot;"
+        value="class=&quot;notranslate&quot;"
+      />
 			<!--replace taskname="source-text" file="@{file}" token="&quot;" value="\&quot;"/-->
 			<loadfile taskname="source-text" property="source.text" srcFile="@{file}"/>
 			<url-encode string="${source.text}" to="source.text.encoded"/>
 			
-			<tempfile deleteonexit="true" destdir="${dita.temp.dir}" 
-				property="deepl.temp.file" suffix=".txt"/>
+			<tempfile
+        deleteonexit="true"
+        destdir="${dita.temp.dir}"
+        property="deepl.temp.file"
+        suffix=".txt"
+      />
 
-			<exec taskname="deepl-translate" executable="curl" osfamily="unix" 
-				resultproperty="deepl.result" outputproperty="deepl.out">
+			<exec
+        taskname="deepl-translate"
+        executable="curl"
+        osfamily="unix"
+        resultproperty="deepl.result"
+        outputproperty="deepl.out"
+      >
 				<arg value="-X"/>
 				<arg value="POST"/>
 				<arg value="-H"/>
@@ -352,9 +509,15 @@
 				<arg value="--data"/>
 				<arg value="text=${source.text.encoded}"/>
 				<arg value="-sS"/>
-				<arg value="${deepl.translate.url}?source_lang=${translate.from}&amp;auth_key=${deepl.apikey}&amp;target_lang=${translate.to}&amp;tag_handling=xml"/>
+				<arg
+          value="${deepl.translate.url}?source_lang=${translate.from}&amp;auth_key=${deepl.apikey}&amp;target_lang=${translate.to}&amp;tag_handling=xml"
+        />
 			</exec>
-			<loadfile  taskname="deepl-translate" property="deepl.response" srcFile="${deepl.temp.file}"/>
+			<loadfile
+        taskname="deepl-translate"
+        property="deepl.response"
+        srcFile="${deepl.temp.file}"
+      />
 			<deepl-read-response text="${deepl.response}" outproperty="deepl.translation"/>
 			<translated-target message="${deepl.translation}" file="@{out}"/>
 		</sequential>
@@ -366,7 +529,11 @@
 		@param text - The response from Deepl
 		@param outproperty - The property to output to
 	-->
-	<taskdef classname="fox.jason.translate.tasks.DeeplParseTask" onerror="ignore" name="deepl-read-response" />
+	<taskdef
+    classname="fox.jason.translate.tasks.DeeplParseTask"
+    onerror="ignore"
+    name="deepl-read-response"
+  />
 
 	<!--
 		Custon Translation. Copies text translated by a custom cloud service to a file
@@ -442,11 +609,21 @@
 		<sequential>
 			<local name="bing.result"/>
 			<local name="bing.out"/>
-			<tempfile deleteonexit="true" destdir="${dita.temp.dir}" 
-				property="bing.auth.temp.file" suffix=".txt"/>
+			<tempfile
+        deleteonexit="true"
+        destdir="${dita.temp.dir}"
+        property="bing.auth.temp.file"
+        suffix=".txt"
+      />
 
-			<exec unless:set="translate.region" taskname="bing-auth" executable="curl" osfamily="unix" 
-				resultproperty="bing.result" outputproperty="bing.out">
+			<exec
+        unless:set="translate.region"
+        taskname="bing-auth"
+        executable="curl"
+        osfamily="unix"
+        resultproperty="bing.result"
+        outputproperty="bing.out"
+      >
 				<arg value="-X"/>
 				<arg value="POST"/>
 			
@@ -463,8 +640,14 @@
 			</exec>
 
 
-			<exec if:set="translate.region" taskname="bing-auth" executable="curl" osfamily="unix" 
-				resultproperty="bing.result" outputproperty="bing.out">
+			<exec
+        if:set="translate.region"
+        taskname="bing-auth"
+        executable="curl"
+        osfamily="unix"
+        resultproperty="bing.result"
+        outputproperty="bing.out"
+      >
 				<arg value="-X"/>
 				<arg value="POST"/>
 				<arg value="-H"/>
@@ -481,7 +664,11 @@
 				<arg value="${bing.authentication.url}"/>
 			</exec>
 
-			<echo taskname="auth-bing" level="verbose" message="${line.separator}${bing.out}"/>
+			<echo
+        taskname="auth-bing"
+        level="verbose"
+        message="${line.separator}${bing.out}"
+      />
 			<loadfile property="bing.bearer.token" srcFile="${bing.auth.temp.file}"/>
 
 			<dita-ot-fail id="XLFF004F">
@@ -501,11 +688,23 @@
 		<attribute name="xliff"/>
 		<sequential>
 
-			<tempfile deleteonexit="true" destdir="${dita.temp.dir}" 
-				property="xliff.temp.file" suffix=".xlf"/>
+			<tempfile
+        deleteonexit="true"
+        destdir="${dita.temp.dir}"
+        property="xliff.temp.file"
+        suffix=".xlf"
+      />
 			<copy file="@{xliff}" tofile="${xliff.temp.file}"/>			
-			<replace file="${xliff.temp.file}" token="xmlns=&quot;urn:oasis:names:tc:xliff:document:1.2&quot;" value=""/>
-			<replace file="${xliff.temp.file}" token="xmlns=&quot;urn:oasis:names:tc:xliff:document:2.0&quot;" value=""/>
+			<replace
+        file="${xliff.temp.file}"
+        token="xmlns=&quot;urn:oasis:names:tc:xliff:document:1.2&quot;"
+        value=""
+      />
+			<replace
+        file="${xliff.temp.file}"
+        token="xmlns=&quot;urn:oasis:names:tc:xliff:document:2.0&quot;"
+        value=""
+      />
 
 			<extract-targets xliff="${xliff.temp.file}"/>
 
@@ -525,10 +724,14 @@
 				For each <target> language element in the XLIFF file, extract only the data
 				within the tag and transform it back into DITA format
 			-->
-			<xslt taskname="target-xsl" destdir="${dita.temp.dir}/stage2"  extension=".xml" 
-				style="${translate.customization.dir}/${xliff.version}/trans-unit.xsl"  
-				includes="**/*.xml"  
-				basedir="${dita.temp.dir}/stage1">
+			<xslt
+        taskname="target-xsl"
+        destdir="${dita.temp.dir}/stage2"
+        extension=".xml"
+        style="${translate.customization.dir}/${xliff.version}/trans-unit.xsl"
+        includes="**/*.xml"
+        basedir="${dita.temp.dir}/stage1"
+      >
 			</xslt>
 
 			<!-- Copy over images and other untranslated sources -->
@@ -538,7 +741,7 @@
 				</fileset>
 			</copy>
 			<!-- Copy over unprocessed skeleton files into output dir -->
-			<xmltask taskname="xliff1-read"  source="@{xliff}">
+			<xmltask taskname="xliff1-read" source="@{xliff}">
 				<call path="xliff/file">
 					<param default="" name="original" path="@original"/>
 					<param default="" name="skeleton" path="header/skl/external-file/@href"/>
@@ -558,10 +761,14 @@
 				For each <target> language element in the XLIFF file, extract only the data
 				within the tag and transform it back into DITA format
 			-->
-			<xslt taskname="target-xsl" destdir="${dita.temp.dir}/stage2"  extension=".xml" 
-				style="${translate.customization.dir}/${xliff.version}/trans-unit.xsl"
-				includes="**/*.xml"  
-				basedir="${dita.temp.dir}/stage1">
+			<xslt
+        taskname="target-xsl"
+        destdir="${dita.temp.dir}/stage2"
+        extension=".xml"
+        style="${translate.customization.dir}/${xliff.version}/trans-unit.xsl"
+        includes="**/*.xml"
+        basedir="${dita.temp.dir}/stage1"
+      >
 			</xslt>
 
 			<!-- Copy over images and other untranslated sources -->
@@ -571,7 +778,7 @@
 				</fileset>
 			</copy>
 			<!-- Copy over unprocessed skeleton files into output dir -->
-			<xmltask taskname="xliff2-read"  source="@{xliff}">
+			<xmltask taskname="xliff2-read" source="@{xliff}">
 				<call path="xliff/file">
 					<param default="" name="original" path="@original"/>
 					<param default="" name="skeleton" path="skeleton/@href"/>
@@ -593,8 +800,12 @@
 		<attribute name="xliff"/>
 		<sequential>
 			<!-- place the translations back into the XLIFF file -->
-			<tempfile deleteonexit="true" destdir="${dita.temp.dir}" 
-				property="tempfile.xliff" suffix=".xml"/>
+			<tempfile
+        deleteonexit="true"
+        destdir="${dita.temp.dir}"
+        property="tempfile.xliff"
+        suffix=".xml"
+      />
 			<copy file="@{xliff}" tofile="${tempfile.xliff}"/>
 			<extract-sources xliff="${tempfile.xliff}"/>
 			<!-- now do the translation processing -->
@@ -602,10 +813,18 @@
 				<include name="**/*.xml"/>
 			</fileset>
 			
-			<translate-sources src="source.texts" dir="${dita.temp.dir}/stage2" todir="${dita.temp.dir}/stage3"/>
+			<translate-sources
+        src="source.texts"
+        dir="${dita.temp.dir}/stage2"
+        todir="${dita.temp.dir}/stage3"
+      />
 
-			<xslt taskname="add-targets" in="${tempfile.xliff}" out="@{xliff}"
-				style="${translate.customization.dir}/add-target.xsl">
+			<xslt
+        taskname="add-targets"
+        in="${tempfile.xliff}"
+        out="@{xliff}"
+        style="${translate.customization.dir}/add-target.xsl"
+      >
 				<param expression="${dita.temp.dir}/stage3" name="BASE_DIR"/>
 			</xslt>
 		</sequential>
@@ -615,15 +834,26 @@
 	<macrodef name="extract-sources">
 		<attribute name="xliff"/>
 		<sequential>
-			<replace file="@{xliff}" token="xmlns=&quot;urn:oasis:names:tc:xliff:document:2.0&quot;" value=""/>
-			<replace file="@{xliff}" token="xmlns=&quot;urn:oasis:names:tc:xliff:document:1.2&quot;" value=""/>
+			<replace
+        file="@{xliff}"
+        token="xmlns=&quot;urn:oasis:names:tc:xliff:document:2.0&quot;"
+        value=""
+      />
+			<replace
+        file="@{xliff}"
+        token="xmlns=&quot;urn:oasis:names:tc:xliff:document:1.2&quot;"
+        value=""
+      />
 			
 			<dirname property="xliff.dir" file="@{xliff}"/>
 			<basename property="xliff.base" file="@{xliff}"/>
-			<xslt taskname="split-sources" basedir="${xliff.dir}" 
-				style="${translate.customization.dir}/strip-source.xsl"
-				includes="${xliff.base}"
-				destdir="${dita.temp.dir}/stage2">
+			<xslt
+        taskname="split-sources"
+        basedir="${xliff.dir}"
+        style="${translate.customization.dir}/strip-source.xsl"
+        includes="${xliff.base}"
+        destdir="${dita.temp.dir}/stage2"
+      >
 			</xslt>
 		</sequential>
 	</macrodef>
@@ -631,15 +861,26 @@
 	<macrodef name="extract-targets">
 		<attribute name="xliff"/>
 		<sequential>
-			<replace file="@{xliff}" token="xmlns=&quot;urn:oasis:names:tc:xliff:document:2.0&quot;" value=""/>
-			<replace file="@{xliff}" token="xmlns=&quot;urn:oasis:names:tc:xliff:document:1.2&quot;" value=""/>
+			<replace
+        file="@{xliff}"
+        token="xmlns=&quot;urn:oasis:names:tc:xliff:document:2.0&quot;"
+        value=""
+      />
+			<replace
+        file="@{xliff}"
+        token="xmlns=&quot;urn:oasis:names:tc:xliff:document:1.2&quot;"
+        value=""
+      />
 	
 			<dirname property="xliff.dir" file="@{xliff}"/>
 			<basename property="xliff.base" file="@{xliff}"/>
-			<xslt taskname="split-targets" basedir="${xliff.dir}" 
-				style="${translate.customization.dir}/strip-target.xsl"
-				includes="${xliff.base}"
-				destdir="${dita.temp.dir}/stage1">
+			<xslt
+        taskname="split-targets"
+        basedir="${xliff.dir}"
+        style="${translate.customization.dir}/strip-target.xsl"
+        includes="${xliff.base}"
+        destdir="${dita.temp.dir}/stage1"
+      >
 			</xslt>
 		</sequential>
 	</macrodef>
@@ -647,38 +888,70 @@
 	<macrodef name="load-service-urls">
 		<sequential>
 			<!-- IBM Cloud Services -->
-			<property name="watson.translate.url" if:set="translate.url" 
-				value="${translate.url}"/>
-			<property name="watson.apikey" if:set="translate.apikey"
-			 value="${translate.apikey}"/>
+			<property
+        name="watson.translate.url"
+        if:set="translate.url"
+        value="${translate.url}"
+      />
+			<property
+        name="watson.apikey"
+        if:set="translate.apikey"
+        value="${translate.apikey}"
+      />
 
 			<!-- Microsoft Azure -->
-			<property name="bing.apikey" if:set="translate.apikey"
-				value="${translate.apikey}"/>
-			<property name="bing.translate.url" if:set="translate.url"
-				value="${translate.url}"/>
-			<property name="bing.authentication.url" if:set="translate.authentication.url"
-				value="${translate.authentication.url}"/>
+			<property
+        name="bing.apikey"
+        if:set="translate.apikey"
+        value="${translate.apikey}"
+      />
+			<property
+        name="bing.translate.url"
+        if:set="translate.url"
+        value="${translate.url}"
+      />
+			<property
+        name="bing.authentication.url"
+        if:set="translate.authentication.url"
+        value="${translate.authentication.url}"
+      />
 
 			<!-- Yandex -->
-			<property name="yandex.translate.url" if:set="translate.url" 
-				value="${translate.url}"/>
-			<property name="yandex.apikey" if:set="translate.apikey"
-			value="${translate.apikey}"/>
+			<property
+        name="yandex.translate.url"
+        if:set="translate.url"
+        value="${translate.url}"
+      />
+			<property
+        name="yandex.apikey"
+        if:set="translate.apikey"
+        value="${translate.apikey}"
+      />
 
 			<!-- Deepl -->
-			<property name="deepl.translate.url" if:set="translate.url" 
-				value="${translate.url}"/>
-			<property name="deepl.apikey" if:set="translate.apikey"
-			value="${translate.apikey}"/>
+			<property
+        name="deepl.translate.url"
+        if:set="translate.url"
+        value="${translate.url}"
+      />
+			<property
+        name="deepl.apikey"
+        if:set="translate.apikey"
+        value="${translate.apikey}"
+      />
 
 			<!-- Custom -->
-			<property name="custom.translate.url" if:set="translate.url"
-				value="${translate.url}"/>
+			<property
+        name="custom.translate.url"
+        if:set="translate.url"
+        value="${translate.url}"
+      />
 
 
 			<!-- Fallback - load Service URLs from properties file -->
-			<property file="${dita.plugin.fox.jason.translate.xliff.dir}/cfg/configuration.properties"/>
+			<property
+        file="${dita.plugin.fox.jason.translate.xliff.dir}/cfg/configuration.properties"
+      />
 
 			<!-- Decide which auto-translation service to use -->
 			<condition property="translate.bing">

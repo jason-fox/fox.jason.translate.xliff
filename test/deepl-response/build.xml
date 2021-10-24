@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?><!--
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
 	This file is part of the DITA Translate project.
 	See the accompanying LICENSE file for applicable licenses.
---><project basedir="." default="unit-test">
+-->
+<project basedir="." default="unit-test">
 	
 	<import file="../bootstrap.xml"/>
 	<description>
@@ -14,7 +16,10 @@
 		<deepl-read-response text="${source.text}" outproperty="target.text"/>
 		<echo message="${target.text}" file="${response.temp.file}"/>
 
-		<compare-output expectation="${basedir}/expected.txt" result="${response.temp.file}"/>
+		<compare-output
+      expectation="${basedir}/expected.txt"
+      result="${response.temp.file}"
+    />
 	
 	</target>	
 </project>

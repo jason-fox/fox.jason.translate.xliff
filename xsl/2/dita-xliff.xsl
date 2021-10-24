@@ -1,13 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 	This file is part of the DITA-OT Translate Plug-in project.
 	See the accompanying LICENSE file for applicable licenses.
 -->
-<xsl:stylesheet exclude-result-prefixes="xs xsi" version="2.0" 
-	xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- 	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
- 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:stylesheet
+  exclude-result-prefixes="xs xsi"
+  version="2.0"
+  xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+>
 
 	<xsl:param as="xs:string" name="SOURCE" select="''"/>
 	<xsl:param as="xs:string" name="SOURCE_LANG" select="'en'"/>
@@ -16,7 +19,7 @@
 	
 
 	<xsl:output method="xml" indent="yes" encoding="UTF-8"/>
-	<xsl:preserve-space elements="*" />
+	<xsl:preserve-space elements="*"/>
 	<xsl:include href="../../Customization/xsl/no-translate-elements.xsl"/>
 	<xsl:include href="../../Customization/xsl/add-format-style.xsl"/>
 
@@ -58,7 +61,7 @@
 	
 			<xsl:if test="count(*/*) &gt; 0">
 				<originalData>
-					<xsl:apply-templates mode="original-data" select="*/*" />
+					<xsl:apply-templates mode="original-data" select="*/*"/>
 				</originalData>
 			</xsl:if>
 	 		<segment>
@@ -95,7 +98,10 @@
 							<xsl:apply-templates mode="trans-source"/>
 						</xsl:when>
 						<xsl:when test="$cache-doc//*:unit[@id=$id]/*:segment[@state='final']">
-							<xsl:apply-templates select="$cache-doc//*:unit[@id=$id]/*:segment[@state='final']/*:target/child::node()" mode="identity"/>
+							<xsl:apply-templates
+                select="$cache-doc//*:unit[@id=$id]/*:segment[@state='final']/*:target/child::node()"
+                mode="identity"
+              />
 						</xsl:when>
 					</xsl:choose>
 				</target>
@@ -120,7 +126,7 @@
 	 </xsl:template>
 
 	<xsl:template match="*" mode="trans-source">
-		<xsl:element name="pc" >
+		<xsl:element name="pc">
 			<xsl:call-template name="add-attributes"/>
 			<xsl:apply-templates select="." mode="add-format-style"/>
 			<xsl:apply-templates select="." mode="add-no-translate-mark"/>
@@ -176,7 +182,7 @@
 
 	<xsl:template match="@* | node()" mode="identity">
 		<xsl:copy>
-			<xsl:apply-templates select="@* | node()" mode="identity" />
+			<xsl:apply-templates select="@* | node()" mode="identity"/>
 		</xsl:copy>
 	</xsl:template>
 

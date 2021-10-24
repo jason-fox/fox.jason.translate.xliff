@@ -1,9 +1,14 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 	This file is part of the DITA-OT Translate Plug-in project.
 	See the accompanying LICENSE file for applicable licenses.
 -->
-<xsl:stylesheet  version="2.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:dita="dita-ot.org">
+<xsl:stylesheet
+  version="2.0"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:dita="dita-ot.org"
+>
 
 	<xsl:param as="xs:string" name="SOURCE" select="''"/>
 	<xsl:param as="xs:string" name="SOURCE_LANG" select="'en'"/>
@@ -22,8 +27,14 @@
 	<xsl:variable name="cache-doc" select="document($TRANS_CACHE)"/>
 
 	<xsl:template match="/">	
-		<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dita="http://www.dita-ot.org" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2.xsd">
-			<file datatype="xml" >
+		<xliff
+      version="1.2"
+      xmlns="urn:oasis:names:tc:xliff:document:1.2"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:dita="http://www.dita-ot.org"
+      xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2.xsd"
+    >
+			<file datatype="xml">
 				<xsl:attribute name="source-language">
 					<xsl:value-of select="$SOURCE_LANG"/>
 				</xsl:attribute>
@@ -145,15 +156,15 @@
 	<xsl:template match="*" mode="trans-source">
 		<xsl:choose>
 			<xsl:when test="*">
-				<xsl:element name="g" >
+				<xsl:element name="g">
 					<xsl:call-template name="add-attributes"/>
-					<xsl:apply-templates select="node()" mode="trans-source" />
+					<xsl:apply-templates select="node()" mode="trans-source"/>
 				</xsl:element>
 			</xsl:when>
 			<xsl:otherwise>
-				<xsl:element name="x" >
+				<xsl:element name="x">
 					<xsl:call-template name="add-attributes"/>
-					<xsl:apply-templates select="node()" mode="trans-source" />
+					<xsl:apply-templates select="node()" mode="trans-source"/>
 				</xsl:element>
 			</xsl:otherwise>
 		</xsl:choose>
@@ -171,9 +182,8 @@
 
 	<xsl:template match="@* | node()" mode="identity">
 		<xsl:copy>
-			<xsl:apply-templates select="@* | node()" mode="identity" />
+			<xsl:apply-templates select="@* | node()" mode="identity"/>
 		</xsl:copy>
 	</xsl:template>
 
 </xsl:stylesheet>
-

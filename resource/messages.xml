@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
   This file is part of the DITA-OT Translate Plug-in project.
   See the accompanying LICENSE file for applicable licenses.
@@ -14,11 +14,13 @@
   </message>
   <message id="XLFF003F" type="FATAL">
     <reason>IBM Cloud Services credentials not set.</reason>
-    <response>Update the configuration.properties file to hold your URL and API Key</response>
+    <response
+    >Update the configuration.properties file to hold your URL and API Key</response>
   </message>
   <message id="XLFF004F" type="FATAL">
     <reason>Microsoft Azure credentials not set.</reason>
-    <response>Update the configuration.properties file to hold your URL and API Key</response>
+    <response
+    >Update the configuration.properties file to hold your URL and API Key</response>
   </message>
   <message id="XLFF005W" type="WARN">
     <reason>Translation id=%1 has not been approved for use.</reason>
@@ -26,10 +28,12 @@
   </message>
   <message id="XLFF006F" type="FATAL">
     <reason>DeepL API credentials not set.</reason>
-    <response>Update the configuration.properties file to hold your URL and API Key</response>
+    <response
+    >Update the configuration.properties file to hold your URL and API Key</response>
   </message>
   <message id="XLFF007F" type="FATAL">
     <reason>Yandex Translate credentials not set.</reason>
-    <response>Update the configuration.properties file to hold your URL and API Key</response>
+    <response
+    >Update the configuration.properties file to hold your URL and API Key</response>
   </message>
 </messages>

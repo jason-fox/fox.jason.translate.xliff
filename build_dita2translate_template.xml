@@ -1,7 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?><!--
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
 	This file is part of the DITA Translate project.
 	See the accompanying LICENSE file for applicable licenses.
---><project name="fox.jason.translate.xliff" xmlns:if="ant:if" xmlns:unless="ant:unless" xmlns:dita="http://dita-ot.sourceforge.net" >
+-->
+<project
+  name="fox.jason.translate.xliff"
+  xmlns:if="ant:if"
+  xmlns:unless="ant:unless"
+  xmlns:dita="http://dita-ot.sourceforge.net"
+>
 
 
 	<!-- 
@@ -26,17 +33,41 @@
 
 		<taskdef resource="fox/jason/translate/antlib.xml"/>
 
-		<property name="translate.customization.dir" value="${dita.plugin.fox.jason.translate.xliff.dir}/xsl"/>
-		<property name="translate.resource.dir" value="${dita.plugin.fox.jason.translate.xliff.dir}/resource"/>
+		<property
+      name="translate.customization.dir"
+      value="${dita.plugin.fox.jason.translate.xliff.dir}/xsl"
+    />
+		<property
+      name="translate.resource.dir"
+      value="${dita.plugin.fox.jason.translate.xliff.dir}/resource"
+    />
 
 
 		<xmlcatalog id="fake.dita.catalog">
-			<dtd publicId="-//OASIS//DTD DITA Topic//EN" location="${translate.resource.dir}/fake.dtd"/>
-			<dtd publicId="-//OASIS//DTD DITA Map//EN" location="${translate.resource.dir}/fake.dtd"/>
-			<dtd publicId="-//OASIS//DTD DITA BookMap//EN" location="${translate.resource.dir}/fake.dtd"/>
-			<dtd publicId="-//OASIS//DTD DITA DITAVAL//EN" location="${translate.resource.dir}/fake.dtd"/>
-			<dtd publicId="-//OASIS//DTD DITA Concept//EN" location="${translate.resource.dir}/fake.dtd"/>
-			<dtd publicId="-//OASIS//DTD DITA Task//EN" location="${translate.resource.dir}/fake.dtd"/>
+			<dtd
+        publicId="-//OASIS//DTD DITA Topic//EN"
+        location="${translate.resource.dir}/fake.dtd"
+      />
+			<dtd
+        publicId="-//OASIS//DTD DITA Map//EN"
+        location="${translate.resource.dir}/fake.dtd"
+      />
+			<dtd
+        publicId="-//OASIS//DTD DITA BookMap//EN"
+        location="${translate.resource.dir}/fake.dtd"
+      />
+			<dtd
+        publicId="-//OASIS//DTD DITA DITAVAL//EN"
+        location="${translate.resource.dir}/fake.dtd"
+      />
+			<dtd
+        publicId="-//OASIS//DTD DITA Concept//EN"
+        location="${translate.resource.dir}/fake.dtd"
+      />
+			<dtd
+        publicId="-//OASIS//DTD DITA Task//EN"
+        location="${translate.resource.dir}/fake.dtd"
+      />
 			<catalogpath path="${dita.plugin.org.dita.base.dir}/catalog-dita.xml"/>
 		</xmlcatalog>
 
@@ -51,9 +82,9 @@
 	--> 
 	<target name="trans-unit.init" depends="xliff.init">
 
-		<mkdir dir="${dita.temp.dir}/stage1" />
-		<mkdir dir="${dita.temp.dir}/stage2" />
-		<mkdir dir="${dita.temp.dir}/stage3" />
+		<mkdir dir="${dita.temp.dir}/stage1"/>
+		<mkdir dir="${dita.temp.dir}/stage2"/>
+		<mkdir dir="${dita.temp.dir}/stage3"/>
 	</target>
 
 	<target name="translate.init" depends="trans-unit.init">
@@ -82,7 +113,7 @@
 			</condition>
 		</dita-ot-fail>
 
-		<bing-authorization if:set="translate.bing" />
+		<bing-authorization if:set="translate.bing"/>
 	</target>
 
 		
@@ -91,21 +122,36 @@
 	-->
 	<target name="xliff-create">
 		<!-- Add a unique md5 id to each dita element containing text -->
-		<xslt taskname="md5-src-gen" destdir="${dita.temp.dir}/md5"  
-			extension=".dita.xml" style="${translate.customization.dir}/add-md5-src.xsl" 
-			basedir="${args.input.dir}" includes="*.dita,**/*.dita">
+		<xslt
+      taskname="md5-src-gen"
+      destdir="${dita.temp.dir}/md5"
+      extension=".dita.xml"
+      style="${translate.customization.dir}/add-md5-src.xsl"
+      basedir="${args.input.dir}"
+      includes="*.dita,**/*.dita"
+    >
 			<xmlcatalog refid="fake.dita.catalog"/>
 		</xslt>
 		<!-- Add a unique md5 id to each ditamap element containing text -->
-		<xslt taskname="md5-src-gen" destdir="${dita.temp.dir}/md5"  
-			extension=".ditamap.xml" style="${translate.customization.dir}/add-md5-src.xsl"
-			basedir="${args.input.dir}"  includes="*.ditamap,**/*.ditamap">
+		<xslt
+      taskname="md5-src-gen"
+      destdir="${dita.temp.dir}/md5"
+      extension=".ditamap.xml"
+      style="${translate.customization.dir}/add-md5-src.xsl"
+      basedir="${args.input.dir}"
+      includes="*.ditamap,**/*.ditamap"
+    >
 			<xmlcatalog refid="fake.dita.catalog"/>
 		</xslt>
 		
 		<!-- Generate the skeleton files -->
-		<xslt taskname="skeleton-gen" destdir="${output.dir}/skl"  extension=".skl" style="${translate.customization.dir}/dita2skeleton.xsl"
-			basedir="${dita.temp.dir}/md5">
+		<xslt
+      taskname="skeleton-gen"
+      destdir="${output.dir}/skl"
+      extension=".skl"
+      style="${translate.customization.dir}/dita2skeleton.xsl"
+      basedir="${dita.temp.dir}/md5"
+    >
 			<xmlcatalog refid="fake.dita.catalog"/>
 			<param expression="${translate.to}" name="TARGET_LANG"/>
 		</xslt>
@@ -124,21 +170,32 @@
 		</copy>
 
 		<!-- Fallback - load from and to langs from properties file -->
-		<property file="${dita.plugin.fox.jason.translate.xliff.dir}/cfg/configuration.properties"/>
+		<property
+      file="${dita.plugin.fox.jason.translate.xliff.dir}/cfg/configuration.properties"
+    />
 		<!-- Fallback - dummy cache file -->
-		<tempfile unless:set="translate.cachefile"
-		 deleteonexit="true" destdir="${dita.temp.dir}" 
-				property="translate.cachefile" suffix=".xml"/>
+		<tempfile
+      unless:set="translate.cachefile"
+      deleteonexit="true"
+      destdir="${dita.temp.dir}"
+      property="translate.cachefile"
+      suffix=".xml"
+    />
 
 
 		<!-- 
 			Generate a series of XLIFF files iterating each unique
 			md5 id 
 		-->
-		<xslt taskname="xliff-gen" destdir="${dita.temp.dir}/xliff"  extension=".xlf.xml" style="${translate.customization.dir}/${xliff.version}/dita-xliff.xsl"  
-			basedir="${dita.temp.dir}/md5">
+		<xslt
+      taskname="xliff-gen"
+      destdir="${dita.temp.dir}/xliff"
+      extension=".xlf.xml"
+      style="${translate.customization.dir}/${xliff.version}/dita-xliff.xsl"
+      basedir="${dita.temp.dir}/md5"
+    >
 			<xmlcatalog refid="fake.dita.catalog"/>
-			<param expression="${dita.temp.dir}/md5" name="SOURCE" />
+			<param expression="${dita.temp.dir}/md5" name="SOURCE"/>
 			<param expression="${dita.temp.dir}/skl" name="SKELETON"/>
 			<param expression="${translate.from}" name="SOURCE_LANG"/>
 			<param expression="${translate.to}" name="TARGET_LANG"/>
@@ -152,16 +209,26 @@
 		</xslt>
 
 		<!-- Merge the XLIFF files into one larger file -->
-		<xslt taskname="xliff-merge" force="true" in="${translate.customization.dir}/${xliff.version}/xliff-merge.xsl" out="${output.dir}/translate.xlf" style="${translate.customization.dir}/${xliff.version}/xliff-merge.xsl">
+		<xslt
+      taskname="xliff-merge"
+      force="true"
+      in="${translate.customization.dir}/${xliff.version}/xliff-merge.xsl"
+      out="${output.dir}/translate.xlf"
+      style="${translate.customization.dir}/${xliff.version}/xliff-merge.xsl"
+    >
 			<xmlcatalog refid="fake.dita.catalog"/>
 			<param expression="${dita.temp.dir}/xliff/" name="in"/>
-			<param expression="${dita.temp.dir}/md5" name="SOURCE" />
+			<param expression="${dita.temp.dir}/md5" name="SOURCE"/>
 			<param expression="${dita.temp.dir}/skl" name="SKELETON"/>
 			<param expression="${translate.from}" name="SOURCE_LANG"/>
 			<param expression="${translate.to}" name="TARGET_LANG"/>
 		</xslt>
 
-		<replace file="${output.dir}/translate.xlf" token="xmlns=&quot;&quot;" value=""/>
+		<replace
+      file="${output.dir}/translate.xlf"
+      token="xmlns=&quot;&quot;"
+      value=""
+    />
 	</target>
 
 
@@ -178,7 +245,7 @@
 
 	<target name="xliff-dita">
 
-		<skeleton-prepare  xliff="${args.input}"/>
+		<skeleton-prepare xliff="${args.input}"/>
 
 		<!-- Replace the placeholders in the skeleton files -->
 		<fileset id="translated.dita" dir="${dita.temp.dir}/stage2" casesensitive="yes">
@@ -191,28 +258,34 @@
 
 
 
-	<target dita:extension="depends org.dita.dost.platform.InsertDependsAction"
-		name="dita2xliff-create"
-		description="XML Localization Interchange File Format (XLIFF)"
-		dita:depends="{depend.preprocess.pre},
+	<target
+    dita:extension="depends org.dita.dost.platform.InsertDependsAction"
+    name="dita2xliff-create"
+    description="XML Localization Interchange File Format (XLIFF)"
+    dita:depends="{depend.preprocess.pre},
 			build-init,
 			xliff.init, 
 			{depend.preprocess.post},
-			xliff-create"/>
-	<target dita:extension="depends org.dita.dost.platform.InsertDependsAction"
-		name="dita2xliff-translate" 
-		description="Auto-translate an XLIFF File using an online service"
-		dita:depends="{depend.preprocess.pre},
+			xliff-create"
+  />
+	<target
+    dita:extension="depends org.dita.dost.platform.InsertDependsAction"
+    name="dita2xliff-translate"
+    description="Auto-translate an XLIFF File using an online service"
+    dita:depends="{depend.preprocess.pre},
 			build-init,
 			translate.init,
 			{depend.preprocess.post},
-			xliff-translate"/>
-	<target dita:extension="depends org.dita.dost.platform.InsertDependsAction"
-		name="dita2xliff-dita"
-		description="Supply translated text into DITA skeleton files using an XLIFF File" 
-		dita:depends="{depend.preprocess.pre},
+			xliff-translate"
+  />
+	<target
+    dita:extension="depends org.dita.dost.platform.InsertDependsAction"
+    name="dita2xliff-dita"
+    description="Supply translated text into DITA skeleton files using an XLIFF File"
+    dita:depends="{depend.preprocess.pre},
 			build-init,
 			trans-unit.init,
 			{depend.preprocess.post},
-			xliff-dita"/>
+			xliff-dita"
+  />
 </project>

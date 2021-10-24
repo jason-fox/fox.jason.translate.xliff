@@ -7,48 +7,120 @@
 <plugin id="fox.jason.translate.xliff" version="3.3.0">
 
   <feature extension="dita.conductor.lib.import" file="lib/translate-1.2.jar"/>
-  <feature extension="dita.conductor.lib.import" file="lib/json-simple-1.1.1.jar"/>
+  <feature
+    extension="dita.conductor.lib.import"
+    file="lib/json-simple-1.1.1.jar"
+  />
 
-  <transtype name="xliff-create" desc=" XML Localization Interchange File Format (XLIFF)">
-    <param name="translate.from" type="string" desc="Specifies the source language for translated content, such as en for English."/>
-    <param name="translate.to" type="string" desc="Specifies the target language for translated content, such as fr for French."/>
-    <param name="translate.cachefile" type="file" desc="The location of a previously translated XLIFF file holding translations to be reused"/>
-    <param name="xliff.version" type="enum" desc="Defines which XLIFF format to use">
+  <transtype
+    name="xliff-create"
+    desc=" XML Localization Interchange File Format (XLIFF)"
+  >
+    <param
+      name="translate.from"
+      type="string"
+      desc="Specifies the source language for translated content, such as en for English."
+    />
+    <param
+      name="translate.to"
+      type="string"
+      desc="Specifies the target language for translated content, such as fr for French."
+    />
+    <param
+      name="translate.cachefile"
+      type="file"
+      desc="The location of a previously translated XLIFF file holding translations to be reused"
+    />
+    <param
+      name="xliff.version"
+      type="enum"
+      desc="Defines which XLIFF format to use"
+    >
       <val>1</val>
-      <val default="true" >2</val>
+      <val default="true">2</val>
     </param>
   </transtype>
 
 
-  <transtype name="xliff-translate" desc="Auto-translate an XLIFF File using an online service">
-  	<param name="translate.service" desc="Specifies the cloud auto-translate service." type="enum">
+  <transtype
+    name="xliff-translate"
+    desc="Auto-translate an XLIFF File using an online service"
+  >
+  	<param
+      name="translate.service"
+      desc="Specifies the cloud auto-translate service."
+      type="enum"
+    >
       <val>bing</val>
       <val>custom</val>
       <val>deepl</val>
-      <val default="true" >dummy</val>
+      <val default="true">dummy</val>
       <val>watson</val>
       <val>yandex</val>
     </param>
-    <param name="translate.authentication.url" type="string" desc="URL for creating an OAuth token if needed" />
-    <param name="translate.output.format" type="string" desc="" />
-    <param name="translate.apikey" type="string" desc="API key for a cloud Translation service" />
-    <param name="translate.region" type="string" desc="Region for a Microsoft multi-service text API subscription" />
-    <param name="translate.url" type="string" desc="URL for a cloud Translation service" />
-    <param name="translate.from" type="string" desc="Specifies the source language for translated content, such as en for English." />
-    <param name="translate.to" type="string" desc="Specifies the target language for translated content, such as fr for French." />
-    <param name="xliff.version" type="enum" desc="Defines which XLIFF format to use">
+    <param
+      name="translate.authentication.url"
+      type="string"
+      desc="URL for creating an OAuth token if needed"
+    />
+    <param name="translate.output.format" type="string" desc=""/>
+    <param
+      name="translate.apikey"
+      type="string"
+      desc="API key for a cloud Translation service"
+    />
+    <param
+      name="translate.region"
+      type="string"
+      desc="Region for a Microsoft multi-service text API subscription"
+    />
+    <param
+      name="translate.url"
+      type="string"
+      desc="URL for a cloud Translation service"
+    />
+    <param
+      name="translate.from"
+      type="string"
+      desc="Specifies the source language for translated content, such as en for English."
+    />
+    <param
+      name="translate.to"
+      type="string"
+      desc="Specifies the target language for translated content, such as fr for French."
+    />
+    <param
+      name="xliff.version"
+      type="enum"
+      desc="Defines which XLIFF format to use"
+    >
       <val>1</val>
-      <val default="true" >2</val>
+      <val default="true">2</val>
     </param>
   </transtype>
 
 
-  <transtype name="xliff-dita" desc="Supply translated text into DITA skeleton files using an XLIFF File">
-    <param name="translate.from" type="string" desc="Specifies the source language for translated content, such as en for English." />
-    <param name="translate.to" type="string" desc="Specifies the target language for translated content, such as fr for French." />
-    <param name="xliff.version" type="enum" desc="Defines which XLIFF format to use">
+  <transtype
+    name="xliff-dita"
+    desc="Supply translated text into DITA skeleton files using an XLIFF File"
+  >
+    <param
+      name="translate.from"
+      type="string"
+      desc="Specifies the source language for translated content, such as en for English."
+    />
+    <param
+      name="translate.to"
+      type="string"
+      desc="Specifies the target language for translated content, such as fr for French."
+    />
+    <param
+      name="xliff.version"
+      type="enum"
+      desc="Defines which XLIFF format to use"
+    >
       <val>1</val>
-      <val default="true" >2</val>
+      <val default="true">2</val>
     </param>
   </transtype>
 

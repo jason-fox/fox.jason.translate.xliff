@@ -38,7 +38,7 @@
 
 	<!-- Process DITA block elements and comments -->
 	<xsl:template mode="add-no-translate-mark" match="*|comment()|text()">
-		<xsl:apply-templates select="node()" mode="trans-source" />
+		<xsl:apply-templates select="node()" mode="trans-source"/>
 	</xsl:template>
 
 	<!-- draft-comment and required-cleanup should never be translated -->
@@ -51,7 +51,10 @@
 		<xsl:call-template name="add-no-translate-mark"/>
 	</xsl:template>
 	<!-- Inline xmlconstruct elements are listed here -->
-	<xsl:template mode="add-no-translate-mark" match="numcharref|parameterentity|textentity|xmlatt|xmlelement|xmlnsname|xmlpi">
+	<xsl:template
+    mode="add-no-translate-mark"
+    match="numcharref|parameterentity|textentity|xmlatt|xmlelement|xmlnsname|xmlpi"
+  >
 		<xsl:call-template name="add-no-translate-mark"/>
 	</xsl:template>
 	<!-- Inline software elements are listed here -->
@@ -73,7 +76,7 @@
 			<xsl:attribute name="id">
 				<xsl:value-of select="concat('m',generate-id())"/> 
 			</xsl:attribute>
-			<xsl:apply-templates select="node()" mode="trans-source" />
+			<xsl:apply-templates select="node()" mode="trans-source"/>
 		</mrk>
 	</xsl:template>
 

@@ -12,6 +12,9 @@
 		<copy file="xliff-no-translations.xml" tofile="translate.xlf" overwrite="true"/>
 		<exec-transtype transtype="xliff-translate" ditamap="${basedir}/translate.xlf"/>
 		<!--order-xliff file="${basedir}/translate.xlf"/-->
-		<compare-output expectation="${basedir}/expected.xlf" result="${basedir}/translate.xlf"/>
+		<compare-output
+      expectation="${basedir}/expected.xlf"
+      result="${basedir}/translate.xlf"
+    />
 	</target>
 </project>
