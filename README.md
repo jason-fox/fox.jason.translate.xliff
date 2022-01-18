@@ -445,7 +445,7 @@ The translated `*.dita` files are generated into the `out` directory.
 
 ## License
 
-[Apache 2.0](LICENSE) © 2019 - 2021 Jason Fox
+[Apache 2.0](LICENSE) © 2019 - 2022 Jason Fox
 
 The Program includes the following additional software components which were obtained under license:
 
