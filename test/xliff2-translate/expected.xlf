@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><xliff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" srcLang="en" trgLang="de" version="2.0">
+<?xml version="1.0" encoding="UTF-8"?><xliff xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" srcLang="en" trgLang="de" version="2.0">
    <file id="2" original="/topic.dita">
       <skeleton href="./skl/topic.dita.skl"/>
       <unit id="46167">

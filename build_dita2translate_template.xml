@@ -4,10 +4,10 @@
 	See the accompanying LICENSE file for applicable licenses.
 -->
 <project
-  name="fox.jason.translate.xliff"
+  xmlns:dita="http://dita-ot.sourceforge.net"
   xmlns:if="ant:if"
   xmlns:unless="ant:unless"
-  xmlns:dita="http://dita-ot.sourceforge.net"
+  name="fox.jason.translate.xliff"
 >
 
 
@@ -178,8 +178,13 @@
       unless:set="translate.cachefile"
       deleteonexit="true"
       destdir="${dita.temp.dir}"
-      property="translate.cachefile"
+      property="dummy.translate.cachefile"
       suffix=".xml"
+    />
+		<echo
+      unless:set="translate.cachefile"
+      file="${dummy.translate.cachefile}"
+      message="&lt;root/&gt;"
     />
 
 
@@ -199,7 +204,16 @@
 			<param expression="${dita.temp.dir}/skl" name="SKELETON"/>
 			<param expression="${translate.from}" name="SOURCE_LANG"/>
 			<param expression="${translate.to}" name="TARGET_LANG"/>
-			<param expression="${translate.cachefile}" name="TRANS_CACHE"/>
+			<param
+        if:set="translate.cachefile"
+        expression="${translate.cachefile}"
+        name="TRANS_CACHE"
+      />
+			<param
+        unless:set="translate.cachefile"
+        expression="${dummy.translate.cachefile}"
+        name="TRANS_CACHE"
+      />
 
 
 			<fileset dir="${dita.temp.dir}/md5">
@@ -224,11 +238,7 @@
 			<param expression="${translate.to}" name="TARGET_LANG"/>
 		</xslt>
 
-		<replace
-      file="${output.dir}/translate.xlf"
-      token="xmlns=&quot;&quot;"
-      value=""
-    />
+		<replace file="${output.dir}/translate.xlf" token="xmlns=&#34;&#34;" value=""/>
 	</target>
 
 
