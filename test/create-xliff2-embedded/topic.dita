@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="basic-usage">
+    <title>Basic usage</title>
+    <body outputclass="language-markup">
+        <p>
+          You will need to include the <codeph>prism.css</codeph> and <codeph>prism.js</codeph>
+          files you downloaded in your page. Example:
+        </p>
+        <codeblock>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  ...
+  &lt;link href="themes/prism.css" rel="stylesheet" /&gt;
+  &gt;&lt;/head&gt;
+&lt;body&gt;
+  ...
+  &lt;script src="prism.js"&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</codeblock>
+        <p>
+          Prism does its best to encourage good authoring practices.  Therefore,it only
+          works with <codeph>&lt;code&gt;</codeph> elements,  since marking upcode
+          without a <codeph>&lt;code&gt;</codeph> element is semantically invalid.<xref
+          format="html" scope="external"
+          href="https://www.w3.org/TR/html52/textlevel-semantics.html#the-code-element">According
+          to the HTML5 spec</xref>, the recommended way to define a code language is a <codeph>language-xxxx</codeph>
+          class, which is what Prism uses. Alternatively, Prism also supports a shorter version: <codeph>lang-xxxx</codeph>.
+        </p>
+        <p>
+          To make things easier however, Prism assumes that this language definition is
+          inherited. Therefore, if multiple <codeph>&lt;code&gt;</codeph> elements have
+          the same language, you can add the <codeph>language-xxxx</codeph> class on one
+          of their common ancestors. This way, you can also define a document-wide
+          default language, by adding a <codeph>language-xxxx</codeph> class on the <codeph>&lt;body&gt;</codeph>
+          or <codeph>&lt;html&gt;</codeph> element.
+        </p>
+        <p>
+          If you want to opt-out of highlighting for a <codeph>&lt;code&gt;</codeph>
+          element that is a descendant of an element with a declared code language, you
+          can add the class <codeph>language-none</codeph> to it (or any non-existing
+          language, really).
+        </p>
+        <p>
+          The <xref format="html" scope="external"
+          href="https://www.w3.org/TR/html5/grouping-content.html#the-pre-element">recommended
+          way to mark up a code block</xref> (both for semantics and for Prism) is a <codeph>&lt;pre&gt;</codeph>
+          element with a <codeph>&lt;code&gt;</codeph> element inside, like so:
+        </p>
+        <codeblock>&lt;pre&gt;&lt;code class="language-css"&gt;p { color: red }&lt;/code&gt;&lt;/pre&gt;</codeblock>
+        <p>
+          If you use that pattern, the <codeph>&lt;pre&gt;</codeph> will automatically get
+          the <codeph>language-xxxx</codeph> class (if it doesn’t already have it) and
+          will be styled as a code block.
+        </p>
+        <p>
+          If you want to prevent any elements from being automatically highlighted, you
+          can use the attribute <codeph>data-manual</codeph> on the <codeph>&lt;script&gt;</codeph>
+          element you used for prism and use the <xref format="html" scope="external"
+          href="https://prismjs.com/extending.html#api">API</xref>. Example:
+        </p>
+        <section id="usage-with-webpack">
+            <title>Usage with Webpack, Browserify, &amp; Other Bundlers</title>
+            <p>
+              If you want to use Prism with a bundler, install Prism with <codeph>npm</codeph>:
+            </p>
+            <codeblock>$ npm install prismjs</codeblock>
+            <p>
+              You can then <codeph outputclass="language-js">import</codeph> into your bundle
+            </p>
+            <codeblock outputclass="language-js">import Prism from 'prismjs';</codeblock>
+            <p>
+              To make it easy to configure your Prism instance with only thelanguages and
+              plugins you need, use the babel plugin, <xref format="html" scope="external"
+              href="https://github.com/mAAdhaTTah/babel-plugin-prismjs">babel-plugin-prismjs</xref>.
+              This will allow you to load the minimum number of languages and plugins to
+              satisfy your needs. See that plugin's documentation for configuration details
+            </p>
+        </section>
+    </body>
+</topic>
