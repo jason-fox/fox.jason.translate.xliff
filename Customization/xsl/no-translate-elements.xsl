@@ -72,7 +72,17 @@
    </xsl:template>
 
    <xsl:template name="add-no-translate-mark">
-      <mrk translate="no" type="term">
+      <mrk  type="term">
+         <xsl:attribute name="translate">
+            <xsl:choose>
+               <xsl:when test="@translate">
+                  <xsl:value-of select="@translate"/>
+               </xsl:when>
+               <xsl:otherwise>
+                  <xsl:text>no</xsl:text>
+               </xsl:otherwise>
+            </xsl:choose>
+         </xsl:attribute>
          <xsl:attribute name="id">
             <xsl:value-of select="concat('m',generate-id())" />
          </xsl:attribute>

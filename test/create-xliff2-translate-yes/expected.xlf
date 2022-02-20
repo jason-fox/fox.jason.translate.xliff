@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<xliff srcLang="en" trgLang="de" version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0">
+  <file id="1" original="/topic.dita">
+    <skeleton href="./skl/topic.dita.skl"></skeleton>
+    <unit fs:fs="title" id="46167" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
+      <segment state="initial">
+        <source xml:lang="en" xml:space="preserve">Cicero</source>
+        <target xml:lang="de"></target>
+      </segment>
+    </unit>
+    <unit fs:fs="p" id="10044" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
+      <originalData>
+        <data id="">&lt;term translate="yes" xml:lang="la"&gt;</data>
+        <data id="">&lt;/term&gt;</data>
+      </originalData>
+      <segment state="initial">
+        <source xml:lang="en" xml:space="preserve">The following lines are the origin of
+          <pc>
+            <mrk id="" translate="yes" type="term">Lorem Ipsum</mrk>
+          </pc>:</source>
+        <target xml:lang="de"></target>
+      </segment>
+    </unit>
+    <unit fs:fs="p" id="54947" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
+      <originalData>
+        <data id="">&lt;codeph translate="yes"&gt;</data>
+        <data id="">&lt;/codeph&gt;</data>
+      </originalData>
+      <segment state="initial">
+        <source xml:lang="en" xml:space="preserve">Loves or pursues or desires to obtain
+          <pc>
+            <mrk id="" translate="yes" type="term">pain of itself</mrk>
+          </pc>, because it is pain, but occasionally circumstances occur in which toil and pain can procure him some great pleasure.</source>
+        <target xml:lang="de"></target>
+      </segment>
+    </unit>
+  </file>
+</xliff>
+
