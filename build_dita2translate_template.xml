@@ -156,11 +156,30 @@
 			<param expression="${translate.to}" name="TARGET_LANG"/>
 		</xslt>
 
-		<fileset id="skl.contents" dir="${output.dir}/skl" casesensitive="yes">
+		<!-- For all generated skeletons, reinsert doc type. -->
+		<fileset id="skl.contents.all" dir="${output.dir}/skl" casesensitive="yes">
 			<include name="**/*.dita.skl"/>
 			<include name="**/*.ditamap.skl"/>
 		</fileset>
-		<reinsert-doctypes refid="skl.contents" dir="${output.dir}/skl"/>
+		<reinsert-doctypes refid="skl.contents.all" dir="${output.dir}/skl"/>
+
+		<!-- DITA skeleton files without translatable texts -->
+		<restrict id="skl.contents.no-translate">
+			<fileset refid="skl.contents.all"/>
+			<not>
+				<contains text="@@@"/>
+			</not>
+		</restrict>
+		<!-- DITA skeleton files with translatable texts -->
+		<restrict id="skl.contents">
+			<fileset refid="skl.contents.all"/>
+			<contains text="@@@"/>
+		</restrict>
+		<!-- revert renamng of untranslated DITA files only -->
+		<move todir="${output.dir}/skl">
+			<restrict refid="skl.contents.no-translate"/>
+			<globmapper from="*.skl" to="*"/>
+		</move>
 		<!-- Copy over images and other untranslated sources -->
 		<copy todir="${output.dir}/skl" overwrite="true">
 			<fileset dir="${args.input.dir}">

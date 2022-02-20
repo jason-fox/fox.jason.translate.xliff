@@ -6,7 +6,7 @@
 <project basedir="." default="unit-test">
 	<import file="../bootstrap.xml"/>
 	<description>
-		Expect that DITA block elements with translate='no' are ignored in XLIFF 2.1
+		Expect that DITA block elements with translate='no' are ignored in XLIFF 1.2
 	</description>
 	<target name="unit-test">
 		<delete dir="${basedir}/out" failonerror="false"/>
