@@ -75,20 +75,30 @@
   </xsl:template>
 
    <xsl:template match="note|shortdesc|abstract|title|p|li|entry|mainbooktitle|navtitle|glossterm|glossdef">
-      <xsl:element name="{local-name()}">
-        <xsl:attribute name="md5">
-          <xsl:value-of select="foo:checksum(normalize-space(.))"/>
-        </xsl:attribute>
-      <!-- process attributes -->
-      <xsl:for-each select="@*">
-        <!-- remove attribute prefix -->
-        <xsl:attribute name="{local-name()}">
-          <xsl:value-of select="."/>
-        </xsl:attribute>
-      </xsl:for-each>
-      <xsl:apply-templates select="." mode="copy"/>
-    </xsl:element>
-      
+    <xsl:choose>
+      <xsl:when test="ancestor::*[@translate='no']">
+        <xsl:apply-templates select="." mode="copy"/>
+      </xsl:when>
+      <xsl:when test="@translate='no'">
+        <xsl:apply-templates select="." mode="copy"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:element name="{local-name()}">
+          <xsl:attribute name="md5">
+            <xsl:value-of select="foo:checksum(normalize-space(.))"/>
+          </xsl:attribute>
+
+          <!-- process attributes -->
+          <xsl:for-each select="@*">
+            <!-- remove attribute prefix -->
+            <xsl:attribute name="{local-name()}">
+              <xsl:value-of select="."/>
+            </xsl:attribute>
+          </xsl:for-each>
+          <xsl:apply-templates select="." mode="copy"/>
+        </xsl:element>
+      </xsl:otherwise>
+    </xsl:choose>  
    </xsl:template>
 
   <xsl:template match="/ | @* | node()" mode="copy">

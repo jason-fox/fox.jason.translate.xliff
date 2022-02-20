@@ -74,15 +74,17 @@
 
 	<xsl:template match="*" mode="xliff">
 		<xsl:for-each select="*">
-			<xsl:element name="file">
-				<xsl:for-each select="@*">
-					<xsl:variable name="name" select="name()"/>
-					<xsl:attribute name="{$name}">
-					 	<xsl:value-of select="."/>
-					</xsl:attribute>
-				</xsl:for-each>
-				<xsl:apply-templates mode="file"/>
-			</xsl:element>
+			<xsl:if test="//trans-unit">
+				<xsl:element name="file">
+					<xsl:for-each select="@*">
+						<xsl:variable name="name" select="name()"/>
+						<xsl:attribute name="{$name}">
+						 	<xsl:value-of select="."/>
+						</xsl:attribute>
+					</xsl:for-each>
+					<xsl:apply-templates mode="file"/>
+				</xsl:element>
+			</xsl:if>
 		</xsl:for-each>
 	</xsl:template>
 

@@ -47,7 +47,10 @@
 		</xliff>
 	</xsl:template>
 
-	 <xsl:template match="*[@md5 and @md5!='0']">
+	<xsl:template match="*[@md5='0']"/>
+	<xsl:template match="*[@md5 and @translate='no']"/>
+
+	<xsl:template match="*[@md5 and @md5!='0']">
 		<unit>
 			<xsl:namespace name="fs" select="'urn:oasis:names:tc:xliff:fs:2.0'"/>
 			<xsl:variable name="id">
@@ -67,9 +70,6 @@
 	 		<segment>
 				<xsl:attribute name="state">
 					<xsl:choose>
-						<xsl:when test="@translate='no'">
-							<xsl:text>final</xsl:text>
-			 			</xsl:when>
 			 			<xsl:when test="$cache-doc//*:unit[@id=$id]/*:segment[@state='final']">
 							<xsl:text>final</xsl:text>
 			 			</xsl:when>
@@ -94,9 +94,6 @@
 						<xsl:value-of select="$TARGET_LANG"/>
 					</xsl:attribute>
 					<xsl:choose>
-						<xsl:when test="@translate='no'">
-							<xsl:apply-templates mode="trans-source"/>
-						</xsl:when>
 						<xsl:when test="$cache-doc//*:unit[@id=$id]/*:segment[@state='final']">
 							<xsl:apply-templates
                 select="$cache-doc//*:unit[@id=$id]/*:segment[@state='final']/*:target/child::node()"
@@ -107,10 +104,8 @@
 				</target>
 			</segment>
 		</unit>
-		
 	 </xsl:template>
 
-	 <xsl:template match="*[@md5='0']"/>
 
 	 <xsl:template name="add-attributes">
 	 	<xsl:attribute name="id">

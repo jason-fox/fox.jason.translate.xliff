@@ -46,26 +46,32 @@
 	</xsl:template>
 
 	<xsl:template match="*[@md5 and @md5!='0']">
-		<xsl:element name="{local-name()}">
-			<!-- process attributes -->
-			<xsl:for-each select="@*">
-				<!-- remove attribute prefix -->
-				<xsl:variable name="attr" select="local-name()"/>
-				<xsl:choose>
-					<xsl:when test="$attr='md5'"/>
-					<xsl:when test="$attr='class'"/>
-					<xsl:otherwise>
-						<xsl:attribute name="{local-name()}">
-							<xsl:value-of select="."/>
-						</xsl:attribute>
-					</xsl:otherwise>
-				</xsl:choose>
-			</xsl:for-each>
-			<xsl:text>@@@</xsl:text>
-			<xsl:value-of select="@md5"/>
-			<xsl:text>@@@</xsl:text>
-		</xsl:element>
-			
+		<xsl:choose>
+			<xsl:when test="@translate='no'">
+				<xsl:apply-templates select="child::node()"/>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:element name="{local-name()}">
+					<!-- process attributes -->
+					<xsl:for-each select="@*">
+						<!-- remove attribute prefix -->
+						<xsl:variable name="attr" select="local-name()"/>
+						<xsl:choose>
+							<xsl:when test="$attr='md5'"/>
+							<xsl:when test="$attr='class'"/>
+							<xsl:otherwise>
+								<xsl:attribute name="{local-name()}">
+									<xsl:value-of select="."/>
+								</xsl:attribute>
+							</xsl:otherwise>
+						</xsl:choose>
+					</xsl:for-each>
+					<xsl:text>@@@</xsl:text>
+					<xsl:value-of select="@md5"/>
+					<xsl:text>@@@</xsl:text>
+				</xsl:element>
+			</xsl:otherwise>
+		</xsl:choose>
 	</xsl:template>
 
 	<xsl:template match="*[@md5='0']">

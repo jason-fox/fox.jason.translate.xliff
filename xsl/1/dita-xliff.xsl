@@ -60,16 +60,16 @@
 			</xliff>
 		</xsl:template>
 
-	 <xsl:template match="*[@md5 and @md5!='0']">
+	<xsl:template match="*[@md5='0']"/>
+	<xsl:template match="*[@md5 and @translate='no']"/>
+
+	<xsl:template match="*[@md5 and @md5!='0']">
 	 	<xsl:variable name="id">
 			<xsl:value-of select="@md5"/>
 		</xsl:variable>
 		<trans-unit>
 			<xsl:attribute name="approved">
 				<xsl:choose>
-					<xsl:when test="@translate='no'">
-						<xsl:text>yes</xsl:text>
-		 			</xsl:when>
 		 			<xsl:when test="document($TRANS_CACHE)//*:trans-unit[@approved='yes' and @id=$id]/*:target">
 						<xsl:text>yes</xsl:text>
 		 			</xsl:when>
@@ -84,11 +84,6 @@
 			<xsl:attribute name="xml:space">
 				<xsl:text>preserve</xsl:text>
 			</xsl:attribute>
-			<xsl:if test="@translate='no'">
-				<xsl:attribute name="translate">
-					<xsl:text>no</xsl:text>
-				</xsl:attribute>
-	 		</xsl:if>
 			<source>
 				<xsl:attribute name="xml:lang">
 					<xsl:value-of select="$SOURCE_LANG"/>
@@ -114,10 +109,7 @@
 		
 	 </xsl:template>
 
-	 <xsl:template match="*[@md5='0']"/>
-
 	 <xsl:template name="add-attributes">
-
 		<xsl:attribute name="id">
 			<xsl:value-of select="generate-id()"/> 
 		</xsl:attribute>
