@@ -12,28 +12,62 @@
 		<delete dir="${basedir}/out" failonerror="false"/>
 		<delete dir="${basedir}/temp" failonerror="false"/>
 		<exec-transtype transtype="xliff-create"/>
-		<order-xliff file="${basedir}/out/translate.xlf"/>
-		<replaceregexp
-      file="${basedir}/out/translate.xlf"
-      flags="gi"
-      match="data id=\&quot;[^\s]+\&quot;"
-      replace="data id=&quot;&quot;"
-    />
-		<replaceregexp
-      file="${basedir}/out/translate.xlf"
-      flags="gi"
-      match="mrk id=\&quot;[^\s]+\&quot;"
-      replace="mrk id=&quot;&quot;"
-    />
-		<replaceregexp
-      file="${basedir}/out/translate.xlf"
-      flags="gi"
-      match="&lt;pc.*&gt;"
-      replace="&lt;pc&gt;"
-    />
-		<compare-output
-      expectation="${basedir}/expected.xlf"
-      result="${basedir}/out/translate.xlf"
-    />
+
+      <xslt
+        classpathref="xslt.class.path"
+        in="${basedir}/out/translate.xlf"
+        out="${basedir}/out/translate2.xlf"
+        style="../order.xsl"
+      />
+		<order-xliff file="${basedir}/out/translate2.xlf"/>
+      <replaceregexp
+         file="${basedir}/out/translate2.xlf"
+         flags="gi"
+         match="data id=\&quot;[^\s]+\&quot;"
+         replace="data id=&quot;&quot;"
+      />
+      <replaceregexp
+         file="${basedir}/out/translate2.xlf"
+         flags="gi"
+         match="mrk id=\&quot;[^\s]+\&quot;"
+         replace="mrk id=&quot;&quot;"
+      />
+      <replaceregexp
+         file="${basedir}/out/translate2.xlf"
+         flags="gi"
+         match="file id=\&quot;[^\s]+\&quot;"
+         replace="file id=&quot;&quot;"
+      />
+      <replaceregexp
+         file="${basedir}/out/translate2.xlf"
+         flags="gi"
+         match="&lt;pc.*&gt;"
+         replace="&lt;pc&gt;"
+      />
+
+      <replaceregexp
+         file="${basedir}/out/translate2.xlf"
+         flags="gi"
+         match="&lt;pc.*&gt;"
+         replace="&lt;pc&gt;"
+      />
+
+       <replaceregexp
+         file="${basedir}/out/translate2.xlf"
+         flags="gi"
+         match="__NS1:xmlns=\&quot;\&quot;"
+         replace=""
+      />
+       <replaceregexp
+         file="${basedir}/out/translate2.xlf"
+         flags="gi"
+         match="xmlns=\&quot;\&quot;"
+         replace=""
+      />
+
+      <compare-output
+         expectation="${basedir}/expected.xlf"
+         result="${basedir}/out/translate2.xlf"
+      />
 	</target>
 </project>

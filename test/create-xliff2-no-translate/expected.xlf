@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
-<xliff srcLang="en" trgLang="de" version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0">
-  <file id="1" original="/notranslate-p.dita">
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0">
+  <file id="" original="/notranslate-p.dita">
     <skeleton href="./skl/notranslate-p.dita.skl"></skeleton>
     <unit fs:fs="title" id="46167" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
       <segment state="initial">
@@ -22,7 +22,29 @@
       </segment>
     </unit>
   </file>
-  <file id="3" original="/topic.dita">
+  <file id="" original="/notranslate-sub-topic.dita">
+    <skeleton href="./skl/notranslate-sub-topic.dita.skl"></skeleton>
+    <unit fs:fs="title" id="46167" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
+      <segment state="initial">
+        <source xml:lang="en" xml:space="preserve">Cicero</source>
+        <target xml:lang="de"></target>
+      </segment>
+    </unit>
+    <unit fs:fs="p" id="10044" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
+      <originalData>
+        <data id="">&lt;term&gt;</data>
+        <data id="">&lt;/term&gt;</data>
+      </originalData>
+      <segment state="initial">
+        <source xml:lang="en" xml:space="preserve">The following lines are the origin of
+          <pc>
+            <mrk id="" translate="no" type="term">Lorem Ipsum</mrk>
+          </pc>:</source>
+        <target xml:lang="de"></target>
+      </segment>
+    </unit>
+  </file>
+  <file id="" original="/topic.dita">
     <skeleton href="./skl/topic.dita.skl"></skeleton>
     <unit fs:fs="title" id="46167" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
       <segment state="initial">
@@ -68,28 +90,6 @@
           <pc>
           <pc>
         </source>
-        <target xml:lang="de"></target>
-      </segment>
-    </unit>
-  </file>
-  <file id="4" original="/notranslate-sub-topic.dita">
-    <skeleton href="./skl/notranslate-sub-topic.dita.skl"></skeleton>
-    <unit fs:fs="title" id="46167" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
-      <segment state="initial">
-        <source xml:lang="en" xml:space="preserve">Cicero</source>
-        <target xml:lang="de"></target>
-      </segment>
-    </unit>
-    <unit fs:fs="p" id="10044" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
-      <originalData>
-        <data id="">&lt;term&gt;</data>
-        <data id="">&lt;/term&gt;</data>
-      </originalData>
-      <segment state="initial">
-        <source xml:lang="en" xml:space="preserve">The following lines are the origin of
-          <pc>
-            <mrk id="" translate="no" type="term">Lorem Ipsum</mrk>
-          </pc>:</source>
         <target xml:lang="de"></target>
       </segment>
     </unit>
