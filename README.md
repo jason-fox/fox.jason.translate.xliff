@@ -4,7 +4,6 @@
 [![DITA-OT 4.0](https://img.shields.io/badge/DITA--OT-4.0-green.svg)](http://www.dita-ot.org/4.0)
 [![CI](https://github.com/jason-fox/fox.jason.translate.xliff/workflows/CI/badge.svg)](https://github.com/jason-fox/fox.jason.translate.xliff/actions?query=workflow%3ACI)
 [![Coverage Status](https://coveralls.io/repos/github/jason-fox/fox.jason.translate.xliff/badge.svg?branch=master)](https://coveralls.io/github/jason-fox/fox.jason.translate.xliff?branch=master)
-[![Documentation Status](https://readthedocs.org/projects/xliffdita-ot/badge/?version=latest)](https://xliffdita-ot.readthedocs.io/en/latest/?badge=latest)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=fox.jason.translate.xliff&metric=alert_status)](https://sonarcloud.io/dashboard?id=fox.jason.translate.xliff)
 
 DITA-OT Translate Plug-in is a [DITA-OT Plug-in](https://www.dita-ot.org/plugins) to create, auto-translate and re-merge
