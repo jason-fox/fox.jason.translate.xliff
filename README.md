@@ -1,7 +1,7 @@
 # DITA-OT Translate Plug-in [<img src="https://jason-fox.github.io/fox.jason.translate.xliff/xliff.png" align="right" width="300">](https://xliffdita-ot.rtfd.io/)
 
 [![license](https://img.shields.io/github/license/jason-fox/fox.jason.translate.xliff.svg)](http://www.apache.org/licenses/LICENSE-2.0)
-[![DITA-OT 3.7](https://img.shields.io/badge/DITA--OT-3.7-blue.svg)](http://www.dita-ot.org/3.7)
+[![DITA-OT 4.0](https://img.shields.io/badge/DITA--OT-4.0-blue.svg)](http://www.dita-ot.org/4.0)
 [![CI](https://github.com/jason-fox/fox.jason.translate.xliff/workflows/CI/badge.svg)](https://github.com/jason-fox/fox.jason.translate.xliff/actions?query=workflow%3ACI)
 [![Coverage Status](https://coveralls.io/repos/github/jason-fox/fox.jason.translate.xliff/badge.svg?branch=master)](https://coveralls.io/github/jason-fox/fox.jason.translate.xliff?branch=master)
 [![Documentation Status](https://readthedocs.org/projects/xliffdita-ot/badge/?version=latest)](https://xliffdita-ot.readthedocs.io/en/latest/?badge=latest)
@@ -42,7 +42,7 @@ This plug-in consists of three DITA-OT transforms
 
 ## Install
 
-The DITA-OT Translate Plug-in has been tested against [DITA-OT 3.x](http://www.dita-ot.org/download). It is recommended
+The DITA-OT Translate Plug-in has been tested against [DITA-OT 4.x](http://www.dita-ot.org/download). It is recommended
 that you upgrade to the latest version.
 
 ### Installing DITA-OT
@@ -62,9 +62,9 @@ The DITA-OT Translate Plug-in is a plug-in for the DITA Open Toolkit.
     This defines the necessary environment variable to run the `dita` command from the command line.
 
 ```console
-curl -LO https://github.com/dita-ot/dita-ot/releases/download/3.7/dita-ot-3.7.zip
-unzip -q dita-ot-3.7.zip
-rm dita-ot-3.7.zip
+curl -LO https://github.com/dita-ot/dita-ot/releases/download/4.0/dita-ot-4.0.zip
+unzip -q dita-ot-4.0.zip
+rm dita-ot-4.0.zip
 ```
 
 ### Installing the Plug-in
