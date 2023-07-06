@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<xliff srcLang="en" trgLang="de" version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0">
+  <file id="1" original="/topic.dita">
+    <skeleton href="./skl/topic.dita.skl"></skeleton>
+    <unit fs:fs="title" id="46167" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
+      <segment state="initial">
+        <source xml:lang="en" xml:space="preserve">Cicero</source>
+        <target xml:lang="de"></target>
+      </segment>
+    </unit>
+    <unit fs:fs="p" id="7296" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
+      <segment state="initial">
+        <source xml:lang="en" xml:space="preserve">The following lines are the origin of "Lorem Ipsum":</source>
+        <target xml:lang="de"></target>
+      </segment>
+    </unit>
+    <unit fs:fs="li" id="54947" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
+      <originalData>
+        <data id="">&lt;b&gt;</data>
+        <data id="">&lt;/b&gt;</data>
+      </originalData>
+      <segment state="initial">
+        <source xml:lang="en" xml:space="preserve">Loves or pursues or desires to obtain
+          <pc>
+        <target xml:lang="de"></target>
+      </segment>
+    </unit>
+    <unit fs:fs="li" id="2885" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
+      <originalData>
+        <data id="">&lt;p&gt;</data>
+        <data id="">&lt;/p&gt;</data>
+        <data id="">&lt;p&gt;</data>
+        <data id="">&lt;/p&gt;</data>
+      </originalData>
+      <segment state="initial">
+        <source xml:lang="en" xml:space="preserve">
+          <pc>
+          <pc>
+        </source>
+        <target xml:lang="de"></target>
+      </segment>
+    </unit>
+  </file>
+</xliff>
+
