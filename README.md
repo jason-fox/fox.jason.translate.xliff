@@ -72,7 +72,6 @@ rm dita-ot-4.0.zip
 
 ```console
 dita install https://github.com/doctales/org.doctales.xmltask/archive/master.zip
-dita install https://github.com/jason-fox/fox.jason.translate.xliff/archive/master.zip
 ```
 
 The `dita` command line tool requires no additional configuration.

@@ -29,9 +29,12 @@
 			<param name="1" value="${args.input}"/>
 		</dita-ot-fail>
 		<dirname property="args.input.dir" file="${args.input}"/>
-
-
 		<taskdef resource="fox/jason/translate/antlib.xml"/>
+		<taskdef classname="com.oopsconsultancy.xmltask.ant.XmlTask" name="xmltask">
+			<classpath>
+				<pathelement location="${dita.plugin.fox.jason.translate.xliff.dir}/lib/xmltask.jar"/>
+			</classpath>
+		</taskdef>
 
 		<property
       name="translate.customization.dir"
