@@ -411,7 +411,9 @@ PATH-TO-DITA-OT/bin/dita -f xliff-dita -i translate.xlf -o out --xliff.version=1
 
 The translated `*.dita` files are generated into the `out` directory.
 
-> **Note:** Any machine translation is by definition imperfect. A typical translation workflow would send the generated
+> [!Note]
+>
+> Any machine translation is by definition imperfect. A typical translation workflow would send the generated
 > XLIFF files to the translation agency (known also as "localisation service provider"), and receive back verified
 > translated content from the translation agency integrated into to the XLIFF. For XLIFF 1.2, each `<trans-unit>` should
 > be marked `approved="yes"` when the `<target>` element has been verified. Similarly for XLIFF 2.1 each `<segement>`
