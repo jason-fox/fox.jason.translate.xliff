@@ -448,3 +448,4 @@ The translated `*.dita` files are generated into the `out` directory.
 The Program includes the following additional software components which were obtained under license:
 
 -   json-simple-1.1.1.jar - https://github.com/fangyidong/json-simple - **Apache 2.0 license**
+-   xmltask.jar - https://github.com/antlibs/ant-xmltask - **Apache 2.0 license**
