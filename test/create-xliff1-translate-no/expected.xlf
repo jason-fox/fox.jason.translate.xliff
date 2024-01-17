@@ -35,7 +35,7 @@
       </trans-unit>
       <trans-unit approved="no" id="10044" xml:space="preserve">
         <source xml:lang="en">The following lines are the origin of
-          <x ctype="x-dita-term" id="d6e11" translate="no">Lorem Ipsum</x>:</source>
+          <x ctype="x-dita-term" id="" translate="no">Lorem Ipsum</x>:</source>
         <target xml:lang="de"></target>
       </trans-unit>
     </body>
@@ -53,12 +53,12 @@
       </trans-unit>
       <trans-unit approved="no" id="10044" xml:space="preserve">
         <source xml:lang="en">The following lines are the origin of
-          <x ctype="x-dita-term" id="d8e11" translate="no" xml:lang="la">Lorem Ipsum</x>:</source>
+          <x ctype="x-dita-term" id="" translate="no" xml:lang="la">Lorem Ipsum</x>:</source>
         <target xml:lang="de"></target>
       </trans-unit>
       <trans-unit approved="no" id="54947" xml:space="preserve">
         <source xml:lang="en">Loves or pursues or desires to obtain
-          <x ctype="x-dita-codeph" id="d8e20" translate="no">pain of itself</x>, because it is pain, but occasionally circumstances occur in which toil and pain can procure him some great pleasure.</source>
+          <x ctype="x-dita-codeph" id="" translate="no">pain of itself</x>, because it is pain, but occasionally circumstances occur in which toil and pain can procure him some great pleasure.</source>
         <target xml:lang="de"></target>
       </trans-unit>
       <trans-unit approved="no" id="2885" xml:space="preserve">

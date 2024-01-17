@@ -14,7 +14,7 @@
       </trans-unit>
       <trans-unit approved="no" id="29470" xml:space="preserve">
         <source xml:lang="en">
-          <x ctype="x-dita-term" id="d4e7" translate="no">Mnemonics</x>are keywords by which each of the instrument's subsystems is referred to.</source>
+          <x ctype="x-dita-term" id="" translate="no">Mnemonics</x>are keywords by which each of the instrument's subsystems is referred to.</source>
         <target xml:lang="de"></target>
       </trans-unit>
     </body>

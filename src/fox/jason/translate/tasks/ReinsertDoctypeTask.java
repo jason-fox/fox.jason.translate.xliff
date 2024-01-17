@@ -51,6 +51,10 @@ public class ReinsertDoctypeTask extends Task {
         type =
           "PUBLIC \"-//OASIS//DTD DITA Glossary Entry//EN\" \"glossentry.dtd\"";
         break;
+      case "glossgroup":
+        type =
+          "PUBLIC \"-//OASIS//DTD DITA Glossary Group//EN\" \"glossgroup.dtd\"";
+        break;
       case "glossary":
         type = "PUBLIC \"-//OASIS//DTD DITA Glossary//EN\" \"glossary.dtd\"";
         break;
@@ -121,6 +125,10 @@ public class ReinsertDoctypeTask extends Task {
         break;
       case "ditaval":
         type = "PUBLIC \"-//OASIS//DTD DITA DITAVAL//EN\" \"ditaval.dtd\"";
+        break;
+      case "troubleshooting":
+        type =
+          "PUBLIC \"-//OASIS//DTD DITA Troubleshooting//EN\" \"troubleshooting.dtd\"";
         break;
       default:
         getProject().log("Unknown Doctype: " + doctype, 1); 

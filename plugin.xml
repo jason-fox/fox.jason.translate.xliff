@@ -6,7 +6,7 @@
 -->
 <plugin id="fox.jason.translate.xliff" version="4.0.0">
 
-  <feature extension="dita.conductor.lib.import" file="lib/translate-1.2.jar"/>
+  <feature extension="dita.conductor.lib.import" file="lib/translate-1.3.jar"/>
   <feature
     extension="dita.conductor.lib.import"
     file="lib/json-simple-1.1.1.jar"

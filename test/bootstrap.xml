@@ -67,7 +67,7 @@
 		<taskdef resource="fox/jason/translate/antlib.xml">
 			<classpath>
 				<pathelement
-          location="${dita.dir}/plugins/fox.jason.translate.xliff/lib/translate-1.2.jar"
+          location="${dita.dir}/plugins/fox.jason.translate.xliff/lib/translate-1.3.jar"
         />
 				<pathelement
           location="${dita.dir}/plugins/fox.jason.translate.xliff/lib/json-simple-1.1.1.jar"
