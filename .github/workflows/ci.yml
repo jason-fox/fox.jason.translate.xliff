@@ -35,10 +35,11 @@ jobs:
         with:
           dita-ot-version: '4.1.2'
           plugin: 'fox.jason.translate.xliff'
-        env:
-          COVERALLS_TOKEN: ${{ secrets.COVERALLS_TOKEN }}
+        #env:
+        #  COVERALLS_TOKEN: ${{ secrets.COVERALLS_TOKEN }}
       - uses: actions/upload-artifact@v3
         if: always()
         with:
           name: test-results
-          path: test-results.html
+          path: |
+            *.html
