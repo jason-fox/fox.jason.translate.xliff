@@ -66,15 +66,31 @@
          <xsl:namespace name="fs" select="'urn:oasis:names:tc:xliff:fs:2.0'" />
          <!-- xsl:copy-of select="@*" is the standard way of copying all attributes. -->
          <xsl:copy-of select="@*" />
-         <xsl:for-each select="collection($path)">
-            <!-- provided that at least one unit exists -->
-            <xsl:if test="count(document(document-uri(.))/node()//unit) &gt; 0">
-               <!-- xsl:copy-of copies nodes and all their descendants -->
-               <xsl:apply-templates select="document(document-uri(.))/node()" mode="xliff">
-                  <xsl:with-param name="idCount" select="position()" />
-               </xsl:apply-templates>
-            </xsl:if>
-         </xsl:for-each>
+
+
+         <!-- copies nodes and all their descendants -->
+         <xsl:merge>
+           <xsl:merge-source for-each-item="collection($path)/*/*" select="." >
+               <xsl:merge-key select="@id" order="ascending" />
+           </xsl:merge-source>
+           <xsl:merge-action>
+               <xsl:for-each select="current-merge-group()">
+                  <xsl:if test="count(//unit) &gt; 0">
+                     <xsl:element name="file">
+                        <xsl:attribute name="id" select="position()" />
+                        <xsl:for-each select="@*">
+                           <xsl:variable name="name" select="name()" />
+                           <xsl:attribute name="{$name}">
+                              <xsl:value-of select="." />
+                           </xsl:attribute>
+                        </xsl:for-each>
+                        <xsl:apply-templates mode="file" />
+                     </xsl:element>
+                  </xsl:if>
+               </xsl:for-each>
+           </xsl:merge-action>
+         </xsl:merge>
+
       </xsl:element>
    </xsl:template>
 
@@ -85,19 +101,4 @@
       </xsl:copy>
    </xsl:template>
 
-   <xsl:template match="*" mode="xliff">
-      <xsl:param name="idCount" />
-      <xsl:for-each select="*">
-         <xsl:element name="file">
-            <xsl:attribute name="id" select="$idCount" />
-            <xsl:for-each select="@*">
-               <xsl:variable name="name" select="name()" />
-               <xsl:attribute name="{$name}">
-                  <xsl:value-of select="." />
-               </xsl:attribute>
-            </xsl:for-each>
-            <xsl:apply-templates mode="file" />
-         </xsl:element>
-      </xsl:for-each>
-   </xsl:template>
 </xsl:stylesheet>
