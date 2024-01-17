@@ -63,8 +63,8 @@
       </trans-unit>
       <trans-unit approved="no" id="2885" xml:space="preserve">
         <source xml:lang="en">
-          <x ctype="x-dita-p" id="d8e26">To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it?</x>
-          <x ctype="x-dita-p" id="d8e28">But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?</x>
+          <x ctype="x-dita-p" id="">To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it?</x>
+          <x ctype="x-dita-p" id="">But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?</x>
         </source>
         <target xml:lang="de"></target>
       </trans-unit>

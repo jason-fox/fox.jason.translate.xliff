@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
 <xliff srcLang="en" trgLang="de" version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0">
-  <file id="1" original="/glossary.dita">
+  <file id="">
     <skeleton href="./skl/glossary.dita.skl"></skeleton>
-    <unit id="57004">
+    <unit id="">
       <segment state="initial">
         <source xml:lang="en" xml:space="preserve">Mnemonics</source>
         <target xml:lang="de"></target>
       </segment>
     </unit>
-    <unit id="29470">
+    <unit id="">
       <originalData>
-        <data id="sd5e7">&lt;term&gt;</data>
-        <data id="ed5e7">&lt;/term&gt;</data>
+        <data id="">&lt;term&gt;</data>
+        <data id="">&lt;/term&gt;</data>
       </originalData>
       <segment state="initial">
         <source xml:lang="en" xml:space="preserve">
-          <pc dataRefEnd="ed5e7" dataRefStart="sd5e7" fs:fs="code" id="d5e7" xmlns:fs="urn:oasis:names:tc:xliff:fs:2.0">
-            <mrk id="md5e7" translate="no" type="term">Mnemonics</mrk>
+          <pc dataRefEnd="">
+            <mrk id="">Mnemonics</mrk>
           </pc>are keywords by which each of the instrument's subsystems is referred to.</source>
         <target xml:lang="de"></target>
       </segment>

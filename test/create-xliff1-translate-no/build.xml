@@ -72,6 +72,13 @@
          replace="id=&quot;&quot; translate"
        />
 
+       <replaceregexp
+         file="${basedir}/out/translate2.xlf"
+         flags="gi"
+         match="ctype=&quot;x-dita-p&quot; id=\&quot;.*\&quot;"
+         replace="ctype=&quot;x-dita-p&quot; id=&quot;&quot;"
+       />
+
       <compare-output
          expectation="${basedir}/expected.xlf"
          result="${basedir}/out/translate2.xlf"
