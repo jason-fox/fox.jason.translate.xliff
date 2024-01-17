@@ -22,7 +22,7 @@
         <source xml:lang="en">Prism does its best to encourage good authoring practices. Therefore,it only works with
           <x ctype="x-dita-codeph" id="" translate="no">&lt;code&gt;</x>elements, since marking upcode without a
           <x ctype="x-dita-codeph" id="" translate="no">&lt;code&gt;</x>element is semantically invalid.
-          <x ctype="x-dita-xref" dita:format="html" dita:href="https://www.w3.org/TR/html52/textlevel-semantics.html#the-code-element" dita:scope="external" id="d3e25" xmlns:dita="dita-ot.org">According to the HTML5 spec</x>, the recommended way to define a code language is a
+          <x ctype="x-dita-xref" dita:format="html" dita:href="https://www.w3.org/TR/html52/textlevel-semantics.html#the-code-element" dita:scope="external" id="d4e25" xmlns:dita="dita-ot.org">According to the HTML5 spec</x>, the recommended way to define a code language is a
           <x ctype="x-dita-codeph" id="" translate="no">language-xxxx</x>class, which is what Prism uses. Alternatively, Prism also supports a shorter version:
           <x ctype="x-dita-codeph" id="" translate="no">lang-xxxx</x>.</source>
         <target xml:lang="de"></target>
@@ -44,7 +44,7 @@
       </trans-unit>
       <trans-unit approved="no" id="25020" xml:space="preserve">
         <source xml:lang="en">The
-          <x ctype="x-dita-xref" dita:format="html" dita:href="https://www.w3.org/TR/html5/grouping-content.html#the-pre-element" dita:scope="external" id="d3e59" xmlns:dita="dita-ot.org">recommended way to mark up a code block</x>(both for semantics and for Prism) is a
+          <x ctype="x-dita-xref" dita:format="html" dita:href="https://www.w3.org/TR/html5/grouping-content.html#the-pre-element" dita:scope="external" id="d4e59" xmlns:dita="dita-ot.org">recommended way to mark up a code block</x>(both for semantics and for Prism) is a
           <x ctype="x-dita-codeph" id="" translate="no">&lt;pre&gt;</x>element with a
           <x ctype="x-dita-codeph" id="" translate="no">&lt;code&gt;</x>element inside, like so:</source>
         <target xml:lang="de"></target>
@@ -59,7 +59,7 @@
         <source xml:lang="en">If you want to prevent any elements from being automatically highlighted, you can use the attribute
           <x ctype="x-dita-codeph" id="" translate="no">data-manual</x>on the
           <x ctype="x-dita-codeph" id="" translate="no">&lt;script&gt;</x>element you used for prism and use the
-          <x ctype="x-dita-xref" dita:format="html" dita:href="https://prismjs.com/extending.html#api" dita:scope="external" id="d3e84" xmlns:dita="dita-ot.org">API</x>. Example:</source>
+          <x ctype="x-dita-xref" dita:format="html" dita:href="https://prismjs.com/extending.html#api" dita:scope="external" id="d4e84" xmlns:dita="dita-ot.org">API</x>. Example:</source>
         <target xml:lang="de"></target>
       </trans-unit>
       <trans-unit approved="no" id="33578" xml:space="preserve">
@@ -78,7 +78,7 @@
       </trans-unit>
       <trans-unit approved="no" id="10929" xml:space="preserve">
         <source xml:lang="en">To make it easy to configure your Prism instance with only thelanguages and plugins you need, use the babel plugin,
-          <x ctype="x-dita-xref" dita:format="html" dita:href="https://github.com/mAAdhaTTah/babel-plugin-prismjs" dita:scope="external" id="d3e115" xmlns:dita="dita-ot.org">babel-plugin-prismjs</x>. This will allow you to load the minimum number of languages and plugins to satisfy your needs. See that plugin's documentation for configuration details</source>
+          <x ctype="x-dita-xref" dita:format="html" dita:href="https://github.com/mAAdhaTTah/babel-plugin-prismjs" dita:scope="external" id="d4e115" xmlns:dita="dita-ot.org">babel-plugin-prismjs</x>. This will allow you to load the minimum number of languages and plugins to satisfy your needs. See that plugin's documentation for configuration details</source>
         <target xml:lang="de"></target>
       </trans-unit>
     </body>

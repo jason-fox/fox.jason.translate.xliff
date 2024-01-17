@@ -35,7 +35,7 @@
       </trans-unit>
       <trans-unit approved="no" id="10044" xml:space="preserve">
         <source xml:lang="en">The following lines are the origin of
-          <x ctype="x-dita-term" id="d5e11" translate="no">Lorem Ipsum</x>:</source>
+          <x ctype="x-dita-term" id="d6e11" translate="no">Lorem Ipsum</x>:</source>
         <target xml:lang="de"></target>
       </trans-unit>
     </body>
@@ -53,18 +53,18 @@
       </trans-unit>
       <trans-unit approved="no" id="10044" xml:space="preserve">
         <source xml:lang="en">The following lines are the origin of
-          <x ctype="x-dita-term" id="d7e11" translate="no" xml:lang="la">Lorem Ipsum</x>:</source>
+          <x ctype="x-dita-term" id="d8e11" translate="no" xml:lang="la">Lorem Ipsum</x>:</source>
         <target xml:lang="de"></target>
       </trans-unit>
       <trans-unit approved="no" id="54947" xml:space="preserve">
         <source xml:lang="en">Loves or pursues or desires to obtain
-          <x ctype="x-dita-codeph" id="d7e20" translate="no">pain of itself</x>, because it is pain, but occasionally circumstances occur in which toil and pain can procure him some great pleasure.</source>
+          <x ctype="x-dita-codeph" id="d8e20" translate="no">pain of itself</x>, because it is pain, but occasionally circumstances occur in which toil and pain can procure him some great pleasure.</source>
         <target xml:lang="de"></target>
       </trans-unit>
       <trans-unit approved="no" id="2885" xml:space="preserve">
         <source xml:lang="en">
-          <x ctype="x-dita-p" id="d7e26">To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it?</x>
-          <x ctype="x-dita-p" id="d7e28">But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?</x>
+          <x ctype="x-dita-p" id="d8e26">To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it?</x>
+          <x ctype="x-dita-p" id="d8e28">But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?</x>
         </source>
         <target xml:lang="de"></target>
       </trans-unit>
