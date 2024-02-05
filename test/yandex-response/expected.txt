@@ -1,1 +1,0 @@
-Autolink URLs und E-Mails, verwenden Markdown-links in Kommentaren (erfordert <x ctype="x-dita-xref" dita:format="html" dita:href="https://prismjs.com/plugins/xrefutolinker/" dita:scope="external" id="d5e126">plugin </x>) 
