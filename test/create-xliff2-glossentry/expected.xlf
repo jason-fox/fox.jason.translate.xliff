@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<xliff srcLang="en" trgLang="de" version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0">
+  <file id="">
+    <skeleton href="./skl/glossary.dita.skl"></skeleton>
+    <unit id="">
+      <segment state="initial">
+        <source xml:lang="en" xml:space="preserve">Mnemonics</source>
+        <target xml:lang="de"></target>
+      </segment>
+    </unit>
+    <unit id="">
+      <originalData>
+        <data id="">&lt;term&gt;</data>
+        <data id="">&lt;/term&gt;</data>
+      </originalData>
+      <segment state="initial">
+        <source xml:lang="en" xml:space="preserve">
+          <pc dataRefEnd="">
+            <mrk id="">Mnemonics</mrk>
+          </pc>are keywords by which each of the instrument's subsystems is referred to.</source>
+        <target xml:lang="de"></target>
+      </segment>
+    </unit>
+  </file>
+</xliff>
+

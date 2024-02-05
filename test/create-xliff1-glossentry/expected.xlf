@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<xliff>
+  <file datatype="xml" original="/glossary.dita" source-language="en" target-language="de">
+    <header xmlns="urn:oasis:names:tc:xliff:document:1.2">
+      <skl>
+        <external-file href="./skl/glossary.dita.skl"></external-file>
+      </skl>
+    </header>
+    <body xmlns="urn:oasis:names:tc:xliff:document:1.2">
+      <trans-unit approved="no" id="57004" xml:space="preserve">
+        <source xml:lang="en">Mnemonics</source>
+        <target xml:lang="de"></target>
+      </trans-unit>
+      <trans-unit approved="no" id="29470" xml:space="preserve">
+        <source xml:lang="en">
+          <x ctype="x-dita-term" id="" translate="no">Mnemonics</x>are keywords by which each of the instrument's subsystems is referred to.</source>
+        <target xml:lang="de"></target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
+

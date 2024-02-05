@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE bookmap PUBLIC "-//OASIS//DTD DITA BookMap//EN" "bookmap.dtd">
+<bookmap>
+    <topichead navtitle="Glossary" chunk="to-content" outputclass="page-break-before"
+        product="SCPI_Manual_only">
+        <topicgroup outputclass="glossarylist">
+            <glossref href="topics/g_MNEM.dita" keys="SCPI.MNEM" print="yes" toc="yes"/>
+        </topicgroup>
+    </topichead>
+</bookmap>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE bookmap PUBLIC "-//OASIS//DTD DITA BookMap//EN" "bookmap.dtd">
+<bookmap xml:lang="de">
+   <title>@@@8585@@@</title>
+   <!--booktitle>
+        <booklibrary>Books about stuff</booklibrary>
+        <mainbooktitle>A book about one thing</mainbooktitle>
+    </booktitle-->
+   <!--bookmeta>
+        <shortdesc>
+          This is a generic topic that is designed to test sub-topics in a variety of
+          locations. It should always be referenced from a topicref element; specialized
+          elements in this test get their OWN, very special topics.
+        </shortdesc>
+        <author type="creator">Jane</author>
+        <publisherinformation>
+            <organization>Example Publishers</organization>
+            <printlocation>Austin, TX</printlocation>
+            <published>
+                <publishtype value="general"/>
+                <completed>
+                    <year>1977</year>
+                </completed>
+            </published>
+        </publisherinformation>
+        <bookrights>
+            <copyrfirst>
+                <year>1994</year>
+            </copyrfirst>
+            <copyrlast>
+                <year>2006</year>
+            </copyrlast>
+            <bookowner>
+                <organization>OASIS</organization>
+            </bookowner>
+        </bookrights>
+    </bookmeta-->
+   <frontmatter>
+      <bookabstract format="md" href="topics/prism.dita"/>
+      <booklists>
+         <toc/>
+      </booklists>
+   </frontmatter>
+   <chapter>
+      <topicmeta>
+         <navtitle>@@@12043@@@</navtitle>
+      </topicmeta>
+      <topicref format="dita" href="topics/examples.dita"/>
+      <topicref format="dita" href="topics/features-full.dita"/>
+      <topicref format="dita" href="topics/basic-usage.dita"/>
+   </chapter>
+   <!--mapref format="passthrough" href="sample.txt"/>
+    <mapref format="pandoc" href="index.docx"/-->
+</bookmap>
