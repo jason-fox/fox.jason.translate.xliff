@@ -123,7 +123,10 @@
 	<!-- 
 		Extract an XLIFF File and skeleton files from DITA
 	-->
-	<target name="xliff-create">
+	<target 
+		name="xliff-create"
+    description="Extract an XLIFF File and skeleton files from DITA"
+		>
 		<!-- Add a unique md5 id to each dita element containing text -->
 		<xslt
       taskname="md5-src-gen"
@@ -270,12 +273,16 @@
 		Take an untranslated XLIFF File and request translations
 		of the source into the specified target langauge.
 	-->
-	<target name="xliff-translate">
+	<target
+		name="xliff-translate"
+		description="Auto-translate an XLIFF File using an online service">
 		<get-translations xliff="${args.input}"/>
 	</target>
 
 
-	<target name="xliff-dita">
+	<target 
+		name="xliff-dita"
+		description="Supply translated text into DITA skeleton files using an XLIFF File">
 
 		<skeleton-prepare xliff="${args.input}"/>
 
@@ -293,7 +300,6 @@
 	<target
     dita:extension="depends org.dita.dost.platform.InsertDependsAction"
     name="dita2xliff-create"
-    description="XML Localization Interchange File Format (XLIFF)"
     dita:depends="{depend.preprocess.pre},
 			build-init,
 			xliff.init, 
@@ -303,7 +309,6 @@
 	<target
     dita:extension="depends org.dita.dost.platform.InsertDependsAction"
     name="dita2xliff-translate"
-    description="Auto-translate an XLIFF File using an online service"
     dita:depends="{depend.preprocess.pre},
 			build-init,
 			translate.init,
@@ -313,7 +318,6 @@
 	<target
     dita:extension="depends org.dita.dost.platform.InsertDependsAction"
     name="dita2xliff-dita"
-    description="Supply translated text into DITA skeleton files using an XLIFF File"
     dita:depends="{depend.preprocess.pre},
 			build-init,
 			trans-unit.init,
